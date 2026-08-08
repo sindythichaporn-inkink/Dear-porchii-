@@ -1,6 +1,6 @@
 /* =========================================================
    ✦ DEAR PORCH — MASTER STYLE
-   ✦ Clean / Soft / Romantic / Responsive
+   ✦ FULL EFFECT VERSION
    ✦ ใช้ร่วมกันทุกหน้า
 ========================================================= */
 
@@ -104,7 +104,7 @@ p {
 
 
 /* =========================================================
-   03 — COMMON PAGE LAYOUT
+   03 — PAGE LAYOUT
 ========================================================= */
 
 .home-page,
@@ -126,6 +126,11 @@ p {
         55px 25px 90px;
 
     position: relative;
+
+    z-index: 1;
+
+    animation:
+        pageAppear .8s ease both;
 }
 
 
@@ -144,7 +149,8 @@ p {
     text-align: center;
 
     position: relative;
-    z-index: 2;
+
+    z-index: 5;
 }
 
 .home-logo {
@@ -154,6 +160,7 @@ p {
     color: #987ca0;
 
     font-size: 16px;
+
     letter-spacing: 1px;
 }
 
@@ -247,7 +254,6 @@ p {
 
 /* =========================================================
    06 — SHARED MENU
-   ✦ ทุกหน้า ยกเว้น HOME
 ========================================================= */
 
 .shared-menu {
@@ -266,7 +272,7 @@ p {
 
     position: relative;
 
-    z-index: 5;
+    z-index: 20;
 }
 
 .shared-menu a {
@@ -380,6 +386,7 @@ p {
     display: flex;
 
     align-items: center;
+
     justify-content: center;
 
     gap: 25px;
@@ -437,39 +444,9 @@ p {
         heartFloat 3.5s ease-in-out infinite;
 }
 
-@keyframes photoFloat {
-
-    0%,
-    100% {
-        transform:
-            translateY(0);
-    }
-
-    50% {
-        transform:
-            translateY(-5px);
-    }
-}
-
-@keyframes heartFloat {
-
-    0%,
-    100% {
-        transform:
-            translateY(0)
-            scale(1);
-    }
-
-    50% {
-        transform:
-            translateY(-5px)
-            scale(1.08);
-    }
-}
-
 
 /* =========================================================
-   08 — COMMON MESSAGE
+   08 — HOME MESSAGE
 ========================================================= */
 
 .home-message {
@@ -512,7 +489,179 @@ p {
 
 
 /* =========================================================
-   09 — ABOUT
+   09 — HOME MENU
+========================================================= */
+
+.home-links {
+
+    width: min(850px, 100%);
+
+    margin:
+        0 auto 45px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 14px;
+
+    position: relative;
+
+    z-index: 10;
+}
+
+.home-link {
+
+    position: relative;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    min-height: 82px;
+
+    padding:
+        15px 22px;
+
+    border:
+        1px solid rgba(190, 160, 200, .2);
+
+    border-radius: 22px;
+
+    background:
+        rgba(255, 255, 255, .58);
+
+    color: #806986;
+
+    text-decoration: none;
+
+    box-shadow:
+        0 9px 28px
+        rgba(145, 115, 165, .07);
+
+    backdrop-filter:
+        blur(8px);
+
+    -webkit-backdrop-filter:
+        blur(8px);
+
+    opacity: 0;
+
+    transform:
+        translateY(20px);
+
+    transition:
+        opacity .65s ease,
+        transform .35s ease,
+        background .35s ease,
+        box-shadow .35s ease,
+        border-color .35s ease;
+}
+
+.home-link.home-show {
+
+    opacity: 1;
+
+    transform:
+        translateY(0);
+}
+
+.home-link:hover {
+
+    transform:
+        translateY(-5px);
+
+    background:
+        rgba(255, 255, 255, .86);
+
+    border-color:
+        rgba(180, 150, 190, .38);
+
+    box-shadow:
+        0 18px 40px
+        rgba(145, 115, 165, .14);
+}
+
+.home-link-number {
+
+    color:
+        #b49abc;
+
+    font-size: 11px;
+
+    letter-spacing: 1px;
+}
+
+.home-link strong {
+
+    color:
+        #806986;
+
+    font-size: 16px;
+
+    font-weight: 400;
+}
+
+.home-link small {
+
+    color:
+        #a292a7;
+
+    font-size: 12px;
+}
+
+.home-link.current {
+
+    background:
+        rgba(235, 222, 239, .72);
+
+    border-color:
+        rgba(170, 140, 185, .45);
+}
+
+
+/* =========================================================
+   10 — HOME ENDING
+========================================================= */
+
+.home-ending {
+
+    width: min(700px, 100%);
+
+    margin:
+        20px auto 0;
+
+    text-align: center;
+
+    color:
+        #9a849f;
+
+    line-height: 2.1;
+
+    opacity: 0;
+
+    transform:
+        translateY(18px);
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+}
+
+.home-ending.home-show {
+
+    opacity: 1;
+
+    transform:
+        translateY(0);
+}
+
+
+/* =========================================================
+   11 — ABOUT
 ========================================================= */
 
 .about-photo-section {
@@ -579,11 +728,6 @@ p {
     color: #927a98;
 }
 
-
-/* =========================================================
-   10 — ABOUT CARDS
-========================================================= */
-
 .about-card {
 
     width: min(750px, 100%);
@@ -610,9 +754,23 @@ p {
         0 12px 35px
         rgba(150, 120, 170, .08);
 
+    opacity: 0;
+
+    transform:
+        translateY(22px);
+
     transition:
-        transform .35s ease,
+        opacity .7s ease,
+        transform .7s ease,
         box-shadow .35s ease;
+}
+
+.about-card.visible {
+
+    opacity: 1;
+
+    transform:
+        translateY(0);
 }
 
 .about-card:hover {
@@ -627,7 +785,7 @@ p {
 
 
 /* =========================================================
-   11 — STORY
+   12 — STORY
 ========================================================= */
 
 .story-section {
@@ -654,9 +812,23 @@ p {
 
     line-height: 2;
 
+    opacity: 0;
+
+    transform:
+        translateY(22px);
+
     transition:
-        transform .35s ease,
+        opacity .7s ease,
+        transform .7s ease,
         box-shadow .35s ease;
+}
+
+.story-section.visible {
+
+    opacity: 1;
+
+    transform:
+        translateY(0);
 }
 
 .story-section:hover {
@@ -692,7 +864,7 @@ p {
 
 
 /* =========================================================
-   12 — TIMELINE
+   13 — TIMELINE
 ========================================================= */
 
 .timeline {
@@ -735,9 +907,22 @@ p {
 
     margin-bottom: 25px;
 
+    opacity: 0;
+
+    transform:
+        translateY(22px);
+
     transition:
-        transform .35s ease,
-        box-shadow .35s ease;
+        opacity .7s ease,
+        transform .7s ease;
+}
+
+.timeline-item.visible {
+
+    opacity: 1;
+
+    transform:
+        translateY(0);
 }
 
 .timeline-item:nth-child(odd) {
@@ -818,27 +1003,9 @@ p {
         scale(1.02);
 }
 
-@keyframes timelinePulse {
-
-    0%,
-    100% {
-        box-shadow:
-            0 0 0 5px
-            rgba(200, 169, 208, .1);
-    }
-
-    50% {
-        box-shadow:
-            0 0 0 9px
-            rgba(200, 169, 208, .05),
-            0 0 18px
-            rgba(200, 169, 208, .2);
-    }
-}
-
 
 /* =========================================================
-   13 — MEMORIES / GALLERY
+   14 — GALLERY
 ========================================================= */
 
 .memories-gallery {
@@ -859,7 +1026,8 @@ p {
 
     margin: 0;
 
-    padding: 10px 10px 14px;
+    padding:
+        10px 10px 14px;
 
     position: relative;
 
@@ -873,17 +1041,24 @@ p {
         rgba(145, 115, 165, .08);
 
     transform:
-        rotate(-.6deg);
+        rotate(var(--rotation, 0deg))
+        translateY(22px);
+
+    opacity: 0;
 
     transition:
-        transform .4s ease,
+        opacity .7s ease,
+        transform .7s ease,
         box-shadow .4s ease;
 }
 
-.memory-photo:nth-child(even) {
+.memory-photo.visible {
+
+    opacity: 1;
 
     transform:
-        rotate(.6deg);
+        rotate(var(--rotation, 0deg))
+        translateY(0);
 }
 
 .memory-photo:hover {
@@ -971,9 +1146,48 @@ p {
     font-size: 13px;
 }
 
+.memories-note {
+
+    width: min(700px, 100%);
+
+    margin:
+        45px auto;
+
+    padding:
+        28px;
+
+    text-align: center;
+
+    border-radius: 25px;
+
+    background:
+        rgba(255,255,255,.55);
+
+    box-shadow:
+        0 12px 35px
+        rgba(150,120,170,.07);
+
+    opacity: 0;
+
+    transform:
+        translateY(20px);
+
+    transition:
+        opacity .7s ease,
+        transform .7s ease;
+}
+
+.memories-note.visible {
+
+    opacity: 1;
+
+    transform:
+        translateY(0);
+}
+
 
 /* =========================================================
-   14 — LIGHTBOX
+   15 — LIGHTBOX
 ========================================================= */
 
 .image-lightbox {
@@ -982,11 +1196,12 @@ p {
 
     inset: 0;
 
-    z-index: 9999;
+    z-index: 99999;
 
     display: flex;
 
     align-items: center;
+
     justify-content: center;
 
     padding: 20px;
@@ -1047,7 +1262,7 @@ p {
 
 
 /* =========================================================
-   15 — LETTER
+   16 — LETTER
 ========================================================= */
 
 .letter-wrap {
@@ -1080,8 +1295,22 @@ p {
         0 25px 70px
         rgba(150, 120, 150, .15);
 
-    animation:
-        letterFloat 6s ease-in-out infinite;
+    opacity: 0;
+
+    transform:
+        translateY(20px);
+
+    transition:
+        opacity .7s ease,
+        transform .7s ease;
+}
+
+.letter-paper.visible {
+
+    opacity: 1;
+
+    transform:
+        translateY(0);
 }
 
 .letter-paper::before {
@@ -1121,7 +1350,8 @@ p {
     font-style: italic;
 }
 
-.letter-sign {
+.letter-sign,
+.letter-signature {
 
     margin-top: 35px;
 
@@ -1129,27 +1359,29 @@ p {
 
     color:
         #9c849f;
+
+    opacity: 0;
+
+    transform:
+        translateY(15px);
+
+    transition:
+        opacity .7s ease,
+        transform .7s ease;
 }
 
-@keyframes letterFloat {
+.letter-sign.visible,
+.letter-signature.visible {
 
-    0%,
-    100% {
-        transform:
-            translateY(0)
-            rotate(0);
-    }
+    opacity: 1;
 
-    50% {
-        transform:
-            translateY(-3px)
-            rotate(.15deg);
-    }
+    transform:
+        translateY(0);
 }
 
 
 /* =========================================================
-   16 — 100 REASONS
+   17 — 100 REASONS
 ========================================================= */
 
 .reasons-container {
@@ -1186,9 +1418,24 @@ p {
         0 8px 25px
         rgba(150,120,170,.07);
 
+    opacity: 0;
+
+    transform:
+        translateY(20px);
+
     transition:
-        transform .35s ease,
+        opacity .7s ease,
+        transform .7s ease,
         box-shadow .35s ease;
+}
+
+.reason-card.visible,
+.reason-item.visible {
+
+    opacity: 1;
+
+    transform:
+        translateY(0);
 }
 
 .reason-card:hover,
@@ -1224,7 +1471,7 @@ p {
 
 
 /* =========================================================
-   17 — FAMILY / CORKY
+   18 — FAMILY
 ========================================================= */
 
 .family-container {
@@ -1278,9 +1525,24 @@ p {
         0 12px 35px
         rgba(150,120,170,.09);
 
+    opacity: 0;
+
+    transform:
+        translateY(20px);
+
     transition:
-        transform .4s ease,
+        opacity .7s ease,
+        transform .7s ease,
         box-shadow .4s ease;
+}
+
+.corky-card.visible,
+.family-member.visible {
+
+    opacity: 1;
+
+    transform:
+        translateY(0);
 }
 
 .corky-card:hover,
@@ -1301,6 +1563,7 @@ p {
     display: flex;
 
     align-items: end;
+
     justify-content: center;
 }
 
@@ -1342,25 +1605,9 @@ p {
         heartFloat 3.5s ease-in-out infinite;
 }
 
-@keyframes corkyFloat {
-
-    0%,
-    100% {
-        transform:
-            translateY(0)
-            rotate(0);
-    }
-
-    50% {
-        transform:
-            translateY(-7px)
-            rotate(1deg);
-    }
-}
-
 
 /* =========================================================
-   18 — FINAL
+   19 — FINAL
 ========================================================= */
 
 .final-content,
@@ -1428,6 +1675,23 @@ p {
     box-shadow:
         0 15px 45px
         rgba(150,120,170,.09);
+
+    opacity: 0;
+
+    transform:
+        translateY(20px);
+
+    transition:
+        opacity .7s ease,
+        transform .7s ease;
+}
+
+.final-dream.visible {
+
+    opacity: 1;
+
+    transform:
+        translateY(0);
 }
 
 .final-dream h3 {
@@ -1438,25 +1702,31 @@ p {
         #9a7ca3;
 }
 
-@keyframes finalHeartPulse {
+.final-message,
+.final-back {
 
-    0%,
-    100% {
-        transform:
-            translateY(0)
-            scale(1);
-    }
+    opacity: 0;
 
-    50% {
-        transform:
-            translateY(-5px)
-            scale(1.1);
-    }
+    transform:
+        translateY(20px);
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+}
+
+.final-message.visible,
+.final-back.visible {
+
+    opacity: 1;
+
+    transform:
+        translateY(0);
 }
 
 
 /* =========================================================
-   19 — FLOATING BACKGROUND
+   20 — FLOATING BACKGROUND
 ========================================================= */
 
 .home-glitter {
@@ -1557,75 +1827,9 @@ p {
     animation-delay: 2.8s;
 }
 
-@keyframes sparkleFloat {
-
-    0%,
-    100% {
-        transform:
-            translateY(0)
-            rotate(0);
-    }
-
-    50% {
-        transform:
-            translateY(-14px)
-            rotate(8deg);
-    }
-}
-
-@keyframes sparkleGlow {
-
-    0%,
-    100% {
-        opacity: .25;
-    }
-
-    50% {
-        opacity: .75;
-    }
-}
-
 
 /* =========================================================
-   20 — PAGE REVEAL
-========================================================= */
-
-.home-page,
-.about-page,
-.story-page,
-.timeline-page,
-.memories-page,
-.letter-page,
-.reasons-page,
-.family-page,
-.final-page {
-
-    animation:
-        pageAppear .8s ease both;
-}
-
-@keyframes pageAppear {
-
-    from {
-        opacity: 0;
-        transform:
-            translateY(12px);
-        filter:
-            blur(3px);
-    }
-
-    to {
-        opacity: 1;
-        transform:
-            translateY(0);
-        filter:
-            blur(0);
-    }
-}
-
-
-/* =========================================================
-   21 — SHARED FLOATING DECOR
+   21 — PAGE DECOR
 ========================================================= */
 
 .about-page::before,
@@ -1701,6 +1905,122 @@ p {
         "✦        ♡        𓂃        ♡";
 }
 
+
+/* =========================================================
+   22 — KEYFRAMES
+========================================================= */
+
+@keyframes pageAppear {
+
+    from {
+        opacity: 0;
+        transform:
+            translateY(12px);
+        filter:
+            blur(3px);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateY(0);
+        filter:
+            blur(0);
+    }
+}
+
+@keyframes photoFloat {
+
+    0%,
+    100% {
+        transform:
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateY(-5px);
+    }
+}
+
+@keyframes heartFloat {
+
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+    50% {
+        transform:
+            translateY(-5px)
+            scale(1.08);
+    }
+}
+
+@keyframes corkyFloat {
+
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            rotate(0);
+    }
+
+    50% {
+        transform:
+            translateY(-7px)
+            rotate(1deg);
+    }
+}
+
+@keyframes timelinePulse {
+
+    0%,
+    100% {
+        box-shadow:
+            0 0 0 5px
+            rgba(200, 169, 208, .1);
+    }
+
+    50% {
+        box-shadow:
+            0 0 0 9px
+            rgba(200, 169, 208, .05),
+            0 0 18px
+            rgba(200, 169, 208, .2);
+    }
+}
+
+@keyframes sparkleFloat {
+
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            rotate(0);
+    }
+
+    50% {
+        transform:
+            translateY(-14px)
+            rotate(8deg);
+    }
+}
+
+@keyframes sparkleGlow {
+
+    0%,
+    100% {
+        opacity: .25;
+    }
+
+    50% {
+        opacity: .75;
+    }
+}
+
 @keyframes decorFloat {
 
     0%,
@@ -1715,15 +2035,20 @@ p {
     }
 }
 
+@keyframes finalHeartPulse {
 
-/* =========================================================
-   22 — PAGE TRANSITION
-========================================================= */
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            scale(1);
+    }
 
-body.page-leaving {
-
-    animation:
-        pageLeave .45s ease forwards;
+    50% {
+        transform:
+            translateY(-5px)
+            scale(1.1);
+    }
 }
 
 @keyframes pageLeave {
@@ -1743,7 +2068,74 @@ body.page-leaving {
 
 
 /* =========================================================
-   23 — ACCESSIBILITY
+   23 — PAGE TRANSITION
+========================================================= */
+
+body.page-leaving {
+
+    animation:
+        pageLeave .45s ease forwards;
+}
+
+
+/* =========================================================
+   24 — COVER PAGE
+========================================================= */
+
+.welcome-line {
+
+    opacity: 0;
+
+    transform:
+        translateY(15px);
+
+    transition:
+        opacity .7s ease,
+        transform .7s ease;
+}
+
+.welcome-line.show-line {
+
+    opacity: 1;
+
+    transform:
+        translateY(0);
+}
+
+#openBook {
+
+    opacity: .35;
+
+    pointer-events: none;
+
+    transition:
+        opacity .4s ease,
+        transform .3s ease,
+        box-shadow .3s ease;
+}
+
+#openBook.button-ready {
+
+    opacity: 1;
+
+    pointer-events: auto;
+}
+
+#openBook.button-ready:hover {
+
+    transform:
+        translateY(-3px);
+}
+
+body.cover-leaving {
+
+    animation:
+        pageLeave .7s ease forwards;
+}
+
+
+/* =========================================================
+   25 — ACCESSIBILITY
 ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
@@ -1752,19 +2144,23 @@ body.page-leaving {
     *::before,
     *::after {
 
-        animation-duration: .01ms !important;
+        animation-duration:
+            .01ms !important;
 
-        animation-iteration-count: 1 !important;
+        animation-iteration-count:
+            1 !important;
 
-        scroll-behavior: auto !important;
+        scroll-behavior:
+            auto !important;
 
-        transition-duration: .01ms !important;
+        transition-duration:
+            .01ms !important;
     }
 }
 
 
 /* =========================================================
-   24 — TABLET
+   26 — TABLET
 ========================================================= */
 
 @media (max-width: 768px) {
@@ -1783,9 +2179,6 @@ body.page-leaving {
             40px 15px 70px;
     }
 
-
-    /* MENU */
-
     .shared-menu {
 
         grid-template-columns:
@@ -1799,8 +2192,13 @@ body.page-leaving {
         min-height: 62px;
     }
 
+    .home-links {
 
-    /* COUPLE */
+        grid-template-columns:
+            1fr;
+
+        gap: 11px;
+    }
 
     .home-couple {
 
@@ -1818,9 +2216,6 @@ body.page-leaving {
         font-size: 27px;
     }
 
-
-    /* GALLERY */
-
     .memories-gallery {
 
         grid-template-columns:
@@ -1829,17 +2224,11 @@ body.page-leaving {
         gap: 14px;
     }
 
-
-    /* REASONS */
-
     .reasons-container {
 
         grid-template-columns:
             1fr;
     }
-
-
-    /* FAMILY */
 
     .family-grid,
     .family-members {
@@ -1855,14 +2244,10 @@ body.page-leaving {
             1 / -1;
     }
 
-
     .corky-image {
 
         height: 150px;
     }
-
-
-    /* TIMELINE */
 
     .timeline::before {
 
@@ -1895,17 +2280,11 @@ body.page-leaving {
         right: auto;
     }
 
-
-    /* LETTER */
-
     .letter-paper {
 
         padding:
             40px 25px;
     }
-
-
-    /* DECOR */
 
     .about-page::before,
     .story-page::before,
@@ -1920,25 +2299,11 @@ body.page-leaving {
 
         letter-spacing: 3px;
     }
-
-
-    /* HOVER */
-
-    .shared-menu a:hover,
-    .about-card:hover,
-    .story-section:hover,
-    .memory-photo:hover,
-    .corky-card:hover,
-    .family-member:hover {
-
-        transform:
-            translateY(-2px);
-    }
 }
 
 
 /* =========================================================
-   25 — SMALL MOBILE
+   27 — SMALL MOBILE
 ========================================================= */
 
 @media (max-width: 420px) {
@@ -1957,13 +2322,11 @@ body.page-leaving {
             30px 12px 60px;
     }
 
-
     .home-header h1,
     .page-header h1 {
 
         font-size: 40px;
     }
-
 
     .home-intro,
     .page-intro {
@@ -1971,20 +2334,27 @@ body.page-leaving {
         font-size: 14px;
     }
 
-
     .home-photo {
 
         width: 115px;
         height: 115px;
     }
 
+    .home-couple {
+
+        gap: 8px;
+    }
+
+    .home-heart {
+
+        font-size: 23px;
+    }
 
     .memories-gallery {
 
         grid-template-columns:
             1fr;
     }
-
 
     .family-grid,
     .family-members {
@@ -1993,19 +2363,16 @@ body.page-leaving {
             1fr;
     }
 
-
     .family-grid
     .corky-card:first-child {
 
         grid-column: auto;
     }
 
-
     .corky-image {
 
         height: 190px;
     }
-
 
     .letter-paper {
 
