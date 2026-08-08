@@ -7,9 +7,9 @@
    ✦ RESET
 ========================================================= */
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 html {
     scroll-behavior: smooth;
@@ -17,127 +17,171 @@ html {
 body {
     min-height: 100vh;
     background:
-        radial-gradient(circle at 20% 10%, rgba(255, 220, 235, 0.65), transparent 30%),
-        radial-gradient(circle at 80% 20%, rgba(220, 235, 255, 0.55), transparent 30%),
-        linear-gradient(135deg, #fff8fc, #f7f1ff, #eef8ff);
-    color: #665866;
+        radial-gradient(
+            circle at 20% 10%,
+            rgba(255, 220, 235, 0.7),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 80% 80%,
+            rgba(220, 235, 255, 0.6),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #fff8fb 0%,
+            #f8f3ff 45%,
+            #eef8ff 100%
+        );
+    color: #655b68;
     font-family: "Kanit", sans-serif;
     font-weight: 300;
     overflow-x: hidden;
-    transition: opacity 0.6s ease;
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+/* =========================================================
+   ✦ TEXT
+========================================================= */
+h1,
+h2,
+h3,
+.home-logo {
+    font-family: "Itim", cursive;
+}
+p {
+    line-height: 1.9;
 }
 a {
     color: inherit;
     text-decoration: none;
 }
-button {
-    font-family: inherit;
+/* =========================================================
+   ✦ PAGE TRANSITION
+========================================================= */
+body.page-leaving {
+    opacity: 0;
+    transform: translateY(8px);
 }
 /* =========================================================
-   ✦ BACKGROUND
+   ✦ BACKGROUND GLITTER
 ========================================================= */
 .home-glitter {
     position: fixed;
     inset: 0;
     width: 100%;
     height: 100%;
-    pointer-events: none;
     overflow: hidden;
+    pointer-events: none;
     z-index: 0;
 }
 .home-glitter span {
     position: absolute;
     display: block;
-    color: rgba(190, 150, 185, 0.35);
     font-family: "Playfair Display", serif;
-    animation: glitterFloat 8s ease-in-out infinite;
+    color: rgba(194, 157, 188, 0.45);
+    font-size: 18px;
+    animation:
+        glitterFloat
+        7s
+        ease-in-out
+        infinite;
+    opacity: 0;
 }
 .home-glitter span:nth-child(1) {
     left: 8%;
-    top: 15%;
+    top: 12%;
     animation-delay: 0s;
 }
 .home-glitter span:nth-child(2) {
-    left: 23%;
+    left: 20%;
     top: 70%;
-    animation-delay: 1s;
+    animation-delay: 1.2s;
 }
 .home-glitter span:nth-child(3) {
-    left: 42%;
-    top: 25%;
-    animation-delay: 2s;
+    left: 35%;
+    top: 20%;
+    animation-delay: 2.1s;
 }
 .home-glitter span:nth-child(4) {
-    left: 65%;
-    top: 75%;
+    left: 48%;
+    top: 82%;
     animation-delay: 3s;
 }
 .home-glitter span:nth-child(5) {
-    left: 82%;
-    top: 18%;
-    animation-delay: 1.5s;
+    left: 62%;
+    top: 15%;
+    animation-delay: 1.8s;
 }
 .home-glitter span:nth-child(6) {
-    left: 92%;
-    top: 52%;
-    animation-delay: 2.5s;
-}
-.home-glitter span:nth-child(7) {
-    left: 14%;
-    top: 45%;
-    animation-delay: 3.5s;
-}
-.home-glitter span:nth-child(8) {
-    left: 53%;
-    top: 90%;
+    left: 74%;
+    top: 62%;
     animation-delay: 4s;
 }
+.home-glitter span:nth-child(7) {
+    left: 88%;
+    top: 28%;
+    animation-delay: 2.7s;
+}
+.home-glitter span:nth-child(8) {
+    left: 92%;
+    top: 80%;
+    animation-delay: 4.8s;
+}
 .home-glitter span:nth-child(9) {
-    left: 75%;
+    left: 14%;
     top: 42%;
-    animation-delay: 5s;
+    animation-delay: 3.5s;
 }
 .home-glitter span:nth-child(10) {
-    left: 35%;
-    top: 55%;
-    animation-delay: 2.8s;
+    left: 55%;
+    top: 48%;
+    animation-delay: 5s;
 }
 .home-glitter span:nth-child(11) {
-    left: 5%;
+    left: 78%;
     top: 88%;
-    animation-delay: 4.5s;
+    animation-delay: 2.5s;
 }
 .home-glitter span:nth-child(12) {
-    left: 88%;
-    top: 82%;
-    animation-delay: 5.5s;
+    left: 42%;
+    top: 5%;
+    animation-delay: 4.2s;
 }
 @keyframes glitterFloat {
-    0%, 100% {
-        transform: translateY(0) rotate(0deg);
-        opacity: 0.25;
+    0% {
+        opacity: 0;
+        transform:
+            translateY(15px)
+            scale(0.7)
+            rotate(0deg);
     }
-    50% {
-        transform: translateY(-18px) rotate(12deg);
-        opacity: 0.7;
+    30% {
+        opacity: 0.8;
+    }
+    70% {
+        opacity: 0.45;
+    }
+    100% {
+        opacity: 0;
+        transform:
+            translateY(-35px)
+            scale(1.15)
+            rotate(20deg);
     }
 }
 /* =========================================================
-   ✦ COMMON PAGE
+   ✦ COMMON PAGE CONTAINER
 ========================================================= */
 .home-page,
-.reasons-page,
-.story-page,
-.about-page,
-.timeline-page,
-.memories-page,
-.letter-page,
-.family-page,
-.final-page {
+.reasons-main,
+.home-main {
     position: relative;
     z-index: 1;
-    width: 100%;
-    min-height: 100vh;
+    width: min(100% - 32px, 900px);
+    margin: 0 auto;
+    padding-bottom: 80px;
 }
 /* =========================================================
    ✦ HEADER
@@ -145,106 +189,125 @@ button {
 .home-header {
     position: relative;
     z-index: 2;
-    width: min(900px, 92%);
+    width: min(100% - 32px, 800px);
     margin: 0 auto;
-    padding: 55px 20px 35px;
+    padding:
+        70px
+        20px
+        45px;
     text-align: center;
     opacity: 0;
-    transform: translateY(25px);
+    transform:
+        translateY(25px);
     transition:
-        opacity 0.8s ease,
-        transform 0.8s ease;
+        opacity 0.9s ease,
+        transform 0.9s ease;
 }
 .home-header.home-show {
     opacity: 1;
-    transform: translateY(0);
+    transform:
+        translateY(0);
 }
+/* =========================================================
+   ✦ BACK BUTTON
+========================================================= */
 .home-back {
     display: inline-block;
-    margin-bottom: 35px;
-    padding: 8px 18px;
-    border: 1px solid rgba(150, 120, 150, 0.25);
+    margin-bottom: 30px;
+    padding:
+        8px
+        17px;
+    border:
+        1px solid
+        rgba(170, 140, 165, 0.35);
     border-radius: 999px;
-    background: rgba(255, 255, 255, 0.5);
-    backdrop-filter: blur(8px);
-    color: #927a91;
+    background:
+        rgba(255, 255, 255, 0.55);
+    backdrop-filter:
+        blur(8px);
+    color: #887484;
     font-size: 14px;
     transition:
-        transform 0.3s ease,
-        background 0.3s ease;
+        transform 0.25s ease,
+        background 0.25s ease;
 }
 .home-back:hover {
-    transform: translateY(-3px);
-    background: rgba(255, 255, 255, 0.85);
+    transform:
+        translateY(-3px);
+    background:
+        rgba(255, 255, 255, 0.85);
 }
+/* =========================================================
+   ✦ LOGO
+========================================================= */
 .home-logo {
     margin-bottom: 8px;
-    color: #9c8099;
-    font-family: "Playfair Display", serif;
-    font-size: 20px;
+    color: #a783a0;
+    font-size: 25px;
     letter-spacing: 1px;
 }
 .home-small {
     margin-bottom: 15px;
-    color: #aa97a9;
+    color: #aa9aa8;
+    font-family:
+        "Playfair Display",
+        serif;
     font-size: 13px;
-    letter-spacing: 1px;
+    font-style: italic;
 }
 .home-header h1 {
     margin-bottom: 18px;
-    color: #735c70;
-    font-family: "Playfair Display", serif;
-    font-size: clamp(34px, 8vw, 64px);
+    color: #806579;
+    font-size:
+        clamp(38px, 8vw, 65px);
     font-weight: 400;
-    line-height: 1.2;
+    letter-spacing: 1px;
 }
 .home-intro {
-    color: #806f7d;
-    font-size: 16px;
-    line-height: 2;
+    color: #827681;
+    font-size:
+        clamp(15px, 3.5vw, 18px);
 }
 /* =========================================================
-   ✦ MAIN
-========================================================= */
-.home-main,
-.reasons-main {
-    position: relative;
-    z-index: 2;
-    width: min(1000px, 92%);
-    margin: 0 auto;
-    padding: 15px 0 80px;
-}
-/* =========================================================
-   ✦ MESSAGE CARD
+   ✦ GENERAL MESSAGE CARD
 ========================================================= */
 .home-message {
-    width: min(650px, 100%);
-    margin: 35px auto 50px;
-    padding: 30px 25px;
-    border: 1px solid rgba(180, 150, 175, 0.22);
-    border-radius: 28px;
-    background: rgba(255, 255, 255, 0.55);
-    box-shadow: 0 15px 45px rgba(120, 90, 120, 0.08);
-    backdrop-filter: blur(12px);
+    width: min(100%, 680px);
+    margin:
+        20px auto
+        55px;
+    padding:
+        30px
+        25px;
     text-align: center;
+    background:
+        rgba(255, 255, 255, 0.62);
+    border:
+        1px solid
+        rgba(190, 160, 185, 0.25);
+    border-radius: 28px;
+    box-shadow:
+        0 15px 45px
+        rgba(135, 105, 130, 0.08);
+    backdrop-filter:
+        blur(10px);
     opacity: 0;
-    transform: translateY(25px);
+    transform:
+        translateY(25px);
     transition:
         opacity 0.8s ease,
         transform 0.8s ease;
 }
 .home-message.home-show {
     opacity: 1;
-    transform: translateY(0);
+    transform:
+        translateY(0);
 }
-.home-message span {
+.home-message > span {
     display: block;
-    margin: 10px 0;
-    color: #b89ab4;
-}
-.home-message p {
-    margin: 10px 0;
-    line-height: 2;
+    margin: 8px 0;
+    color: #c19ab8;
+    font-size: 20px;
 }
 /* =========================================================
    ✦ COUPLE
@@ -253,39 +316,56 @@ button {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 30px;
-    margin: 20px auto 35px;
+    gap: 25px;
+    margin:
+        10px auto
+        45px;
     opacity: 0;
-    transform: translateY(25px);
+    transform:
+        translateY(25px);
     transition:
         opacity 0.9s ease,
         transform 0.9s ease;
 }
 .home-couple.home-show {
     opacity: 1;
-    transform: translateY(0);
+    transform:
+        translateY(0);
 }
 .home-photo {
-    width: 170px;
-    height: 170px;
-    border: 3px solid rgba(255, 255, 255, 0.8);
+    width:
+        clamp(115px, 30vw, 190px);
+    aspect-ratio: 1;
+    padding: 10px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.55);
-    box-shadow: 0 12px 35px rgba(130, 100, 130, 0.12);
+    background:
+        rgba(255, 255, 255, 0.7);
+    border:
+        1px solid
+        rgba(190, 160, 185, 0.3);
+    box-shadow:
+        0 12px 35px
+        rgba(130, 100, 130, 0.12);
     overflow: hidden;
 }
 .home-photo img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius: 50%;
 }
 .home-heart {
-    color: #d99dbb;
-    font-size: 35px;
-    animation: heartBeat 2s ease-in-out infinite;
+    color: #d59db9;
+    font-size: 34px;
+    animation:
+        heartBeat
+        2s
+        ease-in-out
+        infinite;
 }
 @keyframes heartBeat {
-    0%, 100% {
+    0%,
+    100% {
         transform: scale(1);
     }
     50% {
@@ -297,386 +377,709 @@ button {
 ========================================================= */
 .home-links {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns:
+        repeat(2, 1fr);
     gap: 16px;
-    width: min(850px, 100%);
-    margin: 0 auto;
+    width: min(100%, 760px);
+    margin:
+        0 auto
+        55px;
 }
 .home-link {
     position: relative;
     display: flex;
     flex-direction: column;
-    gap: 4px;
-    padding: 20px 22px;
-    border: 1px solid rgba(180, 150, 175, 0.2);
+    min-height: 120px;
+    padding:
+        20px 20px 18px 55px;
+    border:
+        1px solid
+        rgba(190, 160, 185, 0.28);
     border-radius: 22px;
-    background: rgba(255, 255, 255, 0.48);
-    box-shadow: 0 10px 30px rgba(130, 100, 130, 0.06);
-    backdrop-filter: blur(10px);
+    background:
+        rgba(255, 255, 255, 0.56);
+    box-shadow:
+        0 12px 35px
+        rgba(120, 90, 120, 0.06);
+    backdrop-filter:
+        blur(8px);
     opacity: 0;
-    transform: translateY(20px);
+    transform:
+        translateY(20px);
     transition:
-        opacity 0.7s ease,
-        transform 0.7s ease,
+        transform 0.3s ease,
         box-shadow 0.3s ease,
-        background 0.3s ease;
+        background 0.3s ease,
+        opacity 0.7s ease;
 }
 .home-link.home-show {
     opacity: 1;
-    transform: translateY(0);
+    transform:
+        translateY(0);
 }
 .home-link:hover {
-    transform: translateY(-5px);
-    background: rgba(255, 255, 255, 0.8);
-    box-shadow: 0 15px 35px rgba(130, 100, 130, 0.12);
+    transform:
+        translateY(-5px);
+    background:
+        rgba(255, 255, 255, 0.85);
+    box-shadow:
+        0 18px 40px
+        rgba(130, 95, 130, 0.12);
 }
 .home-link-number {
-    color: #b59bb2;
-    font-family: "Playfair Display", serif;
+    position: absolute;
+    left: 18px;
+    top: 20px;
+    color: #c39bb7;
+    font-family:
+        "Playfair Display",
+        serif;
     font-size: 13px;
 }
 .home-link strong {
-    color: #735f70;
-    font-family: "Itim", sans-serif;
-    font-size: 20px;
+    margin-bottom: 5px;
+    color: #786276;
+    font-family: "Itim", cursive;
+    font-size: 22px;
     font-weight: 400;
 }
 .home-link small {
-    color: #958393;
-    font-size: 12px;
+    color: #9a8c98;
+    font-size: 13px;
 }
 /* =========================================================
    ✦ ENDING
 ========================================================= */
 .home-ending {
-    width: min(650px, 100%);
-    margin: 60px auto 0;
+    width: min(100%, 680px);
+    margin:
+        30px auto
+        0;
+    padding:
+        35px 20px;
     text-align: center;
-    color: #887486;
-    line-height: 2;
+    color: #8c7c89;
     opacity: 0;
-    transform: translateY(25px);
+    transform:
+        translateY(25px);
     transition:
-        opacity 1s ease,
-        transform 1s ease;
+        opacity 0.9s ease,
+        transform 0.9s ease;
 }
 .home-ending.home-show {
     opacity: 1;
-    transform: translateY(0);
+    transform:
+        translateY(0);
 }
 .home-ending p {
-    margin: 8px 0;
+    margin-bottom: 8px;
+}
+/* =========================================================
+   ✦ MEMORY GALLERY
+========================================================= */
+.memories-gallery {
+    display: grid;
+    grid-template-columns:
+        repeat(2, 1fr);
+    gap: 25px;
+    width: min(100%, 800px);
+    margin:
+        0 auto
+        55px;
+}
+.memory-photo {
+    padding: 12px;
+    border:
+        1px solid
+        rgba(190, 160, 185, 0.3);
+    border-radius: 22px;
+    background:
+        rgba(255, 255, 255, 0.62);
+    box-shadow:
+        0 15px 40px
+        rgba(130, 100, 130, 0.08);
+    opacity: 0;
+    transform:
+        translateY(25px);
+    transition:
+        opacity 0.7s ease,
+        transform 0.7s ease;
+}
+.memory-photo.home-show {
+    opacity: 1;
+    transform:
+        translateY(0);
+}
+.memory-image {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    border-radius: 16px;
+    background:
+        linear-gradient(
+            135deg,
+            #f7eaf2,
+            #eee8f6
+        );
+}
+.memory-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.memory-image.memory-empty::after {
+    content:
+        "♡";
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    color: #c8aabe;
+    font-size: 35px;
+}
+.memory-photo figcaption {
+    padding:
+        13px 5px 4px;
+    text-align: center;
+}
+.memory-photo figcaption span {
+    color: #b99ab2;
+    font-family:
+        "Playfair Display",
+        serif;
+    font-size: 12px;
+}
+.memory-photo figcaption p {
+    color: #796b78;
+    font-size: 14px;
+}
+/* =========================================================
+   ✦ MEMORY NOTE
+========================================================= */
+.memories-note {
+    margin-bottom: 35px;
+}
+.memories-note strong {
+    color: #a77c9e;
+    font-family:
+        "Playfair Display",
+        serif;
 }
 /* =========================================================
    ✦ 100 REASONS
 ========================================================= */
 .reasons-main {
-    padding-bottom: 100px;
+    width: min(100% - 32px, 900px);
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
 }
 .reasons-intro {
-    width: min(650px, 100%);
-    margin: 15px auto 45px;
+    width: min(100%, 680px);
+    margin:
+        0 auto
+        50px;
+    padding:
+        28px 20px;
     text-align: center;
-    color: #806f7d;
-    line-height: 2;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: simpleShow 0.9s ease forwards;
-    animation-delay: 0.3s;
+    color: #80717e;
+    background:
+        rgba(255, 255, 255, 0.48);
+    border-radius: 25px;
+    border:
+        1px solid
+        rgba(190, 160, 185, 0.2);
 }
 .reasons-intro span {
     display: block;
-    margin: 12px 0;
-    color: #b899b4;
+    margin:
+        10px 0;
+    color: #c19ab8;
 }
 .reasons-list {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns:
+        repeat(2, 1fr);
     gap: 14px;
 }
 .reason-card {
-    display: grid;
-    grid-template-columns: 40px 1fr;
-    align-items: start;
-    gap: 12px;
-    padding: 18px 18px;
-    border: 1px solid rgba(180, 150, 175, 0.18);
-    border-radius: 20px;
-    background: rgba(255, 255, 255, 0.5);
-    box-shadow: 0 8px 25px rgba(130, 100, 130, 0.045);
-    backdrop-filter: blur(8px);
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    min-height: 80px;
+    padding:
+        18px;
+    border:
+        1px solid
+        rgba(190, 160, 185, 0.23);
+    border-radius: 18px;
+    background:
+        rgba(255, 255, 255, 0.55);
+    box-shadow:
+        0 8px 25px
+        rgba(130, 100, 130, 0.05);
     opacity: 0;
-    transform: translateY(18px);
+    transform:
+        translateY(18px);
     transition:
-        opacity 0.6s ease,
-        transform 0.6s ease,
-        background 0.3s ease;
+        opacity 0.55s ease,
+        transform 0.55s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
 }
 .reason-card.home-show {
     opacity: 1;
-    transform: translateY(0);
+    transform:
+        translateY(0);
 }
 .reason-card:hover {
-    background: rgba(255, 255, 255, 0.78);
-    transform: translateY(-3px);
+    background:
+        rgba(255, 255, 255, 0.82);
+    box-shadow:
+        0 14px 30px
+        rgba(130, 100, 130, 0.1);
 }
 .reason-card > span {
-    color: #b395af;
-    font-family: "Playfair Display", serif;
+    flex-shrink: 0;
+    color: #b68cae;
+    font-family:
+        "Playfair Display",
+        serif;
     font-size: 14px;
 }
 .reason-card p {
-    color: #71636f;
-    font-size: 15px;
-    line-height: 1.8;
+    color: #756773;
+    font-size: 14px;
 }
 .reasons-ending {
-    width: min(650px, 100%);
-    margin: 70px auto 0;
+    width: min(100%, 680px);
+    margin:
+        65px auto
+        0;
+    padding:
+        35px 20px;
     text-align: center;
-    color: #806f7d;
-    line-height: 2;
+    color: #80717e;
     opacity: 0;
-    transform: translateY(25px);
+    transform:
+        translateY(25px);
     transition:
         opacity 1s ease,
         transform 1s ease;
 }
 .reasons-ending.home-show {
     opacity: 1;
-    transform: translateY(0);
+    transform:
+        translateY(0);
 }
 .reasons-ending > span {
     display: block;
-    margin: 15px 0;
-    color: #b899b4;
+    margin:
+        12px 0;
+    color: #bf9bb6;
 }
 .reasons-love {
-    margin-top: 25px;
-    color: #a66f91;
-    font-family: "Itim", sans-serif;
+    margin-top: 22px;
+    color: #a5799a;
+    font-family:
+        "Itim",
+        cursive;
     font-size: 22px;
 }
 /* =========================================================
-   ✦ GALLERY
+   ✦ STORY PAGE
 ========================================================= */
-.memories-gallery {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 28px;
+.story-page {
+    position: relative;
+    z-index: 1;
+    width: min(100% - 32px, 760px);
+    margin: 0 auto;
+    padding-bottom: 100px;
 }
-.memory-photo {
-    margin: 0;
+.story-content {
+    padding:
+        15px 5px;
+}
+.story-block {
+    margin-bottom: 55px;
     opacity: 0;
-    transform: translateY(25px);
+    transform:
+        translateY(25px);
     transition:
         opacity 0.8s ease,
         transform 0.8s ease;
 }
-.memory-photo.home-show {
+.story-block.home-show {
     opacity: 1;
-    transform: translateY(0);
+    transform:
+        translateY(0);
 }
-.memory-image {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 4 / 3;
-    border-radius: 25px;
-    overflow: hidden;
-    background: rgba(255, 255, 255, 0.5);
-    box-shadow: 0 15px 40px rgba(120, 90, 120, 0.08);
+.story-title {
+    margin-bottom: 22px;
+    color: #9a7892;
+    font-family:
+        "Itim",
+        cursive;
+    font-size: 25px;
 }
-.memory-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
+.story-block p {
+    margin-bottom: 17px;
+    color: #746773;
+    font-size: 16px;
 }
-.memory-photo:hover img {
-    transform: scale(1.04);
-}
-.memory-empty {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.memory-empty::after {
-    content: "♡";
-    color: #c3a7bf;
-    font-size: 40px;
-}
-.memory-photo figcaption {
-    padding: 13px 8px;
-}
-.memory-photo figcaption span {
-    color: #b295ae;
-    font-family: "Playfair Display", serif;
-    font-size: 13px;
-}
-.memory-photo figcaption p {
-    margin-top: 3px;
-    color: #786a76;
+.story-divider {
+    margin:
+        35px 0;
+    text-align: center;
+    color: #bd9bb5;
+    font-size: 20px;
 }
 /* =========================================================
-   ✦ STORY / ABOUT / TIMELINE / LETTER / FAMILY
-   พื้นฐานสำหรับหน้าที่จะสร้างต่อ
+   ✦ TIMELINE
 ========================================================= */
-.story-content,
-.about-content,
-.timeline-content,
-.letter-content,
-.family-content,
-.final-content {
-    width: min(750px, 100%);
+.timeline {
+    position: relative;
+    width: min(100%, 720px);
     margin: 0 auto;
 }
-.story-block,
-.about-block,
-.timeline-item,
-.letter-box,
-.family-card,
-.final-box {
-    margin-bottom: 25px;
-    padding: 28px 25px;
-    border: 1px solid rgba(180, 150, 175, 0.18);
-    border-radius: 25px;
-    background: rgba(255, 255, 255, 0.5);
-    box-shadow: 0 12px 35px rgba(120, 90, 120, 0.06);
-    backdrop-filter: blur(10px);
+.timeline::before {
+    content: "";
+    position: absolute;
+    left: 20px;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background:
+        rgba(183, 151, 177, 0.35);
 }
-.story-block h2,
-.about-block h2,
-.timeline-item h2,
-.letter-box h2,
-.family-card h2,
-.final-box h2 {
-    margin-bottom: 15px;
-    color: #80627a;
-    font-family: "Itim", sans-serif;
-    font-size: 24px;
+.timeline-item {
+    position: relative;
+    padding:
+        0 0 45px
+        55px;
+    opacity: 0;
+    transform:
+        translateY(20px);
+    transition:
+        opacity 0.7s ease,
+        transform 0.7s ease;
+}
+.timeline-item.home-show {
+    opacity: 1;
+    transform:
+        translateY(0);
+}
+.timeline-dot {
+    position: absolute;
+    left: 13px;
+    top: 5px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background:
+        #e4c2d8;
+    border:
+        3px solid
+        #fff8fb;
+    box-shadow:
+        0 0 0 1px
+        rgba(180, 145, 170, 0.25);
+}
+.timeline-date {
+    margin-bottom: 5px;
+    color: #b184a8;
+    font-family:
+        "Playfair Display",
+        serif;
+    font-size: 14px;
+}
+.timeline-item h2 {
+    margin-bottom: 8px;
+    color: #786276;
+    font-size: 23px;
     font-weight: 400;
 }
-.story-block p,
-.about-block p,
-.timeline-item p,
-.letter-box p,
-.family-card p,
-.final-box p {
-    color: #70636e;
-    line-height: 2;
+.timeline-item p {
+    color: #756773;
+    font-size: 15px;
+}
+/* =========================================================
+   ✦ LETTER
+========================================================= */
+.letter-paper {
+    width: min(100%, 720px);
+    margin: 0 auto;
+    padding:
+        45px 35px;
+    background:
+        rgba(255, 253, 249, 0.78);
+    border:
+        1px solid
+        rgba(190, 160, 145, 0.25);
+    border-radius: 6px;
+    box-shadow:
+        0 20px 55px
+        rgba(120, 90, 100, 0.1);
+    opacity: 0;
+    transform:
+        translateY(25px);
+    transition:
+        opacity 0.9s ease,
+        transform 0.9s ease;
+}
+.letter-paper.home-show {
+    opacity: 1;
+    transform:
+        translateY(0);
+}
+.letter-paper p {
+    margin-bottom: 20px;
+    color: #75676c;
+    font-size: 16px;
+}
+.letter-sign {
+    margin-top: 40px;
+    text-align: right;
+    color: #a47c98;
+    font-family:
+        "Itim",
+        cursive;
+    font-size: 21px;
 }
 /* =========================================================
    ✦ FAMILY
 ========================================================= */
 .family-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 18px;
+    grid-template-columns:
+        repeat(3, 1fr);
+    gap: 20px;
+    width: min(100%, 760px);
+    margin: 0 auto 55px;
 }
 .family-card {
+    padding:
+        20px 15px;
     text-align: center;
-}
-.family-card .family-icon {
-    display: block;
-    margin-bottom: 10px;
-    font-size: 45px;
-}
-/* =========================================================
-   ✦ FINAL
-========================================================= */
-.final-box {
-    text-align: center;
-    padding: 45px 25px;
-}
-.final-box p {
-    margin: 12px 0;
-}
-.final-box .final-love {
-    margin-top: 30px;
-    color: #a66f91;
-    font-family: "Itim", sans-serif;
-    font-size: 25px;
-}
-/* =========================================================
-   ✦ PAGE TRANSITION
-========================================================= */
-body.page-leaving {
+    background:
+        rgba(255, 255, 255, 0.6);
+    border:
+        1px solid
+        rgba(190, 160, 185, 0.25);
+    border-radius: 24px;
+    box-shadow:
+        0 12px 30px
+        rgba(130, 100, 130, 0.06);
     opacity: 0;
-    transition: opacity 0.45s ease;
+    transform:
+        translateY(20px);
+    transition:
+        opacity 0.7s ease,
+        transform 0.7s ease;
+}
+.family-card.home-show {
+    opacity: 1;
+    transform:
+        translateY(0);
+}
+.family-card img {
+    width: 110px;
+    height: 110px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+.family-card h2 {
+    margin-bottom: 5px;
+    color: #806579;
+    font-size: 22px;
+    font-weight: 400;
+}
+.family-card p {
+    color: #8b7c88;
+    font-size: 13px;
 }
 /* =========================================================
-   ✦ SIMPLE ANIMATION
+   ✦ FINAL PAGE
 ========================================================= */
-@keyframes simpleShow {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
+.final-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 30px;
+}
+.final-card {
+    width: min(100%, 720px);
+    padding:
+        55px 30px;
+    text-align: center;
+    background:
+        rgba(255, 255, 255, 0.62);
+    border:
+        1px solid
+        rgba(190, 160, 185, 0.3);
+    border-radius: 30px;
+    box-shadow:
+        0 25px 70px
+        rgba(120, 90, 130, 0.12);
+    backdrop-filter:
+        blur(12px);
+    opacity: 0;
+    transform:
+        translateY(25px);
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+}
+.final-card.home-show {
+    opacity: 1;
+    transform:
+        translateY(0);
+}
+.final-card h1 {
+    margin-bottom: 20px;
+    color: #8d6685;
+    font-size:
+        clamp(35px, 8vw, 58px);
+}
+.final-card p {
+    margin-bottom: 15px;
+    color: #756773;
+    font-size: 16px;
+}
+/* =========================================================
+   ✦ TYPEWRITER
+========================================================= */
+.typewriter {
+    display: inline-block;
+    min-height: 1.9em;
+    white-space: pre-wrap;
+}
+.typewriter-cursor::after {
+    content: "♡";
+    margin-left: 3px;
+    color: #c397b8;
+    animation:
+        cursorBlink
+        0.8s
+        infinite;
+}
+@keyframes cursorBlink {
+    0%,
+    45% {
         opacity: 1;
-        transform: translateY(0);
+    }
+    46%,
+    100% {
+        opacity: 0;
     }
 }
 /* =========================================================
-   ✦ MOBILE
+   ✦ RESPONSIVE — TABLET
 ========================================================= */
 @media (max-width: 700px) {
     .home-header {
-        padding-top: 40px;
-    }
-    .home-header h1 {
-        font-size: 38px;
-    }
-    .home-intro {
-        font-size: 14px;
-    }
-    .home-couple {
-        gap: 15px;
-    }
-    .home-photo {
-        width: 125px;
-        height: 125px;
-    }
-    .home-heart {
-        font-size: 28px;
+        padding-top: 50px;
     }
     .home-links {
-        grid-template-columns: 1fr;
-    }
-    .reasons-list {
         grid-template-columns: 1fr;
     }
     .memories-gallery {
         grid-template-columns: 1fr;
     }
-    .family-grid {
+    .reasons-list {
         grid-template-columns: 1fr;
     }
-    .story-block,
-    .about-block,
-    .timeline-item,
-    .letter-box,
-    .family-card,
-    .final-box {
-        padding: 22px 18px;
+    .family-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
     }
 }
 /* =========================================================
-   ✦ SMALL PHONES
+   ✦ RESPONSIVE — PHONE
 ========================================================= */
-@media (max-width: 400px) {
-    .home-photo {
-        width: 105px;
-        height: 105px;
+@media (max-width: 480px) {
+    .home-page,
+    .reasons-main,
+    .home-main,
+    .story-page {
+        width:
+            min(100% - 22px, 900px);
+    }
+    .home-header {
+        width:
+            min(100% - 22px, 800px);
+        padding:
+            40px 8px 30px;
+    }
+    .home-logo {
+        font-size: 21px;
     }
     .home-header h1 {
-        font-size: 32px;
+        font-size: 40px;
+    }
+    .home-intro {
+        font-size: 14px;
+    }
+    .home-couple {
+        gap: 10px;
+    }
+    .home-heart {
+        font-size: 27px;
+    }
+    .home-photo {
+        width: 125px;
+    }
+    .home-message {
+        padding:
+            25px 18px;
+    }
+    .home-link {
+        min-height: 105px;
+        padding:
+            17px 15px 15px 50px;
+    }
+    .home-link strong {
+        font-size: 20px;
+    }
+    .memory-photo {
+        padding: 9px;
     }
     .reason-card {
-        grid-template-columns: 34px 1fr;
-        padding: 15px;
+        padding: 16px;
     }
     .reason-card p {
         font-size: 14px;
+    }
+    .letter-paper {
+        padding:
+            35px 20px;
+    }
+    .family-grid {
+        gap: 12px;
+    }
+    .family-card {
+        padding:
+            16px 8px;
+    }
+    .family-card img {
+        width: 90px;
+        height: 90px;
+    }
+}
+/* =========================================================
+   ✦ REDUCE MOTION
+========================================================= */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
     }
 }
