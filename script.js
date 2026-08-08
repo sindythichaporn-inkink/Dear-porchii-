@@ -1071,3 +1071,251 @@ document.addEventListener("DOMContentLoaded", () => {
         );
     }
 });
+/* =========================================================
+   ✦ 100 REASONS PAGE SCRIPT
+   ✦ ADD TO THE END OF script.js
+   ✦ ไม่ต้องลบของเดิม
+========================================================= */
+document.addEventListener("DOMContentLoaded", () => {
+    const reasonsPage =
+        document.querySelector(".reasons-page");
+    if (!reasonsPage) {
+        return;
+    }
+    /* =====================================================
+       ✦ HEADER
+    ===================================================== */
+    const header =
+        reasonsPage.querySelector(
+            ".page-header"
+        );
+    if (header) {
+        setTimeout(() => {
+            header.classList.add(
+                "visible"
+            );
+        }, 180);
+    }
+    /* =====================================================
+       ✦ REASONS
+       ค่อย ๆ ขึ้นทีละข้อ
+    ===================================================== */
+    const reasons =
+        reasonsPage.querySelectorAll(
+            ".reason-item"
+        );
+    reasons.forEach(
+        (reason, index) => {
+            reason.style.transitionDelay =
+                `${Math.min(index * 45, 900)}ms`;
+        }
+    );
+    /* =====================================================
+       ✦ SCROLL REVEAL
+    ===================================================== */
+    if (
+        "IntersectionObserver"
+        in window
+    ) {
+        const observer =
+            new IntersectionObserver(
+                entries => {
+                    entries.forEach(
+                        entry => {
+                            if (
+                                entry.isIntersecting
+                            ) {
+                                entry.target.classList.add(
+                                    "visible"
+                                );
+                                observer.unobserve(
+                                    entry.target
+                                );
+                            }
+                        }
+                    );
+                },
+                {
+                    threshold: .08,
+                    rootMargin:
+                        "0px 0px -35px 0px"
+                }
+            );
+        reasons.forEach(reason => {
+            observer.observe(
+                reason
+            );
+        });
+    } else {
+        reasons.forEach(reason => {
+            reason.classList.add(
+                "visible"
+            );
+        });
+    }
+});
+/* =========================================================
+   ✦ FAMILY PAGE SCRIPT
+   ✦ ADD TO THE END OF script.js
+   ✦ ไม่ต้องลบของเดิม
+========================================================= */
+document.addEventListener("DOMContentLoaded", () => {
+    const familyPage =
+        document.querySelector(".family-page");
+    if (!familyPage) {
+        return;
+    }
+    /* =====================================================
+       ✦ HEADER
+    ===================================================== */
+    const header =
+        familyPage.querySelector(
+            ".page-header"
+        );
+    if (header) {
+        setTimeout(() => {
+            header.classList.add(
+                "visible"
+            );
+        }, 180);
+    }
+    /* =====================================================
+       ✦ FAMILY MEMBERS
+       ค่อย ๆ ปรากฏทีละตัว
+    ===================================================== */
+    const members =
+        familyPage.querySelectorAll(
+            ".family-member"
+        );
+    members.forEach(
+        (member, index) => {
+            member.style.transitionDelay =
+                `${index * 150}ms`;
+        }
+    );
+    /* =====================================================
+       ✦ SCROLL REVEAL
+    ===================================================== */
+    if (
+        "IntersectionObserver"
+        in window
+    ) {
+        const observer =
+            new IntersectionObserver(
+                entries => {
+                    entries.forEach(
+                        entry => {
+                            if (
+                                entry.isIntersecting
+                            ) {
+                                entry.target.classList.add(
+                                    "visible"
+                                );
+                                observer.unobserve(
+                                    entry.target
+                                );
+                            }
+                        }
+                    );
+                },
+                {
+                    threshold: .12,
+                    rootMargin:
+                        "0px 0px -45px 0px"
+                }
+            );
+        members.forEach(member => {
+            observer.observe(
+                member
+            );
+        });
+    } else {
+        members.forEach(member => {
+            member.classList.add(
+                "visible"
+            );
+        });
+    }
+});
+/* =========================================================
+   ✦ FINAL PAGE SCRIPT
+   ✦ ADD TO THE END OF script.js
+   ✦ ไม่ต้องลบของเดิม
+========================================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const finalPage =
+        document.querySelector(".final-page");
+
+    if (!finalPage) {
+        return;
+    }
+
+
+    /* =====================================================
+       ✦ HEADER
+    ===================================================== */
+
+    const header =
+        finalPage.querySelector(
+            ".page-header"
+        );
+
+    if (header) {
+
+        setTimeout(() => {
+
+            header.classList.add(
+                "visible"
+            );
+
+        }, 200);
+
+    }
+
+
+    /* =====================================================
+       ✦ FINAL MESSAGE
+    ===================================================== */
+
+    const message =
+        finalPage.querySelector(
+            ".final-message"
+        );
+
+    if (message) {
+
+        setTimeout(() => {
+
+            message.classList.add(
+                "visible"
+            );
+
+        }, 650);
+
+    }
+
+
+    /* =====================================================
+       ✦ FINAL BACK BUTTON
+    ===================================================== */
+
+    const back =
+        finalPage.querySelector(
+            ".final-back"
+        );
+
+    if (back) {
+
+        setTimeout(() => {
+
+            back.classList.add(
+                "visible"
+            );
+
+        }, 1200);
+
+    }
+
+});
