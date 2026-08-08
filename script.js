@@ -664,3 +664,83 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+/* =========================================================
+   ✦ STORY PAGE SCRIPT
+   ✦ ADD TO THE END OF script.js
+   ✦ ไม่ต้องลบของเดิม
+========================================================= */
+document.addEventListener("DOMContentLoaded", () => {
+    const storyPage =
+        document.querySelector(".story-page");
+    if (!storyPage) {
+        return;
+    }
+    /* =====================================================
+       ✦ HEADER
+    ===================================================== */
+    const header =
+        storyPage.querySelector(".page-header");
+    if (header) {
+        setTimeout(() => {
+            header.classList.add(
+                "visible"
+            );
+        }, 180);
+    }
+    /* =====================================================
+       ✦ STORY SECTIONS
+    ===================================================== */
+    const sections =
+        storyPage.querySelectorAll(
+            ".story-section"
+        );
+    sections.forEach(
+        (section, index) => {
+            section.style.transitionDelay =
+                `${index * 140}ms`;
+        }
+    );
+    /* =====================================================
+       ✦ SCROLL REVEAL
+    ===================================================== */
+    if (
+        "IntersectionObserver"
+        in window
+    ) {
+        const observer =
+            new IntersectionObserver(
+                entries => {
+                    entries.forEach(
+                        entry => {
+                            if (
+                                entry.isIntersecting
+                            ) {
+                                entry.target.classList.add(
+                                    "visible"
+                                );
+                                observer.unobserve(
+                                    entry.target
+                                );
+                            }
+                        }
+                    );
+                },
+                {
+                    threshold: .12,
+                    rootMargin:
+                        "0px 0px -45px 0px"
+                }
+            );
+        sections.forEach(section => {
+            observer.observe(
+                section
+            );
+        });
+    } else {
+        sections.forEach(section => {
+            section.classList.add(
+                "visible"
+            );
+        });
+    }
+});
