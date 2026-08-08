@@ -3566,3 +3566,274 @@ main {
     height: auto !important;
     overflow: visible !important;
 }
+/* =========================================================
+   ✦ DEAR PORCH — FINAL FIX PACK
+   ✦ วางต่อท้ายสุดของ style.css
+========================================================= */
+/* =========================================================
+   ✦ 01 — GLOBAL SCROLL FIX
+========================================================= */
+html {
+    min-height: 100%;
+    height: auto !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+}
+body {
+    min-height: 100vh;
+    height: auto !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+}
+main {
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: visible !important;
+}
+/* =========================================================
+   ✦ 02 — PAGE HEIGHT
+========================================================= */
+.home-page,
+.about-page,
+.story-page,
+.timeline-page,
+.memories-page,
+.letter-page,
+.reasons-page,
+.family-page,
+.final-page {
+    min-height: 100vh;
+    height: auto !important;
+    overflow: visible !important;
+}
+/* =========================================================
+   ✦ 03 — HOME MENU FIX
+   ✦ ทำให้เมนูมองเห็นแน่นอน
+========================================================= */
+.home-links {
+    display: grid !important;
+    visibility: visible !important;
+}
+.home-link {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    filter: none !important;
+    transform: translateY(0) scale(1) !important;
+}
+/* =========================================================
+   ✦ 04 — HOME MENU HOVER
+========================================================= */
+.home-link:hover {
+    transform:
+        translateY(-4px)
+        scale(1.015) !important;
+}
+/* =========================================================
+   ✦ 05 — MOBILE HOME MENU
+========================================================= */
+@media (max-width: 768px) {
+    .home-links {
+        width: 100% !important;
+        grid-template-columns: 1fr !important;
+        gap: 14px;
+    }
+    .home-link {
+        width: 100% !important;
+    }
+}
+/* =========================================================
+   ✦ 06 — ALL PAGE REVEAL
+========================================================= */
+.about-page .page-header,
+.story-page .page-header,
+.timeline-page .page-header,
+.memories-page .page-header,
+.letter-page .page-header,
+.reasons-page .page-header,
+.family-page .page-header,
+.final-page .page-header {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    filter: blur(0) !important;
+}
+/* =========================================================
+   ✦ 07 — CONTENT VISIBILITY FIX
+   ✦ ป้องกัน element ค้าง opacity:0
+========================================================= */
+.about-card.visible,
+.story-section.visible,
+.timeline-item.visible,
+.memory-photo.visible,
+.memories-note.visible,
+.reason-item.visible,
+.family-member.visible,
+.letter-paper.visible,
+.letter-signature.visible,
+.final-message.visible,
+.final-back.visible {
+    opacity: 1 !important;
+    transform: translateY(0) scale(1) !important;
+    filter: blur(0) !important;
+}
+/* =========================================================
+   ✦ 08 — GALLERY
+========================================================= */
+.memory-photo {
+    cursor: pointer;
+}
+.memory-image {
+    overflow: hidden;
+}
+.memory-image img {
+    cursor: zoom-in;
+}
+/* =========================================================
+   ✦ 09 — LIGHTBOX
+========================================================= */
+.image-lightbox {
+    position: fixed !important;
+    inset: 0 !important;
+    z-index: 99999 !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background:
+        rgba(45, 35, 50, .78);
+    backdrop-filter:
+        blur(12px);
+    -webkit-backdrop-filter:
+        blur(12px);
+    opacity: 0;
+    visibility: hidden;
+    transition:
+        opacity .3s ease,
+        visibility .3s ease;
+    cursor: zoom-out;
+}
+.image-lightbox.show {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+.image-lightbox img {
+    max-width: 94vw !important;
+    max-height: 88vh !important;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 18px;
+    box-shadow:
+        0 25px 80px
+        rgba(0,0,0,.25);
+    transform: scale(.92);
+    transition:
+        transform .35s ease;
+}
+.image-lightbox.show img {
+    transform: scale(1);
+}
+/* =========================================================
+   ✦ 10 — LETTER
+========================================================= */
+.letter-paper {
+    max-width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+}
+/* =========================================================
+   ✦ 11 — 100 REASONS
+========================================================= */
+.reasons-container {
+    width: min(850px, 100%);
+    margin-left: auto;
+    margin-right: auto;
+}
+.reason-card,
+.reason-item {
+    box-sizing: border-box;
+}
+/* =========================================================
+   ✦ 12 — FAMILY
+========================================================= */
+.family-container {
+    width: min(950px, 100%);
+    margin-left: auto;
+    margin-right: auto;
+}
+.family-grid {
+    width: 100%;
+}
+/* =========================================================
+   ✦ 13 — FINAL
+========================================================= */
+.final-page {
+    padding-bottom: 100px;
+}
+.final-content,
+.final-message {
+    position: relative;
+    z-index: 2;
+}
+.final-back {
+    position: relative;
+    z-index: 3;
+}
+/* =========================================================
+   ✦ 14 — DECORATION อยู่ด้านหลังเนื้อหา
+========================================================= */
+.home-glitter,
+.home-page::after,
+.about-page::before,
+.story-page::before,
+.timeline-page::before,
+.memories-page::before,
+.letter-page::before,
+.reasons-page::before,
+.family-page::before,
+.final-page::before,
+.final-page::after {
+    pointer-events: none;
+}
+/* =========================================================
+   ✦ 15 — MOBILE LIGHTBOX
+========================================================= */
+@media (max-width: 768px) {
+    .image-lightbox {
+        padding: 12px;
+    }
+    .image-lightbox img {
+        max-width: 94vw !important;
+        max-height: 82vh !important;
+        border-radius: 14px;
+    }
+}
+/* =========================================================
+   ✦ 16 — VERY SMALL MOBILE
+========================================================= */
+@media (max-width: 420px) {
+    .home-links {
+        gap: 12px;
+    }
+    .home-link {
+        min-height: 70px;
+    }
+    .letter-paper {
+        padding-left: 22px;
+        padding-right: 22px;
+    }
+}
+/* =========================================================
+   ✦ 17 — REDUCE MOTION
+   ✦ สำหรับคนที่เปิด Reduce Motion
+========================================================= */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+    }
+}
