@@ -2,61 +2,40 @@
    ✦ DEAR PORCH — MAIN STYLE
    ใช้ร่วมกันทุกหน้า
 ========================================================= */
-
 @import url('https://fonts.googleapis.com/css2?family=Itim&family=Kanit:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;1,400&display=swap');
-
-
 /* =========================================================
    ✦ RESET
 ========================================================= */
-
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
-
 html {
     scroll-behavior: smooth;
 }
-
 body {
     min-height: 100vh;
+    background:
+        radial-gradient(circle at 20% 10%, rgba(255, 220, 235, 0.65), transparent 30%),
+        radial-gradient(circle at 80% 20%, rgba(220, 235, 255, 0.55), transparent 30%),
+        linear-gradient(135deg, #fff8fc, #f7f1ff, #eef8ff);
+    color: #665866;
     font-family: "Kanit", sans-serif;
     font-weight: 300;
-    color: #66586d;
-    background:
-        radial-gradient(circle at 20% 10%, rgba(255, 220, 239, .65), transparent 28%),
-        radial-gradient(circle at 85% 20%, rgba(218, 235, 255, .65), transparent 30%),
-        linear-gradient(135deg, #fff8fc, #f5f0ff, #f4faff);
     overflow-x: hidden;
-
-    opacity: 1;
-    transition: opacity .7s ease;
+    transition: opacity 0.6s ease;
 }
-
-body.page-leaving {
-    opacity: 0;
-}
-
 a {
     color: inherit;
     text-decoration: none;
 }
-
 button {
     font-family: inherit;
 }
-
-img {
-    max-width: 100%;
-}
-
-
 /* =========================================================
-   ✦ BACKGROUND GLITTER
+   ✦ BACKGROUND
 ========================================================= */
-
 .home-glitter {
     position: fixed;
     inset: 0;
@@ -66,835 +45,638 @@ img {
     overflow: hidden;
     z-index: 0;
 }
-
 .home-glitter span {
     position: absolute;
     display: block;
-    color: rgba(196, 160, 205, .38);
+    color: rgba(190, 150, 185, 0.35);
     font-family: "Playfair Display", serif;
-    animation:
-        glitterFloat 7s ease-in-out infinite,
-        glitterTwinkle 3s ease-in-out infinite alternate;
+    animation: glitterFloat 8s ease-in-out infinite;
 }
-
-/* กระจายตำแหน่งดาว */
-
 .home-glitter span:nth-child(1) {
     left: 8%;
     top: 15%;
-    font-size: 18px;
     animation-delay: 0s;
 }
-
 .home-glitter span:nth-child(2) {
-    left: 22%;
-    top: 72%;
-    font-size: 15px;
+    left: 23%;
+    top: 70%;
     animation-delay: 1s;
 }
-
 .home-glitter span:nth-child(3) {
-    left: 38%;
+    left: 42%;
     top: 25%;
-    font-size: 12px;
     animation-delay: 2s;
 }
-
 .home-glitter span:nth-child(4) {
-    left: 52%;
-    top: 82%;
-    font-size: 19px;
-    animation-delay: .5s;
-}
-
-.home-glitter span:nth-child(5) {
-    left: 67%;
-    top: 18%;
-    font-size: 14px;
-    animation-delay: 1.7s;
-}
-
-.home-glitter span:nth-child(6) {
-    left: 78%;
-    top: 65%;
-    font-size: 17px;
-    animation-delay: 2.4s;
-}
-
-.home-glitter span:nth-child(7) {
-    left: 91%;
-    top: 32%;
-    font-size: 13px;
-    animation-delay: .8s;
-}
-
-.home-glitter span:nth-child(8) {
-    left: 12%;
-    top: 48%;
-    font-size: 12px;
-    animation-delay: 2.7s;
-}
-
-.home-glitter span:nth-child(9) {
-    left: 47%;
-    top: 8%;
-    font-size: 13px;
-    animation-delay: 1.2s;
-}
-
-.home-glitter span:nth-child(10) {
-    left: 84%;
-    top: 87%;
-    font-size: 18px;
+    left: 65%;
+    top: 75%;
     animation-delay: 3s;
 }
-
-.home-glitter span:nth-child(11) {
-    left: 30%;
-    top: 92%;
-    font-size: 14px;
+.home-glitter span:nth-child(5) {
+    left: 82%;
+    top: 18%;
     animation-delay: 1.5s;
 }
-
-.home-glitter span:nth-child(12) {
-    left: 60%;
+.home-glitter span:nth-child(6) {
+    left: 92%;
+    top: 52%;
+    animation-delay: 2.5s;
+}
+.home-glitter span:nth-child(7) {
+    left: 14%;
     top: 45%;
-    font-size: 11px;
-    animation-delay: 2.2s;
+    animation-delay: 3.5s;
 }
-
+.home-glitter span:nth-child(8) {
+    left: 53%;
+    top: 90%;
+    animation-delay: 4s;
+}
+.home-glitter span:nth-child(9) {
+    left: 75%;
+    top: 42%;
+    animation-delay: 5s;
+}
+.home-glitter span:nth-child(10) {
+    left: 35%;
+    top: 55%;
+    animation-delay: 2.8s;
+}
+.home-glitter span:nth-child(11) {
+    left: 5%;
+    top: 88%;
+    animation-delay: 4.5s;
+}
+.home-glitter span:nth-child(12) {
+    left: 88%;
+    top: 82%;
+    animation-delay: 5.5s;
+}
 @keyframes glitterFloat {
-
-    0%,
-    100% {
+    0%, 100% {
         transform: translateY(0) rotate(0deg);
+        opacity: 0.25;
     }
-
     50% {
-        transform: translateY(-18px) rotate(8deg);
+        transform: translateY(-18px) rotate(12deg);
+        opacity: 0.7;
     }
 }
-
-@keyframes glitterTwinkle {
-
-    0% {
-        opacity: .15;
-    }
-
-    100% {
-        opacity: .65;
-    }
-}
-
-
 /* =========================================================
    ✦ COMMON PAGE
 ========================================================= */
-
 .home-page,
-.reasons-page {
+.reasons-page,
+.story-page,
+.about-page,
+.timeline-page,
+.memories-page,
+.letter-page,
+.family-page,
+.final-page {
     position: relative;
     z-index: 1;
+    width: 100%;
+    min-height: 100vh;
 }
-
+/* =========================================================
+   ✦ HEADER
+========================================================= */
 .home-header {
     position: relative;
     z-index: 2;
-
-    width: min(900px, 90%);
+    width: min(900px, 92%);
     margin: 0 auto;
-    padding: 55px 20px 25px;
-
+    padding: 55px 20px 35px;
     text-align: center;
-
     opacity: 0;
     transform: translateY(25px);
-
     transition:
-        opacity .8s ease,
-        transform .8s ease;
+        opacity 0.8s ease,
+        transform 0.8s ease;
 }
-
 .home-header.home-show {
     opacity: 1;
     transform: translateY(0);
 }
-
-
-/* =========================================================
-   ✦ BACK BUTTON
-========================================================= */
-
 .home-back {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-
+    display: inline-block;
+    margin-bottom: 35px;
     padding: 8px 18px;
-
-    border: 1px solid rgba(160, 125, 175, .25);
+    border: 1px solid rgba(150, 120, 150, 0.25);
     border-radius: 999px;
-
-    background: rgba(255, 255, 255, .48);
-    backdrop-filter: blur(10px);
-
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(8px);
+    color: #927a91;
     font-size: 14px;
-    color: #806a86;
-
     transition:
-        transform .3s ease,
-        background .3s ease,
-        box-shadow .3s ease;
+        transform 0.3s ease,
+        background 0.3s ease;
 }
-
 .home-back:hover {
     transform: translateY(-3px);
-    background: rgba(255, 255, 255, .8);
-    box-shadow: 0 8px 25px rgba(160, 120, 170, .15);
+    background: rgba(255, 255, 255, 0.85);
 }
-
-
-/* =========================================================
-   ✦ LOGO / SMALL TEXT
-========================================================= */
-
 .home-logo {
-    margin-top: 28px;
-
+    margin-bottom: 8px;
+    color: #9c8099;
     font-family: "Playfair Display", serif;
     font-size: 20px;
-
-    color: #91759c;
+    letter-spacing: 1px;
 }
-
 .home-small {
-    margin-top: 7px;
-
-    font-family: "Playfair Display", serif;
-    font-style: italic;
-
-    font-size: 14px;
-    color: #ae91b5;
+    margin-bottom: 15px;
+    color: #aa97a9;
+    font-size: 13px;
+    letter-spacing: 1px;
 }
-
-
-/* =========================================================
-   ✦ HEADINGS
-========================================================= */
-
 .home-header h1 {
-    margin-top: 18px;
-
+    margin-bottom: 18px;
+    color: #735c70;
     font-family: "Playfair Display", serif;
-    font-style: italic;
-
-    font-size: clamp(32px, 7vw, 60px);
+    font-size: clamp(34px, 8vw, 64px);
     font-weight: 400;
-
     line-height: 1.2;
-
-    color: #80628a;
-
-    text-shadow:
-        0 4px 20px rgba(150, 110, 165, .15);
 }
-
 .home-intro {
-    margin-top: 18px;
-
+    color: #806f7d;
     font-size: 16px;
     line-height: 2;
-
-    color: #806f84;
 }
-
-
 /* =========================================================
-   ✦ HOME MAIN
+   ✦ MAIN
 ========================================================= */
-
-.home-main {
+.home-main,
+.reasons-main {
     position: relative;
     z-index: 2;
-
-    width: min(900px, 90%);
+    width: min(1000px, 92%);
     margin: 0 auto;
-
-    padding: 20px 0 80px;
+    padding: 15px 0 80px;
 }
-
-
 /* =========================================================
-   ✦ COUPLE
+   ✦ MESSAGE CARD
 ========================================================= */
-
-.home-couple {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 28px;
-
-    margin: 25px auto 45px;
-
-    opacity: 0;
-    transform: translateY(30px);
-
-    transition:
-        opacity .8s ease,
-        transform .8s ease;
-}
-
-.home-couple.home-show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.home-photo {
-    width: 145px;
-    height: 145px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 50%;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.9),
-            rgba(250,235,250,.65)
-        );
-
-    border: 2px solid rgba(255,255,255,.85);
-
-    box-shadow:
-        0 15px 35px rgba(150, 120, 165, .16);
-
-    overflow: hidden;
-}
-
-.home-photo img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-
-.home-heart {
-    font-size: 38px;
-    color: #d99bbd;
-
-    animation: heartBeat 2s ease-in-out infinite;
-}
-
-@keyframes heartBeat {
-
-    0%,
-    100% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.12);
-    }
-}
-
-
-/* =========================================================
-   ✦ MESSAGE
-========================================================= */
-
 .home-message {
     width: min(650px, 100%);
-    margin: 0 auto 45px;
-
-    padding: 30px 28px;
-
-    text-align: center;
-
-    background: rgba(255,255,255,.55);
-    border: 1px solid rgba(255,255,255,.8);
-
+    margin: 35px auto 50px;
+    padding: 30px 25px;
+    border: 1px solid rgba(180, 150, 175, 0.22);
     border-radius: 28px;
-
+    background: rgba(255, 255, 255, 0.55);
+    box-shadow: 0 15px 45px rgba(120, 90, 120, 0.08);
     backdrop-filter: blur(12px);
-
-    box-shadow:
-        0 15px 45px rgba(150, 120, 165, .10);
-
+    text-align: center;
     opacity: 0;
     transform: translateY(25px);
-
     transition:
-        opacity .8s ease,
-        transform .8s ease;
+        opacity 0.8s ease,
+        transform 0.8s ease;
 }
-
 .home-message.home-show {
     opacity: 1;
     transform: translateY(0);
 }
-
 .home-message span {
     display: block;
-    margin: 8px 0;
-
-    color: #c394c8;
-    font-size: 18px;
+    margin: 10px 0;
+    color: #b89ab4;
 }
-
 .home-message p {
-    margin: 9px 0;
-
-    line-height: 1.9;
+    margin: 10px 0;
+    line-height: 2;
 }
-
-
+/* =========================================================
+   ✦ COUPLE
+========================================================= */
+.home-couple {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    margin: 20px auto 35px;
+    opacity: 0;
+    transform: translateY(25px);
+    transition:
+        opacity 0.9s ease,
+        transform 0.9s ease;
+}
+.home-couple.home-show {
+    opacity: 1;
+    transform: translateY(0);
+}
+.home-photo {
+    width: 170px;
+    height: 170px;
+    border: 3px solid rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.55);
+    box-shadow: 0 12px 35px rgba(130, 100, 130, 0.12);
+    overflow: hidden;
+}
+.home-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.home-heart {
+    color: #d99dbb;
+    font-size: 35px;
+    animation: heartBeat 2s ease-in-out infinite;
+}
+@keyframes heartBeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.15);
+    }
+}
 /* =========================================================
    ✦ HOME MENU
 ========================================================= */
-
 .home-links {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
-
-    margin: 30px auto 55px;
+    gap: 16px;
+    width: min(850px, 100%);
+    margin: 0 auto;
 }
-
 .home-link {
     position: relative;
-
     display: flex;
     flex-direction: column;
-
-    padding: 20px;
-
+    gap: 4px;
+    padding: 20px 22px;
+    border: 1px solid rgba(180, 150, 175, 0.2);
     border-radius: 22px;
-
-    background: rgba(255,255,255,.5);
-    border: 1px solid rgba(255,255,255,.85);
-
-    box-shadow:
-        0 10px 30px rgba(150,120,165,.08);
-
+    background: rgba(255, 255, 255, 0.48);
+    box-shadow: 0 10px 30px rgba(130, 100, 130, 0.06);
     backdrop-filter: blur(10px);
-
     opacity: 0;
     transform: translateY(20px);
-
     transition:
-        opacity .6s ease,
-        transform .6s ease,
-        box-shadow .3s ease,
-        background .3s ease;
+        opacity 0.7s ease,
+        transform 0.7s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease;
 }
-
 .home-link.home-show {
     opacity: 1;
     transform: translateY(0);
 }
-
 .home-link:hover {
     transform: translateY(-5px);
-    background: rgba(255,255,255,.8);
-    box-shadow:
-        0 18px 35px rgba(150,120,165,.15);
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 15px 35px rgba(130, 100, 130, 0.12);
 }
-
 .home-link-number {
+    color: #b59bb2;
     font-family: "Playfair Display", serif;
-    color: #c39acb;
     font-size: 13px;
 }
-
 .home-link strong {
-    margin-top: 7px;
-
-    font-family: "Playfair Display", serif;
-    font-size: 19px;
+    color: #735f70;
+    font-family: "Itim", sans-serif;
+    font-size: 20px;
     font-weight: 400;
-
-    color: #79627f;
 }
-
 .home-link small {
-    margin-top: 5px;
-    color: #9d8ba1;
+    color: #958393;
+    font-size: 12px;
 }
-
-
 /* =========================================================
    ✦ ENDING
 ========================================================= */
-
 .home-ending {
+    width: min(650px, 100%);
+    margin: 60px auto 0;
     text-align: center;
-
-    padding: 25px 15px 70px;
-
-    color: #8d7b91;
-
+    color: #887486;
     line-height: 2;
-
     opacity: 0;
-    transform: translateY(20px);
-
+    transform: translateY(25px);
     transition:
-        opacity .8s ease,
-        transform .8s ease;
+        opacity 1s ease,
+        transform 1s ease;
 }
-
 .home-ending.home-show {
     opacity: 1;
     transform: translateY(0);
 }
-
-
+.home-ending p {
+    margin: 8px 0;
+}
 /* =========================================================
    ✦ 100 REASONS
 ========================================================= */
-
 .reasons-main {
-    position: relative;
-    z-index: 2;
-
-    width: min(950px, 92%);
-    margin: 0 auto;
-
-    padding: 20px 0 80px;
+    padding-bottom: 100px;
 }
-
-
-/* =========================================================
-   ✦ REASONS INTRO
-========================================================= */
-
 .reasons-intro {
-    width: min(680px, 100%);
+    width: min(650px, 100%);
     margin: 15px auto 45px;
-
-    padding: 28px 22px;
-
     text-align: center;
-
-    border-radius: 28px;
-
-    background: rgba(255,255,255,.5);
-    border: 1px solid rgba(255,255,255,.8);
-
-    backdrop-filter: blur(12px);
-
-    box-shadow:
-        0 15px 40px rgba(150,120,165,.08);
-
-    color: #807080;
-
+    color: #806f7d;
     line-height: 2;
-
+    opacity: 0;
+    transform: translateY(20px);
+    animation: simpleShow 0.9s ease forwards;
+    animation-delay: 0.3s;
+}
+.reasons-intro span {
+    display: block;
+    margin: 12px 0;
+    color: #b899b4;
+}
+.reasons-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+}
+.reason-card {
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    align-items: start;
+    gap: 12px;
+    padding: 18px 18px;
+    border: 1px solid rgba(180, 150, 175, 0.18);
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 8px 25px rgba(130, 100, 130, 0.045);
+    backdrop-filter: blur(8px);
+    opacity: 0;
+    transform: translateY(18px);
+    transition:
+        opacity 0.6s ease,
+        transform 0.6s ease,
+        background 0.3s ease;
+}
+.reason-card.home-show {
+    opacity: 1;
+    transform: translateY(0);
+}
+.reason-card:hover {
+    background: rgba(255, 255, 255, 0.78);
+    transform: translateY(-3px);
+}
+.reason-card > span {
+    color: #b395af;
+    font-family: "Playfair Display", serif;
+    font-size: 14px;
+}
+.reason-card p {
+    color: #71636f;
+    font-size: 15px;
+    line-height: 1.8;
+}
+.reasons-ending {
+    width: min(650px, 100%);
+    margin: 70px auto 0;
+    text-align: center;
+    color: #806f7d;
+    line-height: 2;
     opacity: 0;
     transform: translateY(25px);
-
-    animation: reasonsIntro .9s .25s forwards;
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
 }
-
-@keyframes reasonsIntro {
-
+.reasons-ending.home-show {
+    opacity: 1;
+    transform: translateY(0);
+}
+.reasons-ending > span {
+    display: block;
+    margin: 15px 0;
+    color: #b899b4;
+}
+.reasons-love {
+    margin-top: 25px;
+    color: #a66f91;
+    font-family: "Itim", sans-serif;
+    font-size: 22px;
+}
+/* =========================================================
+   ✦ GALLERY
+========================================================= */
+.memories-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+}
+.memory-photo {
+    margin: 0;
+    opacity: 0;
+    transform: translateY(25px);
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+.memory-photo.home-show {
+    opacity: 1;
+    transform: translateY(0);
+}
+.memory-image {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    border-radius: 25px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 15px 40px rgba(120, 90, 120, 0.08);
+}
+.memory-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+.memory-photo:hover img {
+    transform: scale(1.04);
+}
+.memory-empty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.memory-empty::after {
+    content: "♡";
+    color: #c3a7bf;
+    font-size: 40px;
+}
+.memory-photo figcaption {
+    padding: 13px 8px;
+}
+.memory-photo figcaption span {
+    color: #b295ae;
+    font-family: "Playfair Display", serif;
+    font-size: 13px;
+}
+.memory-photo figcaption p {
+    margin-top: 3px;
+    color: #786a76;
+}
+/* =========================================================
+   ✦ STORY / ABOUT / TIMELINE / LETTER / FAMILY
+   พื้นฐานสำหรับหน้าที่จะสร้างต่อ
+========================================================= */
+.story-content,
+.about-content,
+.timeline-content,
+.letter-content,
+.family-content,
+.final-content {
+    width: min(750px, 100%);
+    margin: 0 auto;
+}
+.story-block,
+.about-block,
+.timeline-item,
+.letter-box,
+.family-card,
+.final-box {
+    margin-bottom: 25px;
+    padding: 28px 25px;
+    border: 1px solid rgba(180, 150, 175, 0.18);
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 12px 35px rgba(120, 90, 120, 0.06);
+    backdrop-filter: blur(10px);
+}
+.story-block h2,
+.about-block h2,
+.timeline-item h2,
+.letter-box h2,
+.family-card h2,
+.final-box h2 {
+    margin-bottom: 15px;
+    color: #80627a;
+    font-family: "Itim", sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+}
+.story-block p,
+.about-block p,
+.timeline-item p,
+.letter-box p,
+.family-card p,
+.final-box p {
+    color: #70636e;
+    line-height: 2;
+}
+/* =========================================================
+   ✦ FAMILY
+========================================================= */
+.family-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+.family-card {
+    text-align: center;
+}
+.family-card .family-icon {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 45px;
+}
+/* =========================================================
+   ✦ FINAL
+========================================================= */
+.final-box {
+    text-align: center;
+    padding: 45px 25px;
+}
+.final-box p {
+    margin: 12px 0;
+}
+.final-box .final-love {
+    margin-top: 30px;
+    color: #a66f91;
+    font-family: "Itim", sans-serif;
+    font-size: 25px;
+}
+/* =========================================================
+   ✦ PAGE TRANSITION
+========================================================= */
+body.page-leaving {
+    opacity: 0;
+    transition: opacity 0.45s ease;
+}
+/* =========================================================
+   ✦ SIMPLE ANIMATION
+========================================================= */
+@keyframes simpleShow {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
-
-.reasons-intro span {
-    display: block;
-
-    margin: 8px 0;
-
-    color: #c397c7;
-}
-
-
-/* =========================================================
-   ✦ REASON LIST
-========================================================= */
-
-.reasons-list {
-    display: grid;
-
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-
-    gap: 15px;
-}
-
-
-/* =========================================================
-   ✦ REASON CARD
-========================================================= */
-
-.reason-card {
-    position: relative;
-
-    display: flex;
-    align-items: flex-start;
-    gap: 14px;
-
-    min-height: 75px;
-
-    padding: 20px 19px;
-
-    border-radius: 21px;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255,255,255,.68),
-            rgba(255,250,255,.46)
-        );
-
-    border: 1px solid rgba(255,255,255,.88);
-
-    backdrop-filter: blur(10px);
-
-    box-shadow:
-        0 8px 25px rgba(150,120,165,.07);
-
-    overflow: hidden;
-
-    opacity: 0;
-    transform: translateY(25px);
-
-    transition:
-        opacity .6s ease,
-        transform .6s ease,
-        box-shadow .3s ease,
-        background .3s ease;
-}
-
-.reason-card.home-show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.reason-card:hover {
-    transform: translateY(-4px);
-    background: rgba(255,255,255,.85);
-
-    box-shadow:
-        0 14px 32px rgba(150,120,165,.13);
-}
-
-.reason-card::before {
-    content: "♡";
-
-    position: absolute;
-
-    right: 12px;
-    top: 8px;
-
-    font-size: 12px;
-
-    color: rgba(190,145,195,.3);
-}
-
-.reason-card > span {
-    flex: 0 0 32px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    width: 32px;
-    height: 32px;
-
-    border-radius: 50%;
-
-    background: rgba(229,203,233,.5);
-
-    font-family: "Playfair Display", serif;
-    font-size: 13px;
-
-    color: #9b789f;
-}
-
-.reason-card p {
-    flex: 1;
-
-    font-size: 15px;
-    line-height: 1.75;
-
-    color: #716372;
-
-    overflow-wrap: anywhere;
-}
-
-
-/* =========================================================
-   ✦ LONG REASONS
-   ข้อ 81-100 ยาว จึงให้เต็มความกว้าง
-========================================================= */
-
-.reason-card:nth-child(n + 81) {
-    grid-column: 1 / -1;
-}
-
-
-/* =========================================================
-   ✦ REASONS ENDING
-========================================================= */
-
-.reasons-ending {
-    width: min(680px, 100%);
-    margin: 60px auto 0;
-
-    padding: 35px 25px 70px;
-
-    text-align: center;
-
-    color: #7c697e;
-
-    line-height: 2;
-
-    opacity: 0;
-    transform: translateY(25px);
-
-    transition:
-        opacity 1s ease,
-        transform 1s ease;
-}
-
-.reasons-ending.home-show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.reasons-ending > span {
-    display: block;
-
-    margin: 12px 0;
-
-    color: #c494c9;
-}
-
-.reasons-ending p {
-    margin: 15px 0;
-}
-
-.reasons-love {
-    font-family: "Playfair Display", serif;
-    font-style: italic;
-
-    font-size: 22px;
-
-    color: #a174a8;
-}
-
-
-/* =========================================================
-   ✦ COMMON PAGE FADE
-========================================================= */
-
-.page-leaving {
-    opacity: 0 !important;
-}
-
-
 /* =========================================================
    ✦ MOBILE
 ========================================================= */
-
 @media (max-width: 700px) {
-
     .home-header {
-        padding-top: 35px;
+        padding-top: 40px;
     }
-
     .home-header h1 {
-        font-size: 36px;
+        font-size: 38px;
     }
-
     .home-intro {
         font-size: 14px;
     }
-
     .home-couple {
-        gap: 13px;
+        gap: 15px;
     }
-
     .home-photo {
-        width: 115px;
-        height: 115px;
+        width: 125px;
+        height: 125px;
     }
-
     .home-heart {
         font-size: 28px;
     }
-
     .home-links {
         grid-template-columns: 1fr;
     }
-
     .reasons-list {
         grid-template-columns: 1fr;
     }
-
-    /*
-       บนมือถือไม่ต้องบังคับข้อ 81-100
-       ให้ทุกข้อเต็มความกว้างอยู่แล้ว
-    */
-
-    .reason-card:nth-child(n + 81) {
-        grid-column: auto;
+    .memories-gallery {
+        grid-template-columns: 1fr;
     }
-
-    .reason-card {
-        padding: 17px 15px;
+    .family-grid {
+        grid-template-columns: 1fr;
     }
-
-    .reason-card p {
-        font-size: 14px;
-        line-height: 1.8;
-    }
-
-    .reasons-intro {
-        font-size: 14px;
-    }
-
-    .reasons-love {
-        font-size: 20px;
+    .story-block,
+    .about-block,
+    .timeline-item,
+    .letter-box,
+    .family-card,
+    .final-box {
+        padding: 22px 18px;
     }
 }
-
-
 /* =========================================================
-   ✦ VERY SMALL MOBILE
+   ✦ SMALL PHONES
 ========================================================= */
-
-@media (max-width: 390px) {
-
-    .home-header h1 {
-        font-size: 31px;
-    }
-
-    .home-logo {
-        font-size: 18px;
-    }
-
+@media (max-width: 400px) {
     .home-photo {
-        width: 95px;
-        height: 95px;
+        width: 105px;
+        height: 105px;
     }
-
-    .reason-card > span {
-        flex-basis: 29px;
-
-        width: 29px;
-        height: 29px;
-
-        font-size: 11px;
+    .home-header h1 {
+        font-size: 32px;
     }
-
+    .reason-card {
+        grid-template-columns: 34px 1fr;
+        padding: 15px;
+    }
     .reason-card p {
-        font-size: 13px;
+        font-size: 14px;
     }
 }
