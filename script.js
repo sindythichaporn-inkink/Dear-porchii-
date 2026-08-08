@@ -1515,3 +1515,35 @@ document.addEventListener(
         }, 450);
     }
 );
+/* =========================================================
+   ✦ FIX — SHOW CONTENT ON ALL MEMORY PAGES
+   ✦ ป้องกันข้อความหายจาก animation
+========================================================= */
+document.addEventListener("DOMContentLoaded", () => {
+    const selectors = [
+        ".page-header",
+        ".about-card",
+        ".story-section",
+        ".timeline-item",
+        ".memory-photo",
+        ".memories-note",
+        ".letter-paper",
+        ".letter-signature",
+        ".reason-item",
+        ".reason-card",
+        ".family-member",
+        ".corky-card",
+        ".final-message",
+        ".final-back"
+    ];
+    selectors.forEach(selector => {
+        document
+            .querySelectorAll(selector)
+            .forEach((element, index) => {
+                setTimeout(() => {
+                    element.classList.add("visible");
+                    element.classList.add("home-show");
+                }, 100 + (index * 80));
+            });
+    });
+});
