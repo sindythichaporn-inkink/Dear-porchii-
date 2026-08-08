@@ -505,3 +505,944 @@ body.cover-leaving {
         font-size: 10px;
     }
 }
+/* =========================================================
+   ✦ WEBSITE SHARED STYLE
+   ต่อจาก CSS เดิมของเธอได้เลย
+========================================================= */
+/* =========================================================
+   ✦ SHARED PAGE
+========================================================= */
+.home-page,
+.about-page,
+.story-page,
+.timeline-page,
+.memories-page,
+.letter-page,
+.reasons-page,
+.family-page,
+.final-page {
+    position: relative;
+    min-height: 100vh;
+    padding: 60px 20px 100px;
+    overflow: hidden;
+}
+.home-page::before,
+.about-page::before,
+.story-page::before,
+.timeline-page::before,
+.memories-page::before,
+.letter-page::before,
+.reasons-page::before,
+.family-page::before,
+.final-page::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(255, 214, 236, .38),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 85% 30%,
+            rgba(210, 225, 255, .38),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 50% 90%,
+            rgba(225, 210, 250, .35),
+            transparent 35%
+        );
+}
+/* =========================================================
+   ✦ COMMON HEADER
+========================================================= */
+.home-header,
+.page-header {
+    width: min(850px, 100%);
+    margin: 0 auto 55px;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(25px);
+    filter: blur(5px);
+    transition:
+        opacity .8s ease,
+        transform .8s ease,
+        filter .8s ease;
+}
+.home-header.home-show,
+.page-header.home-show {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+}
+.home-back,
+.page-back {
+    display: inline-block;
+    margin-bottom: 25px;
+    color: #987da3;
+    text-decoration: none;
+    font-size: 14px;
+    transition:
+        transform .3s ease,
+        color .3s ease;
+}
+.home-back:hover,
+.page-back:hover {
+    transform: translateX(-4px);
+    color: #765c82;
+}
+.home-logo,
+.page-logo {
+    font-family: "Playfair Display", serif;
+    color: #aa8eb6;
+    font-size: 14px;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+.home-small,
+.page-small {
+    color: #b8a8bd;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+.home-header h1,
+.page-header h1 {
+    margin: 18px 0;
+    font-family: "Playfair Display", serif;
+    font-size: clamp(42px, 8vw, 75px);
+    font-weight: 400;
+    font-style: italic;
+    background:
+        linear-gradient(
+            135deg,
+            #8f729e,
+            #c59ab7,
+            #8da4c5
+        );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+.home-intro,
+.page-intro {
+    color: #776a7b;
+    font-size: 16px;
+    line-height: 2;
+}
+/* =========================================================
+   ✦ HOME
+========================================================= */
+.home-main {
+    width: min(950px, 100%);
+    margin: auto;
+}
+.home-couple {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 35px;
+    margin-bottom: 45px;
+    opacity: 0;
+    transform: translateY(25px);
+    transition: .8s ease;
+}
+.home-couple.home-show {
+    opacity: 1;
+    transform: translateY(0);
+}
+.home-photo {
+    width: 190px;
+    height: 190px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.85),
+            rgba(248,235,250,.7)
+        );
+    border: 1px solid rgba(180,150,190,.2);
+    box-shadow:
+        0 15px 40px rgba(150,120,170,.15);
+    overflow: hidden;
+    animation: coupleFloat 5s ease-in-out infinite;
+}
+.home-photo:nth-child(3) {
+    animation-delay: 1s;
+}
+.home-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.home-heart {
+    font-size: 35px;
+    color: #c598b7;
+    animation: heartPulse 2.5s ease-in-out infinite;
+}
+@keyframes coupleFloat {
+    0%,100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+@keyframes heartPulse {
+    0%,100% {
+        transform: scale(1);
+        opacity: .7;
+    }
+    50% {
+        transform: scale(1.15);
+        opacity: 1;
+    }
+}
+/* =========================================================
+   ✦ MESSAGE CARD
+========================================================= */
+.home-message {
+    width: min(650px, 100%);
+    margin: 0 auto 55px;
+    padding: 35px 30px;
+    text-align: center;
+    border-radius: 30px;
+    background:
+        rgba(255,255,255,.58);
+    border:
+        1px solid rgba(190,160,200,.2);
+    box-shadow:
+        0 15px 50px rgba(150,120,170,.10);
+    backdrop-filter: blur(12px);
+    opacity: 0;
+    transform: translateY(25px);
+    transition: .8s ease;
+}
+.home-message.home-show {
+    opacity: 1;
+    transform: translateY(0);
+}
+.home-message span {
+    display: block;
+    margin: 10px 0;
+    color: #b799c0;
+}
+.home-message p {
+    margin: 10px 0;
+    line-height: 2;
+}
+/* =========================================================
+   ✦ MENU
+========================================================= */
+.home-links {
+    width: min(750px, 100%);
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+.home-link {
+    position: relative;
+    padding: 24px 25px 22px 65px;
+    text-decoration: none;
+    color: #66586c;
+    border-radius: 22px;
+    background:
+        rgba(255,255,255,.62);
+    border:
+        1px solid rgba(185,155,195,.18);
+    box-shadow:
+        0 10px 35px rgba(150,120,170,.08);
+    backdrop-filter: blur(10px);
+    opacity: 0;
+    transform: translateY(20px);
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease,
+        background .35s ease;
+}
+.home-link.home-show {
+    opacity: 1;
+    transform: translateY(0);
+}
+.home-link:hover {
+    transform: translateY(-5px);
+    background:
+        rgba(255,255,255,.82);
+    box-shadow:
+        0 18px 45px rgba(150,120,170,.15);
+}
+.home-link-number {
+    position: absolute;
+    left: 22px;
+    top: 24px;
+    font-family: "Playfair Display", serif;
+    color: #b49abb;
+    font-size: 13px;
+}
+.home-link strong {
+    display: block;
+    font-size: 17px;
+    font-weight: 500;
+}
+.home-link small {
+    display: block;
+    margin-top: 5px;
+    color: #a797aa;
+    font-size: 12px;
+}
+.home-ending {
+    margin: 70px auto 0;
+    text-align: center;
+    color: #9a8a9e;
+    line-height: 2;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: .8s ease;
+}
+.home-ending.home-show {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* =========================================================
+   ✦ ABOUT
+========================================================= */
+.about-content {
+    width: min(850px, 100%);
+    margin: auto;
+}
+.about-card {
+    margin-bottom: 25px;
+    padding: 35px;
+    border-radius: 28px;
+    background:
+        rgba(255,255,255,.62);
+    border:
+        1px solid rgba(185,155,195,.18);
+    box-shadow:
+        0 15px 45px rgba(150,120,170,.08);
+    backdrop-filter: blur(12px);
+}
+.about-card h2 {
+    margin-bottom: 20px;
+    font-family: "Playfair Display", serif;
+    font-weight: 400;
+    color: #96789f;
+}
+.about-card p {
+    line-height: 2;
+    margin-bottom: 12px;
+}
+.about-list {
+    display: grid;
+    gap: 12px;
+}
+.about-list-item {
+    padding: 18px 20px;
+    border-radius: 18px;
+    background:
+        rgba(250,245,252,.7);
+    transition:
+        transform .3s ease;
+}
+.about-list-item:hover {
+    transform: translateX(5px);
+}
+/* =========================================================
+   ✦ STORY
+========================================================= */
+.story-content {
+    width: min(800px, 100%);
+    margin: auto;
+}
+.story-section {
+    position: relative;
+    margin-bottom: 35px;
+    padding: 35px;
+    border-radius: 30px;
+    background:
+        rgba(255,255,255,.62);
+    border:
+        1px solid rgba(185,155,195,.18);
+    box-shadow:
+        0 15px 45px rgba(150,120,170,.08);
+    backdrop-filter: blur(12px);
+    opacity: 0;
+    transform: translateY(25px);
+    transition:
+        opacity .7s ease,
+        transform .7s ease;
+}
+.story-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+.story-section h2 {
+    margin-bottom: 20px;
+    font-family: "Playfair Display", serif;
+    font-weight: 400;
+    color: #96789f;
+}
+.story-section p {
+    line-height: 2.1;
+    margin-bottom: 12px;
+}
+.story-date {
+    display: inline-block;
+    margin-bottom: 12px;
+    color: #b394bc;
+    font-size: 13px;
+}
+/* =========================================================
+   ✦ TIMELINE
+========================================================= */
+.timeline {
+    width: min(800px, 100%);
+    margin: auto;
+    position: relative;
+}
+.timeline::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background:
+        linear-gradient(
+            to bottom,
+            transparent,
+            #ceb6d3,
+            transparent
+        );
+}
+.timeline-item {
+    position: relative;
+    width: 50%;
+    padding: 20px 40px;
+    opacity: 0;
+    transform: translateY(25px);
+    transition: .7s ease;
+}
+.timeline-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+.timeline-item:nth-child(odd) {
+    left: 0;
+    text-align: right;
+}
+.timeline-item:nth-child(even) {
+    left: 50%;
+}
+.timeline-dot {
+    position: absolute;
+    top: 30px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #c8a9d0;
+    box-shadow:
+        0 0 0 5px rgba(200,169,208,.15);
+}
+.timeline-item:nth-child(odd) .timeline-dot {
+    right: -6px;
+}
+.timeline-item:nth-child(even) .timeline-dot {
+    left: -6px;
+}
+.timeline-card {
+    padding: 25px;
+    border-radius: 25px;
+    background:
+        rgba(255,255,255,.62);
+    box-shadow:
+        0 12px 35px rgba(150,120,170,.08);
+}
+.timeline-card h3 {
+    color: #96789f;
+    margin-bottom: 10px;
+}
+.timeline-card p {
+    line-height: 1.9;
+}
+/* =========================================================
+   ✦ MEMORIES / GALLERY
+========================================================= */
+.memories-gallery {
+    width: min(1000px, 100%);
+    margin: auto;
+    display: grid;
+    grid-template-columns:
+        repeat(3, 1fr);
+    gap: 25px;
+}
+.memory-month {
+    grid-column: 1 / -1;
+    margin-top: 30px;
+    margin-bottom: 5px;
+    text-align: center;
+    font-family: "Playfair Display", serif;
+    font-size: 30px;
+    font-style: italic;
+    color: #9b7ea4;
+}
+.memory-photo {
+    margin: 0;
+    padding: 14px;
+    border-radius: 20px;
+    background:
+        rgba(255,255,255,.72);
+    box-shadow:
+        0 12px 35px rgba(150,120,170,.10);
+    transform:
+        translateY(20px)
+        rotate(var(--rotation, 0deg));
+    opacity: 0;
+    transition:
+        opacity .7s ease,
+        transform .7s ease,
+        box-shadow .3s ease;
+}
+.memory-photo.visible {
+    opacity: 1;
+    transform:
+        translateY(0)
+        rotate(var(--rotation, 0deg));
+}
+.memory-photo:hover {
+    transform:
+        translateY(-7px)
+        rotate(0deg);
+    box-shadow:
+        0 20px 45px rgba(150,120,170,.18);
+}
+.memory-image {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-radius: 15px;
+    background:
+        linear-gradient(
+            135deg,
+            #faf5fb,
+            #f0eafa
+        );
+}
+.memory-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition:
+        transform .6s ease;
+}
+.memory-photo:hover img {
+    transform: scale(1.05);
+}
+.memory-photo figcaption {
+    padding: 12px 5px 5px;
+    text-align: center;
+}
+.memory-photo figcaption span {
+    font-family: "Playfair Display", serif;
+    color: #b095b8;
+    font-size: 12px;
+}
+.memory-photo figcaption p {
+    margin-top: 3px;
+    font-size: 13px;
+}
+/* =========================================================
+   ✦ LETTER
+========================================================= */
+.letter-wrap {
+    width: min(750px, 100%);
+    margin: auto;
+}
+.letter-paper {
+    position: relative;
+    padding: 55px 50px;
+    border-radius: 8px;
+    background:
+        linear-gradient(
+            135deg,
+            #fffdf8,
+            #fff9fc
+        );
+    box-shadow:
+        0 25px 70px rgba(150,120,150,.15);
+    border:
+        1px solid rgba(190,160,180,.2);
+}
+.letter-paper::before {
+    content: "♡";
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    font-size: 25px;
+    color: #d2b2c4;
+}
+.letter-paper p {
+    margin-bottom: 18px;
+    line-height: 2.2;
+}
+.letter-title {
+    margin-bottom: 30px;
+    text-align: center;
+    font-family: "Playfair Display", serif;
+    font-size: 32px;
+    font-style: italic;
+    color: #96789f;
+}
+.letter-sign {
+    margin-top: 35px;
+    text-align: right;
+    color: #9c849f;
+}
+/* =========================================================
+   ✦ 100 REASONS
+========================================================= */
+.reasons-container {
+    width: min(850px, 100%);
+    margin: auto;
+    display: grid;
+    grid-template-columns:
+        repeat(2, 1fr);
+    gap: 15px;
+}
+.reason-card {
+    position: relative;
+    padding: 20px 20px 20px 55px;
+    border-radius: 20px;
+    background:
+        rgba(255,255,255,.65);
+    border:
+        1px solid rgba(185,155,195,.15);
+    box-shadow:
+        0 8px 25px rgba(150,120,170,.07);
+    opacity: 0;
+    transform: translateY(15px);
+    transition:
+        opacity .6s ease,
+        transform .6s ease,
+        box-shadow .3s ease;
+}
+.reason-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+.reason-card:hover {
+    transform: translateY(-4px);
+    box-shadow:
+        0 15px 35px rgba(150,120,170,.13);
+}
+.reason-number {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    font-family: "Playfair Display", serif;
+    color: #b492bd;
+}
+/* =========================================================
+   ✦ FAMILY / CORKY
+========================================================= */
+.family-container {
+    width: min(950px, 100%);
+    margin: auto;
+}
+.family-intro {
+    width: min(650px, 100%);
+    margin: 0 auto 50px;
+    text-align: center;
+    line-height: 2;
+}
+.family-grid {
+    display: grid;
+    grid-template-columns:
+        repeat(5, 1fr);
+    gap: 18px;
+    align-items: end;
+}
+.corky-card {
+    text-align: center;
+    padding: 18px 10px;
+    border-radius: 25px;
+    background:
+        rgba(255,255,255,.65);
+    box-shadow:
+        0 12px 35px rgba(150,120,170,.09);
+    transition:
+        transform .4s ease;
+}
+.corky-card:hover {
+    transform: translateY(-8px);
+}
+.corky-image {
+    height: 180px;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+}
+.corky-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    animation:
+        corkyFloat 4s ease-in-out infinite;
+}
+.corky-card:nth-child(2) img {
+    animation-delay: .5s;
+}
+.corky-card:nth-child(3) img {
+    animation-delay: 1s;
+}
+.corky-card:nth-child(4) img {
+    animation-delay: 1.5s;
+}
+.corky-card:nth-child(5) img {
+    animation-delay: 2s;
+}
+@keyframes corkyFloat {
+    0%,100% {
+        transform:
+            translateY(0)
+            rotate(0deg);
+    }
+    25% {
+        transform:
+            translateY(-5px)
+            rotate(-1deg);
+    }
+    75% {
+        transform:
+            translateY(-8px)
+            rotate(1deg);
+    }
+}
+.corky-card h3 {
+    margin-top: 12px;
+    color: #8f729a;
+}
+.corky-card p {
+    margin-top: 4px;
+    color: #a292a7;
+    font-size: 12px;
+}
+/* =========================================================
+   ✦ FINAL
+========================================================= */
+.final-content {
+    width: min(750px, 100%);
+    margin: auto;
+    text-align: center;
+}
+.final-heart {
+    font-size: 45px;
+    color: #c49bb5;
+    animation:
+        heartPulse 2.5s ease-in-out infinite;
+}
+.final-content h2 {
+    margin: 25px 0;
+    font-family: "Playfair Display", serif;
+    font-size: clamp(35px, 7vw, 60px);
+    font-weight: 400;
+    font-style: italic;
+    color: #94769e;
+}
+.final-content p {
+    line-height: 2.2;
+    margin-bottom: 15px;
+}
+.final-dream {
+    margin-top: 45px;
+    padding: 35px;
+    border-radius: 30px;
+    background:
+        rgba(255,255,255,.62);
+    box-shadow:
+        0 15px 45px rgba(150,120,170,.09);
+}
+.final-dream h3 {
+    margin-bottom: 20px;
+    color: #9a7ca3;
+}
+/* =========================================================
+   ✦ FLOATING BACKGROUND HEARTS
+========================================================= */
+.page-sparkles {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: -1;
+}
+.page-sparkles span {
+    position: absolute;
+    color: rgba(185,155,195,.35);
+    animation:
+        pageSparkle 7s ease-in-out infinite;
+}
+.page-sparkles span:nth-child(1) {
+    top: 15%;
+    left: 10%;
+}
+.page-sparkles span:nth-child(2) {
+    top: 35%;
+    right: 12%;
+    animation-delay: 1s;
+}
+.page-sparkles span:nth-child(3) {
+    top: 70%;
+    left: 15%;
+    animation-delay: 2s;
+}
+.page-sparkles span:nth-child(4) {
+    bottom: 10%;
+    right: 20%;
+    animation-delay: 3s;
+}
+@keyframes pageSparkle {
+    0%,100% {
+        transform:
+            translateY(0)
+            rotate(0deg);
+        opacity: .3;
+    }
+    50% {
+        transform:
+            translateY(-20px)
+            rotate(10deg);
+        opacity: .7;
+    }
+}
+/* =========================================================
+   ✦ PAGE LEAVING
+========================================================= */
+body.page-leaving {
+    animation:
+        sharedPageLeave .45s ease forwards;
+}
+@keyframes sharedPageLeave {
+    from {
+        opacity: 1;
+        filter: blur(0);
+    }
+    to {
+        opacity: 0;
+        filter: blur(8px);
+    }
+}
+/* =========================================================
+   ✦ MOBILE
+========================================================= */
+@media (max-width: 768px) {
+    .home-page,
+    .about-page,
+    .story-page,
+    .timeline-page,
+    .memories-page,
+    .letter-page,
+    .reasons-page,
+    .family-page,
+    .final-page {
+        padding:
+            40px 14px 70px;
+    }
+    .home-links {
+        grid-template-columns: 1fr;
+    }
+    .home-couple {
+        gap: 12px;
+    }
+    .home-photo {
+        width: 140px;
+        height: 140px;
+    }
+    .home-heart {
+        font-size: 27px;
+    }
+    .about-card,
+    .story-section {
+        padding: 25px 20px;
+    }
+    .timeline::before {
+        left: 12px;
+    }
+    .timeline-item,
+    .timeline-item:nth-child(even),
+    .timeline-item:nth-child(odd) {
+        width: 100%;
+        left: 0;
+        padding:
+            15px 0 15px 40px;
+        text-align: left;
+    }
+    .timeline-item:nth-child(odd) .timeline-dot,
+    .timeline-item:nth-child(even) .timeline-dot {
+        left: 6px;
+        right: auto;
+    }
+    .memories-gallery {
+        grid-template-columns:
+            repeat(2, 1fr);
+        gap: 14px;
+    }
+    .memory-photo {
+        padding: 9px;
+    }
+    .memory-photo figcaption p {
+        font-size: 11px;
+    }
+    .reasons-container {
+        grid-template-columns: 1fr;
+    }
+    .letter-paper {
+        padding: 40px 25px;
+    }
+    .family-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+    .family-grid .corky-card:first-child {
+        grid-column: 1 / -1;
+    }
+    .corky-image {
+        height: 150px;
+    }
+}
+/* =========================================================
+   ✦ VERY SMALL MOBILE
+========================================================= */
+@media (max-width: 420px) {
+    .home-photo {
+        width: 115px;
+        height: 115px;
+    }
+    .home-header h1,
+    .page-header h1 {
+        font-size: 43px;
+    }
+    .home-intro,
+    .page-intro {
+        font-size: 14px;
+    }
+    .memories-gallery {
+        grid-template-columns: 1fr;
+    }
+    .family-grid {
+        grid-template-columns: 1fr;
+    }
+    .family-grid .corky-card:first-child {
+        grid-column: auto;
+    }
+    .corky-image {
+        height: 190px;
+    }
+}
