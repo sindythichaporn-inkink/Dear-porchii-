@@ -968,3 +968,106 @@ document.addEventListener("DOMContentLoaded", () => {
         );
     });
 });
+/* =========================================================
+   ✦ LETTER PAGE SCRIPT
+   ✦ ADD TO THE END OF script.js
+   ✦ ไม่ต้องลบของเดิม
+========================================================= */
+document.addEventListener("DOMContentLoaded", () => {
+    const letterPage =
+        document.querySelector(".letter-page");
+    if (!letterPage) {
+        return;
+    }
+    /* =====================================================
+       ✦ HEADER
+    ===================================================== */
+    const header =
+        letterPage.querySelector(
+            ".page-header"
+        );
+    if (header) {
+        setTimeout(() => {
+            header.classList.add(
+                "visible"
+            );
+        }, 180);
+    }
+    /* =====================================================
+       ✦ LETTER PAPER
+    ===================================================== */
+    const papers =
+        letterPage.querySelectorAll(
+            ".letter-paper"
+        );
+    papers.forEach(
+        (paper, index) => {
+            paper.style.transitionDelay =
+                `${index * 180}ms`;
+        }
+    );
+    /* =====================================================
+       ✦ SIGNATURE
+    ===================================================== */
+    const signatures =
+        letterPage.querySelectorAll(
+            ".letter-signature"
+        );
+    signatures.forEach(
+        (signature, index) => {
+            signature.style.transitionDelay =
+                `${700 + index * 150}ms`;
+        }
+    );
+    /* =====================================================
+       ✦ SCROLL REVEAL
+    ===================================================== */
+    const revealElements = [
+        ...papers,
+        ...signatures
+    ];
+    if (
+        "IntersectionObserver"
+        in window
+    ) {
+        const observer =
+            new IntersectionObserver(
+                entries => {
+                    entries.forEach(
+                        entry => {
+                            if (
+                                entry.isIntersecting
+                            ) {
+                                entry.target.classList.add(
+                                    "visible"
+                                );
+                                observer.unobserve(
+                                    entry.target
+                                );
+                            }
+                        }
+                    );
+                },
+                {
+                    threshold: .12,
+                    rootMargin:
+                        "0px 0px -45px 0px"
+                }
+            );
+        revealElements.forEach(
+            element => {
+                observer.observe(
+                    element
+                );
+            }
+        );
+    } else {
+        revealElements.forEach(
+            element => {
+                element.classList.add(
+                    "visible"
+                );
+            }
+        );
+    }
+});
