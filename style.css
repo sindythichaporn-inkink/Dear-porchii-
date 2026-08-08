@@ -3901,3 +3901,36 @@ main {
         font-size: 11px;
     }
 }
+/* =========================================================
+   ✦ FIX — SHOW PAGE CONTENT
+   ✦ แก้ข้อความ/เนื้อหาหายจาก animation
+========================================================= */
+/* ให้เนื้อหาหลักกลับมาแสดง */
+.about-page .about-card,
+.story-page .story-section,
+.timeline-page .timeline-item,
+.memories-page .memory-photo,
+.letter-page .letter-paper,
+.reasons-page .reason-item,
+.family-page .family-member,
+.final-page .final-message {
+    opacity: 1 !important;
+    filter: none !important;
+}
+/* ไม่ให้ animation เดิมซ่อนเนื้อหา */
+.about-page .about-card,
+.story-page .story-section,
+.timeline-page .timeline-item,
+.memories-page .memory-photo,
+.letter-page .letter-paper,
+.reasons-page .reason-item,
+.family-page .family-member,
+.final-page .final-message {
+    transform: none;
+}
+/* Header ทุกหน้า */
+.page-header {
+    opacity: 1 !important;
+    filter: none !important;
+    transform: none !important;
+}
