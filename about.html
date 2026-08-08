@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>About Us ♡ Dear Porch</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        .about-page {
+            min-height: 100vh;
+            padding: 45px 15px 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-container {
+            width: min(900px, 94vw);
+            margin: auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .about-header {
+            text-align: center;
+            margin-bottom: 40px;
+            animation: aboutTitle .9s ease both;
+        }
+
+        .about-header h1 {
+            font-size: clamp(35px, 9vw, 55px);
+            color: #85618f;
+            text-shadow:
+                0 3px 0 white,
+                0 8px 20px rgba(120,80,140,.15);
+        }
+
+        .about-header p {
+            color: #a889b0;
+        }
+
+        @keyframes aboutTitle {
+            from {
+                opacity: 0;
+                transform: translateY(-25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+        /* CARD */
+
+        .about-card {
+            margin: 25px auto;
+            padding: 28px 25px;
+
+            background: rgba(255,255,255,.65);
+
+            border: 1px solid rgba(170,135,180,.28);
+
+            border-radius: 30px;
+
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+
+            box-shadow:
+                0 18px 50px rgba(120,80,140,.10),
+                inset 0 0 30px rgba(255,255,255,.7);
+
+            opacity: 0;
+            transform: translateY(35px);
+
+            animation: aboutReveal .8s ease forwards;
+        }
+
+        .about-card:nth-of-type(2) {
+            animation-delay: .15s;
+        }
+
+        .about-card:nth-of-type(3) {
+            animation-delay: .3s;
+        }
+
+        .about-card:nth-of-type(4) {
+            animation-delay: .45s;
+        }
+
+        .about-card:nth-of-type(5) {
+            animation-delay: .6s;
+        }
+
+        @keyframes aboutReveal {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+        /* TITLE */
+
+        .about-title {
+            text-align: center;
+
+            color: #8c6795;
+
+            font-size: 24px;
+
+            margin-bottom: 20px;
+        }
+
+        .about-title::after {
+            content: "";
+
+            display: block;
+
+            width: 80px;
+            height: 2px;
+
+            margin: 9px auto;
+
+            background: linear-gradient(
+                90deg,
+                transparent,
+                #c7a3cd,
+                transparent
+            );
+        }
+
+
+        /* TEXT */
+
+        .about-card p {
+            color: #66576d;
+
+            font-size: 16px;
+
+            line-height: 2;
+
+            margin: 13px 0;
+        }
+
+        .important {
+            color: #8c6298;
+            font-weight: 600;
+        }
+
+
+        /* NUMBER LIST */
+
+        .proud-list {
+            list-style: none;
+
+            padding: 0;
+            margin: 0;
+        }
+
+        .proud-list li {
+            margin: 13px 0;
+
+            padding: 15px 17px;
+
+            background: rgba(244,234,247,.55);
+
+            border-radius: 18px;
+
+            color: #66576d;
+
+            line-height: 1.8;
+
+            transition: .3s ease;
+        }
+
+        .proud-list li:hover {
+            transform: translateX(7px);
+
+            background: rgba(237,219,241,.8);
+
+            box-shadow:
+                0 8px 20px rgba(120,80,140,.08);
+        }
+
+        .number {
+            color: #a17baa;
+            font-weight: bold;
+        }
+
+
+        /* DREAM CARD */
+
+        .dream-box {
+            text-align: center;
+
+            padding: 22px;
+
+            margin-top: 15px;
+
+            border-radius: 24px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(247,235,250,.7),
+                    rgba(255,255,255,.7)
+                );
+        }
+
+        .dream-box p {
+            margin: 8px 0;
+        }
+
+
+        /* FLOATING GLITTER */
+
+        .about-glitter {
+            position: fixed;
+            inset: 0;
+
+            pointer-events: none;
+
+            z-index: 1;
+        }
+
+        .about-glitter span {
+            position: absolute;
+
+            color: rgba(181,145,194,.65);
+
+            animation:
+                aboutFloat 6s ease-in-out infinite,
+                aboutBlink 2s ease-in-out infinite;
+        }
+
+        .about-glitter span:nth-child(1) {
+            left: 8%;
+            top: 20%;
+        }
+
+        .about-glitter span:nth-child(2) {
+            left: 90%;
+            top: 30%;
+            animation-delay: -1s;
+        }
+
+        .about-glitter span:nth-child(3) {
+            left: 12%;
+            top: 75%;
+            animation-delay: -2s;
+        }
+
+        .about-glitter span:nth-child(4) {
+            left: 84%;
+            top: 78%;
+            animation-delay: -3s;
+        }
+
+        @keyframes aboutFloat {
+            0%,100% {
+                transform: translateY(0) rotate(0);
+            }
+
+            50% {
+                transform: translateY(-25px) rotate(180deg);
+            }
+        }
+
+        @keyframes aboutBlink {
+            0%,100% {
+                opacity: .2;
+            }
+
+            50% {
+                opacity: 1;
+            }
+        }
+
+
+        /* BACK */
+
+        .about-back {
+            display: block;
+
+            width: fit-content;
+
+            margin: 45px auto 0;
+
+            padding: 12px 24px;
+
+            border-radius: 999px;
+
+            background: rgba(255,255,255,.7);
+
+            border: 1px solid rgba(160,125,175,.25);
+
+            color: #7d5d84;
+
+            text-decoration: none;
+
+            transition: .3s ease;
+        }
+
+        .about-back:hover {
+            transform: translateY(-4px) scale(1.04);
+        }
+
+
+        @media(max-width:600px) {
+
+            .about-card {
+                padding: 22px 18px;
+                border-radius: 23px;
+            }
+
+            .about-card p,
+            .proud-list li {
+                font-size: 15px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <main class="about-page">
+
+        <!-- GLITTER -->
+
+        <div class="about-glitter">
+
+            <span>✦</span>
+            <span>✧</span>
+            <span>˚</span>
+            <span>⋆</span>
+
+        </div>
+
+
+        <div class="about-container">
+
+
+            <!-- HEADER -->
+
+            <header class="about-header">
+
+                <h1>
+                    ✦ ݁ ˖ ɑׁׅ֮ϐׁׅ֒ᨵׁׅυׁׅtׁׅ ᥙׁׅ꯱ׁׅ֒ ✦
+                </h1>
+
+                <p>
+                    เรื่องเล็ก ๆ ที่เค้าอยากให้เธอรู้ ♡
+                </p>
+
+            </header>
+
+
+            <!-- สิ่งแรก -->
+
+            <section class="about-card">
+
+                <h2 class="about-title">
+                    𓂃 ࣪˖ ִֶָ𐀔
+                    สิ่งแรกที่ทำให้เค้าชอบเธอ
+                </h2>
+
+                <p>
+                    สิ่งแรกที่ทำให้รู้สึกชอบเธอ
+                    เพราะว่าเธอดูโตมาก
+                    ดูพึ่งพาได้
+                    แล้วก็ดูตั้งใจเรียนมากก
+                    ไม่เกเร
+                </p>
+
+                <p>
+                    มันรู้สึกมีออร่าของความมีเสน่ห์
+                </p>
+
+                <p>
+                    แต่ถ้าเอาจริง ๆ นะ
+                </p>
+
+                <p class="important">
+                    หล่อ
+                </p>
+
+                <p>
+                    จริง ๆ เค้าเคยมองว่าเธอหล่อมาตั้งแต่มต้นแล้วแหละ
+                    พอแบบนี้เค้าเลยยิ่งชอบอะ
+                </p>
+
+                <p>
+                    ที่อธิบายมามันไม่ใช่สิ่งแรกแล้วแหละ
+                    ทำไงได้มันมีหลายอย่างอะ 🥹
+                </p>
+
+            </section>
+
+
+            <!-- เธอเป็นคนแบบไหน -->
+
+            <section class="about-card">
+
+                <h2 class="about-title">
+                    𓂃 ࣪˖ ִֶָ🪽
+                    เธอเป็นคนแบบไหน ?
+                </h2>
+
+                <p>
+                    สำหรับเค้าเธอเป็นคนที่โตมาก
+                    ทัศนคติดีมาก ๆ
+                </p>
+
+                <p>
+                    ในระหว่างที่เป็นคนคุยถึงปัจจุบัน
+                    เวลาเค้าถามอะไรต่าง ๆ
+                    เธอก็ตอบได้ดีนะ
+                    เค้ามองเห็นถึงทัศนคติเลย
+                    ว่าเป็นคนยังไงแบบไหน
+                </p>
+
+                <p>
+                    ดูฝากชีวิตไว้ด้วยได้
+                    วางแผนชีวิตให้เค้าฟัง
+                    เธอเล่าว่าจะทำธุรกิจอะไรบ้าง
+                </p>
+
+                <p class="important">
+                    ทำให้เค้าคล้อยตามอะ
+                    แบบเห้ยเซ็กซี่อะ
+                </p>
+
+                <p>
+                    ดูแลดีมาก ๆ ๆ
+                    คอยทำทุกอย่างให้เค้าสบายตลอดเลย
+                </p>
+
+                <p>
+                    ไปทิ้งขยะ
+                    เก็บจานให้ในตอนที่เค้ากินข้าวเสร็จ
+                    คอยไปเอานู้นนี่ให้เค้า
+                    คอยดูแลเค้าตลอด
+                </p>
+
+                <p>
+                    ถือกระเป๋าให้ตลอด
+                    ไม่ยอมให้เค้าทำอะไรเองเลย
+                    กินข้าวด้วยกันตลอด
+                    ไปไหนก็ไปด้วยกัน
+                    ตัวติดเค้ามาก ๆ
+                </p>
+
+                <p>
+                    เป็นตลกนะ
+                    ทำให้เค้ายิ้มได้ตลอดอะ
+                </p>
+
+                <p>
+                    เค้าว่าเค้าขำยาก
+                    แต่พอมีเธอ
+                    เค้าเป็นคนที่ยิ้มง่าย ขำง่าย
+                </p>
+
+                <p>
+                    เธอเคยบอกกับเค้าว่า
+                    เธอชอบทำให้คนอื่นยิ้ม
+                </p>
+
+                <p class="important">
+                    เค้าจะบอกว่าเธอประสบความสำเร็จมาก ๆ เลยนะ
+                    เค้ายิ้มได้ตลอดเลย
+                </p>
+
+                <p>
+                    เธอไม่ได้เป็นคนเรื่องมากนะ
+                    อะไรก็ได้ ยังไงก็ได้
+                    เป็นคนวางตัวดีมากกก
+                </p>
+
+                <p>
+                    พ่อกับแม่เค้าชอบ
+                    ทำให้พ่อแม่เค้ายอมรับได้ง่าย ๆ
+                </p>
+
+                <p>
+                    เอาจริงเค้าคิดว่ามันเป็นเรื่องยาก
+                    แต่เธอทำให้มันเป็นเรื่องง่าย
+                </p>
+
+                <p>
+                    ตั้งแต่มีเธอ
+                    ชีวิตความรักเค้าไม่มีอุปสรรคเลยนะ
+                </p>
+
+                <p>
+                    เค้าบอกไม่ให้ทำอะไรก็ไม่ทำ
+                    ใจเย็นมาก ๆ
+                    ไม่หงุดหงิดเลย
+                    รับฟังเค้าตลอด
+                </p>
+
+                <p class="important">
+                    เค้ารู้สึกระบายได้ทุกเรื่อง
+                    พูดกับเธอได้ทุกเรื่อง
+                    เค้ารู้สึกอุ่นใจมากที่มีเธอ
+                </p>
+
+                <p>
+                    เธอชอบชมเค้าตลอดเลยยย
+                </p>
+
+                <p>
+                    แล้วก็เธอเป็นคนสุภาพมากกก
+                    เค้าชอบมากเลยนะ
+                    เค้าไม่เบื่อเลย
+                </p>
+
+            </section>
+
+
+            <!-- 5 สิ่ง -->
+
+            <section class="about-card">
+
+                <h2 class="about-title">
+                    𓂃 ࣪˖ ִֶָ🌷
+                    5 สิ่งที่เค้าภูมิใจในตัวเธอ
+                </h2>
+
+                <ol class="proud-list">
+
+                    <li>
+                        <span class="number">01.</span>
+                        ภูมิใจที่มีเธอ
+                    </li>
+
+                    <li>
+                        <span class="number">02.</span>
+                        ภูมิใจมาก ๆ ที่เธอตั้งใจเรียน
+                        สำหรับเค้าเธอเก่งไม่แพ้ใครเลย
+                        เก่งกีฬา วิทย์ คณิต
+                        ไม่กินเหล้า ไม่สูบบุหรี่ ไม่เที่ยวกลางคืน
+                    </li>
+
+                    <li>
+                        <span class="number">03.</span>
+                        ภูมิใจมากที่พ่อกับแม่เค้ารักเธอ
+                        เหมือนที่เค้ารักเธอ
+                    </li>
+
+                    <li>
+                        <span class="number">04.</span>
+                        ภูมิใจมากที่เธอคอยทำทุกอย่าง
+                        เพื่อให้เรายังมีกันและกันในทุกวันนี้
+                        ถึงแม้จะเป็นวันที่เค้าไม่น่ารักกับเธอ
+                        เธอก็ไม่เคยทิ้งเค้าไปไหน
+                    </li>
+
+                    <li>
+                        <span class="number">05.</span>
+                        ภูมิใจที่เธอได้เกิดมาบนโลกใบนี้
+                        เติบโตมาเป็นอย่างดี
+                        ช่วงเวลาและสถานที่ใกล้กัน
+                        ทำให้เราได้เจอกัน
+                        แล้วได้เป็นแฟนกันแบบนี้
+                    </li>
+
+                </ol>
+
+            </section>
+
+
+            <!-- ดูแล -->
+
+            <section class="about-card">
+
+                <h2 class="about-title">
+                    𓂃 ࣪˖ ִֶָ🎀
+                    เวลาพอร์ชดูแลอิ๊งค์
+                </h2>
+
+                <p>
+                    ก็ทำทุกอย่างที่เธอทำได้
+                    ให้เค้าสบายที่สุดนะ
+                </p>
+
+                <p>
+                    แบกกระเป๋าให้
+                    ไปเอาของแทนเค้า
+                    ทิ้งขยะให้โดยที่เค้าไม่ต้องบอก
+                    เก็บจานงี้
+                </p>
+
+                <p class="important">
+                    เค้าไม่ต้องทำอะไรเองเลย
+                </p>
+
+                <p>
+                    เค้าบอกให้เธอซื้ออะไรให้
+                    ก็ซื้อให้ตลอด
+                    ไม่เคยทวงตังเค้าเลยนะ
+                </p>
+
+                <p>
+                    ตอนเค้าเก็บตัง
+                    เธอก็บอกว่าจะเลี้ยงข้าวเค้า
+                </p>
+
+                <p>
+                    บางทีเธอก็ยอมอดยอมลำบากเพื่อเค้า TT
+                </p>
+
+            </section>
+
+
+            <!-- อยู่ด้วยกัน -->
+
+            <section class="about-card">
+
+                <h2 class="about-title">
+                    𓂃 ࣪˖ ִֶָ🤍
+                    คนนี้แหละ ที่เค้าอยากอยู่ด้วยไปนาน ๆ
+                </h2>
+
+                <p>
+                    ก็ทุกอย่างเลยที่เธอทำ
+                    มันทำให้เค้าคิดนะว่า
+                    การที่เค้าเจอคนแบบนี้ในชีวิต
+                    มันเป็นเรื่องที่ดีมาก ๆ เลย
+                </p>
+
+                <p>
+                    การที่เรามีแพลนในชีวิตด้วยกัน
+                    อยากจะทำอะไรด้วยกัน
+                </p>
+
+                <p class="important">
+                    เธอทำให้ชีวิตเค้ามันง่ายอะ
+                </p>
+
+                <p>
+                    เค้าคิดไปถึงแต่งงาน
+                </p>
+
+                <p>
+                    เค้าคิดว่าถ้าเราได้แต่งงานกับเธอ
+                    เค้าคงไม่ใช่ภรรยาที่ต้องเป็นแม่บ้าน
+                    แต่จะเป็นภรรยาที่มีความสุขที่สุดอะ
+                </p>
+
+                <p>
+                    เพราะเธอไม่อยากให้เค้าลำบากเลย
+                </p>
+
+                <p>
+                    เธอพยายามใส่ใจเค้า
+                </p>
+
+                <p>
+                    ในตอนที่เค้าทำตัวไม่น่ารัก
+                    เธอก็ไม่เคยคิดจะทิ้งเค้าเลยซักครั้งหนึ่ง
+                </p>
+
+                <p>
+                    ไม่กินเหล้า
+                    ไม่สูบบุหรี่
+                </p>
+
+                <p>
+                    พ่อแม่เค้าชอบ
+                </p>
+
+                <p class="important">
+                    แบบทำให้เค้ารู้สึกว่า
+                    ดีจังเลย
+                    โชคดีที่เราได้เป็นแฟนกัน
+                    แล้วก็อยากอยู่แบบนี้ไปนาน ๆ
+                </p>
+
+            </section>
+
+
+            <!-- DREAM -->
+
+            <section class="about-card">
+
+                <h2 class="about-title">
+                    ♡ ความฝันที่เค้าอยากมีร่วมกับเธอ
+                </h2>
+
+                <div class="dream-box">
+
+                    <p>🏡 อยากมีบ้านด้วยกัน</p>
+
+                    <p>🐶 อยากเลี้ยงหมา</p>
+
+                    <p>🐱 อยากเลี้ยงแมว</p>
+
+                    <p>👶 อยากมีลูก 3 คน</p>
+
+                    <p>✈️ อยากพากันไปเที่ยวหลาย ๆ ที่</p>
+
+                    <p>🌷 อยากเติบโตไปด้วยกัน</p>
+
+                    <p class="important">
+                        🤍 และอยากอยู่ในชีวิตของกันและกันไปนาน ๆ
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <a href="index.html" class="about-back">
+                ♡ กลับไปหน้าแรก
+            </a>
+
+
+        </div>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
