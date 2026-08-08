@@ -1,174 +1,273 @@
-document.addEventListener(“DOMContentLoaded”, () => {
-
-/* =====================================================
-   PAGE LOAD FADE
-===================================================== */
-document.body.classList.remove("page-leaving");
-/* =====================================================
-   PAGE TRANSITION
-   กดลิงก์ → จางออก → เปลี่ยนหน้า
-===================================================== */
-const pageLinks = document.querySelectorAll(
-    'a[href$=".html"]'
-);
-pageLinks.forEach(link => {
-    link.addEventListener("click", function (event) {
-        const href = this.getAttribute("href");
-        if (
-            !href ||
-            href.startsWith("#") ||
-            href.startsWith("http") ||
-            this.target === "_blank"
-        ) {
-            return;
-        }
-        event.preventDefault();
-        document.body.classList.add(
-            "page-leaving"
-        );
-        setTimeout(() => {
-            window.location.href = href;
-        }, 450);
-    });
-});
-/* =====================================================
-   FULL TYPING MESSAGE — INDEX
-===================================================== */
-const typing =
-    document.getElementById("typingText");
-if (typing) {
-    const messages = [
-        "สวัสดี 𐔌՞ ܸ.ˬ.ܸ՞𐦯",
-        "พอร์ช!?!",
-        "ใช่ไหม… ^_____^",
-        "งั้นก็คงเป็นแฟนของอิ๊งค์สินะ 𐔌՞ ܸ. .ܸ՞𐦯",
-        "รู้ไหม…",
-        "แฟนของเธอตั้งใจทำเว็บไซต์นี้",
-        "เพื่อเธอมาก ๆ เลยนะ ૮₍ ˃ ⤙ ˂ ₎ა",
-        "ทุกภาพ ทุกความทรงจำ",
-        "และทุกข้อความในนี้",
-        "ล้วนเป็นสิ่งที่อิ๊งค์ตั้งใจเก็บเอาไว้",
-        "เพื่อให้เธอได้กลับมายิ้มกับมันอีกครั้ง ‹𝟹"
-    ];
-    typing.innerHTML = "";
-    let messageIndex = 0;
-    let characterIndex = 0;
-    function createLine() {
-        const line =
-            document.createElement("div");
-        line.className =
-            "typing-line";
-        typing.appendChild(line);
-        return line;
-    }
-    let currentLine =
-        createLine();
-    function typeWriter() {
-        if (
-            messageIndex >=
-            messages.length
-        ) {
-            showButton();
-            return;
-        }
-        const message =
-            messages[messageIndex];
-        if (
-            characterIndex <
-            message.length
-        ) {
-            currentLine.textContent +=
-                message.charAt(
-                    characterIndex
-                );
-            characterIndex++;
-            setTimeout(
-                typeWriter,
-                65
+/* =========================================================
+   DEAR PORCH ♡
+   COMPLETE SCRIPT
+   ========================================================= */
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
+        /* =================================================
+           01 — PAGE READY
+        ================================================= */
+        document.body.classList.add("page-ready");
+        /* =================================================
+           02 — FADE / SCROLL REVEAL
+        ================================================= */
+        const revealElements =
+            document.querySelectorAll(
+                ".fade-up, .fade-in, .slide-left, .slide-right, .memory-photo"
             );
-            return;
-        }
-        messageIndex++;
-        characterIndex = 0;
-        if (
-            messageIndex <
-            messages.length
-        ) {
-            currentLine =
-                createLine();
-            setTimeout(
-                typeWriter,
-                250
-            );
-        } else {
-            showButton();
-        }
-    }
-    function showButton() {
-        const button =
-            document.getElementById(
-                "openStory"
-            );
-        if (!button) {
-            return;
-        }
-        setTimeout(() => {
-            button.classList.add(
-                "show-button"
-            );
-        }, 500);
-    }
-    setTimeout(
-        typeWriter,
-        700
-    );
-}
-/* =====================================================
-   SCROLL REVEAL
-===================================================== */
-const revealElements =
-    document.querySelectorAll(
-        ".reveal"
-    );
-if (revealElements.length) {
-    const observer =
-        new IntersectionObserver(
-            entries => {
-                entries.forEach(entry => {
-                    if (
-                        entry.isIntersecting
-                    ) {
-                        entry.target.classList.add(
-                            "visible"
+        if (revealElements.length > 0) {
+            const observer =
+                new IntersectionObserver(
+                    entries => {
+                        entries.forEach(
+                            entry => {
+                                if (
+                                    entry.isIntersecting
+                                ) {
+                                    entry.target.classList.add(
+                                        "visible"
+                                    );
+                                    observer.unobserve(
+                                        entry.target
+                                    );
+                                }
+                            }
                         );
-                        observer.unobserve(
-                            entry.target
+                    },
+                    {
+                        threshold: 0.12
+                    }
+                );
+            revealElements.forEach(
+                element => {
+                    observer.observe(
+                        element
+                    );
+                }
+            );
+        }
+        /* =================================================
+           03 — MEMORY GALLERY
+           รองรับรูปจำนวนมาก เช่น 30 รูป
+        ================================================= */
+        const memoryPhotos =
+            document.querySelectorAll(
+                ".memory-photo"
+            );
+        if (memoryPhotos.length > 0) {
+            memoryPhotos.forEach(
+                (photo, index) => {
+                    photo.style.transitionDelay =
+                        `${index * 0.04}s`;
+                }
+            );
+        }
+        /* =================================================
+           04 — IMAGE FALLBACK
+        ================================================= */
+        document
+            .querySelectorAll("img")
+            .forEach(
+                img => {
+                    img.addEventListener(
+                        "error",
+                        () => {
+                            img.classList.add(
+                                "image-missing"
+                            );
+                        }
+                    );
+                }
+            );
+        /* =================================================
+           05 — PAGE TRANSITION
+        ================================================= */
+        document
+            .querySelectorAll("a")
+            .forEach(
+                link => {
+                    link.addEventListener(
+                        "click",
+                        event => {
+                            const href =
+                                link.getAttribute(
+                                    "href"
+                                );
+                            /*
+                             * ไม่ทำ transition
+                             * ถ้าไม่มี href
+                             * เป็น #anchor
+                             * หรือเป็น external link
+                             */
+                            if (
+                                !href ||
+                                href.startsWith("#") ||
+                                href.startsWith("http") ||
+                                href.startsWith("mailto:") ||
+                                href.startsWith("tel:")
+                            ) {
+                                return;
+                            }
+                            /*
+                             * ป้องกัน
+                             * browser เปลี่ยนหน้าทันที
+                             */
+                            event.preventDefault();
+                            /*
+                             * Fade หน้าออก
+                             */
+                            document.body.classList.add(
+                                "page-leaving"
+                            );
+                            /*
+                             * เปลี่ยนหน้า
+                             * หลัง animation
+                             */
+                            setTimeout(
+                                () => {
+                                    window.location.href =
+                                        href;
+                                },
+                                350
+                            );
+                        }
+                    );
+                }
+            );
+        /* =================================================
+           06 — BACK BUTTON / INTERNAL LINKS
+           ป้องกันการกดซ้ำระหว่างกำลังเปลี่ยนหน้า
+        ================================================= */
+        let isLeaving =
+            false;
+        document
+            .querySelectorAll(
+                'a[href$=".html"]'
+            )
+            .forEach(
+                link => {
+                    link.addEventListener(
+                        "click",
+                        event => {
+                            if (
+                                isLeaving
+                            ) {
+                                event.preventDefault();
+                                return;
+                            }
+                            const href =
+                                link.getAttribute(
+                                    "href"
+                                );
+                            if (
+                                !href ||
+                                href.startsWith("http")
+                            ) {
+                                return;
+                            }
+                            event.preventDefault();
+                            isLeaving = true;
+                            document.body.classList.add(
+                                "page-leaving"
+                            );
+                            setTimeout(
+                                () => {
+                                    window.location.href =
+                                        href;
+                                },
+                                350
+                            );
+                        }
+                    );
+                }
+            );
+        /* =================================================
+           07 — MEMORY IMAGE LOADING
+           เพิ่ม class หลังรูปโหลดสำเร็จ
+        ================================================= */
+        document
+            .querySelectorAll(
+                ".memory-image img"
+            )
+            .forEach(
+                image => {
+                    if (
+                        image.complete &&
+                        image.naturalWidth > 0
+                    ) {
+                        image.classList.add(
+                            "image-loaded"
                         );
                     }
-                });
-            },
-            {
-                threshold: 0.12
-            }
-        );
-    revealElements.forEach(element => {
-        observer.observe(element);
-    });
-}
-/* =====================================================
-   IMAGE FALLBACK
-===================================================== */
-document
-    .querySelectorAll("img")
-    .forEach(img => {
-        img.addEventListener(
-            "error",
+                    image.addEventListener(
+                        "load",
+                        () => {
+                            image.classList.add(
+                                "image-loaded"
+                            );
+                        }
+                    );
+                }
+            );
+        /* =================================================
+           08 — MEMORY PHOTO CLICK
+           แตะรูปแล้วเพิ่มเอฟเฟกต์เล็ก ๆ
+        ================================================= */
+        document
+            .querySelectorAll(
+                ".memory-photo"
+            )
+            .forEach(
+                photo => {
+                    photo.addEventListener(
+                        "click",
+                        () => {
+                            photo.classList.toggle(
+                                "memory-selected"
+                            );
+                        }
+                    );
+                }
+            );
+        /* =================================================
+           09 — KEYBOARD ACCESSIBILITY
+        ================================================= */
+        document
+            .querySelectorAll(
+                ".memory-photo"
+            )
+            .forEach(
+                photo => {
+                    photo.setAttribute(
+                        "tabindex",
+                        "0"
+                    );
+                    photo.addEventListener(
+                        "keydown",
+                        event => {
+                            if (
+                                event.key ===
+                                "Enter"
+                            ) {
+                                photo.classList.toggle(
+                                    "memory-selected"
+                                );
+                            }
+                        }
+                    );
+                }
+            );
+        /* =================================================
+           10 — PAGE LOADED
+        ================================================= */
+        window.addEventListener(
+            "load",
             () => {
-                img.classList.add(
-                    "image-missing"
+                document.body.classList.add(
+                    "page-loaded"
                 );
             }
         );
-    });
-
-});
+    }
+);
