@@ -3539,3 +3539,30 @@ document.addEventListener("DOMContentLoaded", () => {
         width: 100%;
     }
 }
+/* =========================================================
+   ✦ FIX PAGE SCROLL
+   ✦ Our Family / Final และหน้าที่ยาว
+========================================================= */
+html {
+    min-height: 100%;
+    overflow-y: auto !important;
+}
+body {
+    min-height: 100vh;
+    height: auto !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+}
+.home-page,
+.reasons-page,
+.family-page,
+.final-page {
+    min-height: 100vh;
+    height: auto !important;
+    overflow: visible !important;
+}
+main {
+    min-height: auto;
+    height: auto !important;
+    overflow: visible !important;
+}
