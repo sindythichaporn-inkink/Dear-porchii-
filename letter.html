@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dear Porch ✦ Letter</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at 20% 20%, rgba(255, 190, 220, .25), transparent 30%),
+                radial-gradient(circle at 80% 70%, rgba(190, 210, 255, .25), transparent 30%),
+                linear-gradient(135deg, #fff5fa, #f5f0ff, #eef7ff);
+            font-family: "Kanit", sans-serif;
+            color: #554452;
+            overflow-x: hidden;
+        }
+
+        .letter-page {
+            min-height: 100vh;
+            padding: 70px 20px;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        /* =========================
+           BACK BUTTON
+        ========================= */
+
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 100;
+            border: none;
+            padding: 12px 18px;
+            border-radius: 30px;
+            background: rgba(255,255,255,.75);
+            backdrop-filter: blur(12px);
+            color: #8d6680;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(120,80,120,.15);
+            transition: .3s;
+        }
+
+        .back-button:hover {
+            transform: scale(1.08);
+        }
+
+        /* =========================
+           GLITTER
+        ========================= */
+
+        .glitter {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .glitter span {
+            position: absolute;
+            font-size: 14px;
+            opacity: 0;
+            animation: floatGlitter linear infinite;
+        }
+
+        .glitter span:nth-child(1) { left: 8%; animation-duration: 7s; }
+        .glitter span:nth-child(2) { left: 18%; animation-duration: 9s; }
+        .glitter span:nth-child(3) { left: 31%; animation-duration: 6s; }
+        .glitter span:nth-child(4) { left: 44%; animation-duration: 8s; }
+        .glitter span:nth-child(5) { left: 57%; animation-duration: 10s; }
+        .glitter span:nth-child(6) { left: 69%; animation-duration: 7s; }
+        .glitter span:nth-child(7) { left: 81%; animation-duration: 9s; }
+        .glitter span:nth-child(8) { left: 92%; animation-duration: 6s; }
+
+        @keyframes floatGlitter {
+            0% {
+                transform: translateY(110vh) rotate(0deg) scale(.5);
+                opacity: 0;
+            }
+
+            15% {
+                opacity: .8;
+            }
+
+            85% {
+                opacity: .8;
+            }
+
+            100% {
+                transform: translateY(-10vh) rotate(360deg) scale(1.2);
+                opacity: 0;
+            }
+        }
+
+        /* =========================
+           TITLE
+        ========================= */
+
+        .letter-header {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            margin-bottom: 35px;
+            animation: titleIn 1s ease both;
+        }
+
+        .letter-header h1 {
+            margin: 0;
+            font-size: clamp(30px, 7vw, 55px);
+            color: #a76b91;
+        }
+
+        .letter-header p {
+            margin-top: 8px;
+            color: #9d8795;
+        }
+
+        @keyframes titleIn {
+            from {
+                opacity: 0;
+                transform: translateY(-30px) scale(.95);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* =========================
+           LETTER
+        ========================= */
+
+        .letter-card {
+            position: relative;
+            z-index: 2;
+            max-width: 850px;
+            margin: auto;
+            padding: clamp(28px, 7vw, 65px);
+            box-sizing: border-box;
+
+            background: rgba(255,255,255,.78);
+            backdrop-filter: blur(18px);
+
+            border: 1px solid rgba(255,255,255,.9);
+            border-radius: 35px;
+
+            box-shadow:
+                0 25px 70px rgba(100,70,100,.18),
+                inset 0 0 40px rgba(255,255,255,.45);
+
+            animation: cardIn 1.2s ease both;
+        }
+
+        .letter-card::before {
+            content: "♡";
+            position: absolute;
+            top: 18px;
+            right: 28px;
+            font-size: 28px;
+            color: #e4a5c3;
+            animation: heartFloat 3s ease-in-out infinite;
+        }
+
+        @keyframes cardIn {
+            from {
+                opacity: 0;
+                transform: translateY(50px) scale(.96);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @keyframes heartFloat {
+            0%,100% {
+                transform: translateY(0) rotate(-8deg);
+            }
+
+            50% {
+                transform: translateY(-8px) rotate(8deg);
+            }
+        }
+
+        /* =========================
+           LETTER TEXT
+        ========================= */
+
+        .letter-text {
+            white-space: pre-line;
+            line-height: 2.15;
+            font-size: clamp(16px, 3.8vw, 20px);
+            text-align: left;
+        }
+
+        .letter-text p {
+            margin: 0 0 24px;
+        }
+
+        .opening {
+            font-size: clamp(19px, 4vw, 24px);
+            color: #a56d8f;
+            font-weight: 600;
+        }
+
+        .highlight {
+            text-align: center;
+            font-size: clamp(21px, 4.5vw, 28px);
+            color: #a05d83;
+            margin: 35px 0;
+        }
+
+        .divider {
+            text-align: center;
+            color: #d69bb8;
+            margin: 30px 0;
+            letter-spacing: 5px;
+        }
+
+        .ending {
+            text-align: center;
+            margin-top: 40px;
+            color: #9d6685;
+            font-size: clamp(20px, 4vw, 27px);
+        }
+
+        .signature {
+            text-align: right;
+            margin-top: 40px;
+            color: #8f7082;
+        }
+
+        /* =========================
+           HEARTS
+        ========================= */
+
+        .heart {
+            position: fixed;
+            pointer-events: none;
+            z-index: 10;
+            animation: heartRise 2.5s ease-out forwards;
+        }
+
+        @keyframes heartRise {
+            from {
+                opacity: 1;
+                transform: translateY(0) scale(.7);
+            }
+
+            to {
+                opacity: 0;
+                transform: translateY(-180px) scale(1.4) rotate(15deg);
+            }
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 600px) {
+
+            .letter-page {
+                padding: 65px 14px 40px;
+            }
+
+            .letter-card {
+                border-radius: 25px;
+                padding: 28px 22px;
+            }
+
+            .letter-text {
+                line-height: 2;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <button class="back-button" onclick="location.href='index.html'">
+        ← กลับไปที่สมุด
+    </button>
+
+    <!-- GLITTER -->
+    <div class="glitter" aria-hidden="true">
+        <span>✦</span>
+        <span>✧</span>
+        <span>˚</span>
+        <span>⋆</span>
+        <span>✦</span>
+        <span>·</span>
+        <span>✧</span>
+        <span>˚</span>
+    </div>
+
+
+    <main class="letter-page">
+
+        <header class="letter-header">
+
+            <h1>
+                ˚₊‧꒰ა 𝒂 𝒍𝒊𝒕𝒕𝒍𝒆 𝒍𝒆𝒕𝒕𝒆𝒓 ໒꒱ ‧₊˚
+            </h1>
+
+            <p>
+                💌 from Ink to Porch
+            </p>
+
+        </header>
+
+
+        <article class="letter-card">
+
+            <div class="letter-text">
+
+                <p class="opening">
+                    ถึงพอร์ชของเค้า ♡
+                </p>
+
+                <p>
+                    นี่ก็เดินทางมาถึง 6 เดือนแล้วนะ
+                    ก็ครึ่งปีแล้วที่เราอยู่ด้วยกันมา
+                </p>
+
+                <p>
+                    เค้ารู้สึกโชคดีมากเลยที่มีเธอ
+                    ที่ผ่านมาถึงเราจะทะเลาะกันบ้าง
+                    เธอก็ไม่เคยเลือกที่จะทิ้งความสัมพันธ์นี้ไปเลย
+                </p>
+
+                <p>
+                    เธอคอยบอกรักเค้าเสมอแบบไม่ขาดไม่หาย
+                    ในทุกคืน เธอก็บอกรักบอกฝันดีเค้าในทุก ๆ วัน
+                    คอยรับฟังเค้ามาตลอด
+                </p>
+
+                <p>
+                    ทำให้เค้าสบายใจที่มีเธอไม่ว่าจะเป็นตอนไหน
+                    ขอแค่เค้ามีเธออยู่ข้าง ๆ
+                    เค้าก็รู้สึกว่ามั่นใจในตัวเองมากขึ้น
+                </p>
+
+                <p>
+                    เธอเป็นเหมือนความสดใสของเค้า
+                    ในทุก ๆ วันเค้ามีความสุขมาก
+                    ชีวิตเค้าดูมีสีสันมาก ๆ เลย
+                </p>
+
+                <p>
+                    เธอเป็นกำลังใจในการใช้ชีวิตเค้ามาก ๆ
+                    แทบจะเป็นลมหายใจของเค้าเลยนะ
+                </p>
+
+                <p>
+                    พอมีเธอก็อุ่นใจแล้ววว
+                </p>
+
+                <p class="highlight">
+                    ต่อให้โลกนี้ไม่มีดาว<br>
+                    ชีวิตเค้าก็ยังมีแสงสว่าง &gt;__&lt;
+                </p>
+
+                <p>
+                    เพราะเธอคือแสงสว่างของเค้า
+                    ต่อให้เค้าเจอเรื่องแย่ ๆ แค่ไหน
+                    ได้บอกเธอมันก็หายหมดแล้ว
+                </p>
+
+                <p>
+                    เป็นโชคดีมากที่เค้าได้เป็นแฟนกับเธอ
+                    เธอเป็นทุกอย่างของเค้าเลย
+                    เป็นทั้งหัวใจ
+                </p>
+
+                <div class="divider">
+                    ───── ୨ৎ ─────
+                </div>
+
+                <p>
+                    ตั้งแต่คบกับเธอมา
+                    เธอเป็นเรื่องมหัศจรรย์ที่สุดเลยย ย ยย
+                </p>
+
+                <p>
+                    ตอนที่เค้าต้องการที่พึ่ง
+                    เค้าก็มีเธอตลอด
+                    หันไปก็เจอเธอตลอด
+                </p>
+
+                <p>
+                    เธอเป็นเหมือนพ่อคนที่ 2 ของเค้าเลยนะ
+                    เธอน่ารักกับเค้าตลอดเลย
+                </p>
+
+                <p>
+                    ถึงตอนทะเลาะเค้าจะชอบเงียบใส่เธอ
+                    แต่เธอก็คอยง้อเค้าตลอด
+                </p>
+
+                <p>
+                    ดูแลเค้าในตอนที่เค้าบาดเจ็บ
+                    เค้ารู้สึกเหมือนเธอเป็นห่วงเค้าจริง ๆ
+                    เค้าซึ้งใจมากก
+                </p>
+
+                <p>
+                    ไม่ค่อยมีใครเป็นห่วงเค้าขนาดนี้หรอก
+                    แต่พอเห็นเธอเป็นห่วงเค้ามากขนาดนั้น
+                    เค้ารู้สึกดีมากเลย
+                </p>
+
+                <p>
+                    เหมือนเธอมาเติมเต็มเค้า
+                    ไม่ว่าเค้าจะเจออะไรมา
+                    เธอจะถามถึงเค้าตลอดว่า
+                    เค้าเจ็บไหม เป็นอะไร
+                </p>
+
+                <p>
+                    ที่เค้าเคยบอกว่าเค้าทำจานแตก
+                    แล้วเธอถามว่าเค้าเป็นอะไรไหม
+                </p>
+
+                <p>
+                    เธอไม่ได้สนใจอย่างอื่นเลย
+                    เธอสนใจแค่เค้าว่าเค้าเป็นยังไง
+                </p>
+
+                <p>
+                    เธอคอยดูแลเค้าในทุก ๆ วัน
+                    ทำให้เค้าสบายที่สุด
+                    พยายามทำให้ไม่ต้องลำบาก
+                </p>
+
+                <div class="divider">
+                    ✦ ⋆｡°✩ 6 MONTHS ✩°｡⋆ ✦
+                </div>
+
+                <p>
+                    6 เดือนนี้ เราผ่านอะไรมาเยอะมาก
+                    ทั้งเรื่องที่ดีแล้วก็ไม่ดี
+                    แต่เราก็ยังอยู่ด้วยกันถึงทุกวันนี้
+                </p>
+
+                <p>
+                    เค้าไม่อยากเสียเวลาซักวินาทีเดียว
+                    ที่จะอยู่กับเธอเลย
+                    ตอนที่เราใช้เวลาด้วยกันเค้ามีความสุขมาก
+                </p>
+
+                <p>
+                    อ้อมกอดของเธออบอุ่นที่สุดเลย
+                    เป็นกอดที่ดีที่สุด
+                    คิดถึงกอดของเธอมาก
+                    มันอบอุ่นอะ
+                </p>
+
+                <p>
+                    แล้วตอนที่เค้าอยู่กับเธอ
+                    มันก็อบอุ่นมาก ก ก ก
+                </p>
+
+                <p>
+                    ยิ่งมองหน้าเธอ
+                    มันทำให้เค้ารู้สึกว่า
+                </p>
+
+                <p class="highlight">
+                    ทำไมเค้าถึงมีแฟนหล่อจัง 🥹
+                </p>
+
+                <p>
+                    นอกจากหล่อแล้ว
+                    เธอยังดีกับเค้ามาก ๆ
+                </p>
+
+                <p>
+                    ทำให้เค้ารู้สึกเป็นผู้หญิงที่โชคดีที่สุดอะ
+                </p>
+
+                <p>
+                    อยากใช้ชีวิตกับเธอในทุก ๆ วัน
+                    แบบนี้ไปนาน ๆ เลย
+                </p>
+
+                <p>
+                    เค้ารู้สึกว่า
+                    เค้าเจอคนที่ดีแล้วจริง ๆ
+                </p>
+
+                <p class="ending">
+                    สุขสันต์ครบรอบ 6 เดือนนะเธอ 🩷
+                    <br>
+                    ขอบคุณที่ยังอยู่ข้างเค้าตลอดมา
+                    <br><br>
+                    รักเธอนะ
+                    <br>
+                    — อิ๊งค์ ♡
+                </p>
+
+            </div>
+
+        </article>
+
+    </main>
+
+
+    <script>
+
+        /* =========================
+           HEART CLICK EFFECT
+        ========================= */
+
+        document.addEventListener("click", function(event) {
+
+            const heart = document.createElement("div");
+
+            heart.className = "heart";
+            heart.innerHTML = ["♡", "♥", "✦", "✧"][Math.floor(Math.random() * 4)];
+
+            heart.style.left = event.clientX + "px";
+            heart.style.top = event.clientY + "px";
+
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 2500);
+
+        });
+
+
+        /* =========================
+           SCROLL REVEAL
+        ========================= */
+
+        const paragraphs = document.querySelectorAll(".letter-text p");
+
+        const observer = new IntersectionObserver(
+
+            entries => {
+
+                entries.forEach(entry => {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target.style.opacity = "1";
+                        entry.target.style.transform = "translateY(0)";
+
+                    }
+
+                });
+
+            },
+
+            {
+                threshold: 0.15
+            }
+
+        );
+
+
+        paragraphs.forEach((paragraph, index) => {
+
+            paragraph.style.opacity = "0";
+            paragraph.style.transform = "translateY(25px)";
+            paragraph.style.transition =
+                `opacity .8s ease ${index * .03}s,
+                 transform .8s ease ${index * .03}s`;
+
+            observer.observe(paragraph);
+
+        });
+
+    </script>
+
+</body>
+
+</html>
