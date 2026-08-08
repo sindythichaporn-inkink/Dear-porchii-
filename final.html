@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Forever ♡ Dear Porch</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="final-page">
+<!-- ✦ FLOATING GLITTER -->
+<div class="final-glitter" aria-hidden="true">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+<!-- ✦ MAIN -->
+<main class="final-container">
+    <p class="final-logo">
+        dear porchii ✦
+    </p>
+    <div class="final-corgis">
+        <img
+            src="images/characters/ink.png"
+            alt="Ink Corgi"
+            class="final-corgi final-ink">
+        <div class="final-heart">
+            ♡
+        </div>
+        <img
+            src="images/characters/porch.png"
+            alt="Porch Corgi"
+            class="final-corgi final-porch">
+    </div>
+    <p class="final-small">
+        this is not the end
+    </p>
+    <h1>
+        Our story<br>
+        continues...
+    </h1>
+    <div class="final-line">
+        ✦ ───────── ♡ ───────── ✦
+    </div>
+    <p class="final-message">
+        ขอบคุณนะ
+        <br><br>
+        ขอบคุณที่เข้ามาในชีวิตของเค้า
+        <br>
+        ขอบคุณสำหรับทุกความรัก
+        <br>
+        ทุกความใส่ใจ
+        <br>
+        และทุกความทรงจำที่เราสร้างด้วยกัน
+    </p>
+    <p class="final-message">
+        ตั้งแต่วันที่เราไม่รู้จักกัน
+        <br>
+        จนถึงวันที่เราได้กลายเป็น
+        <br>
+        คนสำคัญของกันและกัน
+    </p>
+    <div class="final-quote">
+        <span>“</span>
+        <p>
+            ถ้าวันหนึ่งเราเปิดสมุดเล่มนี้กลับมาอีกครั้ง
+            <br>
+            ขอให้เรายังยิ้มให้กับเรื่องราวทั้งหมด
+            <br>
+            ที่เราเคยสร้างด้วยกันนะ
+        </p>
+        <span>”</span>
+    </div>
+    <div class="final-date">
+        <span>
+            14 February 2026
+        </span>
+        <small>
+            the day our story officially began ♡
+        </small>
+    </div>
+    <!-- ✦ BUTTONS -->
+    <div class="final-buttons">
+        <a
+            href="index.html"
+            class="final-button primary">
+            ↩ Open our book again
+        </a>
+        <a
+            href="100-reasons.html"
+            class="final-button secondary">
+            ♡ 100 reasons
+        </a>
+    </div>
+    <p class="final-signature">
+        made with love by Ink
+        <br>
+        for Porch ♡
+    </p>
+</main>
+<!-- ✦ SCRIPT -->
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const elements = [
+            ".final-logo",
+            ".final-corgis",
+            ".final-small",
+            ".final-container h1",
+            ".final-line",
+            ".final-message",
+            ".final-quote",
+            ".final-date",
+            ".final-buttons",
+            ".final-signature"
+        ];
+        elements.forEach((selector, index) => {
+            const element =
+                document.querySelector(selector);
+            if (!element) return;
+            setTimeout(() => {
+                element.classList.add(
+                    "final-show"
+                );
+            }, 250 + (index * 180));
+        });
+        /* ✦ กดหัวใจ */
+        const heart =
+            document.querySelector(".final-heart");
+        if (heart) {
+            heart.addEventListener("click", () => {
+                heart.classList.remove(
+                    "heart-pop"
+                );
+                void heart.offsetWidth;
+                heart.classList.add(
+                    "heart-pop"
+                );
+            });
+        }
+    });
+</script>
+</body>
+</html>
