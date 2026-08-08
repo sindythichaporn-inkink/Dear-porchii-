@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Our Story ♡ Dear Porch</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        /* ==============================
+           OUR STORY PAGE
+        ============================== */
+
+        .story-page {
+            min-height: 100vh;
+            padding: 50px 18px 80px;
+
+            position: relative;
+            overflow: hidden;
+        }
+
+        .story-container {
+            width: min(850px, 94vw);
+            margin: auto;
+
+            position: relative;
+            z-index: 2;
+        }
+
+        .story-header {
+            text-align: center;
+            margin-bottom: 45px;
+
+            animation: storyHeader .9s ease both;
+        }
+
+        .story-header h1 {
+            font-family: 'Itim', cursive;
+            color: #85618f;
+            font-size: clamp(35px, 9vw, 55px);
+
+            text-shadow:
+                0 3px 0 white,
+                0 8px 20px rgba(120,80,140,.15);
+        }
+
+        .story-header p {
+            color: #ad8bb5;
+            margin-top: 5px;
+        }
+
+        @keyframes storyHeader {
+
+            from {
+                opacity: 0;
+                transform: translateY(-25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+
+        /* ==============================
+           STORY CARD
+        ============================== */
+
+        .story-card {
+            position: relative;
+
+            margin: 28px auto;
+
+            padding: 28px 25px;
+
+            background: rgba(255,255,255,.63);
+
+            border: 1px solid rgba(170,135,180,.28);
+
+            border-radius: 28px;
+
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+
+            box-shadow:
+                0 18px 50px rgba(120,80,140,.10),
+                inset 0 0 30px rgba(255,255,255,.7);
+
+            opacity: 0;
+            transform: translateY(35px);
+
+            animation: storyReveal .9s ease forwards;
+        }
+
+        .story-card:nth-child(2) {
+            animation-delay: .15s;
+        }
+
+        .story-card:nth-child(3) {
+            animation-delay: .3s;
+        }
+
+        .story-card:nth-child(4) {
+            animation-delay: .45s;
+        }
+
+        .story-card:nth-child(5) {
+            animation-delay: .6s;
+        }
+
+        .story-card:nth-child(6) {
+            animation-delay: .75s;
+        }
+
+        @keyframes storyReveal {
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+
+        /* ==============================
+           SECTION TITLE
+        ============================== */
+
+        .story-title {
+            font-family: 'Itim', cursive;
+
+            color: #8c6795;
+
+            font-size: 24px;
+
+            margin-bottom: 18px;
+
+            text-align: center;
+        }
+
+        .story-title::after {
+            content: "";
+
+            display: block;
+
+            width: 80px;
+            height: 2px;
+
+            margin: 9px auto 0;
+
+            background: linear-gradient(
+                90deg,
+                transparent,
+                #c7a3cd,
+                transparent
+            );
+        }
+
+
+        /* ==============================
+           TEXT
+        ============================== */
+
+        .story-card p {
+            color: #66576d;
+
+            font-size: 16px;
+
+            line-height: 2;
+
+            margin: 12px 0;
+        }
+
+        .story-card .highlight {
+            color: #8d6398;
+
+            font-weight: 500;
+        }
+
+
+        /* ==============================
+           DATE
+        ============================== */
+
+        .story-date {
+            display: inline-block;
+
+            margin-bottom: 12px;
+
+            padding: 7px 15px;
+
+            border-radius: 999px;
+
+            background: rgba(235,215,240,.6);
+
+            color: #8b6994;
+
+            font-size: 14px;
+
+            box-shadow:
+                0 5px 15px rgba(120,80,140,.08);
+        }
+
+
+        /* ==============================
+           LITTLE DECORATIONS
+        ============================== */
+
+        .story-decoration {
+            text-align: center;
+
+            margin: 35px 0;
+
+            color: #b28ab9;
+
+            font-size: 23px;
+
+            animation: decorationFloat 3s ease-in-out infinite;
+        }
+
+        @keyframes decorationFloat {
+
+            0%,100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-7px);
+            }
+
+        }
+
+
+        /* ==============================
+           BACK BUTTON
+        ============================== */
+
+        .back-menu {
+            display: block;
+
+            width: fit-content;
+
+            margin: 45px auto 0;
+
+            padding: 12px 23px;
+
+            border-radius: 999px;
+
+            border: 1px solid rgba(160,125,175,.25);
+
+            background: rgba(255,255,255,.65);
+
+            color: #7d5d84;
+
+            text-decoration: none;
+
+            transition: .3s ease;
+
+            box-shadow:
+                0 8px 25px rgba(110,75,125,.08);
+        }
+
+        .back-menu:hover {
+            transform: translateY(-4px) scale(1.04);
+
+            box-shadow:
+                0 12px 30px rgba(110,75,125,.15);
+        }
+
+
+        /* ==============================
+           FLOATING GLITTER
+        ============================== */
+
+        .story-glitter {
+            position: fixed;
+
+            inset: 0;
+
+            pointer-events: none;
+
+            z-index: 1;
+        }
+
+        .story-glitter span {
+            position: absolute;
+
+            color: rgba(180,145,195,.6);
+
+            animation:
+                floatGlitter 6s ease-in-out infinite,
+                glitterBlink 2s ease-in-out infinite;
+        }
+
+        .story-glitter span:nth-child(1) {
+            left: 8%;
+            top: 20%;
+        }
+
+        .story-glitter span:nth-child(2) {
+            left: 88%;
+            top: 18%;
+            animation-delay: -1s;
+        }
+
+        .story-glitter span:nth-child(3) {
+            left: 15%;
+            top: 65%;
+            animation-delay: -2s;
+        }
+
+        .story-glitter span:nth-child(4) {
+            left: 82%;
+            top: 70%;
+            animation-delay: -3s;
+        }
+
+        .story-glitter span:nth-child(5) {
+            left: 50%;
+            top: 10%;
+            animation-delay: -4s;
+        }
+
+        @keyframes floatGlitter {
+
+            0%,100% {
+                transform: translateY(0) rotate(0);
+            }
+
+            50% {
+                transform: translateY(-25px) rotate(180deg);
+            }
+
+        }
+
+        @keyframes glitterBlink {
+
+            0%,100% {
+                opacity: .2;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+        }
+
+
+        /* ==============================
+           MOBILE
+        ============================== */
+
+        @media(max-width:600px) {
+
+            .story-page {
+                padding: 35px 12px 60px;
+            }
+
+            .story-card {
+                padding: 23px 18px;
+                border-radius: 23px;
+            }
+
+            .story-card p {
+                font-size: 15px;
+                line-height: 1.9;
+            }
+
+            .story-title {
+                font-size: 21px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <main class="story-page">
+
+        <!-- ✦ GLITTER -->
+
+        <div class="story-glitter">
+
+            <span>✦</span>
+            <span>✧</span>
+            <span>˚</span>
+            <span>⋆</span>
+            <span>✦</span>
+
+        </div>
+
+
+        <div class="story-container">
+
+
+            <!-- ==============================
+                 HEADER
+            ============================== -->
+
+            <header class="story-header">
+
+                <h1>
+                    📖 ᨵׁׅυׁׅr ꯱ׁׅ֒tׁׅᨵׁׅrყ
+                </h1>
+
+                <p>
+                    เรื่องราวของอิ๊งค์กับพอร์ช ♡
+                </p>
+
+            </header>
+
+
+            <!-- ==============================
+                 จุดเริ่มต้น
+            ============================== -->
+
+            <section class="story-card">
+
+                <span class="story-date">
+                    23 ธันวาคม 2025
+                </span>
+
+                <h2 class="story-title">
+                    จุดเริ่มต้น ──.☘︎ ݁˖
+                </h2>
+
+                <p>
+                    เรากับพอร์ชก่อนหน้านี้ก็ไม่รู้จักกันมาก่อนหรอก
+                </p>
+
+                <p>
+                    แต่วันที่ 23 ธันวาคม เราทักไปถามเรื่องสภานักเรียนกับพอร์ช
+                    พรรคเราชนะเลือกตั้งแล้วอาจารย์ให้หาคนเพิ่ม
+                    เราเลยเห็นว่าพอร์ชเคยลงแต่พลาดโอกาส
+                    เราเลยคิดว่าชวนพอร์ชดีกว่า
+                </p>
+
+                <p>
+                    หลังจากนั้นก็ไม่มีอะไร
+                    แต่มีพอร์ชมาเป็นส่วนหนึ่งของสภานักเรียน
+                </p>
+
+            </section>
+
+
+            <!-- ==============================
+                 เพลง
+            ============================== -->
+
+            <section class="story-card">
+
+                <h2 class="story-title">
+                    𑣲𝄞 เพลงที่ทำให้เราเริ่มคุยกัน
+                </h2>
+
+                <p>
+                    วันนึงพอร์ชมากดใจสตอรี่
+                    ทั้ง ๆ ที่ไม่เคยกดมาก่อน
+                    เราก็แอบคิดเล็ก ๆ ว่าเขาจะมีอะไรรึเปล่า
+                </p>
+
+                <p>
+                    แล้วเขาก็ลงสตอรี่ 1 Song
+                    เราก็กดไป
+                    แล้วเขาก็ส่งเพลง “คนสวย” ของ Tattoo Colour มา
+                    แล้วบอกว่ามันเหมาะกับเราดี
+                    ตั้งใจเลือกมาก ๆ
+                </p>
+
+                <p>
+                    เราก็เขิน ๆ แล้วก็คุยกันจนดึกเลย
+                    บอกฝันดี แล้วก็นอน
+                </p>
+
+            </section>
+
+
+            <!-- ==============================
+                 เช้าวันต่อมา
+            ============================== -->
+
+            <section class="story-card">
+
+                <h2 class="story-title">
+                    ⋮ ⌗ เช้าวันต่อมา
+                </h2>
+
+                <p>
+                    เช้าวันต่อมาเราก็ไม่ได้คุยกันต่อ
+                </p>
+
+                <p>
+                    แต่เราเห็นเขาลงโน้ตอะไรไม่รู้
+                    เราเลยลงโน้ตกลับให้เขารู้ตัวว่าเราก็อยากคุยต่อ
+                    เป็นเพลง “พี่ ๆ ช่วยตัดแว่นให้หน่อย”
+                </p>
+
+                <p>
+                    จริง ๆ ตอนนั้นคิดไว้แล้วว่า
+                    ถ้าเขาไม่ทักมาต่อก็ปล่อยไป
+                    เพราะช่วงนั้นเราก็ไม่ได้อยากมีใคร
+                </p>
+
+                <p>
+                    แต่ก็แอบหวังนิด ๆ เหมือนกัน
+                </p>
+
+            </section>
+
+
+            <!-- ==============================
+                 22 มกราคม
+            ============================== -->
+
+            <section class="story-card">
+
+                <span class="story-date">
+                    🧸ྀི วันที่ 22 มกราคม 2026
+                </span>
+
+                <p>
+                    แล้วเขาก็ทักมาจริง ๆ
+                </p>
+
+                <p>
+                    เขาบอกว่าอยากรู้จักเรา
+                    พร้อมจีบเราไปด้วย
+                </p>
+
+                <p>
+                    เขาถามเราว่ามันแปลกไหม ?
+                </p>
+
+                <p>
+                    เราก็บอกว่าไม่แปลกหรอก ˙𐃷˙
+                </p>
+
+                <p>
+                    เขาบอกว่าเขาเป็นคนขี้กังวล
+                    กลัวเราคิดว่ามันแปลก …
+                </p>
+
+                <p class="highlight">
+                    หลังจากนั้นเราก็ตัดสินใจลองดู ૮₍ ´ ꒳ `₎ა
+                </p>
+
+            </section>
+
+
+            <!-- ==============================
+                 ช่วงคนคุย
+            ============================== -->
+
+            <section class="story-card">
+
+                <h2 class="story-title">
+                    𓏵‧₊˚ ┊ช่วงคนคุย
+                </h2>
+
+                <p>
+                    เราก็คุยกันมาเรื่อย ๆ
+                </p>
+
+                <p>
+                    ยิ่งเป็นสภานักเรียนด้วยกัน
+                    ก็ยิ่งทำงานร่วมกันบ่อย
+                </p>
+
+                <p>
+                    แรก ๆ ก็มีหลบหน้าเพราะเขิน ๆ
+                    (,,>﹏<,,)
+                </p>
+
+                <p>
+                    เขาอยู่ห้อง 5/3
+                    ส่วนเราอยู่ 5/4 ^^
+                </p>
+
+                <p>
+                    ยิ่งได้รู้จักกันมากขึ้น
+                    เราก็ยิ่งใกล้ชิดกันมากขึ้น
+                </p>
+
+            </section>
+
+
+            <!-- ==============================
+                 เดตแรก
+            ============================== -->
+
+            <section class="story-card">
+
+                <h2 class="story-title">
+                    ✶⋆.˚ เดตแรก
+                </h2>
+
+                <p>
+                    ระหว่างเป็นคนคุย
+                    เราได้ไปเดตแรกกับเขา
+                </p>
+
+                <p>
+                    ไปดูหนังด้วยกัน
+                </p>
+
+                <p>
+                    เขาซื้อพวงกุญแจให้เราด้วย
+                </p>
+
+                <p>
+                    แล้วก็พาไปไหว้แม่ตั้งแต่ยังเป็นคนคุยกัน
+                </p>
+
+                <p>
+                    เราได้ไปดูเขาแข่งบาสวันที่ 1 กุมภาพันธ์ด้วย
+                </p>
+
+            </section>
+
+
+            <!-- ==============================
+                 ความรู้สึก
+            ============================== -->
+
+            <section class="story-card">
+
+                <h2 class="story-title">
+                    * ความรู้สึกที่ค่อย ๆ เปลี่ยนไป
+                    ૮꒰ ˶• ༝ •˶꒱ა ♡
+                </h2>
+
+                <p>
+                    เขาซื้อดอกไม้แบบตุ๊กตาให้เรา
+                </p>
+
+                <p class="highlight">
+                    เรามีความสุขมากเลยย ย ย ย ย
+                </p>
+
+                <p>
+                    เหมือนเราเป็นแฟนกันแล้ว
+                    ٩(ˊᗜˋ*)و ♡
+                </p>
+
+                <p>
+                    เรารู้สึกเริ่มผูกพัน
+                </p>
+
+                <p>
+                    จากชอบก็ค่อย ๆ กลายเป็นเริ่มรู้สึกรัก
+                </p>
+
+            </section>
+
+
+            <!-- ==============================
+                 12-13 กุมภาพันธ์
+            ============================== -->
+
+            <section class="story-card">
+
+                <span class="story-date">
+                    ˚⊱🪷⊰˚ 12-13 กุมภาพันธ์
+                </span>
+
+                <p>
+                    ช่วงนั้นเรารู้สึกอยากเป็นแฟนกับเขาแล้ว
+                    ( •̯́ ₃ •̯̀)
+                </p>
+
+                <p class="highlight">
+                    อยากเป็นมาก ๆ >___<
+                </p>
+
+                <p>
+                    เราเลยวางแผนทำเซอร์ไพรส์ !
+                </p>
+
+                <p>
+                    ทำการ์ด
+                </p>
+
+                <p>
+                    แล้วก็ทำช่อดอกไม้เอง
+                </p>
+
+                <p>
+                    ถึงจะทำไม่เป็น
+                    แต่ก็พยายามมาก ๆ จนเสร็จ
+                </p>
+
+                <p>
+                    เราอยากให้เขาประทับใจ
+                </p>
+
+                <p>
+                    อยากให้เป็นจุดเริ่มต้นที่ดีและน่าจดจำ
+                </p>
+
+                <p>
+                    เราอยากให้รักครั้งนี้เป็นรักครั้งสุดท้าย
+                    แล้วก็ดีที่สุดเลย
+                    ₍ᐢ. .ᐢ₎ ₊˚⊹♡
+                </p>
+
+            </section>
+
+
+            <!-- ==============================
+                 14 กุมภาพันธ์
+            ============================== -->
+
+            <section class="story-card">
+
+                <span class="story-date">
+                    𐔌 . ⋮ 14 กุมภาพันธ์ 2026.ᐟ ֹ ₊ ꒱
+                </span>
+
+                <p>
+                    แม่เขามารับเรา
+                </p>
+
+                <p>
+                    พอขึ้นรถไป
+                    เราก็เจอช่อดอกไม้กับตุ๊กตาคุโรมิที่เราชอบ
+                </p>
+
+                <p class="highlight">
+                    เรารู้สึกดีมากกก ก ก ก
+                </p>
+
+                <p>
+                    แล้วเราก็ได้ First Kiss กันด้วย
+                    (๑>؂•̀๑)
+                </p>
+
+                <p>
+                    เราได้ไปบางแสนด้วยกัน
+                </p>
+
+                <p>
+                    ไปกินชาบู
+                </p>
+
+                <p>
+                    วาดเค้ก
+                </p>
+
+                <p>
+                    แล้วก็ไปเดินทะเล . . .
+                </p>
+
+                <p>
+                    ตอนเดินอยู่ที่บางแสน …
+                    เราก็เอากล่องที่เตรียมไว้
+                    เซอร์ไพรส์ให้เขาอ่าน
+                </p>
+
+                <p>
+                    เขาก็นั่งอ่านแล้วยิ้ม
+                </p>
+
+                <p class="highlight">
+                    เราเห็นแล้วใจฟูมาก
+                </p>
+
+                <p>
+                    แล้วหลังจากนั้น
+                </p>
+
+                <p>
+                    เขาก็ขอเราเป็นแฟน
+                    ໒꒰՞ ܸ. .ܸ՞꒱ა
+                </p>
+
+                <p>
+                    จุดนั้นคือ…
+                </p>
+
+                <p class="highlight">
+                    มันดีมาก ๆ
+                </p>
+
+                <p class="highlight">
+                    ดีจนเราอยากร้องไห้เลย
+                    ໒꒰ྀིっ˕ -｡꒱ྀི১
+                </p>
+
+            </section>
+
+
+            <div class="story-decoration">
+                ───── ୨ৎ ─────
+            </div>
+
+
+            <!-- กลับเมนู -->
+
+            <a href="index.html" class="back-menu">
+                ♡ กลับไปที่ OUR BOOK
+            </a>
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>
