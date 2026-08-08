@@ -3506,3 +3506,36 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 1200);
     }
 });
+/* =========================================================
+   ✦ FIX HOME MENU VISIBILITY
+   ✦ เพิ่มต่อท้าย style.css
+========================================================= */
+.home-links {
+    display: grid !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+.home-link {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+}
+.home-link-number,
+.home-link strong,
+.home-link small {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+/* ให้เมนูเลื่อนได้บนมือถือ */
+@media (max-width: 768px) {
+    .home-links {
+        width: 100%;
+        overflow: visible;
+    }
+    .home-link {
+        width: 100%;
+    }
+}
