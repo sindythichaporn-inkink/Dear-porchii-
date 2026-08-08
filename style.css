@@ -1,11 +1,15 @@
+/* =========================================================
+   DEAR PORCH ♡
+   COMPLETE WEBSITE STYLE
+   Soft Memory Book
+========================================================= */
+/* =========================================================
+   01 — GOOGLE FONT
+========================================================= */
 @import url('https://fonts.googleapis.com/css2?family=Itim&family=Kanit:wght@300;400;500;600&display=swap');
 /* =========================================================
-   DEAR PORCH ✦
-   COMPLETE WEBSITE STYLE
-   ========================================================= */
-/* =========================================================
-   01 — RESET
-   ========================================================= */
+   02 — RESET
+========================================================= */
 * {
     margin: 0;
     padding: 0;
@@ -16,35 +20,38 @@ html {
 }
 body {
     min-height: 100vh;
-    overflow-x: hidden;
     font-family: "Kanit", sans-serif;
     font-weight: 300;
     color: #665b69;
     background:
         radial-gradient(
-            circle at 12% 8%,
+            circle at 12% 10%,
             rgba(255, 218, 235, 0.72),
             transparent 30%
         ),
         radial-gradient(
-            circle at 88% 16%,
-            rgba(222, 230, 255, 0.72),
+            circle at 88% 18%,
+            rgba(222, 229, 255, 0.72),
             transparent 30%
         ),
         radial-gradient(
             circle at 50% 100%,
-            rgba(241, 220, 238, 0.65),
+            rgba(241, 220, 238, 0.62),
             transparent 35%
         ),
         linear-gradient(
             135deg,
-            #fff9fc 0%,
+            #fffafd 0%,
             #faf5ff 45%,
             #f1f8ff 100%
         );
     background-attachment: fixed;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
     opacity: 1;
-    transition: opacity 0.5s ease;
+    transition:
+        opacity 0.55s ease;
 }
 body.page-leaving {
     opacity: 0;
@@ -60,7 +67,7 @@ a {
 button,
 input,
 textarea {
-    font-family: "Kanit", sans-serif;
+    font-family: inherit;
 }
 button {
     cursor: pointer;
@@ -70,18 +77,19 @@ img {
     max-width: 100%;
 }
 /* =========================================================
-   02 — SOFT BACKGROUND LIGHT
-   ========================================================= */
+   03 — GLOBAL DECORATION
+========================================================= */
 body::before {
     content: "";
     position: fixed;
-    width: 320px;
-    height: 320px;
-    top: -150px;
+    width: 300px;
+    height: 300px;
+    top: -140px;
     left: -110px;
     border-radius: 50%;
-    background: rgba(255, 205, 228, 0.34);
-    filter: blur(40px);
+    background:
+        rgba(255, 205, 228, 0.34);
+    filter: blur(35px);
     pointer-events: none;
     z-index: -2;
 }
@@ -90,34 +98,81 @@ body::after {
     position: fixed;
     width: 330px;
     height: 330px;
-    right: -140px;
-    bottom: -140px;
+    right: -145px;
+    bottom: -145px;
     border-radius: 50%;
-    background: rgba(215, 224, 255, 0.4);
-    filter: blur(45px);
+    background:
+        rgba(215, 224, 255, 0.38);
+    filter: blur(38px);
     pointer-events: none;
     z-index: -2;
 }
 /* =========================================================
-   03 — SPARKLES
-   ========================================================= */
+   04 — GLITTER
+========================================================= */
+.glitter-container,
 .sparkles,
-.home-glitter,
-.glitter-container {
+.home-glitter {
     position: fixed;
     inset: 0;
     pointer-events: none;
     overflow: hidden;
     z-index: 0;
 }
+.glitter-container .glitter {
+    position: absolute;
+    top: -20px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow:
+        0 0 8px rgba(255, 255, 255, 0.95),
+        0 0 16px rgba(239, 190, 220, 0.65);
+    animation:
+        glitterFall var(--duration, 8s) linear infinite,
+        glitterTwinkle 1.8s ease-in-out infinite;
+    opacity: 0.7;
+}
+@keyframes glitterFall {
+    0% {
+        transform:
+            translate3d(0, -20px, 0)
+            rotate(0deg);
+    }
+    50% {
+        transform:
+            translate3d(var(--drift, 0px), 50vh, 0)
+            rotate(180deg);
+    }
+    100% {
+        transform:
+            translate3d(calc(var(--drift, 0px) * -0.3), 110vh, 0)
+            rotate(360deg);
+    }
+}
+@keyframes glitterTwinkle {
+    0%,
+    100% {
+        opacity: 0.2;
+        transform: scale(0.7);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.25);
+    }
+}
+/* =========================================================
+   05 — STATIC SPARKLES
+========================================================= */
 .sparkles span,
 .home-glitter span {
     position: absolute;
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(255, 255, 255, 0.92);
     font-size: 13px;
     text-shadow:
         0 0 8px rgba(255, 255, 255, 0.9),
-        0 0 16px rgba(236, 190, 220, 0.55);
+        0 0 15px rgba(236, 190, 220, 0.55);
     animation:
         floatingSparkle 5s ease-in-out infinite;
 }
@@ -211,47 +266,8 @@ body::after {
     }
 }
 /* =========================================================
-   04 — GLITTER FALL
-   ========================================================= */
-.glitter {
-    position: absolute;
-    top: -20px;
-    width: 4px;
-    height: 4px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.85);
-    box-shadow:
-        0 0 7px rgba(255, 255, 255, 0.9),
-        0 0 13px rgba(231, 190, 220, 0.55);
-    animation:
-        glitterFall 8s linear infinite,
-        glitterTwinkle 2s ease-in-out infinite;
-    transform: translateX(0);
-}
-@keyframes glitterFall {
-    from {
-        transform:
-            translate3d(0, -20px, 0);
-    }
-    to {
-        transform:
-            translate3d(var(--drift), 110vh, 0);
-    }
-}
-@keyframes glitterTwinkle {
-    0%,
-    100% {
-        opacity: 0.2;
-        transform: scale(0.7);
-    }
-    50% {
-        opacity: 1;
-        transform: scale(1.3);
-    }
-}
-/* =========================================================
-   05 — GLOBAL PAGE
-   ========================================================= */
+   06 — COMMON PAGE
+========================================================= */
 .home-page {
     position: relative;
     width: 100%;
@@ -263,9 +279,13 @@ body::after {
     position: relative;
     z-index: 2;
 }
+.home-main {
+    width: min(920px, 92%);
+    margin: 0 auto;
+}
 /* =========================================================
-   06 — COMMON HEADER
-   ========================================================= */
+   07 — PAGE HEADER
+========================================================= */
 .home-header {
     width: min(900px, 92%);
     margin: 0 auto;
@@ -281,19 +301,20 @@ body::after {
     opacity: 1;
     transform: translateY(0);
 }
-.home-back,
-.back-button {
+.home-back {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 6px;
-    padding: 8px 17px;
-    border: 1px solid rgba(174, 140, 167, 0.22);
+    gap: 7px;
+    padding: 9px 18px;
+    border:
+        1px solid rgba(174, 140, 167, 0.22);
     border-radius: 999px;
-    background: rgba(255, 255, 255, 0.58);
+    background:
+        rgba(255, 255, 255, 0.62);
     color: #8b7485;
     font-size: 13px;
-    backdrop-filter: blur(12px);
+    backdrop-filter: blur(14px);
     box-shadow:
         0 7px 25px rgba(151, 115, 145, 0.06);
     transition:
@@ -301,17 +322,16 @@ body::after {
         background 0.25s ease,
         box-shadow 0.25s ease;
 }
-.home-back:hover,
-.back-button:hover {
+.home-back:hover {
     transform: translateY(-2px);
-    background: rgba(255, 255, 255, 0.9);
+    background:
+        rgba(255, 255, 255, 0.92);
     box-shadow:
-        0 10px 30px rgba(151, 115, 145, 0.1);
+        0 10px 30px rgba(151, 115, 145, 0.11);
 }
 .home-logo {
     margin-top: 24px;
     color: #8d7085;
-    font-family: "Itim", cursive;
     font-size: 18px;
     letter-spacing: 1.5px;
 }
@@ -325,7 +345,8 @@ body::after {
     margin-top: 20px;
     color: #765e72;
     font-family: "Itim", cursive;
-    font-size: clamp(34px, 8vw, 58px);
+    font-size:
+        clamp(34px, 8vw, 58px);
     font-weight: 400;
     line-height: 1.25;
     text-shadow:
@@ -338,40 +359,32 @@ body::after {
     line-height: 2;
 }
 /* =========================================================
-   07 — MAIN CONTENT
-   ========================================================= */
-.home-main {
-    width: min(920px, 92%);
-    margin: 0 auto;
-}
-/* =========================================================
-   08 — GLASS SYSTEM
-   ========================================================= */
+   08 — GLASS CARD
+========================================================= */
 .home-message,
 .story-card,
 .our-dream,
 .person-card,
 .timeline-item,
-.gallery-grid figure,
-.memory-card,
-.family-card,
-.letter-paper,
-.final-letter,
-.reason-card {
-    border: 1px solid rgba(185, 153, 180, 0.2);
+.gallery-grid figure {
+    border:
+        1px solid rgba(185, 153, 180, 0.2);
     background:
-        rgba(255, 255, 255, 0.6);
+        rgba(255, 255, 255, 0.58);
     box-shadow:
         0 18px 55px rgba(145, 110, 140, 0.075);
-    backdrop-filter: blur(14px);
+    backdrop-filter:
+        blur(14px);
+    -webkit-backdrop-filter:
+        blur(14px);
 }
 /* =========================================================
-   09 — MESSAGE CARD
-   ========================================================= */
+   09 — HOME MESSAGE
+========================================================= */
 .home-message {
     width: min(760px, 96%);
     margin: 25px auto;
-    padding: 32px 25px;
+    padding: 34px 26px;
     border-radius: 28px;
     text-align: center;
     opacity: 0;
@@ -392,14 +405,14 @@ body::after {
 }
 .home-message p {
     margin: 12px 0;
-    line-height: 2.05;
+    line-height: 2.15;
 }
 .home-message span {
     color: #c497ad;
 }
 /* =========================================================
    10 — STORY
-   ========================================================= */
+========================================================= */
 .story-container {
     width: min(780px, 96%);
     margin: 0 auto;
@@ -407,7 +420,7 @@ body::after {
 .story-card {
     position: relative;
     margin: 20px 0;
-    padding: 28px;
+    padding: 30px;
     border-radius: 28px;
     overflow: hidden;
     opacity: 0;
@@ -431,6 +444,7 @@ body::after {
     color: #80667a;
     font-family: "Itim", cursive;
     font-weight: 400;
+    line-height: 1.4;
 }
 .story-card p {
     margin-top: 12px;
@@ -441,12 +455,13 @@ body::after {
     position: absolute;
     right: 22px;
     top: 16px;
-    color: rgba(194, 151, 177, 0.3);
+    color:
+        rgba(194, 151, 177, 0.3);
     font-size: 25px;
 }
 /* =========================================================
    11 — TIMELINE
-   ========================================================= */
+========================================================= */
 .timeline {
     position: relative;
     width: min(780px, 96%);
@@ -471,25 +486,21 @@ body::after {
 }
 .timeline-item {
     position: relative;
-    width: calc(50% - 30px);
+    width:
+        calc(50% - 30px);
     margin: 35px 0;
-    padding: 24px;
+    padding: 25px;
     border-radius: 25px;
     opacity: 0;
     transform: translateY(25px);
     transition:
         opacity 0.7s ease,
-        transform 0.7s ease,
-        box-shadow 0.3s ease;
+        transform 0.7s ease;
 }
 .timeline-item.visible,
 .timeline-item.home-show {
     opacity: 1;
     transform: translateY(0);
-}
-.timeline-item:hover {
-    box-shadow:
-        0 24px 60px rgba(145, 110, 140, 0.11);
 }
 .timeline-item:nth-child(odd) {
     margin-right: auto;
@@ -501,17 +512,20 @@ body::after {
     content: "♡";
     position: absolute;
     top: 50%;
-    width: 26px;
-    height: 26px;
+    width: 27px;
+    height: 27px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid rgba(190, 151, 178, 0.25);
+    border:
+        1px solid rgba(190, 151, 178, 0.25);
     border-radius: 50%;
     background: #fffafd;
     color: #bd8fa9;
     font-size: 11px;
     transform: translateY(-50%);
+    box-shadow:
+        0 5px 15px rgba(145, 110, 140, 0.08);
 }
 .timeline-item:nth-child(odd)::before {
     right: -43px;
@@ -524,10 +538,11 @@ body::after {
     color: #806579;
     font-family: "Itim", cursive;
     font-weight: 400;
+    line-height: 1.4;
 }
 .timeline-item p {
     margin-top: 9px;
-    line-height: 1.9;
+    line-height: 1.95;
 }
 .timeline-date {
     color: #ad8199;
@@ -535,7 +550,7 @@ body::after {
 }
 /* =========================================================
    12 — GALLERY
-   ========================================================= */
+========================================================= */
 .gallery-grid {
     display: grid;
     grid-template-columns:
@@ -547,14 +562,13 @@ body::after {
 .gallery-grid figure {
     position: relative;
     overflow: hidden;
-    padding: 9px;
-    border-radius: 28px;
+    border-radius: 25px;
     opacity: 0;
     transform: translateY(25px);
     transition:
         opacity 0.7s ease,
         transform 0.7s ease,
-        box-shadow 0.35s ease;
+        box-shadow 0.3s ease;
 }
 .gallery-grid figure.visible,
 .gallery-grid figure.home-show {
@@ -563,30 +577,29 @@ body::after {
 }
 .gallery-grid figure:hover {
     box-shadow:
-        0 25px 65px rgba(145, 110, 140, 0.14);
+        0 25px 60px rgba(145, 110, 140, 0.13);
 }
 .gallery-grid img {
     width: 100%;
     height: 320px;
     object-fit: cover;
-    border-radius: 21px;
     transition:
-        transform 0.6s ease,
-        filter 0.6s ease;
+        transform 0.55s ease;
 }
 .gallery-grid figure:hover img {
     transform: scale(1.035);
-    filter: brightness(1.025);
 }
 .gallery-grid figcaption {
-    padding: 14px 18px 10px;
+    padding: 15px 18px;
+    background:
+        rgba(255, 255, 255, 0.72);
     color: #806b7b;
     text-align: center;
     line-height: 1.7;
 }
 /* =========================================================
-   13 — MEMORIES
-   ========================================================= */
+   13 — MEMORY GRID
+========================================================= */
 .memory-grid {
     display: grid;
     grid-template-columns:
@@ -595,7 +608,13 @@ body::after {
 }
 .memory-card {
     overflow: hidden;
+    border:
+        1px solid rgba(185, 153, 180, 0.2);
     border-radius: 28px;
+    background:
+        rgba(255, 255, 255, 0.62);
+    box-shadow:
+        0 18px 55px rgba(145, 110, 140, 0.08);
     transition:
         transform 0.3s ease,
         box-shadow 0.3s ease;
@@ -619,11 +638,6 @@ body::after {
     height: 260px;
     object-fit: cover;
     border-radius: 20px;
-    transition:
-        transform 0.5s ease;
-}
-.memory-card:hover .memory-photo img {
-    transform: scale(1.025);
 }
 .memory-info {
     padding: 20px;
@@ -634,6 +648,7 @@ body::after {
     color: #7e6478;
     font-family: "Itim", cursive;
     font-weight: 400;
+    line-height: 1.4;
 }
 .memory-info p {
     margin-top: 7px;
@@ -641,7 +656,7 @@ body::after {
 }
 /* =========================================================
    14 — PERSON CARDS
-   ========================================================= */
+========================================================= */
 .person-grid {
     display: grid;
     grid-template-columns:
@@ -677,13 +692,6 @@ body::after {
         drop-shadow(
             0 12px 16px rgba(120, 90, 110, 0.12)
         );
-    transition:
-        transform 0.4s ease;
-}
-.person-card:hover img {
-    transform:
-        translateY(-5px)
-        rotate(2deg);
 }
 .person-card h2,
 .person-card h3 {
@@ -697,11 +705,11 @@ body::after {
 }
 /* =========================================================
    15 — OUR DREAM
-   ========================================================= */
+========================================================= */
 .our-dream {
     width: min(760px, 96%);
     margin: 30px auto;
-    padding: 32px;
+    padding: 34px;
     border-radius: 28px;
     text-align: center;
     opacity: 0;
@@ -726,19 +734,21 @@ body::after {
 }
 /* =========================================================
    16 — LETTER
-   ========================================================= */
+========================================================= */
 .letter-paper {
     position: relative;
     width: min(740px, 96%);
     margin: 0 auto;
     padding:
-        48px clamp(25px, 7vw, 72px);
+        50px clamp(25px, 7vw, 72px);
+    border:
+        1px solid rgba(185, 151, 179, 0.25);
     border-radius: 30px;
     background:
         linear-gradient(
             145deg,
             rgba(255, 255, 255, 0.86),
-            rgba(255, 248, 252, 0.75)
+            rgba(255, 248, 252, 0.76)
         );
     box-shadow:
         0 28px 75px rgba(145, 110, 140, 0.1);
@@ -757,73 +767,56 @@ body::after {
 .letter-paper::before {
     content: "";
     position: absolute;
-    width: 180px;
-    height: 180px;
+    width: 170px;
+    height: 170px;
     right: -75px;
     top: -75px;
     border-radius: 50%;
     background:
-        rgba(255, 210, 232, 0.32);
-    filter: blur(2px);
+        rgba(255, 210, 232, 0.3);
+    pointer-events: none;
 }
 .letter-paper::after {
     content: "♡";
     position: absolute;
-    left: 25px;
-    bottom: 20px;
+    left: 22px;
+    bottom: 16px;
     color:
-        rgba(195, 149, 172, 0.15);
+        rgba(195, 145, 172, 0.18);
     font-size: 34px;
-    animation:
-        softPulse 3s ease-in-out infinite;
-}
-@keyframes softPulse {
-    0%,
-    100% {
-        opacity: 0.35;
-        transform: scale(0.9);
-    }
-    50% {
-        opacity: 0.8;
-        transform: scale(1.08);
-    }
+    transform: rotate(-12deg);
 }
 .letter-decoration {
-    position: relative;
     text-align: center;
     color: #c395ac;
     margin-bottom: 25px;
     font-size: 18px;
 }
 .letter-date {
-    position: relative;
     text-align: right;
     color: #ae94a5;
     font-size: 12px;
 }
 .letter-greeting {
-    position: relative;
     margin-top: 35px;
     color: #786071;
     font-family: "Itim", cursive;
-    font-size: 25px;
-    line-height: 1.6;
+    font-size: 26px;
+    line-height: 1.5;
 }
 .letter-content {
-    position: relative;
     margin-top: 28px;
 }
 .letter-content p {
     margin-bottom: 24px;
     color: #6d6170;
-    line-height: 2.15;
+    line-height: 2.2;
 }
 .letter-content strong {
     color: #9b718b;
     font-size: 19px;
 }
 .letter-signature {
-    position: relative;
     margin-top: 35px;
     color: #98768b;
     text-align: right;
@@ -831,7 +824,7 @@ body::after {
 }
 /* =========================================================
    17 — 100 REASONS
-   ========================================================= */
+========================================================= */
 .reasons-container {
     width: min(820px, 96%);
     margin: 0 auto;
@@ -845,28 +838,35 @@ body::after {
     align-items: center;
     gap: 16px;
     padding: 18px 20px;
+    border:
+        1px solid rgba(185, 153, 180, 0.18);
     border-radius: 22px;
-    transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease,
-        background 0.25s ease,
-        opacity 0.7s ease;
-}
-.reason-card.reveal {
+    background:
+        rgba(255, 255, 255, 0.58);
+    box-shadow:
+        0 10px 30px rgba(145, 110, 140, 0.045);
+    backdrop-filter:
+        blur(10px);
     opacity: 0;
-    transform: translateY(22px);
+    transform: translateY(25px);
+    transition:
+        opacity 0.55s ease,
+        transform 0.55s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
 }
-.reason-card.reveal.visible {
+.reason-card.visible {
     opacity: 1;
     transform: translateY(0);
 }
 .reason-card:hover {
     transform: translateY(-3px);
     background:
-        rgba(255, 255, 255, 0.82);
+        rgba(255, 255, 255, 0.8);
     box-shadow:
         0 16px 40px rgba(145, 110, 140, 0.1);
 }
+.reason-card span,
 .reason-number {
     flex: 0 0 42px;
     width: 42px;
@@ -878,22 +878,21 @@ body::after {
     background:
         linear-gradient(
             145deg,
-            rgba(255, 219, 235, 0.85),
-            rgba(235, 226, 255, 0.85)
+            rgba(255, 219, 235, 0.8),
+            rgba(235, 226, 255, 0.8)
         );
     color: #98768b;
-    font-family: "Itim", cursive;
-    font-size: 13px;
-    box-shadow:
-        inset 0 0 0 1px rgba(255,255,255,0.35);
+    font-size: 11px;
 }
+.reason-card p,
 .reason-text {
+    margin: 0;
     color: #716474;
     line-height: 1.8;
 }
 /* =========================================================
    18 — FAMILY
-   ========================================================= */
+========================================================= */
 .family-grid {
     display: grid;
     grid-template-columns:
@@ -902,7 +901,15 @@ body::after {
 }
 .family-card {
     overflow: hidden;
+    border:
+        1px solid rgba(185, 153, 180, 0.22);
     border-radius: 30px;
+    background:
+        rgba(255, 255, 255, 0.62);
+    box-shadow:
+        0 18px 55px rgba(145, 110, 140, 0.075);
+    backdrop-filter:
+        blur(12px);
     opacity: 0;
     transform: translateY(30px);
     transition:
@@ -979,15 +986,17 @@ body::after {
 }
 /* =========================================================
    19 — FINAL PAGE
-   ========================================================= */
+========================================================= */
 .final-letter {
     width: min(740px, 96%);
     margin: 0 auto;
     padding:
         50px clamp(25px, 7vw, 72px);
+    border:
+        1px solid rgba(185, 153, 180, 0.23);
     border-radius: 30px;
     background:
-        rgba(255, 255, 255, 0.74);
+        rgba(255, 255, 255, 0.72);
     box-shadow:
         0 28px 75px rgba(145, 110, 140, 0.1);
     text-align: center;
@@ -1005,7 +1014,6 @@ body::after {
 .final-symbol {
     margin-bottom: 30px;
     color: #c397ae;
-    font-size: 22px;
 }
 .final-letter > p {
     margin-bottom: 25px;
@@ -1060,48 +1068,34 @@ body::after {
     color: #866c7e;
     box-shadow:
         0 8px 25px rgba(145, 110, 140, 0.05);
-    opacity: 0;
-    transform: translateY(20px);
     transition:
-        opacity 0.7s ease,
-        transform 0.7s ease,
+        transform 0.25s ease,
         background 0.25s ease,
         box-shadow 0.25s ease;
 }
-.final-home-button.home-show {
-    opacity: 1;
-    transform: translateY(0);
-}
 .final-home-button:hover {
+    transform: translateY(-2px);
     background:
         rgba(255, 255, 255, 0.95);
     box-shadow:
         0 12px 35px rgba(145, 110, 140, 0.1);
 }
 /* =========================================================
-   20 — WELCOME / INDEX
-   ========================================================= */
-.welcome-page,
-#welcome {
+   20 — WELCOME PAGE
+========================================================= */
+.welcome-page {
     position: relative;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 45px 20px;
+    padding: 55px 20px;
     text-align: center;
     overflow: hidden;
     opacity: 1;
     transition:
-        opacity 0.7s ease,
-        transform 0.7s ease;
-}
-.welcome-page.hide,
-#welcome.hide {
-    opacity: 0;
-    transform: translateY(-10px);
-    pointer-events: none;
+        opacity 0.7s ease;
 }
 .website-name {
     position: relative;
@@ -1111,17 +1105,7 @@ body::after {
     font-size: 19px;
     letter-spacing: 1.5px;
     animation:
-        fadeDown 1s ease both;
-}
-@keyframes fadeDown {
-    from {
-        opacity: 0;
-        transform: translateY(-15px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+        softAppear 1s ease both;
 }
 .welcome-characters {
     position: relative;
@@ -1129,28 +1113,16 @@ body::after {
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    gap: 15px;
+    gap: 14px;
     margin: 30px auto 20px;
     animation:
-        charactersAppear 1s ease 0.15s both;
-}
-@keyframes charactersAppear {
-    from {
-        opacity: 0;
-        transform:
-            translateY(20px)
-            scale(0.95);
-    }
-    to {
-        opacity: 1;
-        transform:
-            translateY(0)
-            scale(1);
-    }
+        charactersAppear 1.1s ease both;
 }
 .character {
-    width: clamp(120px, 30vw, 190px);
-    height: clamp(120px, 30vw, 190px);
+    width:
+        clamp(120px, 30vw, 190px);
+    height:
+        clamp(120px, 30vw, 190px);
     object-fit: contain;
     filter:
         drop-shadow(
@@ -1171,113 +1143,216 @@ body::after {
         transform: translateY(-8px);
     }
 }
+@keyframes charactersAppear {
+    from {
+        opacity: 0;
+        transform:
+            translateY(25px)
+            scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+@keyframes softAppear {
+    from {
+        opacity: 0;
+        transform:
+            translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform:
+            translateY(0);
+    }
+}
 /* =========================================================
    21 — WELCOME TEXT
-   ========================================================= */
+========================================================= */
 .welcome-text {
     position: relative;
     z-index: 2;
     width: min(650px, 94%);
     color: #6f6370;
-    font-size: 15px;
     line-height: 2;
     animation:
-        welcomeTextAppear 1s ease 0.35s both;
+        softAppear 1s ease 0.25s both;
 }
-@keyframes welcomeTextAppear {
+.typing-text {
+    min-height: 34px;
+    margin-bottom: 2px;
+    color: #806d7c;
+    font-family: "Kanit", sans-serif;
+    font-size:
+        clamp(17px, 4vw, 21px);
+    font-weight: 400;
+    line-height: 1.8;
+    /* สำคัญกับภาษาไทย */
+    letter-spacing: 0;
+    word-spacing: 0;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    font-variant-ligatures:
+        contextual common-ligatures;
+}
+.welcome-text h1 {
+    margin: 3px 0 5px;
+    color: #765e72;
+    font-family: "Itim", cursive;
+    font-size:
+        clamp(42px, 10vw, 68px);
+    font-weight: 400;
+    line-height: 1.15;
+    letter-spacing: 0;
+    text-shadow:
+        0 7px 28px rgba(174, 135, 164, 0.15);
+    animation:
+        titleFloat 4s ease-in-out infinite;
+}
+@keyframes titleFloat {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-3px);
+    }
+}
+.welcome-question {
+    margin-top: 3px;
+    color: #8b7786;
+    font-size:
+        clamp(15px, 3.5vw, 18px);
+    line-height: 1.9;
+    letter-spacing: 0;
+}
+.second-question {
+    margin-top: 18px;
+    color: #806d7c;
+    font-size:
+        clamp(14px, 3.3vw, 17px);
+}
+.welcome-message {
+    margin: 28px auto 0;
+    width: min(600px, 100%);
+    padding:
+        28px clamp(20px, 5vw, 36px);
+    border:
+        1px solid rgba(185, 153, 180, 0.18);
+    border-radius: 28px;
+    background:
+        rgba(255, 255, 255, 0.48);
+    box-shadow:
+        0 18px 55px rgba(145, 110, 140, 0.065);
+    backdrop-filter:
+        blur(12px);
+    -webkit-backdrop-filter:
+        blur(12px);
+    color: #766878;
+    font-size:
+        clamp(14px, 3.2vw, 16px);
+    line-height: 2;
+    animation:
+        messageAppear 1s ease 0.6s both;
+}
+@keyframes messageAppear {
     from {
         opacity: 0;
-        transform: translateY(18px);
+        transform:
+            translateY(18px)
+            scale(0.98);
     }
     to {
         opacity: 1;
-        transform: translateY(0);
+        transform:
+            translateY(0)
+            scale(1);
     }
 }
-/*
-   สำคัญ:
-   ให้พื้นที่ของ typing อยู่คงที่
-   เพื่อไม่ให้หน้าเว็บกระโดดตอนตัวหนังสือพิมพ์
-*/
-.typing-text {
-    min-height: 2em;
-    margin-bottom: 2px;
-    white-space: pre-wrap;
-}
-.welcome-text h1 {
-    margin: 4px 0 7px;
-    color: #765e72;
-    font-family: "Itim", cursive;
-    font-size: clamp(38px, 9vw, 65px);
-    font-weight: 400;
-    line-height: 1.25;
+.welcome-message p {
+    margin: 7px 0;
+    line-height: 2.05;
+    /* ป้องกันระยะห่างประหลาดของไทย */
     letter-spacing: 0;
-    text-shadow:
-        0 5px 25px rgba(174, 135, 164, 0.13);
+    word-spacing: 0;
 }
-.welcome-text p {
-    margin: 8px 0;
+.welcome-message p:first-child {
+    color: #9a7890;
+    font-family: "Itim", cursive;
+    font-size: 22px;
 }
-.little-message {
-    margin: 22px 0;
-    color: #806c7c;
+.welcome-decoration {
+    margin-top: 22px;
+    color: #c39aaf;
+    font-size: 15px;
+    letter-spacing: 2px;
+    opacity: 0.8;
+    animation:
+        decorationPulse 3s ease-in-out infinite;
+}
+@keyframes decorationPulse {
+    0%,
+    100% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 1;
+    }
 }
 /* =========================================================
    22 — START BUTTON
-   ========================================================= */
-.start-button,
-#openStory {
+========================================================= */
+.start-button {
     position: relative;
     z-index: 3;
-    margin-top: 30px;
-    padding: 13px 27px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 28px;
+    padding: 14px 27px;
     border:
-        1px solid rgba(180, 145, 170, 0.25);
+        1px solid rgba(180, 145, 170, 0.28);
     border-radius: 999px;
     background:
-        rgba(255, 255, 255, 0.7);
+        rgba(255, 255, 255, 0.72);
     color: #846a7c;
     font-size: 14px;
     box-shadow:
         0 12px 35px rgba(145, 110, 140, 0.09);
     opacity: 0;
     transform:
-        translateY(10px)
-        scale(0.98);
+        translateY(15px);
     transition:
-        opacity 0.6s ease,
-        transform 0.6s ease,
-        background 0.25s ease,
-        box-shadow 0.25s ease;
+        opacity 0.7s ease,
+        transform 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
 }
-.start-button.show-button,
-#openStory.show {
+.start-button.show-button {
     opacity: 1;
-    transform:
-        translateY(0)
-        scale(1);
+    transform: translateY(0);
 }
-.start-button:hover,
-#openStory:hover {
-    background:
-        rgba(255, 255, 255, 0.95);
-    box-shadow:
-        0 18px 45px rgba(145, 110, 140, 0.14);
+.start-button:hover {
     transform:
         translateY(-3px)
         scale(1.015);
+    background:
+        rgba(255, 255, 255, 0.96);
+    box-shadow:
+        0 18px 45px rgba(145, 110, 140, 0.14);
 }
-.start-button:active,
-#openStory:active {
+.start-button:active {
     transform:
         translateY(0)
-        scale(0.96);
+        scale(0.97);
 }
 /* =========================================================
    23 — MENU PAGE
-   ========================================================= */
-.menu-page,
-#bookMenu {
+========================================================= */
+.menu-page {
     min-height: 100vh;
     width: 100%;
     display: flex;
@@ -1288,8 +1363,7 @@ body::after {
     transition:
         opacity 0.7s ease;
 }
-.menu-page.show,
-#bookMenu.show {
+.menu-page.show {
     opacity: 1;
 }
 .menu-container {
@@ -1302,7 +1376,7 @@ body::after {
 .menu-logo {
     color: #8d7085;
     font-family: "Itim", cursive;
-    font-size: 19px;
+    font-size: 20px;
     letter-spacing: 1.5px;
 }
 .menu-title {
@@ -1311,9 +1385,7 @@ body::after {
     font-family: "Itim", cursive;
     font-size: 38px;
     font-weight: 400;
-    letter-spacing: 1px;
-    text-shadow:
-        0 5px 20px rgba(174, 135, 164, 0.12);
+    line-height: 1.3;
 }
 .menu-line {
     margin: 10px auto 25px;
@@ -1322,44 +1394,37 @@ body::after {
 }
 .book-menu {
     display: grid;
-    gap: 12px;
+    gap: 13px;
 }
 .menu-item {
     width: 100%;
-    min-height: 55px;
-    padding: 15px 18px;
+    display: block;
+    padding: 16px 18px;
     border:
         1px solid rgba(185, 153, 180, 0.18);
-    border-radius: 20px;
+    border-radius: 21px;
     background:
         rgba(255, 255, 255, 0.55);
     color: #806a7b;
-    font-family: "Itim", "Kanit", cursive;
-    font-size: 17px;
-    line-height: 1.6;
     box-shadow:
         0 8px 25px rgba(145, 110, 140, 0.045);
-    backdrop-filter: blur(10px);
     transition:
         transform 0.25s ease,
         background 0.25s ease,
         box-shadow 0.25s ease;
 }
 .menu-item:hover {
-    transform: translateY(-3px);
+    transform:
+        translateY(-3px);
     background:
-        rgba(255, 255, 255, 0.88);
+        rgba(255, 255, 255, 0.9);
     box-shadow:
         0 14px 35px rgba(145, 110, 140, 0.1);
 }
 .menu-item:active {
     transform:
-        translateY(0)
         scale(0.98);
 }
-/* =========================================================
-   24 — ASCII CORGI
-   ========================================================= */
 .ascii-corgi {
     margin: 35px auto 0;
     max-width: 100%;
@@ -1368,17 +1433,6 @@ body::after {
     font-size: 8px;
     line-height: 1.2;
     opacity: 0.75;
-    animation:
-        corgiFloat 4s ease-in-out infinite;
-}
-@keyframes corgiFloat {
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-4px);
-    }
 }
 .menu-star {
     margin-top: 20px;
@@ -1387,20 +1441,57 @@ body::after {
         gentleRotate 5s linear infinite;
 }
 @keyframes gentleRotate {
-    from {
+    0% {
         transform: rotate(0deg);
     }
-    to {
+    100% {
         transform: rotate(360deg);
     }
 }
 /* =========================================================
-   25 — REVEAL ANIMATIONS
-   ========================================================= */
+   24 — BACK TO MENU
+========================================================= */
+.back-to-menu,
+.back-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    margin: 0 auto 25px;
+    padding: 9px 18px;
+    border:
+        1px solid rgba(174, 140, 167, 0.22);
+    border-radius: 999px;
+    background:
+        rgba(255, 255, 255, 0.6);
+    color: #8b7485;
+    font-size: 13px;
+    box-shadow:
+        0 7px 25px rgba(151, 115, 145, 0.05);
+    backdrop-filter:
+        blur(12px);
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease;
+}
+.back-to-menu:hover,
+.back-button:hover {
+    transform:
+        translateY(-2px);
+    background:
+        rgba(255, 255, 255, 0.92);
+    box-shadow:
+        0 12px 30px rgba(151, 115, 145, 0.09);
+}
+/* =========================================================
+   25 — GENERAL REVEAL
+========================================================= */
 .fade-up,
 .reveal {
     opacity: 0;
-    transform: translateY(30px);
+    transform:
+        translateY(30px);
     transition:
         opacity 0.8s ease,
         transform 0.8s ease;
@@ -1408,7 +1499,8 @@ body::after {
 .fade-up.visible,
 .reveal.visible {
     opacity: 1;
-    transform: translateY(0);
+    transform:
+        translateY(0);
 }
 .fade-in {
     opacity: 0;
@@ -1420,53 +1512,158 @@ body::after {
 }
 .slide-left {
     opacity: 0;
-    transform: translateX(-35px);
+    transform:
+        translateX(-35px);
     transition:
         opacity 0.8s ease,
         transform 0.8s ease;
 }
 .slide-left.visible {
     opacity: 1;
-    transform: translateX(0);
+    transform:
+        translateX(0);
 }
 .slide-right {
     opacity: 0;
-    transform: translateX(35px);
+    transform:
+        translateX(35px);
     transition:
         opacity 0.8s ease,
         transform 0.8s ease;
 }
 .slide-right.visible {
     opacity: 1;
-    transform: translateX(0);
+    transform:
+        translateX(0);
 }
 /* =========================================================
    26 — IMAGE FALLBACK
-   ========================================================= */
+========================================================= */
 .image-missing {
     opacity: 0.3;
-    filter: grayscale(1);
+    filter:
+        grayscale(1);
 }
 /* =========================================================
-   27 — COMMON FOOTER / SMALL TEXT
-   ========================================================= */
-.page-footer {
-    width: min(760px, 92%);
-    margin: 55px auto 0;
-    padding: 20px;
+   27 — IMAGE FRAME / SOFT PHOTO STYLE
+========================================================= */
+.photo-frame {
+    position: relative;
+    padding: 10px;
+    border:
+        1px solid rgba(190, 155, 180, 0.25);
+    border-radius: 27px;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.92),
+            rgba(255, 242, 249, 0.78)
+        );
+    box-shadow:
+        0 18px 45px rgba(145, 110, 140, 0.1),
+        inset 0 0 0 4px rgba(255, 255, 255, 0.4);
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+}
+.photo-frame:hover {
+    transform:
+        translateY(-5px)
+        rotate(-0.5deg);
+    box-shadow:
+        0 25px 60px rgba(145, 110, 140, 0.14);
+}
+.photo-frame img {
+    width: 100%;
+    border-radius: 19px;
+    object-fit: cover;
+}
+/* =========================================================
+   28 — PHOTO POLAROID
+========================================================= */
+.polaroid {
+    padding: 12px 12px 20px;
+    border-radius: 8px;
+    background:
+        rgba(255, 255, 255, 0.9);
+    box-shadow:
+        0 16px 40px rgba(145, 110, 140, 0.1);
+    transform:
+        rotate(-1deg);
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+}
+.polaroid:nth-child(even) {
+    transform:
+        rotate(1deg);
+}
+.polaroid:hover {
+    transform:
+        translateY(-6px)
+        rotate(0deg);
+    box-shadow:
+        0 24px 55px rgba(145, 110, 140, 0.14);
+}
+.polaroid img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+}
+.polaroid-caption {
+    padding-top: 12px;
+    color: #8a7482;
     text-align: center;
-    color: #a28d9e;
-    font-size: 12px;
-    line-height: 2;
-}
-.page-footer .heart {
-    color: #c697af;
-    animation:
-        softPulse 2.5s ease-in-out infinite;
+    font-family: "Itim", cursive;
+    font-size: 16px;
 }
 /* =========================================================
-   28 — MOBILE
-   ========================================================= */
+   29 — SECTION TITLE
+========================================================= */
+.section-title {
+    margin-bottom: 28px;
+    color: #765e72;
+    font-family: "Itim", cursive;
+    font-size:
+        clamp(32px, 7vw, 48px);
+    font-weight: 400;
+    line-height: 1.3;
+    text-align: center;
+}
+.section-subtitle {
+    max-width: 650px;
+    margin:
+        -12px auto 30px;
+    color: #9a8794;
+    font-size: 14px;
+    line-height: 2;
+    text-align: center;
+}
+/* =========================================================
+   30 — PAGE TRANSITION
+========================================================= */
+.page-transition {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    background:
+        linear-gradient(
+            135deg,
+            #fff8fc,
+            #f7f1ff,
+            #eef6ff
+        );
+    opacity: 0;
+    transition:
+        opacity 0.5s ease;
+}
+.page-transition.active {
+    opacity: 1;
+}
+/* =========================================================
+   31 — MOBILE
+========================================================= */
 @media (max-width: 700px) {
     body {
         background-attachment: scroll;
@@ -1503,13 +1700,15 @@ body::after {
     .gallery-grid img {
         height: 280px;
     }
+    /* TIMELINE */
     .timeline::before {
         left: 10px;
     }
     .timeline-item,
     .timeline-item:nth-child(odd),
     .timeline-item:nth-child(even) {
-        width: calc(100% - 35px);
+        width:
+            calc(100% - 35px);
         margin:
             25px 0 25px 35px;
     }
@@ -1519,6 +1718,7 @@ body::after {
         left: -37px;
         right: auto;
     }
+    /* LETTER */
     .letter-paper,
     .final-letter {
         width: 96%;
@@ -1529,28 +1729,34 @@ body::after {
     .letter-content p,
     .final-letter > p {
         font-size: 14px;
-        line-height: 2;
+        line-height: 2.08;
     }
     .letter-greeting {
         font-size: 22px;
     }
+    /* REASONS */
     .reason-card {
         align-items: flex-start;
         padding: 16px;
     }
+    .reason-card span,
     .reason-number {
         flex:
             0 0 38px;
         width: 38px;
         height: 38px;
     }
+    .reason-card p,
     .reason-text {
         font-size: 13px;
     }
-    .welcome-page,
-    #welcome {
+    /* WELCOME */
+    .welcome-page {
         padding:
             35px 18px;
+    }
+    .website-name {
+        font-size: 16px;
     }
     .welcome-characters {
         gap: 5px;
@@ -1563,17 +1769,32 @@ body::after {
     .welcome-text {
         width: 100%;
         font-size: 14px;
-        line-height: 2;
+    }
+    .typing-text {
+        font-size: 16px;
+        min-height: 30px;
     }
     .welcome-text h1 {
         font-size: 42px;
     }
-    .start-button,
-    #openStory {
+    .welcome-message {
         margin-top: 22px;
+        padding:
+            23px 18px;
+        border-radius: 24px;
+        font-size: 13px;
     }
+    .welcome-message p {
+        line-height: 2;
+    }
+    .start-button {
+        margin-top: 22px;
+        padding:
+            13px 22px;
+        font-size: 13px;
+    }
+    /* MENU */
     .menu-container {
-        width: 96%;
         padding:
             25px 10px;
     }
@@ -1581,18 +1802,25 @@ body::after {
         font-size: 30px;
     }
     .menu-item {
-        min-height: 52px;
         padding:
-            13px 12px;
-        font-size: 15px;
+            14px 12px;
+        font-size: 13px;
     }
     .ascii-corgi {
         font-size: 5px;
     }
+    /* PHOTO */
+    .photo-frame {
+        padding: 7px;
+        border-radius: 22px;
+    }
+    .photo-frame img {
+        border-radius: 16px;
+    }
 }
 /* =========================================================
-   29 — SMALL PHONES
-   ========================================================= */
+   32 — SMALL PHONES
+========================================================= */
 @media (max-width: 390px) {
     .home-header h1 {
         font-size: 31px;
@@ -1607,6 +1835,16 @@ body::after {
     .welcome-text h1 {
         font-size: 37px;
     }
+    .typing-text {
+        font-size: 15px;
+    }
+    .welcome-question {
+        font-size: 14px;
+    }
+    .welcome-message {
+        padding:
+            21px 16px;
+    }
     .home-message,
     .our-dream,
     .story-card,
@@ -1618,31 +1856,23 @@ body::after {
         padding:
             20px 17px;
     }
-    .letter-paper,
-    .final-letter {
-        padding:
-            30px 18px;
-    }
-    .menu-title {
-        font-size: 28px;
-    }
-    .menu-item {
-        font-size: 14px;
+}
+/* =========================================================
+   33 — TOUCH DEVICES
+========================================================= */
+@media (hover: none) {
+    .menu-item:hover,
+    .start-button:hover,
+    .photo-frame:hover,
+    .polaroid:hover,
+    .memory-card:hover,
+    .reason-card:hover {
+        transform: none;
     }
 }
 /* =========================================================
-   30 — ACCESSIBILITY
-   ========================================================= */
-button:focus-visible,
-a:focus-visible {
-    outline:
-        2px solid rgba(190, 145, 177, 0.65);
-    outline-offset:
-        4px;
-}
-/* =========================================================
-   31 — REDUCED MOTION
-   ========================================================= */
+   34 — REDUCED MOTION
+========================================================= */
 @media (prefers-reduced-motion: reduce) {
     html {
         scroll-behavior: auto;
