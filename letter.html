@@ -3,242 +3,792 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>A Letter For Porch ✦</title>
+<title>Letter ♡ Dear Porch</title>
 <link rel="stylesheet" href="style.css">
+<style>
+    /* ================================
+       LETTER PAGE
+    ================================= */
+    .letter-page {
+        min-height: 100vh;
+        padding: 35px 18px 80px;
+        position: relative;
+        overflow: hidden;
+    }
+    .letter-top {
+        width: min(760px, 96%);
+        margin: 0 auto 25px;
+        text-align: center;
+    }
+    .letter-back {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 18px;
+        border: 1px solid rgba(185, 153, 180, 0.25);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.6);
+        color: #8c7183;
+        font-size: 13px;
+        backdrop-filter: blur(12px);
+        transition: 0.3s ease;
+    }
+    .letter-back:hover {
+        transform: translateY(-2px);
+        background: rgba(255, 255, 255, 0.9);
+    }
+    .letter-title {
+        margin-top: 25px;
+        color: #765e72;
+        font-family: "Itim", cursive;
+        font-size: clamp(35px, 8vw, 55px);
+        font-weight: 400;
+    }
+    .letter-subtitle {
+        margin-top: 5px;
+        color: #ad8da1;
+        font-size: 13px;
+    }
+    /* ================================
+       PAPER
+    ================================= */
+    .letter-paper {
+        position: relative;
+        width: min(760px, 96%);
+        margin: 0 auto;
+        padding:
+            55px
+            clamp(24px, 7vw, 70px);
+        border:
+            1px solid rgba(186, 151, 178, 0.28);
+        border-radius: 32px;
+        background:
+            linear-gradient(
+                145deg,
+                rgba(255,255,255,0.88),
+                rgba(255,247,252,0.78)
+            );
+        box-shadow:
+            0 30px 80px rgba(145, 110, 140, 0.12);
+        backdrop-filter: blur(15px);
+        overflow: hidden;
+        opacity: 0;
+        transform: translateY(30px);
+        animation:
+            letterAppear 1s ease forwards;
+    }
+    @keyframes letterAppear {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    .letter-paper::before {
+        content: "♡";
+        position: absolute;
+        top: -35px;
+        right: 15px;
+        color: rgba(221, 174, 202, 0.2);
+        font-size: 150px;
+        transform: rotate(15deg);
+        pointer-events: none;
+    }
+    .letter-paper::after {
+        content: "";
+        position: absolute;
+        width: 180px;
+        height: 180px;
+        left: -90px;
+        bottom: -90px;
+        border-radius: 50%;
+        background:
+            rgba(221, 226, 255, 0.3);
+        pointer-events: none;
+    }
+    /* ================================
+       LETTER CONTENT
+    ================================= */
+    .letter-decoration {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        color: #c194ad;
+        font-size: 18px;
+        letter-spacing: 5px;
+        margin-bottom: 30px;
+    }
+    .letter-greeting {
+        position: relative;
+        z-index: 2;
+        color: #755d70;
+        font-family: "Itim", cursive;
+        font-size: clamp(25px, 6vw, 34px);
+        font-weight: 400;
+        margin-bottom: 25px;
+    }
+    .letter-content {
+        position: relative;
+        z-index: 2;
+    }
+    .letter-content p {
+        color: #6d6270;
+        font-size: 15px;
+        line-height: 2.15;
+        margin-bottom: 24px;
+    }
+    .letter-content .center-text {
+        text-align: center;
+        color: #9b758c;
+        margin:
+            35px 0;
+        font-family: "Itim", cursive;
+        font-size: 20px;
+    }
+    .letter-content strong {
+        color: #966e87;
+        font-weight: 500;
+    }
+    .letter-divider {
+        text-align: center;
+        color: #c69ab1;
+        margin:
+            35px 0;
+        font-size: 15px;
+        letter-spacing: 4px;
+    }
+    .letter-signature {
+        position: relative;
+        z-index: 2;
+        margin-top: 40px;
+        text-align: right;
+        color: #96768b;
+        line-height: 2;
+    }
+    .letter-signature strong {
+        color: #856276;
+        font-family: "Itim", cursive;
+        font-size: 22px;
+        font-weight: 400;
+    }
+    .letter-ending {
+        position: relative;
+        z-index: 2;
+        margin-top: 45px;
+        padding-top: 30px;
+        border-top:
+            1px solid rgba(185,153,180,0.18);
+        text-align: center;
+        color: #9c8394;
+        line-height: 2;
+    }
+    .letter-ending .always {
+        display: block;
+        margin-top: 20px;
+        color: #ad829a;
+        font-family: "Itim", cursive;
+        font-size: 18px;
+    }
+    /* ================================
+       FLOATING HEARTS
+    ================================= */
+    .letter-heart {
+        position: fixed;
+        color: rgba(195, 145, 171, 0.35);
+        pointer-events: none;
+        animation:
+            heartFloat 7s linear infinite;
+    }
+    .heart-1 {
+        left: 8%;
+        bottom: -30px;
+        animation-delay: 0s;
+    }
+    .heart-2 {
+        left: 28%;
+        bottom: -40px;
+        animation-delay: 2s;
+    }
+    .heart-3 {
+        left: 70%;
+        bottom: -35px;
+        animation-delay: 4s;
+    }
+    .heart-4 {
+        left: 88%;
+        bottom: -30px;
+        animation-delay: 1s;
+    }
+    @keyframes heartFloat {
+        0% {
+            opacity: 0;
+            transform:
+                translateY(0)
+                rotate(0deg);
+        }
+        20% {
+            opacity: 0.6;
+        }
+        80% {
+            opacity: 0.35;
+        }
+        100% {
+            opacity: 0;
+            transform:
+                translateY(-100vh)
+                rotate(35deg);
+        }
+    }
+    /* ================================
+       MOBILE
+    ================================= */
+    @media (max-width: 600px) {
+        .letter-page {
+            padding:
+                25px 12px 60px;
+        }
+        .letter-paper {
+            width: 96%;
+            padding:
+                38px 22px;
+            border-radius: 25px;
+        }
+        .letter-content p {
+            font-size: 14px;
+            line-height: 2.05;
+        }
+        .letter-greeting {
+            font-size: 27px;
+        }
+        .letter-content .center-text {
+            font-size: 18px;
+        }
+        .letter-signature {
+            font-size: 13px;
+        }
+    }
+</style>
 </head>
 <body>
-<main class="home-page">
-    <!-- ✦ BACKGROUND -->
-    <div class="home-glitter" aria-hidden="true">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
-    <!-- ✦ HEADER -->
-    <header class="home-header" id="letterHeader">
-        <a href="index.html" class="home-back">
-            ← Our Book
+<!-- ✦ BACKGROUND SPARKLES -->
+<div class="sparkles" aria-hidden="true">
+    <span>✦</span>
+    <span>˚</span>
+    <span>✧</span>
+    <span>⋆</span>
+    <span>✦</span>
+    <span>˚</span>
+    <span>✧</span>
+    <span>⋆</span>
+    <span>·</span>
+    <span>✦</span>
+    <span>˚</span>
+    <span>✧</span>
+</div>
+<!-- ✦ FLOATING HEARTS -->
+<div class="letter-heart heart-1">♡</div>
+<div class="letter-heart heart-2">♡</div>
+<div class="letter-heart heart-3">♡</div>
+<div class="letter-heart heart-4">♡</div>
+<main class="letter-page">
+    <!-- ================================
+         TOP
+    ================================= -->
+    <header class="letter-top">
+        <a
+            href="index.html"
+            class="letter-back">
+            ← back to our book
         </a>
-        <p class="home-logo">
-            ժׁׅ݊ꫀׁׅܻɑׁׅ֮r&nbsp;&nbsp;pᨵׁׅrᝯׁhׁׅ֮ ✦
-        </p>
-        <p class="home-small">
-            𓂃 ࣪˖ ִֶָ words from ink to porch ♡
-        </p>
-        <h1>
+        <h1 class="letter-title">
             ˚₊‧꒰ა ᥣׁׅ֪ꫀׁׅܻtׁׅtׁׅꫀׁׅܻr ໒꒱ ‧₊˚
         </h1>
-        <p class="home-intro">
-            จดหมายเล็ก ๆ
-            <br>
-            ที่เค้าอยากเขียนถึงเธอ
-            ♡
+        <p class="letter-subtitle">
+            a little letter from ink to porch ♡
         </p>
     </header>
-    <!-- ✦ LETTER -->
-    <section class="home-main">
-        <article
-            class="letter-paper"
-            id="letterPaper">
-            <div class="letter-decoration">
+    <!-- ================================
+         LETTER
+    ================================= -->
+    <article class="letter-paper">
+        <div class="letter-decoration">
+            𓂃 ࣪˖ ִֶָ ♡ ִֶָ ࣪˖ 𓂃
+        </div>
+        <h2 class="letter-greeting">
+            ถึงพอร์ชของเค้า 𐔌՞ ܸ.ˬ.ܸ՞𐦯
+        </h2>
+        <div class="letter-content">
+            <p>
+                ถ้าเธอกำลังอ่านข้อความนี้อยู่
+                แสดงว่าเธอเปิดมาถึงหน้าจดหมายแล้วนะ ♡
+            </p>
+            <p>
+                นี่ก็เดินทางมาถึง <strong>6 เดือนแล้วนะ</strong>
+                ก็ครึ่งปีแล้วที่เราได้อยู่ด้วยกันมา
+            </p>
+            <p>
+                เค้ารู้สึกโชคดีมากเลย
+                ที่มีเธออยู่ในชีวิตของเค้า
+            </p>
+            <p>
+                เค้าไม่รู้เหมือนกันว่า
+                จะเริ่มเขียนจากตรงไหนดี
+                เพราะมีหลายอย่างมาก ๆ
+                ที่เค้าอยากบอกเธอ
+            </p>
+            <p>
+                ตั้งแต่วันที่เราเริ่มรู้จักกัน
+                จนถึงวันที่เราได้เป็นแฟนกัน
+                ทุกอย่างเกิดขึ้นเร็วมาก
+                แต่ในขณะเดียวกัน
+                มันก็มีความหมายกับเค้ามาก ๆ
+            </p>
+            <p>
+                จากคนสองคนที่ตอนแรก
+                แทบไม่รู้จักกัน
+                กลายมาเป็นคนที่คุยกันทุกวัน
+                เป็นคนที่เค้าอยากเล่าเรื่องต่าง ๆ ให้ฟัง
+                เป็นคนที่เค้าอยากเจอ
+                และเป็นคนที่เค้าสบายใจ
+                เวลามีเธออยู่ข้าง ๆ
+            </p>
+            <p class="center-text">
+                และกลายมาเป็น<br>
+                <strong>“คนสำคัญของกันและกัน”</strong>
+            </p>
+            <div class="letter-divider">
                 𓂃 ࣪˖ ִֶָ ♡ ִֶָ ࣪˖ 𓂃
             </div>
-            <p class="letter-date">
-                14 February 2026
+            <p>
+                ตลอด 6 เดือนที่ผ่านมา
+                เราผ่านอะไรด้วยกันมาเยอะมากเลยนะ
             </p>
-            <p class="letter-greeting">
-                ถึงพอร์ชของเค้า 𐔌՞ ܸ.ˬ.ܸ՞𐦯
+            <p>
+                มีทั้งวันที่ดี
+                วันที่มีความสุข
+                วันที่หัวเราะด้วยกัน
+                แล้วก็มีวันที่เราไม่เข้าใจกัน
+                วันที่ทะเลาะกัน
+                วันที่อาจจะมีเรื่องที่ทำให้เราเสียใจ
             </p>
-            <div class="letter-content">
-                <p>
-                    ถ้าเธอกำลังอ่านข้อความนี้อยู่
-                    <br>
-                    แสดงว่าเธอเปิดมาถึงหน้าจดหมายแล้วนะ
-                </p>
-                <p>
-                    เค้าไม่รู้เหมือนกันว่า
-                    <br>
-                    จะเริ่มเขียนจากตรงไหนดี
-                    เพราะมีหลายอย่างมาก ๆ
-                    ที่เค้าอยากบอกเธอ
-                </p>
-                <p>
-                    ตั้งแต่วันที่เราเริ่มรู้จักกัน
-                    <br>
-                    จนถึงวันที่เราได้เป็นแฟนกัน
-                    <br>
-                    ทุกอย่างเกิดขึ้นเร็วมาก
-                    แต่ในขณะเดียวกัน
-                    มันก็มีความหมายกับเค้ามาก ๆ
-                </p>
-                <p>
-                    จากคนสองคนที่ตอนแรก
-                    <br>
-                    แทบไม่รู้จักกัน
-                    <br>
-                    กลายมาเป็นคนที่คุยกันทุกวัน
-                    <br>
-                    เป็นคนที่เค้าอยากเล่าเรื่องต่าง ๆ ให้ฟัง
-                    <br>
-                    และกลายมาเป็นคนสำคัญของกันและกัน
-                </p>
-                <p>
-                    เค้าอยากขอบคุณเธอ
-                    <br>
-                    สำหรับทุกช่วงเวลาที่ผ่านมา
-                </p>
-                <p>
-                    ขอบคุณสำหรับรอยยิ้ม
-                    <br>
-                    ขอบคุณสำหรับความใส่ใจ
-                    <br>
-                    ขอบคุณสำหรับของขวัญ
-                    <br>
-                    ขอบคุณสำหรับดอกไม้
-                    <br>
-                    และขอบคุณสำหรับทุกความทรงจำ
-                    ที่เราได้สร้างด้วยกัน
-                </p>
-                <p>
-                    บางทีเค้าอาจไม่ได้พูดออกไปทุกครั้ง
-                    <br>
-                    แต่เธอเป็นคนที่มีความหมาย
-                    กับเค้ามากจริง ๆ
-                </p>
-                <p>
-                    เค้าอยากเก็บเรื่องราวของเราไว้
-                    <br>
-                    ไม่ว่าจะเป็นวันที่มีความสุข
-                    <br>
-                    วันที่หัวเราะด้วยกัน
-                    <br>
-                    หรือวันที่เราอาจจะไม่เข้าใจกันบ้าง
-                </p>
-                <p>
-                    เพราะทั้งหมดนั้น
-                    <br>
-                    ก็เป็นส่วนหนึ่งของคำว่า
-                    <br>
-                    <strong>“เรา”</strong>
-                </p>
-                <p>
-                    เค้าไม่รู้ว่าอนาคตจะเป็นยังไง
-                    <br>
-                    แต่สิ่งหนึ่งที่เค้ารู้คือ
-                    <br>
-                    วันนี้เค้าดีใจมาก
-                    ที่มีเธออยู่ตรงนี้
-                </p>
-                <p>
-                    และเค้าจะตั้งใจรักษาความสัมพันธ์ของเรา
-                    <br>
-                    ให้ดีที่สุดเท่าที่เค้าจะทำได้
-                </p>
-                <p>
-                    ขอบคุณที่เข้ามาในชีวิตของเค้านะ
-                    <br>
-                    ขอบคุณที่เลือกเค้า
-                    <br>
-                    และขอบคุณที่เป็นพอร์ชของเค้า
-                </p>
-                <p>
-                    รักเธอนะ
-                    <br>
-                    พอร์ช ♡
-                </p>
+            <p>
+                แต่สิ่งหนึ่งที่ทำให้เค้ารู้สึกดีมาก ๆ คือ
+                ถึงเราจะทะเลาะกันบ้าง
+                <strong>เธอก็ไม่เคยเลือกที่จะทิ้งความสัมพันธ์นี้ไปเลย</strong>
+            </p>
+            <p>
+                เธอยังคอยบอกรักเค้าเสมอ
+                แบบไม่เคยขาดไม่เคยหาย
+                ในทุก ๆ คืน
+                เธอก็บอกรัก
+                บอกฝันดีเค้าในทุก ๆ วัน
+            </p>
+            <p>
+                มันอาจเป็นเรื่องเล็ก ๆ สำหรับเธอ
+                แต่สำหรับเค้า
+                มันมีความหมายมากจริง ๆ
+            </p>
+            <p>
+                เพราะมันทำให้เค้ารู้ว่า
+                ไม่ว่าวันนั้นจะเป็นยังไง
+                ก่อนนอนเค้าก็ยังมีเธออยู่ตรงนี้เสมอ ♡
+            </p>
+            <div class="letter-divider">
+                𓂃 ࣪˖ ִֶָ ♡ ִֶָ ࣪˖ 𓂃
             </div>
-            <div class="letter-signature">
-                ด้วยรัก
+            <p>
+                ขอบคุณสำหรับรอยยิ้ม
+                ขอบคุณสำหรับความใส่ใจ
+                ขอบคุณสำหรับของขวัญ
+                ขอบคุณสำหรับดอกไม้
+            </p>
+            <p>
+                ขอบคุณที่คอยรับฟังเค้ามาตลอด
+                ขอบคุณที่ทำให้เค้ารู้สึกสบายใจ
+                ทุกครั้งที่ได้เล่าอะไรให้เธอฟัง
+            </p>
+            <p>
+                ไม่ว่าจะเป็นตอนที่เค้าดีใจ
+                ตอนที่เค้าเหนื่อย
+                หรือตอนที่เค้าเจอเรื่องแย่ ๆ
+                แค่ได้บอกเธอ
+                มันก็เหมือนเรื่องเหล่านั้นเบาลงไปเยอะเลย
+            </p>
+            <p>
+                ขอแค่เค้ามีเธออยู่ข้าง ๆ
+                เค้าก็รู้สึกมั่นใจในตัวเองมากขึ้น
+            </p>
+            <p>
+                เธอเป็นเหมือนความสดใสของเค้าในทุก ๆ วัน
+                ตั้งแต่มีเธอเข้ามา
+                ชีวิตของเค้าดูมีสีสันมากขึ้นจริง ๆ
+            </p>
+            <p>
+                เธอเป็นกำลังใจสำคัญ
+                ในการใช้ชีวิตของเค้ามาก ๆ
+                และเป็นหนึ่งในเหตุผล
+                ที่ทำให้หลาย ๆ วันของเค้า
+                กลายเป็นวันที่มีความสุข ♡
+            </p>
+            <div class="letter-divider">
+                𓂃 ࣪˖ ִֶָ ☼ ִֶָ ࣪˖ 𓂃
+            </div>
+            <p>
+                พอมีเธออยู่
+                เค้าก็รู้สึกอุ่นใจแล้ววว
+            </p>
+            <p class="center-text">
+                ต่อให้โลกนี้ไม่มีดาว<br>
+                ชีวิตเค้าก็ยังมีแสงสว่าง &gt;__&lt;
+            </p>
+            <p>
+                เพราะเธอคือแสงสว่างของเค้า
+            </p>
+            <p>
+                ต่อให้เค้าจะเจอเรื่องแย่ ๆ แค่ไหน
+                แค่ได้หันมาหาเธอ
+                ได้คุยกับเธอ
+                ได้เล่าให้เธอฟัง
+                มันก็ทำให้เค้ารู้สึกดีขึ้นมาก ๆ แล้ว
+            </p>
+            <p>
+                เค้ารู้สึกว่า
+                ตัวเองโชคดีมากจริง ๆ
+                ที่ได้เป็นแฟนกับเธอออ
+            </p>
+            <p>
+                เพราะเธอไม่ได้เป็นแค่แฟนของเค้า
+                แต่เธอเป็นทั้งเพื่อน
+                คนที่รับฟัง
+                คนที่คอยให้กำลังใจ
+                คนที่คอยอยู่ข้าง ๆ
+                และเป็นคนที่ทำให้เค้ารู้สึกว่า
+                เค้าไม่ได้ต้องผ่านทุกอย่างเพียงคนเดียว
+            </p>
+            <div class="letter-divider">
+                𓂃 ࣪˖ ִֶָ ♡ ִֶָ ࣪˖ 𓂃
+            </div>
+            <p>
+                ตั้งแต่คบกับเธอมา
+                เธอเป็นเรื่องมหัศจรรย์ที่สุด
+                เรื่องหนึ่งในชีวิตเค้าเลย
+            </p>
+            <p>
+                ตอนที่เค้าต้องการที่พึ่ง
+                เค้าก็มีเธออยู่เสมอ
+                หันไปก็เจอเธอ
+                อยากเล่าอะไรก็มีเธอให้ฟัง
+            </p>
+            <p>
+                บางครั้งเค้ารู้สึกเหมือน
+                เธอเป็นพ่อคนที่สองของเค้าเลยนะ 555
+            </p>
+            <p>
+                เธอคอยดูแลเค้า
+                คอยเป็นห่วงเค้า
+                คอยถามว่าเค้าเป็นยังไง
+                แล้วเธอก็น่ารักกับเค้าตลอดเลย
+            </p>
+            <p>
+                ถึงตอนทะเลาะกัน
+                เค้าจะชอบเงียบใส่เธอบ้าง
+                แต่เธอก็คอยง้อเค้าตลอด
+            </p>
+            <p>
+                ขอบคุณนะ
+                ที่ไม่ปล่อยให้ความเงียบของเค้า
+                กลายเป็นกำแพงระหว่างเรา
+            </p>
+            <div class="letter-divider">
+                𓂃 ࣪˖ ִֶָ ♡ ִֶָ ࣪˖ 𓂃
+            </div>
+            <p>
+                แล้วสิ่งหนึ่งที่เค้าประทับใจมาก ๆ
+                คือเวลาที่เค้าเจ็บหรือบาดเจ็บ
+                เธอจะเป็นห่วงเค้ามากจริง ๆ
+            </p>
+            <p>
+                เธอจะถามเค้าว่า
                 <br>
+                “เจ็บไหม”
+                <br>
+                “เป็นอะไรหรือเปล่า”
+            </p>
+            <p>
+                เค้ารู้สึกซึ้งใจมากเลยนะ
+                เพราะไม่ค่อยมีใครเป็นห่วงเค้าขนาดนี้
+            </p>
+            <p>
+                อย่างตอนที่เค้าเคยบอกเธอว่า
+                เค้าทำจานแตก
+                สิ่งที่เธอถามกลับมา
+                ไม่ใช่เรื่องจานเลย
+            </p>
+            <p class="center-text">
+                แต่เธอถามว่า<br>
+                <strong>“เค้าเป็นอะไรไหม”</strong>
+            </p>
+            <p>
+                ตอนนั้นเค้ารู้สึกดีมากจริง ๆ
+                เพราะมันทำให้เค้ารู้ว่า
+                สิ่งที่เธอสนใจที่สุด
+                ไม่ใช่สิ่งของที่เสียไป
+                แต่เป็นว่าเค้าโอเคหรือเปล่า
+            </p>
+            <p>
+                เธอคอยดูแลเค้าในทุก ๆ วัน
+                พยายามทำให้เค้าสบายที่สุด
+                พยายามไม่ให้เค้าต้องลำบาก
+            </p>
+            <p>
+                เรื่องเล็ก ๆ พวกนี้แหละ
+                ที่ทำให้เค้ารู้สึกว่า
+                เธอรักและเป็นห่วงเค้าจริง ๆ
+            </p>
+            <div class="letter-divider">
+                𓂃 ࣪˖ ִֶָ ♡ ִֶָ ࣪˖ 𓂃
+            </div>
+            <p>
+                6 เดือนนี้
+                เราผ่านอะไรมาเยอะมากจริง ๆ
+                ทั้งเรื่องที่ดี
+                และเรื่องที่ไม่ดี
+                แต่สุดท้าย
+                เราก็ยังอยู่ด้วยกันถึงวันนี้
+            </p>
+            <p>
+                และเค้าไม่อยากเสียเวลาสักวินาทีเดียว
+                ที่ได้ใช้มันอยู่กับเธอเลย
+            </p>
+            <p>
+                ทุกครั้งที่เราได้ใช้เวลาด้วยกัน
+                เค้ามีความสุขมาก ๆ
+            </p>
+            <p>
+                อ้อมกอดของเธอ
+                อบอุ่นที่สุดเลย
+                เป็นกอดที่ดีที่สุดสำหรับเค้า
+            </p>
+            <p>
+                เค้าคิดถึงกอดของเธอมาก ๆ
+                มันอบอุ่นอะ
+                แล้วตอนที่เค้าอยู่กับเธอ
+                มันก็อบอุ่นมากกกก
+            </p>
+            <p>
+                แล้วยิ่งมองหน้าเธอ
+                มันทำให้เค้ารู้สึกว่า
+            </p>
+            <p class="center-text">
+                ทำไมเค้าถึงมีแฟนหล่อจังงงง 😭♡
+            </p>
+            <p>
+                นอกจากหล่อแล้ว
+                เธอยังดีกับเค้ามาก ๆ
+                ทำให้เค้ารู้สึกว่า
+            </p>
+            <p class="center-text">
                 <strong>
-                    จากเค้า — อิ๊งค์
+                    เค้าเป็นผู้หญิงที่โชคดีที่สุดเลย
                 </strong>
-                <br>
+            </p>
+            <div class="letter-divider">
                 𓂃 ࣪˖ ִֶָ ♡ ִֶָ ࣪˖ 𓂃
             </div>
-        </article>
-        <!-- ✦ END -->
-        <div
-            class="home-ending"
-            id="letterEnding">
+            <p>
+                เค้าอยากใช้ชีวิตกับเธอ
+                ในทุก ๆ วัน
+                อยากมีเธออยู่ในวันธรรมดา ๆ
+                อยากมีเธอในวันที่มีความสุข
+                และอยากมีเธอในวันที่เหนื่อย
+            </p>
+            <p>
+                อยากมีเธอในวันที่เราเติบโตขึ้น
+                และอยากสร้างความทรงจำใหม่ ๆ
+                ไปกับเธออีกเยอะ ๆ เลย
+            </p>
+            <p>
+                เค้ารู้สึกว่า
+                <strong>เค้าเจอคนที่ดีแล้วจริง ๆ</strong>
+            </p>
+            <p>
+                และเค้าหวังว่า
+                เราจะได้เดินไปด้วยกันแบบนี้
+                ไปอีกนาน ๆ เลยนะ
+            </p>
+            <p>
+                ไม่ต้องสมบูรณ์แบบทุกวันก็ได้
+                ไม่ต้องไม่มีวันที่ทะเลาะกันเลยก็ได้
+            </p>
+            <p>
+                ขอแค่ในวันที่มีเรื่องไม่เข้าใจกัน
+                เรายังเลือกที่จะหันกลับมาคุยกัน
+                เลือกที่จะจับมือกัน
+                และเลือกที่จะรักษาคำว่า
+            </p>
+            <p class="center-text">
+                <strong>“เรา”</strong>
+            </p>
+            <p class="center-text">
+                เค้าก็มีความสุขแล้ว ♡
+            </p>
+            <div class="letter-divider">
+                𓂃 ࣪˖ ִֶָ ♡ ִֶָ ࣪˖ 𓂃
+            </div>
+            <p>
+                บางทีเค้าอาจไม่ได้พูดออกไปทุกครั้ง
+                แต่เธอเป็นคนที่มีความหมาย
+                กับเค้ามากจริง ๆ
+            </p>
+            <p>
+                เค้าอยากเก็บเรื่องราวของเราไว้
+                ไม่ว่าจะเป็นวันที่มีความสุข
+                วันที่หัวเราะด้วยกัน
+                วันที่เราไปเที่ยวด้วยกัน
+                วันที่กอดกัน
+                หรือแม้แต่วันที่เราอาจจะไม่เข้าใจกันบ้าง
+            </p>
+            <p class="center-text">
+                เพราะทั้งหมดนั้น<br>
+                ก็เป็นส่วนหนึ่งของคำว่า<br>
+                <strong>“เรา”</strong>
+            </p>
+            <p>
+                และเค้าจะเก็บมันไว้ในใจเสมอ
+            </p>
+            <div class="letter-divider">
+                𓂃 ࣪˖ ִֶָ ♡ ִֶָ ࣪˖ 𓂃
+            </div>
+            <p>
+                ขอบคุณที่เข้ามาในชีวิตของเค้านะ
+            </p>
+            <p>
+                ขอบคุณที่เลือกเค้า
+                ขอบคุณที่อยู่กับเค้ามาถึง 6 เดือน
+            </p>
+            <p>
+                ขอบคุณที่ยังจับมือกัน
+                ผ่านทั้งวันที่ดีและวันที่ไม่ดี
+            </p>
+            <p>
+                ขอบคุณที่คอยบอกรักเค้า
+                คอยบอกฝันดี
+                คอยรับฟัง
+                คอยดูแล
+                และคอยเป็นห่วง
+            </p>
+            <p class="center-text">
+                และขอบคุณที่สุด
+            </p>
+            <p class="center-text">
+                ที่เป็น <strong>“พอร์ชของเค้า”</strong> ♡
+            </p>
+            <p class="center-text">
+                เค้ารักเธอนะ<br>
+                รักมาก ๆ เลย
+            </p>
+            <p>
+                และเค้าดีใจจริง ๆ
+                ที่เรื่องราวของเรา
+                เกิดขึ้นบนโลกใบนี้
+            </p>
+        </div>
+        <!-- ================================
+             SIGNATURE
+        ================================= -->
+        <div class="letter-signature">
+            ด้วยรัก
+            <br>
+            จากเค้า —
+            <strong>อิ๊งค์ ♡</strong>
+        </div>
+        <!-- ================================
+             ENDING
+        ================================= -->
+        <div class="letter-ending">
+            <p>
+                𓂃 ࣪˖ ִֶָ ♡ ִֶָ ࣪˖ 𓂃
+            </p>
             <p>
                 จดหมายฉบับนี้อาจไม่ได้ยาวที่สุด
             </p>
             <p>
                 แต่ทุกคำที่อยู่ในนี้
-                <br>
                 เค้าตั้งใจเขียนให้เธอ
-                ♡
             </p>
             <p>
-                𓂃 ࣪˖ ִֶָ always yours ִֶָ ࣪˖ 𓂃
+                เพราะทุกความรู้สึกที่เขียนลงไป
+                ล้วนเป็นความรู้สึกของเค้าจริง ๆ
             </p>
+            <p>
+                และถ้าเธอกลับมาอ่านจดหมายนี้
+                อีกครั้งในอนาคต
+            </p>
+            <p>
+                เค้าอยากให้เธอจำไว้นะว่า
+            </p>
+            <p>
+                ครั้งหนึ่ง
+                มีผู้หญิงคนหนึ่ง
+                ที่มีความสุขมาก ๆ
+                เพราะได้รักผู้ชายคนหนึ่ง
+            </p>
+            <p>
+                ผู้ชายที่ชื่อว่า
+            </p>
+            <p class="center-text">
+                <strong>พอร์ช ♡</strong>
+            </p>
+            <span class="always">
+                𓂃 ࣪˖ ִֶָ always yours ִֶָ ࣪˖ 𓂃
+            </span>
         </div>
-    </section>
+    </article>
 </main>
-<!-- ✦ SCRIPT -->
+<!-- ✦ SIMPLE SCROLL ANIMATION -->
 <script>
-    document.addEventListener(
-        "DOMContentLoaded",
-        () => {
-            const elements =
-                document.querySelectorAll(
-                    ".home-header, .letter-paper, .home-ending"
-                );
-            elements.forEach(
-                (element, index) => {
-                    setTimeout(
-                        () => {
-                            element.classList.add(
-                                "home-show"
-                            );
-                        },
-                        150 + index * 400
-                    );
-                }
-            );
-        }
-    );
-    /* ✦ PAGE TRANSITION */
-    document
-        .querySelectorAll("a")
-        .forEach(
-            link => {
-                link.addEventListener(
-                    "click",
-                    event => {
-                        const href =
-                            link.getAttribute(
-                                "href"
-                            );
-                        if (
-                            !href ||
-                            href.startsWith("#") ||
-                            href.startsWith("http")
-                        ) {
-                            return;
-                        }
-                        event.preventDefault();
-                        document.body.style.opacity =
-                            "0";
-                        setTimeout(
-                            () => {
-                                window.location.href =
-                                    href;
-                            },
-                            350
+    const elements =
+        document.querySelectorAll(
+            ".letter-paper"
+        );
+    const observer =
+        new IntersectionObserver(
+            entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add(
+                            "visible"
                         );
                     }
-                );
+                });
+            },
+            {
+                threshold: 0.08
             }
         );
+    elements.forEach(element => {
+        observer.observe(element);
+    });
+    /* ✦ Page transition */
+    document.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", function (event) {
+            const href =
+                this.getAttribute("href");
+            if (
+                href &&
+                !href.startsWith("#") &&
+                !href.startsWith("http") &&
+                !href.startsWith("mailto:")
+            ) {
+                event.preventDefault();
+                document.body.classList.add(
+                    "page-leaving"
+                );
+                setTimeout(() => {
+                    window.location.href = href;
+                }, 350);
+            }
+        });
+    });
 </script>
 </body>
 </html>
