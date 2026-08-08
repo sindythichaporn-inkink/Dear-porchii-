@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Our Memories ♡ Dear Porch</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        /* =========================
+           MEMORIES PAGE
+        ========================= */
+
+        .memories-page {
+            min-height: 100vh;
+            padding: 45px 15px 90px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .memories-container {
+            width: min(1000px, 94vw);
+            margin: auto;
+            position: relative;
+            z-index: 3;
+        }
+
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        .memories-header {
+            text-align: center;
+            margin-bottom: 45px;
+
+            animation: memoryHeader 1s ease both;
+        }
+
+        .memories-header h1 {
+            font-size: clamp(34px, 9vw, 56px);
+            color: #85618f;
+
+            text-shadow:
+                0 3px 0 #fff,
+                0 8px 25px rgba(120,80,140,.15);
+        }
+
+        .memories-header p {
+            color: #aa8bb2;
+            margin-top: 8px;
+        }
+
+        @keyframes memoryHeader {
+
+            from {
+                opacity: 0;
+                transform: translateY(-30px) scale(.96);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+
+        }
+
+
+        /* =========================
+           MONTH GRID
+        ========================= */
+
+        .memory-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+
+            gap: 25px;
+        }
+
+
+        /* =========================
+           MEMORY CARD
+        ========================= */
+
+        .memory-card {
+            position: relative;
+
+            overflow: hidden;
+
+            min-height: 440px;
+
+            border-radius: 30px;
+
+            background: rgba(255,255,255,.62);
+
+            border: 1px solid rgba(170,135,180,.28);
+
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+
+            box-shadow:
+                0 20px 50px rgba(120,80,140,.10),
+                inset 0 0 35px rgba(255,255,255,.75);
+
+            cursor: pointer;
+
+            transition:
+                transform .45s cubic-bezier(.2,.8,.2,1),
+                box-shadow .45s ease;
+
+            opacity: 0;
+            transform: translateY(45px);
+
+            animation: cardAppear .8s ease forwards;
+        }
+
+        .memory-card:nth-child(1) {
+            animation-delay: .1s;
+        }
+
+        .memory-card:nth-child(2) {
+            animation-delay: .2s;
+        }
+
+        .memory-card:nth-child(3) {
+            animation-delay: .3s;
+        }
+
+        .memory-card:nth-child(4) {
+            animation-delay: .4s;
+        }
+
+        .memory-card:nth-child(5) {
+            animation-delay: .5s;
+        }
+
+        .memory-card:nth-child(6) {
+            animation-delay: .6s;
+        }
+
+        .memory-card:nth-child(7) {
+            animation-delay: .7s;
+        }
+
+        .memory-card:nth-child(8) {
+            animation-delay: .8s;
+        }
+
+        @keyframes cardAppear {
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+        .memory-card:hover {
+            transform: translateY(-9px) scale(1.015);
+
+            box-shadow:
+                0 30px 65px rgba(120,80,140,.17),
+                0 0 35px rgba(210,175,220,.25);
+        }
+
+
+        /* =========================
+           PHOTO
+        ========================= */
+
+        .memory-photo {
+            width: 100%;
+            height: 270px;
+
+            object-fit: cover;
+
+            display: block;
+
+            transition:
+                transform .7s cubic-bezier(.2,.8,.2,1),
+                filter .5s ease;
+        }
+
+        .memory-card:hover .memory-photo {
+            transform: scale(1.07);
+            filter: brightness(1.04);
+        }
+
+
+        /* =========================
+           PHOTO OVERLAY
+        ========================= */
+
+        .photo-overlay {
+            position: absolute;
+
+            left: 0;
+            right: 0;
+            top: 0;
+
+            height: 270px;
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    rgba(0,0,0,0),
+                    rgba(70,45,75,.25)
+                );
+
+            pointer-events: none;
+        }
+
+
+        /* =========================
+           MONTH LABEL
+        ========================= */
+
+        .month-label {
+            position: absolute;
+
+            top: 17px;
+            left: 17px;
+
+            padding: 8px 15px;
+
+            border-radius: 999px;
+
+            background: rgba(255,255,255,.78);
+
+            color: #805c89;
+
+            font-size: 14px;
+
+            box-shadow:
+                0 7px 20px rgba(80,55,90,.12);
+
+            backdrop-filter: blur(8px);
+        }
+
+
+        /* =========================
+           CONTENT
+        ========================= */
+
+        .memory-content {
+            padding: 21px 22px 24px;
+        }
+
+        .memory-content h2 {
+            margin: 0 0 8px;
+
+            color: #86618f;
+
+            font-size: 24px;
+        }
+
+        .memory-content p {
+            margin: 0;
+
+            color: #6e6073;
+
+            line-height: 1.8;
+
+            font-size: 15px;
+        }
+
+        .memory-hint {
+            margin-top: 13px !important;
+
+            color: #b18ab9 !important;
+
+            font-size: 13px !important;
+        }
+
+
+        /* =========================
+           CLICK EFFECT
+        ========================= */
+
+        .memory-card::after {
+            content: "♡";
+
+            position: absolute;
+
+            right: 18px;
+            bottom: 17px;
+
+            width: 34px;
+            height: 34px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: rgba(255,255,255,.7);
+
+            color: #a17baa;
+
+            opacity: .8;
+
+            transition: .35s ease;
+        }
+
+        .memory-card:hover::after {
+            transform: rotate(15deg) scale(1.15);
+
+            background: #fff;
+
+            box-shadow:
+                0 5px 20px rgba(120,80,140,.15);
+        }
+
+
+        /* =========================
+           GLITTER CIRCLES
+        ========================= */
+
+        .glitter-layer {
+            position: fixed;
+
+            inset: 0;
+
+            overflow: hidden;
+
+            pointer-events: none;
+
+            z-index: 1;
+        }
+
+        .glitter {
+            position: absolute;
+
+            width: 7px;
+            height: 7px;
+
+            border-radius: 50%;
+
+            background: rgba(190,155,200,.55);
+
+            box-shadow:
+                0 0 10px rgba(210,180,220,.55);
+
+            animation:
+                glitterMove 7s ease-in-out infinite,
+                glitterPulse 2.5s ease-in-out infinite;
+        }
+
+        .glitter:nth-child(1) {
+            left: 5%;
+            top: 20%;
+        }
+
+        .glitter:nth-child(2) {
+            left: 14%;
+            top: 75%;
+            animation-delay: -2s;
+        }
+
+        .glitter:nth-child(3) {
+            left: 28%;
+            top: 12%;
+            animation-delay: -4s;
+        }
+
+        .glitter:nth-child(4) {
+            left: 48%;
+            top: 85%;
+            animation-delay: -1s;
+        }
+
+        .glitter:nth-child(5) {
+            left: 63%;
+            top: 18%;
+            animation-delay: -3s;
+        }
+
+        .glitter:nth-child(6) {
+            left: 78%;
+            top: 63%;
+            animation-delay: -5s;
+        }
+
+        .glitter:nth-child(7) {
+            left: 91%;
+            top: 28%;
+            animation-delay: -2.5s;
+        }
+
+        .glitter:nth-child(8) {
+            left: 84%;
+            top: 88%;
+            animation-delay: -4.5s;
+        }
+
+        @keyframes glitterMove {
+
+            0%,100% {
+                transform: translate(0,0);
+            }
+
+            25% {
+                transform: translate(15px,-25px);
+            }
+
+            50% {
+                transform: translate(-10px,-45px);
+            }
+
+            75% {
+                transform: translate(20px,-20px);
+            }
+
+        }
+
+        @keyframes glitterPulse {
+
+            0%,100% {
+                opacity: .15;
+                transform: scale(.7);
+            }
+
+            50% {
+                opacity: .9;
+                transform: scale(1.5);
+            }
+
+        }
+
+
+        /* =========================
+           BOTTOM
+        ========================= */
+
+        .memory-divider {
+            text-align: center;
+
+            color: #b18ab9;
+
+            font-size: 22px;
+
+            margin: 45px 0 30px;
+        }
+
+        .memory-back {
+            display: block;
+
+            width: fit-content;
+
+            margin: auto;
+
+            padding: 12px 25px;
+
+            border-radius: 999px;
+
+            text-decoration: none;
+
+            color: #7d5d84;
+
+            background: rgba(255,255,255,.72);
+
+            border: 1px solid rgba(160,125,175,.25);
+
+            transition: .35s ease;
+
+            box-shadow:
+                0 8px 25px rgba(110,75,125,.08);
+        }
+
+        .memory-back:hover {
+            transform: translateY(-4px) scale(1.04);
+
+            box-shadow:
+                0 15px 30px rgba(110,75,125,.15);
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media(max-width:700px) {
+
+            .memory-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .memory-card {
+                min-height: auto;
+            }
+
+            .memory-photo {
+                height: 260px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <main class="memories-page">
+
+
+        <!-- =========================
+             FLOATING GLITTER
+        ========================= -->
+
+        <div class="glitter-layer">
+
+            <span class="glitter"></span>
+            <span class="glitter"></span>
+            <span class="glitter"></span>
+            <span class="glitter"></span>
+            <span class="glitter"></span>
+            <span class="glitter"></span>
+            <span class="glitter"></span>
+            <span class="glitter"></span>
+
+        </div>
+
+
+        <div class="memories-container">
+
+
+            <!-- HEADER -->
+
+            <header class="memories-header">
+
+                <h1>
+                    📷 ᨵׁׅυׁׅr ꯱ׁׅ֒tׁׅᨵׁׅrყ
+                </h1>
+
+                <p>
+                    รูปภาพและความทรงจำของเรา ♡
+                </p>
+
+            </header>
+
+
+            <!-- =========================
+                 JANUARY
+            ========================= -->
+
+            <article
+                class="memory-card"
+                onclick="openMemory(this)"
+            >
+
+                <span class="month-label">
+                    01 · January 2026
+                </span>
+
+                <img
+                    class="memory-photo"
+                    src="images/january.jpg"
+                    alt="January memory"
+                >
+
+                <div class="photo-overlay"></div>
+
+                <div class="memory-content">
+
+                    <h2>
+                        🧸 มกราคม
+                    </h2>
+
+                    <p>
+                        เดือนที่เราเริ่มรู้จักกันมากขึ้น
+                        และวันที่เธอบอกว่าอยากรู้จักเค้า
+                        พร้อมกับอยากจีบเค้าไปด้วย
+                    </p>
+
+                    <p class="memory-hint">
+                        แตะเพื่อเปิดความทรงจำ ♡
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <!-- =========================
+                 FEBRUARY
+            ========================= -->
+
+            <article
+                class="memory-card"
+                onclick="openMemory(this)"
+            >
+
+                <span class="month-label">
+                    02 · February 2026
+                </span>
+
+                <img
+                    class="memory-photo"
+                    src="images/february.jpg"
+                    alt="February memory"
+                >
+
+                <div class="photo-overlay"></div>
+
+                <div class="memory-content">
+
+                    <h2>
+                        🌷 กุมภาพันธ์
+                    </h2>
+
+                    <p>
+                        เดือนที่เราได้เป็นแฟนกัน
+                        ได้ไปบางแสน
+                        ได้กินชาบู
+                        เดินทะเล
+                        และเริ่มต้นใช้คำว่า “แฟน”
+                    </p>
+
+                    <p class="memory-hint">
+                        14.02.2026 ♡
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <!-- =========================
+                 MARCH
+            ========================= -->
+
+            <article
+                class="memory-card"
+                onclick="openMemory(this)"
+            >
+
+                <span class="month-label">
+                    03 · March 2026
+                </span>
+
+                <img
+                    class="memory-photo"
+                    src="images/march.jpg"
+                    alt="March memory"
+                >
+
+                <div class="photo-overlay"></div>
+
+                <div class="memory-content">
+
+                    <h2>
+                        🌱 มีนาคม
+                    </h2>
+
+                    <p>
+                        เดือนที่เราเริ่มสร้างความทรงจำ
+                        ในฐานะแฟนกันมากขึ้น
+                        ค่อย ๆ เรียนรู้กัน
+                        และเติบโตไปด้วยกัน
+                    </p>
+
+                    <p class="memory-hint">
+                        เรื่องราวของเรายังดำเนินต่อไป ♡
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <!-- =========================
+                 APRIL
+            ========================= -->
+
+            <article
+                class="memory-card"
+                onclick="openMemory(this)"
+            >
+
+                <span class="month-label">
+                    04 · April 2026
+                </span>
+
+                <img
+                    class="memory-photo"
+                    src="images/april.jpg"
+                    alt="April memory"
+                >
+
+                <div class="photo-overlay"></div>
+
+                <div class="memory-content">
+
+                    <h2>
+                        🌸 เมษายน
+                    </h2>
+
+                    <p>
+                        อีกหนึ่งเดือนที่เราได้ใช้เวลา
+                        อยู่ข้าง ๆ กัน
+                        และเก็บเรื่องราวเล็ก ๆ
+                        ไว้ด้วยกัน
+                    </p>
+
+                    <p class="memory-hint">
+                        ทุกวันธรรมดาก็กลายเป็นความทรงจำ ♡
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <!-- =========================
+                 MAY
+            ========================= -->
+
+            <article
+                class="memory-card"
+                onclick="openMemory(this)"
+            >
+
+                <span class="month-label">
+                    05 · May 2026
+                </span>
+
+                <img
+                    class="memory-photo"
+                    src="images/may.jpg"
+                    alt="May memory"
+                >
+
+                <div class="photo-overlay"></div>
+
+                <div class="memory-content">
+
+                    <h2>
+                        💛 พฤษภาคม
+                    </h2>
+
+                    <p>
+                        เดือนเกิดของเธอ
+                        และอีกหนึ่งเดือน
+                        ที่เค้ายังอยากอยู่ข้าง ๆ เธอ
+                        และสร้างความทรงจำไปเรื่อย ๆ
+                    </p>
+
+                    <p class="memory-hint">
+                        May · Porch's month ♡
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <!-- =========================
+                 JUNE
+            ========================= -->
+
+            <article
+                class="memory-card"
+                onclick="openMemory(this)"
+            >
+
+                <span class="month-label">
+                    06 · June 2026
+                </span>
+
+                <img
+                    class="memory-photo"
+                    src="images/june.jpg"
+                    alt="June memory"
+                >
+
+                <div class="photo-overlay"></div>
+
+                <div class="memory-content">
+
+                    <h2>
+                        🫧 มิถุนายน
+                    </h2>
+
+                    <p>
+                        เวลาที่เราได้อยู่ด้วยกัน
+                        ยังคงเป็นช่วงเวลาที่เค้ามีความสุข
+                        และรู้สึกอุ่นใจเสมอ
+                    </p>
+
+                    <p class="memory-hint">
+                        อีกเดือนที่มีเธออยู่ข้าง ๆ ♡
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <!-- =========================
+                 JULY
+            ========================= -->
+
+            <article
+                class="memory-card"
+                onclick="openMemory(this)"
+            >
+
+                <span class="month-label">
+                    07 · July 2026
+                </span>
+
+                <img
+                    class="memory-photo"
+                    src="images/july.jpg"
+                    alt="July memory"
+                >
+
+                <div class="photo-overlay"></div>
+
+                <div class="memory-content">
+
+                    <h2>
+                        🩵 กรกฎาคม
+                    </h2>
+
+                    <p>
+                        ความทรงจำใหม่ ๆ
+                        เรื่องราวใหม่ ๆ
+                        และการได้ใช้เวลา
+                        อยู่ด้วยกันอีกหลายครั้ง
+                    </p>
+
+                    <p class="memory-hint">
+                        เรายังมีเรื่องให้จำอีกเยอะเลย ♡
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <!-- =========================
+                 AUGUST
+            ========================= -->
+
+            <article
+                class="memory-card"
+                onclick="openMemory(this)"
+            >
+
+                <span class="month-label">
+                    08 · August 2026
+                </span>
+
+                <img
+                    class="memory-photo"
+                    src="images/august.jpg"
+                    alt="August memory"
+                >
+
+                <div class="photo-overlay"></div>
+
+                <div class="memory-content">
+
+                    <h2>
+                        🩷 สิงหาคม
+                    </h2>
+
+                    <p>
+                        วันนี้เรายังอยู่ตรงนี้ด้วยกัน
+                        และเรื่องราวของเรา
+                        ก็ยังไม่จบลง
+                    </p>
+
+                    <p class="memory-hint">
+                        To be continued... ♡
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <!-- DIVIDER -->
+
+            <div class="memory-divider">
+                ───── ୨ৎ ─────
+            </div>
+
+
+            <!-- BACK -->
+
+            <a
+                href="index.html"
+                class="memory-back"
+            >
+                ♡ กลับไปหน้าแรก
+            </a>
+
+
+        </div>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+
+    <script>
+
+        function openMemory(card) {
+
+            card.classList.toggle("memory-open");
+
+            card.animate(
+                [
+                    {
+                        transform: "scale(1)"
+                    },
+                    {
+                        transform: "scale(1.025)"
+                    },
+                    {
+                        transform: "scale(1)"
+                    }
+                ],
+                {
+                    duration: 450,
+                    easing: "ease-out"
+                }
+            );
+
+        }
+
+    </script>
+
+</body>
+
+</html>
