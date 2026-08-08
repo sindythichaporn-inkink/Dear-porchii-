@@ -1,278 +1,183 @@
 /* =========================================================
-   ✦ DEAR PORCH — SHARED SCRIPT
-   ใช้ร่วมกันทุกหน้า
+   ✦ DEAR PORCH — MASTER SCRIPT
+   ✦ ใช้ร่วมกันทุกหน้า
+   ✦ Reveal / Cover / Menu / Lightbox / Transition
 ========================================================= */
 document.addEventListener("DOMContentLoaded", () => {
     /* =====================================================
-       ✦ PAGE FADE IN
+       ✦ 01 — PAGE FADE IN
     ===================================================== */
     document.body.classList.add("page-loaded");
     /* =====================================================
-       ✦ SCROLL REVEAL
-       ทำให้การ์ด / รูป / timeline ค่อย ๆ ปรากฏ
+       ✦ 02 — GENERAL REVEAL
+       ทุกหน้าจะค่อย ๆ ปรากฏ
     ===================================================== */
-    const revealElements = document.querySelectorAll(
-        ".story-section, " +
-        ".timeline-item, " +
-        ".memory-photo, " +
-        ".reason-card, " +
-        ".about-card, " +
-        ".corky-card, " +
+    const revealSelectors = [
+        ".page-header",
+        ".about-card",
+        ".story-section",
+        ".timeline-item",
+        ".memory-photo",
+        ".memories-note",
+        ".letter-paper",
+        ".letter-signature",
+        ".reason-card",
+        ".reason-item",
+        ".family-member",
+        ".corky-card",
+        ".final-message",
+        ".final-back",
         ".final-dream"
-    );
-    if ("IntersectionObserver" in window) {
-        const observer = new IntersectionObserver(
-            (entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add("visible");
-                        observer.unobserve(entry.target);
-                    }
-                });
-            },
-            {
-                threshold: 0.12
-            }
+    ];
+    const revealElements =
+        document.querySelectorAll(
+            revealSelectors.join(", ")
         );
+    if ("IntersectionObserver" in window) {
+        const observer =
+            new IntersectionObserver(
+                entries => {
+                    entries.forEach(entry => {
+                        if (
+                            entry.isIntersecting
+                        ) {
+                            entry.target.classList.add(
+                                "visible"
+                            );
+                            observer.unobserve(
+                                entry.target
+                            );
+                        }
+                    });
+                },
+                {
+                    threshold: 0.08,
+                    rootMargin:
+                        "0px 0px -35px 0px"
+                }
+            );
         revealElements.forEach(element => {
             observer.observe(element);
         });
     } else {
         revealElements.forEach(element => {
-            element.classList.add("visible");
-        });
-    }
-    /* =====================================================
-       ✦ HOME ANIMATION
-    ===================================================== */
-    const homeElements = document.querySelectorAll(
-        ".home-header, " +
-        ".home-couple, " +
-        ".home-message, " +
-        ".home-ending"
-    );
-    homeElements.forEach((element, index) => {
-        setTimeout(() => {
-            element.classList.add("home-show");
-        }, 150 + index * 180);
-    });
-    /* =====================================================
-       ✦ HOME MENU ANIMATION
-    ===================================================== */
-    const homeLinks =
-        document.querySelectorAll(".home-link");
-    homeLinks.forEach((link, index) => {
-        setTimeout(() => {
-            link.classList.add("home-show");
-        }, 650 + index * 110);
-    });
-    /* =====================================================
-       ✦ MEMORY PHOTO ROTATION
-       ให้รูปแต่ละใบเอียงนิด ๆ แบบสมุดความทรงจำ
-    ===================================================== */
-    const memoryPhotos =
-        document.querySelectorAll(".memory-photo");
-    memoryPhotos.forEach((photo, index) => {
-        const rotations = [
-            "-1.2deg",
-            "1deg",
-            "-0.6deg",
-            "1.4deg",
-            "-1deg"
-        ];
-        photo.style.setProperty(
-            "--rotation",
-            rotations[index % rotations.length]
-        );
-    });
-    /* =====================================================
-       ✦ MEMORY IMAGE FALLBACK
-       ถ้ารูปยังไม่มี จะไม่ทำให้หน้าเว็บพัง
-    ===================================================== */
-    const images =
-        document.querySelectorAll("img");
-    images.forEach(image => {
-        image.addEventListener("error", () => {
-            image.classList.add("image-error");
-        });
-    });
-    /* =====================================================
-       ✦ PAGE TRANSITION
-       เปลี่ยนหน้าแบบค่อย ๆ fade
-    ===================================================== */
-    document.addEventListener("click", event => {
-        const link =
-            event.target.closest("a");
-        if (!link) {
-            return;
-        }
-        const href =
-            link.getAttribute("href");
-        if (
-            !href ||
-            href.startsWith("#") ||
-            href.startsWith("http") ||
-            href.startsWith("https") ||
-            href.startsWith("mailto:") ||
-            href.startsWith("tel:") ||
-            link.target === "_blank"
-        ) {
-            return;
-        }
-        event.preventDefault();
-        document.body.classList.add(
-            "page-leaving"
-        );
-        setTimeout(() => {
-            window.location.href = href;
-        }, 450);
-    });
-    /* =====================================================
-       ✦ SMOOTH ANCHOR SCROLL
-    ===================================================== */
-    document.querySelectorAll(
-        'a[href^="#"]'
-    ).forEach(link => {
-        link.addEventListener(
-            "click",
-            event => {
-                const targetId =
-                    link.getAttribute("href");
-                const target =
-                    document.querySelector(targetId);
-                if (!target) {
-                    return;
-                }
-                event.preventDefault();
-                target.scrollIntoView({
-                    behavior: "smooth",
-                    block: "start"
-                });
-            }
-        );
-    });
-    /* =====================================================
-       ✦ CORKY GENTLE MOVEMENT
-       ขยับเล็ก ๆ แบบนุ่ม ๆ
-    ===================================================== */
-    const corkies =
-        document.querySelectorAll(
-            ".corky-card img"
-        );
-    corkies.forEach((corky, index) => {
-        corky.style.animationDelay =
-            `${index * 0.45}s`;
-    });
-    /* =====================================================
-       ✦ CURRENT PAGE
-       ไฮไลต์เมนูหน้าที่กำลังเปิดอยู่
-    ===================================================== */
-    const currentPage =
-        window.location.pathname
-            .split("/")
-            .pop() || "index.html";
-    document.querySelectorAll(
-        ".home-link"
-    ).forEach(link => {
-        const href =
-            link.getAttribute("href");
-        if (href === currentPage) {
-            link.classList.add(
-                "current-page"
+            element.classList.add(
+                "visible"
             );
-        }
-    });
-    /* =====================================================
-       ✦ BACK TO TOP
-       ถ้ามีปุ่ม .back-to-top
-    ===================================================== */
-    const backToTop =
-        document.querySelector(
-            ".back-to-top"
-        );
-    if (backToTop) {
-        window.addEventListener(
-            "scroll",
-            () => {
-                if (window.scrollY > 500) {
-                    backToTop.classList.add(
-                        "show"
-                    );
-                } else {
-                    backToTop.classList.remove(
-                        "show"
-                    );
-                }
-            }
-        );
-        backToTop.addEventListener(
-            "click",
-            () => {
-                window.scrollTo({
-                    top: 0,
-                    behavior: "smooth"
-                });
-            }
-        );
+        });
     }
-});
-/* =========================================================
-   ✦ COVER PAGE
-   พิมพ์ข้อความทีละประโยค
-========================================================= */
-function startCoverText() {
-    const lines =
+    /* =====================================================
+       ✦ 03 — HOME PAGE ANIMATION
+    ===================================================== */
+    const homeHeader =
+        document.querySelector(
+            ".home-header"
+        );
+    const homeCouple =
+        document.querySelector(
+            ".home-couple"
+        );
+    const homeMessage =
+        document.querySelector(
+            ".home-message"
+        );
+    const homeLinks =
+        document.querySelectorAll(
+            ".home-link"
+        );
+    const homeEnding =
+        document.querySelector(
+            ".home-ending"
+        );
+    if (homeHeader) {
+        setTimeout(() => {
+            homeHeader.classList.add(
+                "home-show"
+            );
+        }, 150);
+    }
+    if (homeCouple) {
+        setTimeout(() => {
+            homeCouple.classList.add(
+                "home-show"
+            );
+        }, 400);
+    }
+    if (homeMessage) {
+        setTimeout(() => {
+            homeMessage.classList.add(
+                "home-show"
+            );
+        }, 650);
+    }
+    homeLinks.forEach(
+        (link, index) => {
+            setTimeout(() => {
+                link.classList.add(
+                    "home-show"
+                );
+            }, 850 + index * 100);
+        }
+    );
+    if (homeEnding) {
+        setTimeout(() => {
+            homeEnding.classList.add(
+                "home-show"
+            );
+        }, 1800);
+    }
+    /* =====================================================
+       ✦ 04 — COVER PAGE
+       หน้า "สวัสดี พอร์ช"
+    ===================================================== */
+    const welcomeLines =
         document.querySelectorAll(
             ".welcome-line"
         );
-    const button =
+    const openBook =
         document.getElementById(
             "openBook"
         );
-    if (!lines.length) {
-        return;
-    }
-    let current = 0;
-    function showNext() {
-        if (current < lines.length) {
-            lines[current]
-                .classList
-                .add("show-line");
-            current++;
-            setTimeout(
-                showNext,
-                900
-            );
-        } else if (button) {
-            button.disabled = false;
-            button.classList.add(
-                "button-ready"
-            );
+    if (
+        welcomeLines.length > 0
+    ) {
+        let current = 0;
+        function showNextLine() {
+            if (
+                current <
+                welcomeLines.length
+            ) {
+                welcomeLines[current]
+                    .classList
+                    .add("show-line");
+                current++;
+                setTimeout(
+                    showNextLine,
+                    900
+                );
+            } else if (openBook) {
+                openBook.disabled =
+                    false;
+                openBook.classList.add(
+                    "button-ready"
+                );
+            }
         }
+        setTimeout(
+            showNextLine,
+            700
+        );
     }
-    setTimeout(
-        showNext,
-        700
-    );
-}
-/* =========================================================
-   ✦ COVER BUTTON
-========================================================= */
-document.addEventListener(
-    "DOMContentLoaded",
-    () => {
-        const button =
-            document.getElementById(
-                "openBook"
-            );
-        if (!button) {
-            return;
-        }
-        startCoverText();
-        button.addEventListener(
+    /* =====================================================
+       ✦ 05 — COVER BUTTON
+    ===================================================== */
+    if (openBook) {
+        openBook.addEventListener(
             "click",
             () => {
-                if (button.disabled) {
+                if (
+                    openBook.disabled
+                ) {
                     return;
                 }
                 document.body.classList.add(
@@ -285,212 +190,144 @@ document.addEventListener(
             }
         );
     }
-);
-/* =========================================================
-   ✦ PAGE EFFECTS — ADDITION ONLY
-   ✦ เอาไปต่อท้าย script.js เดิม
-========================================================= */
-/* =========================================================
-   ✦ EXTRA SCROLL REVEAL
-========================================================= */
-document.addEventListener("DOMContentLoaded", () => {
-    const extraReveal =
-        document.querySelectorAll(
-            ".about-card, " +
-            ".story-section, " +
-            ".timeline-item, " +
-            ".memory-photo, " +
-            ".reason-card, " +
-            ".corky-card, " +
-            ".final-dream"
-        );
-    if (!extraReveal.length) {
-        return;
-    }
-    const revealObserver =
-        new IntersectionObserver(
-            entries => {
-                entries.forEach(entry => {
-                    if (
-                        entry.isIntersecting
-                    ) {
-                        entry.target.classList.add(
-                            "visible"
-                        );
-                    }
-                });
-            },
-            {
-                threshold: 0.15,
-                rootMargin: "0px 0px -40px 0px"
-            }
-        );
-    extraReveal.forEach(
-        element => {
-            revealObserver.observe(
-                element
-            );
-        }
-    );
-});
-/* =========================================================
-   ✦ STAGGER MEMORY PHOTOS
-========================================================= */
-document.addEventListener("DOMContentLoaded", () => {
-    const photos =
+    /* =====================================================
+       ✦ 06 — MEMORY PHOTO ROTATION
+    ===================================================== */
+    const memoryPhotos =
         document.querySelectorAll(
             ".memory-photo"
         );
-    photos.forEach(
+    const rotations = [
+        "-1.2deg",
+        "1deg",
+        "-0.6deg",
+        "1.4deg",
+        "-1deg",
+        "0.7deg"
+    ];
+    memoryPhotos.forEach(
         (photo, index) => {
+            photo.style.setProperty(
+                "--rotation",
+                rotations[
+                    index %
+                    rotations.length
+                ]
+            );
             photo.style.transitionDelay =
                 `${index * 90}ms`;
         }
     );
-});
-/* =========================================================
-   ✦ STAGGER 100 REASONS
-========================================================= */
-document.addEventListener("DOMContentLoaded", () => {
-    const reasons =
-        document.querySelectorAll(
-            ".reason-card"
-        );
-    reasons.forEach(
-        (reason, index) => {
-            reason.style.transitionDelay =
-                `${(index % 10) * 70}ms`;
-        }
-    );
-});
-/* =========================================================
-   ✦ TIMELINE STAGGER
-========================================================= */
-document.addEventListener("DOMContentLoaded", () => {
-    const timelineItems =
-        document.querySelectorAll(
-            ".timeline-item"
-        );
-    timelineItems.forEach(
-        (item, index) => {
-            item.style.transitionDelay =
-                `${index * 120}ms`;
-        }
-    );
-});
-/* =========================================================
-   ✦ STORY STAGGER
-========================================================= */
-document.addEventListener("DOMContentLoaded", () => {
-    const storySections =
-        document.querySelectorAll(
+    /* =====================================================
+       ✦ 07 — STAGGER EFFECTS
+    ===================================================== */
+    document
+        .querySelectorAll(
             ".story-section"
-        );
-    storySections.forEach(
-        (section, index) => {
-            section.style.transitionDelay =
-                `${index * 140}ms`;
-        }
-    );
-});
-/* =========================================================
-   ✦ FAMILY STAGGER
-========================================================= */
-document.addEventListener("DOMContentLoaded", () => {
-    const familyCards =
-        document.querySelectorAll(
-            ".corky-card"
-        );
-    familyCards.forEach(
-        (card, index) => {
-            card.style.transitionDelay =
-                `${index * 120}ms`;
-        }
-    );
-});
-/* =========================================================
-   ✦ GENTLE MOUSE PARALLAX
-   เฉพาะอุปกรณ์ที่มีเมาส์
-========================================================= */
-document.addEventListener(
-    "DOMContentLoaded",
-    () => {
-        const page =
-            document.querySelector(
-                ".home-page, " +
-                ".about-page, " +
-                ".story-page, " +
-                ".timeline-page, " +
-                ".memories-page, " +
-                ".letter-page, " +
-                ".reasons-page, " +
-                ".family-page, " +
-                ".final-page"
-            );
-        if (!page) {
-            return;
-        }
-        if (
-            window.matchMedia(
-                "(pointer: coarse)"
-            ).matches
-        ) {
-            return;
-        }
-        window.addEventListener(
-            "mousemove",
-            event => {
-                const x =
-                    (event.clientX /
-                        window.innerWidth -
-                        0.5);
-                const y =
-                    (event.clientY /
-                        window.innerHeight -
-                        0.5);
-                page.style.setProperty(
-                    "--mouse-x",
-                    `${x * 8}px`
-                );
-                page.style.setProperty(
-                    "--mouse-y",
-                    `${y * 8}px`
-                );
+        )
+        .forEach(
+            (element, index) => {
+                element.style.transitionDelay =
+                    `${index * 120}ms`;
             }
         );
-    }
-);
-/* =========================================================
-   ✦ REDUCE MOTION
-   รองรับผู้ใช้ที่เปิด Reduce Motion
-========================================================= */
-if (
-    window.matchMedia(
-        "(prefers-reduced-motion: reduce)"
-    ).matches
-) {
-    document.documentElement.classList.add(
-        "reduce-motion"
-    );
-}
-/* =========================================================
-   ✦ MEMORY IMAGE CLICK
-   เปิดรูปใหญ่เมื่อกด
-========================================================= */
-document.addEventListener(
-    "DOMContentLoaded",
-    () => {
-        const memoryImages =
-            document.querySelectorAll(
-                ".memory-image img"
+    document
+        .querySelectorAll(
+            ".timeline-item"
+        )
+        .forEach(
+            (element, index) => {
+                element.style.transitionDelay =
+                    `${index * 110}ms`;
+            }
+        );
+    document
+        .querySelectorAll(
+            ".reason-card, .reason-item"
+        )
+        .forEach(
+            (element, index) => {
+                element.style.transitionDelay =
+                    `${Math.min(
+                        index * 60,
+                        900
+                    )}ms`;
+            }
+        );
+    document
+        .querySelectorAll(
+            ".corky-card, .family-member"
+        )
+        .forEach(
+            (element, index) => {
+                element.style.transitionDelay =
+                    `${index * 120}ms`;
+            }
+        );
+    /* =====================================================
+       ✦ 08 — CORKY FLOAT DELAY
+    ===================================================== */
+    document
+        .querySelectorAll(
+            ".corky-card img, .family-member img"
+        )
+        .forEach(
+            (image, index) => {
+                image.style.animationDelay =
+                    `${index * 0.45}s`;
+            }
+        );
+    /* =====================================================
+       ✦ 09 — IMAGE FALLBACK
+       ถ้ารูปหาไม่เจอ ไม่ทำเว็บพัง
+    ===================================================== */
+    document
+        .querySelectorAll("img")
+        .forEach(image => {
+            image.addEventListener(
+                "error",
+                () => {
+                    image.classList.add(
+                        "image-error"
+                    );
+                }
             );
+        });
+    /* =====================================================
+       ✦ 10 — GALLERY LIGHTBOX
+       กดรูป → รูปใหญ่
+    ===================================================== */
+    const memoryImages =
+        document.querySelectorAll(
+            ".memory-image img"
+        );
+    if (
+        memoryImages.length > 0
+    ) {
+        const lightbox =
+            document.createElement(
+                "div"
+            );
+        lightbox.className =
+            "image-lightbox";
+        const lightboxImage =
+            document.createElement(
+                "img"
+            );
+        lightbox.appendChild(
+            lightboxImage
+        );
+        document.body.appendChild(
+            lightbox
+        );
         memoryImages.forEach(
             image => {
                 image.style.cursor =
                     "zoom-in";
                 image.addEventListener(
                     "click",
-                    () => {
+                    event => {
+                        event.stopPropagation();
                         if (
                             image.classList.contains(
                                 "image-error"
@@ -498,904 +335,20 @@ document.addEventListener(
                         ) {
                             return;
                         }
-                        const overlay =
-                            document.createElement(
-                                "div"
-                            );
-                        overlay.className =
-                            "image-lightbox";
-                        const largeImage =
-                            document.createElement(
-                                "img"
-                            );
-                        largeImage.src =
+                        lightboxImage.src =
                             image.src;
-                        largeImage.alt =
-                            image.alt || "Memory";
-                        overlay.appendChild(
-                            largeImage
-                        );
-                        document.body.appendChild(
-                            overlay
-                        );
-                        requestAnimationFrame(
-                            () => {
-                                overlay.classList.add(
-                                    "show"
-                                );
-                            }
-                        );
-                        overlay.addEventListener(
-                            "click",
-                            () => {
-                                overlay.classList.remove(
-                                    "show"
-                                );
-                                setTimeout(
-                                    () => {
-                                        overlay.remove();
-                                    },
-                                    300
-                                );
-                            }
-                        );
-                    }
-                );
-            }
-        );
-    }
-);
-/* =========================================================
-   ✦ ESC CLOSE LIGHTBOX
-========================================================= */
-document.addEventListener(
-    "keydown",
-    event => {
-        if (
-            event.key !== "Escape"
-        ) {
-            return;
-        }
-        const lightbox =
-            document.querySelector(
-                ".image-lightbox"
-            );
-        if (!lightbox) {
-            return;
-        }
-        lightbox.classList.remove(
-            "show"
-        );
-        setTimeout(
-            () => {
-                lightbox.remove();
-            },
-            300
-        );
-    }
-);
-/* =========================================================
-   ✦ ABOUT PAGE SCRIPT
-   ✦ ADD TO THE END OF script.js
-   ✦ ไม่ต้องลบของเดิม
-========================================================= */
-document.addEventListener("DOMContentLoaded", () => {
-    const aboutPage =
-        document.querySelector(".about-page");
-    if (!aboutPage) {
-        return;
-    }
-    /* =====================================================
-       ✦ ABOUT HEADER
-    ===================================================== */
-    const header =
-        aboutPage.querySelector(".page-header");
-    if (header) {
-        setTimeout(() => {
-            header.classList.add(
-                "visible"
-            );
-        }, 180);
-    }
-    /* =====================================================
-       ✦ ABOUT CARDS
-       ค่อย ๆ โผล่ทีละการ์ด
-    ===================================================== */
-    const cards =
-        aboutPage.querySelectorAll(
-            ".about-card"
-        );
-    cards.forEach((card, index) => {
-        card.style.transitionDelay =
-            `${index * 140}ms`;
-    });
-    /* =====================================================
-       ✦ ABOUT IMAGE
-       รูปจะค่อย ๆ ปรากฏหลังการ์ด
-    ===================================================== */
-    const images =
-        aboutPage.querySelectorAll(
-            ".about-card img"
-        );
-    images.forEach((image, index) => {
-        image.style.transitionDelay =
-            `${250 + index * 100}ms`;
-    });
-    /* =====================================================
-       ✦ ABOUT SCROLL
-       เพิ่ม class visible ตอนเลื่อนมาถึง
-    ===================================================== */
-    if (
-        "IntersectionObserver"
-        in window
-    ) {
-        const observer =
-            new IntersectionObserver(
-                entries => {
-                    entries.forEach(
-                        entry => {
-                            if (
-                                entry.isIntersecting
-                            ) {
-                                entry.target.classList.add(
-                                    "visible"
-                                );
-                                observer.unobserve(
-                                    entry.target
-                                );
-                            }
-                        }
-                    );
-                },
-                {
-                    threshold: .15,
-                    rootMargin:
-                        "0px 0px -50px 0px"
-                }
-            );
-        cards.forEach(card => {
-            observer.observe(card);
-        });
-    } else {
-        cards.forEach(card => {
-            card.classList.add(
-                "visible"
-            );
-        });
-    }
-});
-/* =========================================================
-   ✦ STORY PAGE SCRIPT
-   ✦ ADD TO THE END OF script.js
-   ✦ ไม่ต้องลบของเดิม
-========================================================= */
-document.addEventListener("DOMContentLoaded", () => {
-    const storyPage =
-        document.querySelector(".story-page");
-    if (!storyPage) {
-        return;
-    }
-    /* =====================================================
-       ✦ HEADER
-    ===================================================== */
-    const header =
-        storyPage.querySelector(".page-header");
-    if (header) {
-        setTimeout(() => {
-            header.classList.add(
-                "visible"
-            );
-        }, 180);
-    }
-    /* =====================================================
-       ✦ STORY SECTIONS
-    ===================================================== */
-    const sections =
-        storyPage.querySelectorAll(
-            ".story-section"
-        );
-    sections.forEach(
-        (section, index) => {
-            section.style.transitionDelay =
-                `${index * 140}ms`;
-        }
-    );
-    /* =====================================================
-       ✦ SCROLL REVEAL
-    ===================================================== */
-    if (
-        "IntersectionObserver"
-        in window
-    ) {
-        const observer =
-            new IntersectionObserver(
-                entries => {
-                    entries.forEach(
-                        entry => {
-                            if (
-                                entry.isIntersecting
-                            ) {
-                                entry.target.classList.add(
-                                    "visible"
-                                );
-                                observer.unobserve(
-                                    entry.target
-                                );
-                            }
-                        }
-                    );
-                },
-                {
-                    threshold: .12,
-                    rootMargin:
-                        "0px 0px -45px 0px"
-                }
-            );
-        sections.forEach(section => {
-            observer.observe(
-                section
-            );
-        });
-    } else {
-        sections.forEach(section => {
-            section.classList.add(
-                "visible"
-            );
-        });
-    }
-});
-/* =========================================================
-   ✦ TIMELINE PAGE SCRIPT
-   ✦ ADD TO THE END OF script.js
-========================================================= */
-document.addEventListener("DOMContentLoaded", () => {
-    const timelinePage =
-        document.querySelector(".timeline-page");
-    if (!timelinePage) {
-        return;
-    }
-    /* =====================================================
-       ✦ HEADER
-    ===================================================== */
-    const header =
-        timelinePage.querySelector(".page-header");
-    if (header) {
-        setTimeout(() => {
-            header.classList.add(
-                "visible"
-            );
-        }, 180);
-    }
-    /* =====================================================
-       ✦ TIMELINE ITEMS
-    ===================================================== */
-    const items =
-        timelinePage.querySelectorAll(
-            ".timeline-item"
-        );
-    items.forEach(
-        (item, index) => {
-            item.style.transitionDelay =
-                `${index * 130}ms`;
-        }
-    );
-    /* =====================================================
-       ✦ SCROLL REVEAL
-    ===================================================== */
-    if (
-        "IntersectionObserver"
-        in window
-    ) {
-        const observer =
-            new IntersectionObserver(
-                entries => {
-                    entries.forEach(
-                        entry => {
-                            if (
-                                entry.isIntersecting
-                            ) {
-                                entry.target.classList.add(
-                                    "visible"
-                                );
-                                observer.unobserve(
-                                    entry.target
-                                );
-                            }
-                        }
-                    );
-                },
-                {
-                    threshold: .12,
-                    rootMargin:
-                        "0px 0px -45px 0px"
-                }
-            );
-        items.forEach(item => {
-            observer.observe(
-                item
-            );
-        });
-    } else {
-        items.forEach(item => {
-            item.classList.add(
-                "visible"
-            );
-        });
-    }
-});
-/* =========================================================
-   ✦ MEMORIES / GALLERY PAGE SCRIPT
-   ✦ ADD TO THE END OF script.js
-   ✦ ไม่ต้องลบของเดิม
-========================================================= */
-document.addEventListener("DOMContentLoaded", () => {
-    const memoriesPage =
-        document.querySelector(".memories-page");
-    if (!memoriesPage) {
-        return;
-    }
-    /* =====================================================
-       ✦ HEADER
-    ===================================================== */
-    const header =
-        memoriesPage.querySelector(
-            ".page-header, .home-header"
-        );
-    if (header) {
-        setTimeout(() => {
-            header.classList.add(
-                "visible",
-                "home-show"
-            );
-        }, 180);
-    }
-    /* =====================================================
-       ✦ PHOTOS
-    ===================================================== */
-    const photos =
-        memoriesPage.querySelectorAll(
-            ".memory-photo"
-        );
-    photos.forEach(
-        (photo, index) => {
-            photo.style.transitionDelay =
-                `${index * 100}ms`;
-        }
-    );
-    /* =====================================================
-       ✦ SCROLL REVEAL
-    ===================================================== */
-    if (
-        "IntersectionObserver"
-        in window
-    ) {
-        const observer =
-            new IntersectionObserver(
-                entries => {
-                    entries.forEach(
-                        entry => {
-                            if (
-                                entry.isIntersecting
-                            ) {
-                                entry.target.classList.add(
-                                    "visible"
-                                );
-                                observer.unobserve(
-                                    entry.target
-                                );
-                            }
-                        }
-                    );
-                },
-                {
-                    threshold: .12,
-                    rootMargin:
-                        "0px 0px -45px 0px"
-                }
-            );
-        photos.forEach(photo => {
-            observer.observe(
-                photo
-            );
-        });
-    } else {
-        photos.forEach(photo => {
-            photo.classList.add(
-                "visible"
-            );
-        });
-    }
-    /* =====================================================
-       ✦ IMAGE LIGHTBOX
-       กดรูป → เปิดรูปใหญ่
-    ===================================================== */
-    const images =
-        memoriesPage.querySelectorAll(
-            ".memory-image img"
-        );
-    images.forEach(image => {
-        image.addEventListener(
-            "click",
-            () => {
-                if (
-                    !image.src ||
-                    image.style.display === "none"
-                ) {
-                    return;
-                }
-                const overlay =
-                    document.createElement(
-                        "div"
-                    );
-                overlay.className =
-                    "image-lightbox";
-                const largeImage =
-                    document.createElement(
-                        "img"
-                    );
-                largeImage.src =
-                    image.src;
-                largeImage.alt =
-                    image.alt || "Memory";
-                overlay.appendChild(
-                    largeImage
-                );
-                document.body.appendChild(
-                    overlay
-                );
-                requestAnimationFrame(
-                    () => {
-                        overlay.classList.add(
+                        lightboxImage.alt =
+                            image.alt ||
+                            "Our Memory";
+                        lightbox.classList.add(
                             "show"
                         );
-                    }
-                );
-                overlay.addEventListener(
-                    "click",
-                    () => {
-                        overlay.classList.remove(
-                            "show"
-                        );
-                        setTimeout(
-                            () => {
-                                overlay.remove();
-                            },
-                            300
-                        );
+                        document.body.style.overflow =
+                            "hidden";
                     }
                 );
             }
         );
-    });
-});
-/* =========================================================
-   ✦ LETTER PAGE SCRIPT
-   ✦ ADD TO THE END OF script.js
-   ✦ ไม่ต้องลบของเดิม
-========================================================= */
-document.addEventListener("DOMContentLoaded", () => {
-    const letterPage =
-        document.querySelector(".letter-page");
-    if (!letterPage) {
-        return;
-    }
-    /* =====================================================
-       ✦ HEADER
-    ===================================================== */
-    const header =
-        letterPage.querySelector(
-            ".page-header"
-        );
-    if (header) {
-        setTimeout(() => {
-            header.classList.add(
-                "visible"
-            );
-        }, 180);
-    }
-    /* =====================================================
-       ✦ LETTER PAPER
-    ===================================================== */
-    const papers =
-        letterPage.querySelectorAll(
-            ".letter-paper"
-        );
-    papers.forEach(
-        (paper, index) => {
-            paper.style.transitionDelay =
-                `${index * 180}ms`;
-        }
-    );
-    /* =====================================================
-       ✦ SIGNATURE
-    ===================================================== */
-    const signatures =
-        letterPage.querySelectorAll(
-            ".letter-signature"
-        );
-    signatures.forEach(
-        (signature, index) => {
-            signature.style.transitionDelay =
-                `${700 + index * 150}ms`;
-        }
-    );
-    /* =====================================================
-       ✦ SCROLL REVEAL
-    ===================================================== */
-    const revealElements = [
-        ...papers,
-        ...signatures
-    ];
-    if (
-        "IntersectionObserver"
-        in window
-    ) {
-        const observer =
-            new IntersectionObserver(
-                entries => {
-                    entries.forEach(
-                        entry => {
-                            if (
-                                entry.isIntersecting
-                            ) {
-                                entry.target.classList.add(
-                                    "visible"
-                                );
-                                observer.unobserve(
-                                    entry.target
-                                );
-                            }
-                        }
-                    );
-                },
-                {
-                    threshold: .12,
-                    rootMargin:
-                        "0px 0px -45px 0px"
-                }
-            );
-        revealElements.forEach(
-            element => {
-                observer.observe(
-                    element
-                );
-            }
-        );
-    } else {
-        revealElements.forEach(
-            element => {
-                element.classList.add(
-                    "visible"
-                );
-            }
-        );
-    }
-});
-/* =========================================================
-   ✦ 100 REASONS PAGE SCRIPT
-   ✦ ADD TO THE END OF script.js
-   ✦ ไม่ต้องลบของเดิม
-========================================================= */
-document.addEventListener("DOMContentLoaded", () => {
-    const reasonsPage =
-        document.querySelector(".reasons-page");
-    if (!reasonsPage) {
-        return;
-    }
-    /* =====================================================
-       ✦ HEADER
-    ===================================================== */
-    const header =
-        reasonsPage.querySelector(
-            ".page-header"
-        );
-    if (header) {
-        setTimeout(() => {
-            header.classList.add(
-                "visible"
-            );
-        }, 180);
-    }
-    /* =====================================================
-       ✦ REASONS
-       ค่อย ๆ ขึ้นทีละข้อ
-    ===================================================== */
-    const reasons =
-        reasonsPage.querySelectorAll(
-            ".reason-item"
-        );
-    reasons.forEach(
-        (reason, index) => {
-            reason.style.transitionDelay =
-                `${Math.min(index * 45, 900)}ms`;
-        }
-    );
-    /* =====================================================
-       ✦ SCROLL REVEAL
-    ===================================================== */
-    if (
-        "IntersectionObserver"
-        in window
-    ) {
-        const observer =
-            new IntersectionObserver(
-                entries => {
-                    entries.forEach(
-                        entry => {
-                            if (
-                                entry.isIntersecting
-                            ) {
-                                entry.target.classList.add(
-                                    "visible"
-                                );
-                                observer.unobserve(
-                                    entry.target
-                                );
-                            }
-                        }
-                    );
-                },
-                {
-                    threshold: .08,
-                    rootMargin:
-                        "0px 0px -35px 0px"
-                }
-            );
-        reasons.forEach(reason => {
-            observer.observe(
-                reason
-            );
-        });
-    } else {
-        reasons.forEach(reason => {
-            reason.classList.add(
-                "visible"
-            );
-        });
-    }
-});
-/* =========================================================
-   ✦ FAMILY PAGE SCRIPT
-   ✦ ADD TO THE END OF script.js
-   ✦ ไม่ต้องลบของเดิม
-========================================================= */
-document.addEventListener("DOMContentLoaded", () => {
-    const familyPage =
-        document.querySelector(".family-page");
-    if (!familyPage) {
-        return;
-    }
-    /* =====================================================
-       ✦ HEADER
-    ===================================================== */
-    const header =
-        familyPage.querySelector(
-            ".page-header"
-        );
-    if (header) {
-        setTimeout(() => {
-            header.classList.add(
-                "visible"
-            );
-        }, 180);
-    }
-    /* =====================================================
-       ✦ FAMILY MEMBERS
-       ค่อย ๆ ปรากฏทีละตัว
-    ===================================================== */
-    const members =
-        familyPage.querySelectorAll(
-            ".family-member"
-        );
-    members.forEach(
-        (member, index) => {
-            member.style.transitionDelay =
-                `${index * 150}ms`;
-        }
-    );
-    /* =====================================================
-       ✦ SCROLL REVEAL
-    ===================================================== */
-    if (
-        "IntersectionObserver"
-        in window
-    ) {
-        const observer =
-            new IntersectionObserver(
-                entries => {
-                    entries.forEach(
-                        entry => {
-                            if (
-                                entry.isIntersecting
-                            ) {
-                                entry.target.classList.add(
-                                    "visible"
-                                );
-                                observer.unobserve(
-                                    entry.target
-                                );
-                            }
-                        }
-                    );
-                },
-                {
-                    threshold: .12,
-                    rootMargin:
-                        "0px 0px -45px 0px"
-                }
-            );
-        members.forEach(member => {
-            observer.observe(
-                member
-            );
-        });
-    } else {
-        members.forEach(member => {
-            member.classList.add(
-                "visible"
-            );
-        });
-    }
-});
-/* =========================================================
-   ✦ FINAL PAGE SCRIPT
-   ✦ ADD TO THE END OF script.js
-   ✦ ไม่ต้องลบของเดิม
-========================================================= */
-
-document.addEventListener("DOMContentLoaded", () => {
-
-    const finalPage =
-        document.querySelector(".final-page");
-
-    if (!finalPage) {
-        return;
-    }
-
-
-    /* =====================================================
-       ✦ HEADER
-    ===================================================== */
-
-    const header =
-        finalPage.querySelector(
-            ".page-header"
-        );
-
-    if (header) {
-
-        setTimeout(() => {
-
-            header.classList.add(
-                "visible"
-            );
-
-        }, 200);
-
-    }
-
-
-    /* =====================================================
-       ✦ FINAL MESSAGE
-    ===================================================== */
-
-    const message =
-        finalPage.querySelector(
-            ".final-message"
-        );
-
-    if (message) {
-
-        setTimeout(() => {
-
-            message.classList.add(
-                "visible"
-            );
-
-        }, 650);
-
-    }
-
-
-    /* =====================================================
-       ✦ FINAL BACK BUTTON
-    ===================================================== */
-
-    const back =
-        finalPage.querySelector(
-            ".final-back"
-        );
-
-    if (back) {
-
-        setTimeout(() => {
-
-            back.classList.add(
-                "visible"
-            );
-
-        }, 1200);
-
-    }
-
-});
-/* =========================================================
-   ✦ DEAR PORCH — FINAL SCRIPT FIX
-   ✦ วางต่อท้ายสุดของ script.js
-========================================================= */
-document.addEventListener("DOMContentLoaded", () => {
-    /* =====================================================
-       ✦ 01 — REVEAL ELEMENTS
-    ===================================================== */
-    const revealElements = document.querySelectorAll(
-        ".about-card, " +
-        ".story-section, " +
-        ".timeline-item, " +
-        ".memory-photo, " +
-        ".memories-note, " +
-        ".reason-item, " +
-        ".family-member, " +
-        ".letter-paper, " +
-        ".letter-signature, " +
-        ".final-message, " +
-        ".final-back"
-    );
-    revealElements.forEach((element, index) => {
-        setTimeout(() => {
-            element.classList.add("visible");
-        }, 150 + (index * 100));
-    });
-    /* =====================================================
-       ✦ 02 — GALLERY LIGHTBOX
-    ===================================================== */
-    const memoryImages =
-        document.querySelectorAll(
-            ".memory-image img"
-        );
-    if (memoryImages.length > 0) {
-        let lightbox =
-            document.querySelector(
-                ".image-lightbox"
-            );
-        if (!lightbox) {
-            lightbox =
-                document.createElement("div");
-            lightbox.className =
-                "image-lightbox";
-            const image =
-                document.createElement("img");
-            lightbox.appendChild(image);
-            document.body.appendChild(
-                lightbox
-            );
-        }
-        const lightboxImage =
-            lightbox.querySelector("img");
-        memoryImages.forEach(image => {
-            image.addEventListener(
-                "click",
-                event => {
-                    event.stopPropagation();
-                    if (
-                        image.style.display ===
-                        "none"
-                    ) {
-                        return;
-                    }
-                    lightboxImage.src =
-                        image.src;
-                    lightboxImage.alt =
-                        image.alt ||
-                        "Our Memory";
-                    lightbox.classList.add(
-                        "show"
-                    );
-                    document.body.style.overflow =
-                        "hidden";
-                }
-            );
-        });
-        /* ปิดเมื่อแตะพื้นหลัง */
         lightbox.addEventListener(
             "click",
             event => {
@@ -1411,7 +364,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             }
         );
-        /* ปิดด้วย ESC */
         document.addEventListener(
             "keydown",
             event => {
@@ -1429,121 +381,198 @@ document.addEventListener("DOMContentLoaded", () => {
         );
     }
     /* =====================================================
-       ✦ 03 — FINAL PAGE
+       ✦ 11 — CURRENT PAGE
     ===================================================== */
-    const finalPage =
+    const currentPage =
+        window.location.pathname
+            .split("/")
+            .pop() ||
+        "index.html";
+    document
+        .querySelectorAll(
+            ".shared-menu a"
+        )
+        .forEach(link => {
+            const href =
+                link.getAttribute(
+                    "href"
+                );
+            if (
+                href ===
+                currentPage
+            ) {
+                link.classList.add(
+                    "current"
+                );
+            }
+        });
+    /* =====================================================
+       ✦ 12 — BACK TO TOP
+    ===================================================== */
+    const backToTop =
         document.querySelector(
+            ".back-to-top"
+        );
+    if (backToTop) {
+        const checkScroll =
+            () => {
+                if (
+                    window.scrollY >
+                    500
+                ) {
+                    backToTop.classList.add(
+                        "show"
+                    );
+                } else {
+                    backToTop.classList.remove(
+                        "show"
+                    );
+                }
+            };
+        window.addEventListener(
+            "scroll",
+            checkScroll
+        );
+        backToTop.addEventListener(
+            "click",
+            () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+            }
+        );
+    }
+    /* =====================================================
+       ✦ 13 — SMOOTH ANCHOR
+    ===================================================== */
+    document
+        .querySelectorAll(
+            'a[href^="#"]'
+        )
+        .forEach(link => {
+            link.addEventListener(
+                "click",
+                event => {
+                    const targetId =
+                        link.getAttribute(
+                            "href"
+                        );
+                    const target =
+                        document.querySelector(
+                            targetId
+                        );
+                    if (!target) {
+                        return;
+                    }
+                    event.preventDefault();
+                    target.scrollIntoView({
+                        behavior:
+                            "smooth",
+                        block:
+                            "start"
+                    });
+                }
+            );
+        });
+    /* =====================================================
+       ✦ 14 — PAGE TRANSITION
+       สำคัญ: มีเพียงระบบเดียว
+    ===================================================== */
+    document.addEventListener(
+        "click",
+        event => {
+            const link =
+                event.target.closest(
+                    "a"
+                );
+            if (!link) {
+                return;
+            }
+            const href =
+                link.getAttribute(
+                    "href"
+                );
+            if (
+                !href ||
+                href.startsWith("#") ||
+                href.startsWith("http") ||
+                href.startsWith("mailto:") ||
+                href.startsWith("tel:") ||
+                link.target === "_blank"
+            ) {
+                return;
+            }
+            if (
+                event.target.closest(
+                    ".image-lightbox"
+                )
+            ) {
+                return;
+            }
+            event.preventDefault();
+            document.body.classList.add(
+                "page-leaving"
+            );
+            setTimeout(() => {
+                window.location.href =
+                    href;
+            }, 450);
+        }
+    );
+    /* =====================================================
+       ✦ 15 — MOUSE PARALLAX
+    ===================================================== */
+    const page =
+        document.querySelector(
+            ".home-page, " +
+            ".about-page, " +
+            ".story-page, " +
+            ".timeline-page, " +
+            ".memories-page, " +
+            ".letter-page, " +
+            ".reasons-page, " +
+            ".family-page, " +
             ".final-page"
         );
-    if (finalPage) {
-        const header =
-            finalPage.querySelector(
-                ".page-header"
-            );
-        const message =
-            finalPage.querySelector(
-                ".final-message"
-            );
-        const back =
-            finalPage.querySelector(
-                ".final-back"
-            );
-        if (header) {
-            setTimeout(() => {
-                header.classList.add(
-                    "visible"
+    if (
+        page &&
+        !window.matchMedia(
+            "(pointer: coarse)"
+        ).matches
+    ) {
+        window.addEventListener(
+            "mousemove",
+            event => {
+                const x =
+                    event.clientX /
+                    window.innerWidth -
+                    .5;
+                const y =
+                    event.clientY /
+                    window.innerHeight -
+                    .5;
+                page.style.setProperty(
+                    "--mouse-x",
+                    `${x * 8}px`
                 );
-            }, 200);
-        }
-        if (message) {
-            setTimeout(() => {
-                message.classList.add(
-                    "visible"
+                page.style.setProperty(
+                    "--mouse-y",
+                    `${y * 8}px`
                 );
-            }, 650);
-        }
-        if (back) {
-            setTimeout(() => {
-                back.classList.add(
-                    "visible"
-                );
-            }, 1200);
-        }
-    }
-});
-/* =========================================================
-   ✦ 04 — PAGE TRANSITION
-========================================================= */
-document.addEventListener(
-    "click",
-    event => {
-        const link =
-            event.target.closest("a");
-        if (!link) {
-            return;
-        }
-        const href =
-            link.getAttribute("href");
-        if (
-            !href ||
-            href.startsWith("#") ||
-            href.startsWith("http") ||
-            href.startsWith("mailto:") ||
-            href.startsWith("tel:") ||
-            link.target === "_blank"
-        ) {
-            return;
-        }
-        /*
-         * ไม่ทำ transition ถ้ากำลังอยู่
-         * ใน lightbox
-         */
-        if (
-            event.target.closest(
-                ".image-lightbox"
-            )
-        ) {
-            return;
-        }
-        event.preventDefault();
-        document.body.classList.add(
-            "page-leaving"
+            }
         );
-        setTimeout(() => {
-            window.location.href =
-                href;
-        }, 450);
     }
-);
-/* =========================================================
-   ✦ FIX — SHOW CONTENT ON ALL MEMORY PAGES
-   ✦ ป้องกันข้อความหายจาก animation
-========================================================= */
-document.addEventListener("DOMContentLoaded", () => {
-    const selectors = [
-        ".page-header",
-        ".about-card",
-        ".story-section",
-        ".timeline-item",
-        ".memory-photo",
-        ".memories-note",
-        ".letter-paper",
-        ".letter-signature",
-        ".reason-item",
-        ".reason-card",
-        ".family-member",
-        ".corky-card",
-        ".final-message",
-        ".final-back"
-    ];
-    selectors.forEach(selector => {
-        document
-            .querySelectorAll(selector)
-            .forEach((element, index) => {
-                setTimeout(() => {
-                    element.classList.add("visible");
-                    element.classList.add("home-show");
-                }, 100 + (index * 80));
-            });
-    });
+    /* =====================================================
+       ✦ 16 — REDUCED MOTION
+    ===================================================== */
+    if (
+        window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+        ).matches
+    ) {
+        document.documentElement.classList.add(
+            "reduce-motion"
+        );
+    }
 });
