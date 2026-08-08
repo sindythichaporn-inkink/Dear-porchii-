@@ -1,179 +1,408 @@
 <!DOCTYPE html>
 <html lang="th">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Dear Porchii ♡</title>
-
-    <link rel="stylesheet" href="style.css">
+<title>Dear Porch ✦</title>
+<link rel="stylesheet" href="style.css">
 </head>
-
-<body class="home-page">
-
-    <div class="ambient"></div>
-    <div class="glitter-container"></div>
-
-    <main>
-
-        <!-- =========================
-             WELCOME
-        ========================== -->
-
-        <section class="welcome" id="welcome">
-
-            <p class="brand">
-                𝒅𝒆𝒂𝒓 𝒑𝒐𝒓𝒄𝒉 ✦
+<body>
+<main id="app">
+    <!-- =================================================
+         ✦ WELCOME PAGE
+    ================================================== -->
+    <section
+        class="welcome-page"
+        id="welcomePage">
+        <!-- ✦ WEBSITE NAME -->
+        <p class="website-name">
+            ժׁׅ݊ꫀׁׅܻɑׁׅ֮r&nbsp;&nbsp;pᨵׁׅrᝯׁhׁׅ֮ ✦
+        </p>
+        <!-- ✦ COUPLE -->
+        <div class="welcome-characters">
+            <img
+                src="images/characters/ink.png"
+                alt="Ink Corgi"
+                class="character ink">
+            <img
+                src="images/characters/porch.png"
+                alt="Porch Corgi"
+                class="character porch">
+        </div>
+        <!-- =================================================
+             ✦ TYPING MESSAGE
+        ================================================== -->
+        <div
+            class="welcome-text"
+            id="welcomeText">
+            <p
+                class="typing-line"
+                id="line1">
             </p>
-
-            <div class="couple-characters">
-
-                <img
-                    src="images/characters/ink.png"
-                    alt="Ink"
-                    class="character character-ink">
-
-                <img
-                    src="images/characters/porch.png"
-                    alt="Porch"
-                    class="character character-porch">
-
+            <h1
+                class="typing-line"
+                id="line2">
+            </h1>
+            <p
+                class="typing-line"
+                id="line3">
+            </p>
+            <p
+                class="typing-line"
+                id="line4">
+            </p>
+            <p
+                class="typing-line"
+                id="line5">
+            </p>
+            <p
+                class="typing-line"
+                id="line6">
+            </p>
+            <p
+                class="typing-line"
+                id="line7">
+            </p>
+            <p
+                class="typing-line"
+                id="line8">
+            </p>
+            <p
+                class="typing-line"
+                id="line9">
+            </p>
+        </div>
+        <!-- =================================================
+             ✦ BUTTON
+        ================================================== -->
+        <button
+            id="startButton"
+            class="start-button"
+            type="button">
+            ♫ &nbsp; Open our story ♡
+        </button>
+        <!-- =================================================
+             ✦ GLITTER
+        ================================================== -->
+        <div
+            class="sparkles"
+            aria-hidden="true">
+            <span>✦</span>
+            <span>˚</span>
+            <span>✧</span>
+            <span>⋆</span>
+            <span>✦</span>
+            <span>˚</span>
+            <span>✧</span>
+            <span>⋆</span>
+            <span>·</span>
+            <span>✦</span>
+            <span>˚</span>
+            <span>✧</span>
+        </div>
+    </section>
+    <!-- =================================================
+         ✦ MENU PAGE
+    ================================================== -->
+    <section
+        class="menu-page"
+        id="menuPage">
+        <div class="menu-container">
+            <!-- ✦ LOGO -->
+            <p class="menu-logo">
+                ժׁׅ݊ꫀׁׅܻɑׁׅ֮r&nbsp;&nbsp;pᨵׁׅrᝯׁhׁׅ֮ ✦
+            </p>
+            <!-- ✦ TITLE -->
+            <h2 class="menu-title">
+                OUR BOOK
+            </h2>
+            <div class="menu-line">
+                ─────────────
             </div>
+            <!-- =================================================
+                 ✦ MENU
+            ================================================== -->
+            <nav
+                class="book-menu"
+                aria-label="Our book">
+                <!-- HOME -->
+                <button
+                    class="menu-item"
+                    type="button"
+                    onclick="goToPage('home.html')">
+                    hׁׅ֮ᨵׁׅ ꩇׁׅ݊ꫀׁׅܻ ✦ ݁˖
+                </button>
+                <!-- ABOUT HIM -->
+                <button
+                    class="menu-item"
+                    type="button"
+                    onclick="goToPage('about.html')">
+                    ɑׁׅ֮ϐׁׅ֒ᨵׁׅυׁׅtׁׅ hׁׅ֮ꪱׁׅ ꩇׁׅ݊
+                    𓏲 ๋࣭ ࣪
+                </button>
+                <!-- OUR STORY -->
+                <button
+                    class="menu-item"
+                    type="button"
+                    onclick="goToPage('story.html')">
+                    ᨵׁׅυׁׅr ꯱ׁׅ֒tׁׅᨵׁׅrყ
+                    ˚˖𓍢ִ໋🦢˚
+                </button>
+                <!-- TIMELINE -->
+                <button
+                    class="menu-item"
+                    type="button"
+                    onclick="goToPage('timeline.html')">
+                    tׁׅꪱׁׅ ꩇׁׅ݊ꫀׁׅܻ
+                    ᥣׁׅ֪ꪱׁׅꪀׁׅܻ
+                    𓍯𓂃𓏧♡
+                </button>
+                <!-- MEMORIES -->
+                <button
+                    class="menu-item"
+                    type="button"
+                    onclick="goToPage('memories.html')">
+                    ᧁׁɑׁׅ֮ᥣׁׅ֪ᥣׁׅ֪ꫀׁׅܻry
+                    ᨮ꫶ׁׅ֮ ִֶָ🪽་༘
+                </button>
+                <!-- LETTER -->
+                <button
+                    class="menu-item"
+                    type="button"
+                    onclick="goToPage('letter.html')">
+                    ˚₊‧꒰ა ᥣׁׅ֪ꫀׁׅܻtׁׅtׁׅꫀׁׅܻr ໒꒱
+                    ‧₊˚
+                </button>
+                <!-- 100 REASONS -->
+                <button
+                    class="menu-item"
+                    type="button"
+                    onclick="goToPage('100-reasons.html')">
+                    100 rꫀׁׅܻɑׁׅ֮꯱ׁׅ֒ᨵׁׅꪀׁׅ꯱ׁׅ֒
+                </button>
+                <!-- OUR FAMILY -->
+                <button
+                    class="menu-item"
+                    type="button"
+                    onclick="goToPage('family.html')">
+                    ᨵׁׅυׁׅr
+                    ⨍ɑׁׅ֮ ꩇׁׅ݊ꪱׁׅᥣׁׅ֪ᨮ꫶ׁׅ֮
+                </button>
+                <!-- FINAL -->
+                <button
+                    class="menu-item"
+                    type="button"
+                    onclick="goToPage('final.html')">
+                    ⨍ꪱׁׅꪀׁׅɑׁׅ֮ᥣׁׅ֪
+                </button>
+            </nav>
+            <!-- =================================================
+                 ✦ CORGI
+            ================================================== -->
+            <pre class="ascii-corgi">
 
-
-            <div class="welcome-content">
-
-                <p
-                    class="typing"
-                    id="typingText">
-                </p>
-
-                <h1>
-                    พอร์ช!?!
-                </h1>
-
-                <p>
-                    ใช่ไหม… ^_____^
-                </p>
-
-                <p>
-                    งั้นก็คงเป็นแฟนของอิ๊งค์สินะ
-                    𐔌՞ ܸ.ˬ.ܸ՞𐦯
-                </p>
-
-                <div class="welcome-message">
-
-                    <p>
-                        รู้ไหม…
-                    </p>
-
-                    <p>
-                        แฟนของเธอตั้งใจทำเว็บไซต์นี้
-                        <br>
-                        เพื่อเธอมาก ๆ เลยนะ
-                        ૮₍ ˃ ⤙ ˂ ₎ა
-                    </p>
-
-                    <p>
-                        ทุกภาพ ทุกความทรงจำ
-                        <br>
-                        และทุกข้อความในนี้
-                        <br>
-                        ล้วนเป็นสิ่งที่อิ๊งค์ตั้งใจเก็บเอาไว้
-                    </p>
-
-                    <p>
-                        เพื่อให้เธอได้กลับมายิ้มกับมันอีกครั้ง
-                        ‹𝟹
-                    </p>
-
-                </div>
-
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠰⠎⠉⢶⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰⠊⠙⡆⠀
+⠀⢸⠀⠒⢌⠣⢤⡀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡀⣠⠾⠁⠞⠀⡏⠀
+⠀⠀⠙⡦⢀⢕⣄⣀⣉⣉⡓⠰⢄⡀⠀⠀⠀⣀⠶⠒⢉⠁⢉⠀⡀⠀⢴⡏⠀⠀
+⠀⠀⢺⠀⠶⠰⠡⠟⢇⣼⣷⣆⡄⢳⠀⠀⡶⠁⣠⣶⣮⣅⢥⠁⠁⠠⠀⡿⠀⠀
+⠀⠀⠈⠉⠚⡷⠀⠀⢼⡟⠌⠅⡎⢸⠆⠈⣇⠈⡪⡃⠙⣿⠔⠅⢼⠓⠙⠁⠀⠀
+⠀⠀⠀⠀⠀⠙⠴⠴⠚⠧⣠⢤⡴⠋⠀⠀⠘⠇⢬⡬⠼⠓⠶⠶⠊⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+            <div class="menu-star">
+                ✦
             </div>
-
-
-            <button
-                class="primary-button"
-                id="openStory">
-
-                ♡ &nbsp; Open our story
-
-            </button>
-
-        </section>
-
-
-        <!-- =========================
-             MENU
-        ========================== -->
-
-        <section
-            class="book-menu-page"
-            id="bookMenu">
-
-            <div class="glass-card menu-card">
-
-                <p class="brand">
-                    𝒅𝒆𝒂𝒓 𝒑𝒐𝒓𝒄𝒉 ✦
-                </p>
-
-                <h2>
-                    OUR BOOK
-                </h2>
-
-                <p class="subtitle">
-                    a little book of us
-                </p>
-
-
-                <nav class="menu-list">
-
-                    <a href="about.html" class="menu-link">
-                        <span>01</span>
-                        About Us
-                        <small>𓂃 who we are ♡</small>
-                    </a>
-
-                    <a href="story.html" class="menu-link">
-                        <span>02</span>
-                        Our Story
-                        <small>𓂃 how we met</small>
-                    </a>
-
-                    <a href="memories.html" class="menu-link">
-                        <span>03</span>
-                        Memories
-                        <small>𓂃 little moments</small>
-                    </a>
-
-                    <a href="100-reasons.html" class="menu-link">
-                        <span>04</span>
-                        100 Reasons
-                        <small>𓂃 why I love you</small>
-                    </a>
-
-                    <a href="letter.html" class="menu-link">
-                        <span>05</span>
-                        Letter
-                        <small>𓂃 from Ink to Porch</small>
-                    </a>
-
-                </nav>
-
-
-                <div class="menu-decoration">
-                    ✦ ˚｡⋆
-                </div>
-
-            </div>
-
-        </section>
-
-    </main>
-
-
-    <script src="script.js"></script>
-
+        </div>
+    </section>
+</main>
+<!-- =====================================================
+     ✦ JAVASCRIPT
+====================================================== -->
+<script>
+    /* =================================================
+       ✦ TYPING DATA
+    ================================================== */
+    const typingLines = [
+        {
+            id: "line1",
+            text: "สวัสดี  𐔌՞ ܸ.ˬ.ܸ՞𐦯"
+        },
+        {
+            id: "line2",
+            text: "พอร์ช!?!"
+        },
+        {
+            id: "line3",
+            text: "ใช่ไหม… ^_____^"
+        },
+        {
+            id: "line4",
+            text: "งั้นก็คงเป็นแฟนของอิ๊งค์สินะ 𐔌՞ ܸ. .ܸ՞𐦯"
+        },
+        {
+            id: "line5",
+            text: "รู้ไหม…"
+        },
+        {
+            id: "line6",
+            text: "แฟนของเธอตั้งใจทำเว็บไซต์นี้\nเพื่อเธอมาก ๆ เลยนะ ૮₍ ˃ ⤙ ˂ ₎ა"
+        },
+        {
+            id: "line7",
+            text: "ทุกภาพ ทุกความทรงจำ\nและทุกข้อความในนี้"
+        },
+        {
+            id: "line8",
+            text: "ล้วนเป็นสิ่งที่อิ๊งค์ตั้งใจเก็บเอาไว้"
+        },
+        {
+            id: "line9",
+            text: "เพื่อให้เธอได้กลับมายิ้มกับมันอีกครั้ง ‹𝟹"
+        }
+    ];
+    const typingSpeed = 55;
+    const lineDelay = 500;
+    /* =================================================
+       ✦ TYPE ONE LINE
+    ================================================== */
+    async function typeLine(
+        element,
+        text
+    ) {
+        element.style.opacity = "1";
+        for (
+            const character of [...text]
+        ) {
+            if (
+                character === "\n"
+            ) {
+                element.appendChild(
+                    document.createElement("br")
+                );
+            } else {
+                element.appendChild(
+                    document.createTextNode(
+                        character
+                    )
+                );
+            }
+            await new Promise(
+                resolve =>
+                    setTimeout(
+                        resolve,
+                        typingSpeed
+                    )
+            );
+        }
+    }
+    /* =================================================
+       ✦ START TYPING
+    ================================================== */
+    async function startTyping() {
+        for (
+            const line of typingLines
+        ) {
+            const element =
+                document.getElementById(
+                    line.id
+                );
+            if (!element) {
+                continue;
+            }
+            await typeLine(
+                element,
+                line.text
+            );
+            await new Promise(
+                resolve =>
+                    setTimeout(
+                        resolve,
+                        lineDelay
+                    )
+            );
+        }
+        /* ✦ แสดงปุ่มเมื่อพิมพ์ครบ */
+        const button =
+            document.getElementById(
+                "startButton"
+            );
+        if (button) {
+            button.classList.add(
+                "show-button"
+            );
+        }
+    }
+    /* =================================================
+       ✦ OPEN MENU
+       กดเองเท่านั้น
+    ================================================== */
+    function openMenu() {
+        const welcome =
+            document.getElementById(
+                "welcomePage"
+            );
+        const menu =
+            document.getElementById(
+                "menuPage"
+            );
+        if (
+            !welcome ||
+            !menu
+        ) {
+            return;
+        }
+        welcome.classList.add(
+            "welcome-exit"
+        );
+        setTimeout(
+            () => {
+                welcome.style.display =
+                    "none";
+                menu.style.display =
+                    "flex";
+                requestAnimationFrame(
+                    () => {
+                        menu.classList.add(
+                            "menu-active"
+                        );
+                    }
+                );
+            },
+            650
+        );
+    }
+    /* =================================================
+       ✦ GO TO OTHER PAGE
+    ================================================== */
+    function goToPage(page) {
+        document.body.classList.add(
+            "page-changing"
+        );
+        setTimeout(
+            () => {
+                window.location.href =
+                    page;
+            },
+            300
+        );
+    }
+    /* =================================================
+       ✦ BUTTON EVENT
+    ================================================== */
+    document.addEventListener(
+        "DOMContentLoaded",
+        () => {
+            const startButton =
+                document.getElementById(
+                    "startButton"
+                );
+            startButton.addEventListener(
+                "click",
+                openMenu
+            );
+            startTyping();
+        }
+    );
+</script>
 </body>
 </html>
