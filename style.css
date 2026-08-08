@@ -739,3 +739,42 @@ body.page-leaving {
     }
 
 }
+/* =========================================================
+   ✦ INDEX OPEN BUTTON
+   ซ่อนจนกว่าข้อความจะพิมพ์ครบ
+========================================================= */
+.index-open {
+    opacity: 0 !important;
+    visibility: hidden;
+    pointer-events: none;
+    animation: none !important;
+}
+/* =========================================================
+   ✦ BUTTON READY
+========================================================= */
+.index-open.index-ready {
+    visibility: visible;
+    pointer-events: auto;
+    animation:
+        indexButtonAppear
+        1s
+        ease
+        forwards !important;
+}
+/* =========================================================
+   ✦ BUTTON APPEAR
+========================================================= */
+@keyframes indexButtonAppear {
+    from {
+        opacity: 0;
+        transform:
+            translateY(20px)
+            scale(0.96);
+    }
+    to {
+        opacity: 1;
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
