@@ -286,3 +286,291 @@ document.addEventListener(
         );
     }
 );
+/* =========================================================
+   ✦ PAGE EFFECTS — ADDITION ONLY
+   ✦ เอาไปต่อท้าย script.js เดิม
+========================================================= */
+/* =========================================================
+   ✦ EXTRA SCROLL REVEAL
+========================================================= */
+document.addEventListener("DOMContentLoaded", () => {
+    const extraReveal =
+        document.querySelectorAll(
+            ".about-card, " +
+            ".story-section, " +
+            ".timeline-item, " +
+            ".memory-photo, " +
+            ".reason-card, " +
+            ".corky-card, " +
+            ".final-dream"
+        );
+    if (!extraReveal.length) {
+        return;
+    }
+    const revealObserver =
+        new IntersectionObserver(
+            entries => {
+                entries.forEach(entry => {
+                    if (
+                        entry.isIntersecting
+                    ) {
+                        entry.target.classList.add(
+                            "visible"
+                        );
+                    }
+                });
+            },
+            {
+                threshold: 0.15,
+                rootMargin: "0px 0px -40px 0px"
+            }
+        );
+    extraReveal.forEach(
+        element => {
+            revealObserver.observe(
+                element
+            );
+        }
+    );
+});
+/* =========================================================
+   ✦ STAGGER MEMORY PHOTOS
+========================================================= */
+document.addEventListener("DOMContentLoaded", () => {
+    const photos =
+        document.querySelectorAll(
+            ".memory-photo"
+        );
+    photos.forEach(
+        (photo, index) => {
+            photo.style.transitionDelay =
+                `${index * 90}ms`;
+        }
+    );
+});
+/* =========================================================
+   ✦ STAGGER 100 REASONS
+========================================================= */
+document.addEventListener("DOMContentLoaded", () => {
+    const reasons =
+        document.querySelectorAll(
+            ".reason-card"
+        );
+    reasons.forEach(
+        (reason, index) => {
+            reason.style.transitionDelay =
+                `${(index % 10) * 70}ms`;
+        }
+    );
+});
+/* =========================================================
+   ✦ TIMELINE STAGGER
+========================================================= */
+document.addEventListener("DOMContentLoaded", () => {
+    const timelineItems =
+        document.querySelectorAll(
+            ".timeline-item"
+        );
+    timelineItems.forEach(
+        (item, index) => {
+            item.style.transitionDelay =
+                `${index * 120}ms`;
+        }
+    );
+});
+/* =========================================================
+   ✦ STORY STAGGER
+========================================================= */
+document.addEventListener("DOMContentLoaded", () => {
+    const storySections =
+        document.querySelectorAll(
+            ".story-section"
+        );
+    storySections.forEach(
+        (section, index) => {
+            section.style.transitionDelay =
+                `${index * 140}ms`;
+        }
+    );
+});
+/* =========================================================
+   ✦ FAMILY STAGGER
+========================================================= */
+document.addEventListener("DOMContentLoaded", () => {
+    const familyCards =
+        document.querySelectorAll(
+            ".corky-card"
+        );
+    familyCards.forEach(
+        (card, index) => {
+            card.style.transitionDelay =
+                `${index * 120}ms`;
+        }
+    );
+});
+/* =========================================================
+   ✦ GENTLE MOUSE PARALLAX
+   เฉพาะอุปกรณ์ที่มีเมาส์
+========================================================= */
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
+        const page =
+            document.querySelector(
+                ".home-page, " +
+                ".about-page, " +
+                ".story-page, " +
+                ".timeline-page, " +
+                ".memories-page, " +
+                ".letter-page, " +
+                ".reasons-page, " +
+                ".family-page, " +
+                ".final-page"
+            );
+        if (!page) {
+            return;
+        }
+        if (
+            window.matchMedia(
+                "(pointer: coarse)"
+            ).matches
+        ) {
+            return;
+        }
+        window.addEventListener(
+            "mousemove",
+            event => {
+                const x =
+                    (event.clientX /
+                        window.innerWidth -
+                        0.5);
+                const y =
+                    (event.clientY /
+                        window.innerHeight -
+                        0.5);
+                page.style.setProperty(
+                    "--mouse-x",
+                    `${x * 8}px`
+                );
+                page.style.setProperty(
+                    "--mouse-y",
+                    `${y * 8}px`
+                );
+            }
+        );
+    }
+);
+/* =========================================================
+   ✦ REDUCE MOTION
+   รองรับผู้ใช้ที่เปิด Reduce Motion
+========================================================= */
+if (
+    window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+    ).matches
+) {
+    document.documentElement.classList.add(
+        "reduce-motion"
+    );
+}
+/* =========================================================
+   ✦ MEMORY IMAGE CLICK
+   เปิดรูปใหญ่เมื่อกด
+========================================================= */
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
+        const memoryImages =
+            document.querySelectorAll(
+                ".memory-image img"
+            );
+        memoryImages.forEach(
+            image => {
+                image.style.cursor =
+                    "zoom-in";
+                image.addEventListener(
+                    "click",
+                    () => {
+                        if (
+                            image.classList.contains(
+                                "image-error"
+                            )
+                        ) {
+                            return;
+                        }
+                        const overlay =
+                            document.createElement(
+                                "div"
+                            );
+                        overlay.className =
+                            "image-lightbox";
+                        const largeImage =
+                            document.createElement(
+                                "img"
+                            );
+                        largeImage.src =
+                            image.src;
+                        largeImage.alt =
+                            image.alt || "Memory";
+                        overlay.appendChild(
+                            largeImage
+                        );
+                        document.body.appendChild(
+                            overlay
+                        );
+                        requestAnimationFrame(
+                            () => {
+                                overlay.classList.add(
+                                    "show"
+                                );
+                            }
+                        );
+                        overlay.addEventListener(
+                            "click",
+                            () => {
+                                overlay.classList.remove(
+                                    "show"
+                                );
+                                setTimeout(
+                                    () => {
+                                        overlay.remove();
+                                    },
+                                    300
+                                );
+                            }
+                        );
+                    }
+                );
+            }
+        );
+    }
+);
+/* =========================================================
+   ✦ ESC CLOSE LIGHTBOX
+========================================================= */
+document.addEventListener(
+    "keydown",
+    event => {
+        if (
+            event.key !== "Escape"
+        ) {
+            return;
+        }
+        const lightbox =
+            document.querySelector(
+                ".image-lightbox"
+            );
+        if (!lightbox) {
+            return;
+        }
+        lightbox.classList.remove(
+            "show"
+        );
+        setTimeout(
+            () => {
+                lightbox.remove();
+            },
+            300
+        );
+    }
+);
