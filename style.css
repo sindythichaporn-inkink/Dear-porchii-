@@ -3837,3 +3837,67 @@ main {
         transition-duration: .01ms !important;
     }
 }
+/* =========================================================
+   ✦ SHARED MENU
+========================================================= */
+.shared-menu {
+    width: min(950px, 100%);
+    margin: 25px auto 45px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    position: relative;
+    z-index: 10;
+}
+.shared-menu a {
+    display: inline-flex;
+    align-items: center;
+    padding: 9px 15px;
+    text-decoration: none;
+    color: #8f7898;
+    font-family: "Kanit", sans-serif;
+    font-size: 13px;
+    background: rgba(255, 255, 255, .58);
+    border: 1px solid rgba(185, 155, 195, .20);
+    border-radius: 999px;
+    box-shadow:
+        0 6px 20px rgba(150, 120, 170, .07);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition:
+        transform .3s ease,
+        background .3s ease,
+        box-shadow .3s ease,
+        color .3s ease;
+}
+.shared-menu a:hover {
+    transform: translateY(-3px);
+    color: #80648a;
+    background: rgba(255, 255, 255, .85);
+    box-shadow:
+        0 10px 28px rgba(150, 120, 170, .14);
+}
+/* หน้าที่กำลังเปิดอยู่ */
+.shared-menu a.current {
+    color: #80648a;
+    background:
+        rgba(230, 215, 238, .65);
+    border-color:
+        rgba(185, 155, 195, .38);
+    box-shadow:
+        0 8px 25px
+        rgba(150, 120, 170, .12);
+}
+/* 📱 มือถือ */
+@media (max-width: 768px) {
+    .shared-menu {
+        margin: 20px auto 35px;
+        padding: 0 5px;
+        gap: 8px;
+    }
+    .shared-menu a {
+        padding: 8px 11px;
+        font-size: 11px;
+    }
+}
