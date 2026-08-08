@@ -1,507 +1,900 @@
 /* =========================================================
+   ✦ DEAR PORCH — MAIN STYLE
+   ใช้ร่วมกันทุกหน้า
+========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Itim&family=Kanit:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;1,400&display=swap');
+
+
+/* =========================================================
    ✦ RESET
 ========================================================= */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
 html {
     scroll-behavior: smooth;
 }
+
 body {
     min-height: 100vh;
     font-family: "Kanit", sans-serif;
-    color: #65576b;
+    font-weight: 300;
+    color: #66586d;
     background:
-        radial-gradient(circle at 20% 20%, rgba(255, 220, 239, .8), transparent 35%),
-        radial-gradient(circle at 80% 15%, rgba(220, 235, 255, .8), transparent 35%),
-        radial-gradient(circle at 50% 90%, rgba(235, 220, 255, .8), transparent 40%),
-        linear-gradient(135deg, #fff8fc, #f8f4ff, #f3f9ff);
+        radial-gradient(circle at 20% 10%, rgba(255, 220, 239, .65), transparent 28%),
+        radial-gradient(circle at 85% 20%, rgba(218, 235, 255, .65), transparent 30%),
+        linear-gradient(135deg, #fff8fc, #f5f0ff, #f4faff);
     overflow-x: hidden;
+
+    opacity: 1;
     transition: opacity .7s ease;
 }
-/* =========================================================
-   ✦ COVER PAGE
-========================================================= */
-.cover-page {
-    position: relative;
-    min-height: 100vh;
+
+body.page-leaving {
+    opacity: 0;
 }
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font-family: inherit;
+}
+
+img {
+    max-width: 100%;
+}
+
+
 /* =========================================================
-   ✦ BACKGROUND
+   ✦ BACKGROUND GLITTER
 ========================================================= */
-.cover-background {
+
+.home-glitter {
     position: fixed;
     inset: 0;
+    width: 100%;
+    height: 100%;
     pointer-events: none;
     overflow: hidden;
     z-index: 0;
 }
-.soft-star {
+
+.home-glitter span {
     position: absolute;
     display: block;
+    color: rgba(196, 160, 205, .38);
     font-family: "Playfair Display", serif;
-    color: rgba(190, 159, 205, .45);
     animation:
-        floatStar 7s ease-in-out infinite,
-        softGlow 4s ease-in-out infinite;
+        glitterFloat 7s ease-in-out infinite,
+        glitterTwinkle 3s ease-in-out infinite alternate;
 }
-.star-1 {
-    top: 10%;
+
+/* กระจายตำแหน่งดาว */
+
+.home-glitter span:nth-child(1) {
     left: 8%;
-    font-size: 22px;
+    top: 15%;
+    font-size: 18px;
+    animation-delay: 0s;
 }
-.star-2 {
-    top: 17%;
-    right: 12%;
-    font-size: 28px;
+
+.home-glitter span:nth-child(2) {
+    left: 22%;
+    top: 72%;
+    font-size: 15px;
     animation-delay: 1s;
 }
-.star-3 {
-    top: 38%;
-    left: 4%;
-    font-size: 18px;
+
+.home-glitter span:nth-child(3) {
+    left: 38%;
+    top: 25%;
+    font-size: 12px;
     animation-delay: 2s;
 }
-.star-4 {
-    top: 55%;
-    right: 7%;
-    font-size: 25px;
+
+.home-glitter span:nth-child(4) {
+    left: 52%;
+    top: 82%;
+    font-size: 19px;
     animation-delay: .5s;
 }
-.star-5 {
-    bottom: 18%;
-    left: 12%;
-    font-size: 30px;
-    animation-delay: 1.5s;
+
+.home-glitter span:nth-child(5) {
+    left: 67%;
+    top: 18%;
+    font-size: 14px;
+    animation-delay: 1.7s;
 }
-.star-6 {
-    bottom: 10%;
-    right: 18%;
-    font-size: 20px;
-    animation-delay: 2.5s;
-}
-.star-7 {
+
+.home-glitter span:nth-child(6) {
+    left: 78%;
     top: 65%;
-    left: 25%;
-    font-size: 16px;
-    animation-delay: 3s;
-}
-.star-8 {
-    top: 28%;
-    right: 28%;
     font-size: 17px;
+    animation-delay: 2.4s;
+}
+
+.home-glitter span:nth-child(7) {
+    left: 91%;
+    top: 32%;
+    font-size: 13px;
+    animation-delay: .8s;
+}
+
+.home-glitter span:nth-child(8) {
+    left: 12%;
+    top: 48%;
+    font-size: 12px;
+    animation-delay: 2.7s;
+}
+
+.home-glitter span:nth-child(9) {
+    left: 47%;
+    top: 8%;
+    font-size: 13px;
     animation-delay: 1.2s;
 }
-.star-9 {
-    bottom: 30%;
-    right: 35%;
-    font-size: 15px;
-    animation-delay: 2s;
-}
-.star-10 {
-    bottom: 8%;
-    left: 35%;
+
+.home-glitter span:nth-child(10) {
+    left: 84%;
+    top: 87%;
     font-size: 18px;
-    animation-delay: 3.5s;
+    animation-delay: 3s;
 }
-/* =========================================================
-   ✦ MAIN CONTAINER
-========================================================= */
-.cover-container {
-    position: relative;
-    z-index: 2;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 45px 20px;
+
+.home-glitter span:nth-child(11) {
+    left: 30%;
+    top: 92%;
+    font-size: 14px;
+    animation-delay: 1.5s;
 }
-/* =========================================================
-   ✦ COVER CARD
-========================================================= */
-.cover-card {
-    position: relative;
-    width: min(920px, 100%);
-    min-height: 700px;
-    padding: 70px 70px 45px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    border: 1px solid rgba(190, 162, 200, .25);
-    border-radius: 42px;
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255, 255, 255, .78),
-            rgba(255, 248, 253, .63)
-        );
-    box-shadow:
-        0 25px 80px rgba(150, 125, 170, .15),
-        inset 0 0 60px rgba(255, 255, 255, .7);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-    overflow: hidden;
-}
-/* =========================================================
-   ✦ LIGHT EFFECT
-========================================================= */
-.cover-card::before {
-    content: "";
-    position: absolute;
-    width: 400px;
-    height: 400px;
-    top: -220px;
-    left: -180px;
-    background: rgba(255, 220, 240, .45);
-    border-radius: 50%;
-    filter: blur(60px);
-    pointer-events: none;
-}
-.cover-card::after {
-    content: "";
-    position: absolute;
-    width: 350px;
-    height: 350px;
-    right: -180px;
-    bottom: -180px;
-    background: rgba(215, 225, 255, .4);
-    border-radius: 50%;
-    filter: blur(60px);
-    pointer-events: none;
-}
-/* =========================================================
-   ✦ BIG WINGS
-========================================================= */
-.cover-wing {
-    position: absolute;
-    top: 50%;
-    width: 300px;
-    font-family: monospace;
-    font-size: 6px;
-    line-height: 1;
-    color: rgba(181, 156, 195, .34);
-    white-space: pre;
-    pointer-events: none;
-    opacity: 0;
-    animation:
-        wingAppear 1.8s ease forwards,
-        wingFloat 6s ease-in-out infinite 1.8s;
-    z-index: 0;
-}
-.cover-wing-left {
-    left: -190px;
-    transform: translateY(-50%) scaleX(-1);
-}
-.cover-wing-right {
-    right: -190px;
-    transform: translateY(-50%);
-}
-/* =========================================================
-   ✦ TITLE
-========================================================= */
-.cover-title {
-    position: relative;
-    z-index: 3;
-    margin-bottom: 35px;
-    animation:
-        titleAppear 1.2s ease forwards;
-}
-.cover-small-title {
-    margin-bottom: 15px;
-    font-family: "Playfair Display", serif;
-    font-size: 15px;
-    letter-spacing: 3px;
-    color: #a78ab2;
-}
-.cover-title h1 {
-    font-family: "Playfair Display", serif;
-    font-size: clamp(55px, 9vw, 105px);
-    line-height: .88;
-    font-weight: 400;
-    font-style: italic;
-    letter-spacing: -3px;
-    background:
-        linear-gradient(
-            135deg,
-            #9274a1,
-            #c99bb8,
-            #8fa5c5
-        );
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    text-shadow:
-        0 8px 35px rgba(180, 150, 190, .15);
-}
-.cover-symbol {
-    margin-top: 25px;
-    font-size: 18px;
-    color: #b99bc4;
-    letter-spacing: 8px;
-}
-/* =========================================================
-   ✦ WELCOME AREA
-========================================================= */
-.welcome-area {
-    position: relative;
-    z-index: 3;
-    width: min(600px, 100%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 330px;
-    padding: 10px 0;
-}
-.welcome-line {
-    opacity: 0;
-    transform:
-        translateY(15px)
-        scale(.98);
-    filter: blur(5px);
-    margin: 5px 0;
-    font-size: 17px;
-    line-height: 1.9;
-    color: #706476;
-    transition:
-        opacity .7s ease,
-        transform .7s ease,
-        filter .7s ease;
-}
-.welcome-line.show-line {
-    opacity: 1;
-    transform:
-        translateY(0)
-        scale(1);
-    filter: blur(0);
-    animation:
-        gentleFloat 4s ease-in-out infinite;
-}
-/* =========================================================
-   ✦ OPEN BUTTON
-========================================================= */
-.open-book {
-    position: relative;
-    z-index: 4;
-    margin-top: 15px;
-    padding: 14px 30px;
-    border: 1px solid rgba(173, 145, 186, .3);
-    border-radius: 999px;
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255,255,255,.8),
-            rgba(244,232,248,.8)
-        );
-    color: #80638d;
-    font-family: "Kanit", sans-serif;
-    font-size: 15px;
-    cursor: pointer;
-    box-shadow:
-        0 10px 35px rgba(160, 130, 175, .12);
-    opacity: .35;
-    transition:
-        transform .35s ease,
-        box-shadow .35s ease,
-        opacity .35s ease;
-}
-.open-book span {
-    display: block;
-}
-.open-book b {
-    display: block;
-    margin-top: 3px;
+
+.home-glitter span:nth-child(12) {
+    left: 60%;
+    top: 45%;
     font-size: 11px;
-    font-weight: 400;
-    color: #b49abb;
+    animation-delay: 2.2s;
 }
-.open-book:disabled {
-    cursor: default;
-}
-.open-book.button-ready {
-    opacity: 1;
-    animation:
-        buttonGlow 2.8s ease-in-out infinite;
-}
-.open-book.button-ready:hover {
-    transform: translateY(-4px);
-    box-shadow:
-        0 15px 40px rgba(160, 130, 175, .22);
-}
-/* =========================================================
-   ✦ FOOTER
-========================================================= */
-.cover-footer {
-    position: relative;
-    z-index: 3;
-    margin-top: 35px;
-    font-family: "Playfair Display", serif;
-    font-size: 12px;
-    letter-spacing: 2px;
-    color: #ad9bb5;
-}
-/* =========================================================
-   ✦ ANIMATIONS
-========================================================= */
-@keyframes floatStar {
-    0% {
+
+@keyframes glitterFloat {
+
+    0%,
+    100% {
         transform: translateY(0) rotate(0deg);
     }
+
     50% {
         transform: translateY(-18px) rotate(8deg);
     }
-    100% {
-        transform: translateY(0) rotate(0deg);
-    }
 }
-@keyframes softGlow {
-    0%,
-    100% {
-        opacity: .35;
-    }
-    50% {
-        opacity: .8;
-    }
-}
-@keyframes titleAppear {
-    from {
-        opacity: 0;
-        transform:
-            translateY(25px)
-            scale(.96);
-        filter: blur(8px);
-    }
-    to {
-        opacity: 1;
-        transform:
-            translateY(0)
-            scale(1);
-        filter: blur(0);
-    }
-}
-@keyframes gentleFloat {
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-3px);
-    }
-}
-@keyframes buttonGlow {
-    0%,
-    100% {
-        box-shadow:
-            0 10px 35px rgba(160, 130, 175, .12);
-    }
-    50% {
-        box-shadow:
-            0 10px 45px rgba(205, 166, 210, .32);
-    }
-}
-@keyframes wingAppear {
-    from {
-        opacity: 0;
-        filter: blur(10px);
-    }
-    to {
-        opacity: 1;
-        filter: blur(0);
-    }
-}
-@keyframes wingFloat {
-    0%,
-    100% {
-        margin-top: 0;
-    }
-    50% {
-        margin-top: -10px;
-    }
-}
-/* =========================================================
-   ✦ PAGE TRANSITION
-========================================================= */
-body.cover-leaving {
-    animation: pageLeave .7s ease forwards;
-}
-@keyframes pageLeave {
+
+@keyframes glitterTwinkle {
+
     0% {
-        opacity: 1;
-        filter: blur(0);
+        opacity: .15;
+    }
+
+    100% {
+        opacity: .65;
+    }
+}
+
+
+/* =========================================================
+   ✦ COMMON PAGE
+========================================================= */
+
+.home-page,
+.reasons-page {
+    position: relative;
+    z-index: 1;
+}
+
+.home-header {
+    position: relative;
+    z-index: 2;
+
+    width: min(900px, 90%);
+    margin: 0 auto;
+    padding: 55px 20px 25px;
+
+    text-align: center;
+
+    opacity: 0;
+    transform: translateY(25px);
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+}
+
+.home-header.home-show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   ✦ BACK BUTTON
+========================================================= */
+
+.home-back {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 8px 18px;
+
+    border: 1px solid rgba(160, 125, 175, .25);
+    border-radius: 999px;
+
+    background: rgba(255, 255, 255, .48);
+    backdrop-filter: blur(10px);
+
+    font-size: 14px;
+    color: #806a86;
+
+    transition:
+        transform .3s ease,
+        background .3s ease,
+        box-shadow .3s ease;
+}
+
+.home-back:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, .8);
+    box-shadow: 0 8px 25px rgba(160, 120, 170, .15);
+}
+
+
+/* =========================================================
+   ✦ LOGO / SMALL TEXT
+========================================================= */
+
+.home-logo {
+    margin-top: 28px;
+
+    font-family: "Playfair Display", serif;
+    font-size: 20px;
+
+    color: #91759c;
+}
+
+.home-small {
+    margin-top: 7px;
+
+    font-family: "Playfair Display", serif;
+    font-style: italic;
+
+    font-size: 14px;
+    color: #ae91b5;
+}
+
+
+/* =========================================================
+   ✦ HEADINGS
+========================================================= */
+
+.home-header h1 {
+    margin-top: 18px;
+
+    font-family: "Playfair Display", serif;
+    font-style: italic;
+
+    font-size: clamp(32px, 7vw, 60px);
+    font-weight: 400;
+
+    line-height: 1.2;
+
+    color: #80628a;
+
+    text-shadow:
+        0 4px 20px rgba(150, 110, 165, .15);
+}
+
+.home-intro {
+    margin-top: 18px;
+
+    font-size: 16px;
+    line-height: 2;
+
+    color: #806f84;
+}
+
+
+/* =========================================================
+   ✦ HOME MAIN
+========================================================= */
+
+.home-main {
+    position: relative;
+    z-index: 2;
+
+    width: min(900px, 90%);
+    margin: 0 auto;
+
+    padding: 20px 0 80px;
+}
+
+
+/* =========================================================
+   ✦ COUPLE
+========================================================= */
+
+.home-couple {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+
+    margin: 25px auto 45px;
+
+    opacity: 0;
+    transform: translateY(30px);
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+}
+
+.home-couple.home-show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.home-photo {
+    width: 145px;
+    height: 145px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.9),
+            rgba(250,235,250,.65)
+        );
+
+    border: 2px solid rgba(255,255,255,.85);
+
+    box-shadow:
+        0 15px 35px rgba(150, 120, 165, .16);
+
+    overflow: hidden;
+}
+
+.home-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.home-heart {
+    font-size: 38px;
+    color: #d99bbd;
+
+    animation: heartBeat 2s ease-in-out infinite;
+}
+
+@keyframes heartBeat {
+
+    0%,
+    100% {
         transform: scale(1);
     }
-    100% {
-        opacity: 0;
-        filter: blur(10px);
-        transform: scale(1.025);
+
+    50% {
+        transform: scale(1.12);
     }
 }
+
+
+/* =========================================================
+   ✦ MESSAGE
+========================================================= */
+
+.home-message {
+    width: min(650px, 100%);
+    margin: 0 auto 45px;
+
+    padding: 30px 28px;
+
+    text-align: center;
+
+    background: rgba(255,255,255,.55);
+    border: 1px solid rgba(255,255,255,.8);
+
+    border-radius: 28px;
+
+    backdrop-filter: blur(12px);
+
+    box-shadow:
+        0 15px 45px rgba(150, 120, 165, .10);
+
+    opacity: 0;
+    transform: translateY(25px);
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+}
+
+.home-message.home-show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.home-message span {
+    display: block;
+    margin: 8px 0;
+
+    color: #c394c8;
+    font-size: 18px;
+}
+
+.home-message p {
+    margin: 9px 0;
+
+    line-height: 1.9;
+}
+
+
+/* =========================================================
+   ✦ HOME MENU
+========================================================= */
+
+.home-links {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+
+    margin: 30px auto 55px;
+}
+
+.home-link {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 20px;
+
+    border-radius: 22px;
+
+    background: rgba(255,255,255,.5);
+    border: 1px solid rgba(255,255,255,.85);
+
+    box-shadow:
+        0 10px 30px rgba(150,120,165,.08);
+
+    backdrop-filter: blur(10px);
+
+    opacity: 0;
+    transform: translateY(20px);
+
+    transition:
+        opacity .6s ease,
+        transform .6s ease,
+        box-shadow .3s ease,
+        background .3s ease;
+}
+
+.home-link.home-show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.home-link:hover {
+    transform: translateY(-5px);
+    background: rgba(255,255,255,.8);
+    box-shadow:
+        0 18px 35px rgba(150,120,165,.15);
+}
+
+.home-link-number {
+    font-family: "Playfair Display", serif;
+    color: #c39acb;
+    font-size: 13px;
+}
+
+.home-link strong {
+    margin-top: 7px;
+
+    font-family: "Playfair Display", serif;
+    font-size: 19px;
+    font-weight: 400;
+
+    color: #79627f;
+}
+
+.home-link small {
+    margin-top: 5px;
+    color: #9d8ba1;
+}
+
+
+/* =========================================================
+   ✦ ENDING
+========================================================= */
+
+.home-ending {
+    text-align: center;
+
+    padding: 25px 15px 70px;
+
+    color: #8d7b91;
+
+    line-height: 2;
+
+    opacity: 0;
+    transform: translateY(20px);
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+}
+
+.home-ending.home-show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   ✦ 100 REASONS
+========================================================= */
+
+.reasons-main {
+    position: relative;
+    z-index: 2;
+
+    width: min(950px, 92%);
+    margin: 0 auto;
+
+    padding: 20px 0 80px;
+}
+
+
+/* =========================================================
+   ✦ REASONS INTRO
+========================================================= */
+
+.reasons-intro {
+    width: min(680px, 100%);
+    margin: 15px auto 45px;
+
+    padding: 28px 22px;
+
+    text-align: center;
+
+    border-radius: 28px;
+
+    background: rgba(255,255,255,.5);
+    border: 1px solid rgba(255,255,255,.8);
+
+    backdrop-filter: blur(12px);
+
+    box-shadow:
+        0 15px 40px rgba(150,120,165,.08);
+
+    color: #807080;
+
+    line-height: 2;
+
+    opacity: 0;
+    transform: translateY(25px);
+
+    animation: reasonsIntro .9s .25s forwards;
+}
+
+@keyframes reasonsIntro {
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.reasons-intro span {
+    display: block;
+
+    margin: 8px 0;
+
+    color: #c397c7;
+}
+
+
+/* =========================================================
+   ✦ REASON LIST
+========================================================= */
+
+.reasons-list {
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 15px;
+}
+
+
+/* =========================================================
+   ✦ REASON CARD
+========================================================= */
+
+.reason-card {
+    position: relative;
+
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+
+    min-height: 75px;
+
+    padding: 20px 19px;
+
+    border-radius: 21px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.68),
+            rgba(255,250,255,.46)
+        );
+
+    border: 1px solid rgba(255,255,255,.88);
+
+    backdrop-filter: blur(10px);
+
+    box-shadow:
+        0 8px 25px rgba(150,120,165,.07);
+
+    overflow: hidden;
+
+    opacity: 0;
+    transform: translateY(25px);
+
+    transition:
+        opacity .6s ease,
+        transform .6s ease,
+        box-shadow .3s ease,
+        background .3s ease;
+}
+
+.reason-card.home-show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reason-card:hover {
+    transform: translateY(-4px);
+    background: rgba(255,255,255,.85);
+
+    box-shadow:
+        0 14px 32px rgba(150,120,165,.13);
+}
+
+.reason-card::before {
+    content: "♡";
+
+    position: absolute;
+
+    right: 12px;
+    top: 8px;
+
+    font-size: 12px;
+
+    color: rgba(190,145,195,.3);
+}
+
+.reason-card > span {
+    flex: 0 0 32px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 32px;
+    height: 32px;
+
+    border-radius: 50%;
+
+    background: rgba(229,203,233,.5);
+
+    font-family: "Playfair Display", serif;
+    font-size: 13px;
+
+    color: #9b789f;
+}
+
+.reason-card p {
+    flex: 1;
+
+    font-size: 15px;
+    line-height: 1.75;
+
+    color: #716372;
+
+    overflow-wrap: anywhere;
+}
+
+
+/* =========================================================
+   ✦ LONG REASONS
+   ข้อ 81-100 ยาว จึงให้เต็มความกว้าง
+========================================================= */
+
+.reason-card:nth-child(n + 81) {
+    grid-column: 1 / -1;
+}
+
+
+/* =========================================================
+   ✦ REASONS ENDING
+========================================================= */
+
+.reasons-ending {
+    width: min(680px, 100%);
+    margin: 60px auto 0;
+
+    padding: 35px 25px 70px;
+
+    text-align: center;
+
+    color: #7c697e;
+
+    line-height: 2;
+
+    opacity: 0;
+    transform: translateY(25px);
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+}
+
+.reasons-ending.home-show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reasons-ending > span {
+    display: block;
+
+    margin: 12px 0;
+
+    color: #c494c9;
+}
+
+.reasons-ending p {
+    margin: 15px 0;
+}
+
+.reasons-love {
+    font-family: "Playfair Display", serif;
+    font-style: italic;
+
+    font-size: 22px;
+
+    color: #a174a8;
+}
+
+
+/* =========================================================
+   ✦ COMMON PAGE FADE
+========================================================= */
+
+.page-leaving {
+    opacity: 0 !important;
+}
+
+
 /* =========================================================
    ✦ MOBILE
 ========================================================= */
-@media (max-width: 768px) {
-    .cover-container {
-        padding: 25px 14px;
+
+@media (max-width: 700px) {
+
+    .home-header {
+        padding-top: 35px;
     }
-    .cover-card {
-        min-height: 680px;
-        padding:
-            55px 22px 35px;
-        border-radius: 30px;
+
+    .home-header h1 {
+        font-size: 36px;
     }
-    .cover-title {
-        margin-bottom: 20px;
+
+    .home-intro {
+        font-size: 14px;
     }
-    .cover-small-title {
-        font-size: 12px;
-        letter-spacing: 2px;
+
+    .home-couple {
+        gap: 13px;
     }
-    .cover-title h1 {
-        font-size: 62px;
+
+    .home-photo {
+        width: 115px;
+        height: 115px;
     }
-    .welcome-area {
-        min-height: 360px;
+
+    .home-heart {
+        font-size: 28px;
     }
-    .welcome-line {
-        font-size: 15px;
+
+    .home-links {
+        grid-template-columns: 1fr;
+    }
+
+    .reasons-list {
+        grid-template-columns: 1fr;
+    }
+
+    /*
+       บนมือถือไม่ต้องบังคับข้อ 81-100
+       ให้ทุกข้อเต็มความกว้างอยู่แล้ว
+    */
+
+    .reason-card:nth-child(n + 81) {
+        grid-column: auto;
+    }
+
+    .reason-card {
+        padding: 17px 15px;
+    }
+
+    .reason-card p {
+        font-size: 14px;
         line-height: 1.8;
     }
-    .cover-wing {
-        font-size: 3.5px;
-        opacity: .25;
-    }
-    .cover-wing-left {
-        left: -245px;
-    }
-    .cover-wing-right {
-        right: -245px;
-    }
-    .open-book {
+
+    .reasons-intro {
         font-size: 14px;
-        padding: 13px 25px;
+    }
+
+    .reasons-love {
+        font-size: 20px;
     }
 }
+
+
 /* =========================================================
    ✦ VERY SMALL MOBILE
 ========================================================= */
-@media (max-width: 420px) {
-    .cover-card {
-        padding:
-            45px 16px 30px;
+
+@media (max-width: 390px) {
+
+    .home-header h1 {
+        font-size: 31px;
     }
-    .cover-title h1 {
-        font-size: 52px;
+
+    .home-logo {
+        font-size: 18px;
     }
-    .welcome-area {
-        min-height: 390px;
+
+    .home-photo {
+        width: 95px;
+        height: 95px;
     }
-    .welcome-line {
-        font-size: 14px;
+
+    .reason-card > span {
+        flex-basis: 29px;
+
+        width: 29px;
+        height: 29px;
+
+        font-size: 11px;
     }
-    .cover-footer {
-        font-size: 10px;
+
+    .reason-card p {
+        font-size: 13px;
     }
 }
