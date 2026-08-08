@@ -3,17 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dear Porch ✦ Our Memory Book</title>
-    <!-- Fonts -->
+    <title>Our Memory Book ✦ Dear Porch</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Itim&family=Kanit:wght@300;400;500;600&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Itim&family=Kanit:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;1,400&display=swap"
         rel="stylesheet"
     >
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="book-page">
+<body class="home-page">
     <!-- =====================================================
          ✦ BACKGROUND
     ====================================================== -->
@@ -22,23 +21,24 @@
         <span>♡</span>
         <span>✧</span>
         <span>⋆</span>
+        <span>୨ৎ</span>
         <span>♡</span>
         <span>✦</span>
+        <span>🪽</span>
         <span>✧</span>
         <span>♡</span>
-        <span>⋆</span>
-        <span>✦</span>
-        <span>♡</span>
-        <span>✧</span>
     </div>
     <!-- =====================================================
-         ✦ BOOK
+         ✦ MAIN
     ====================================================== -->
-    <main class="home-page">
+    <main class="home-container">
         <!-- =================================================
              ✦ HEADER
         ================================================== -->
-        <header class="home-header" id="homeHeader">
+        <header
+            class="home-header"
+            id="homeHeader"
+        >
             <a
                 href="index.html"
                 class="home-back"
@@ -46,13 +46,13 @@
                 ← กลับหน้าปก
             </a>
             <p class="home-logo">
-                𓂃 ࣪˖ Dear Porch ♡ ִֶָ
+                𓂃 ࣪˖ ִֶָ Dear Porch ♡ ִֶָ
             </p>
             <p class="home-small">
                 memories made with you ♡
             </p>
             <h1>
-                Our Memory Book ✦
+                Our Memory Book
             </h1>
             <p class="home-intro">
                 ยินดีต้อนรับกลับเข้าสู่
@@ -60,20 +60,22 @@
                 หนังสือความทรงจำของเรา
                 𐔌՞ ܸ.ˬ.ܸ՞𐦯
             </p>
+            <div class="home-divider">
+                𓂃 ࣪˖ ִֶָ ✦ ୨ৎ ✦ ִֶָ ࣪˖ 𓂃
+            </div>
         </header>
         <!-- =================================================
-             ✦ OUR PHOTO
+             ✦ COUPLE
         ================================================== -->
-        <section class="home-main">
+        <section class="home-couple-section">
             <div
                 class="home-couple"
                 id="homeCouple"
             >
                 <div class="home-photo">
                     <img
-                        src="images/couple/photo01.jpg"
-                        alt="รูปคู่ของอิ๊งค์กับพอร์ช"
-                        onerror="this.style.display='none';"
+                        src="images/characters/ink.png"
+                        alt="อิ๊งค์"
                     >
                 </div>
                 <div class="home-heart">
@@ -81,20 +83,18 @@
                 </div>
                 <div class="home-photo">
                     <img
-                        src="images/couple/photo02.jpg"
-                        alt="รูปคู่ของอิ๊งค์กับพอร์ช"
-                        onerror="this.style.display='none';"
+                        src="images/characters/porch.png"
+                        alt="พอร์ช"
                     >
                 </div>
             </div>
-            <!-- =================================================
-                 ✦ MESSAGE
-            ================================================== -->
             <div
                 class="home-message"
                 id="homeMessage"
             >
-                <span>✦</span>
+                <span>
+                    𐔌՞ ܸ.ˬ.ܸ՞𐦯
+                </span>
                 <p>
                     หนังสือเล่มนี้อาจไม่ได้มีค่ามากมาย
                 </p>
@@ -109,91 +109,210 @@
                     เพราะอิ๊งค์อยากเก็บช่วงเวลาของเราเอาไว้
                 </p>
                 <span>
-                    𓂃 ࣪˖ ִֶָ ♡
+                    𓂃 ࣪˖ ִֶָ ♡ ִֶָ ࣪˖ 𓂃
                 </span>
             </div>
-            <!-- =================================================
-                 ✦ MENU
-                 ห้ามเปลี่ยนอักษรพิเศษ
-            ================================================== -->
+        </section>
+        <!-- =================================================
+             ✦ MENU
+        ================================================== -->
+        <section class="home-menu-section">
+            <div class="home-menu-title">
+                <span>🪽</span>
+                <h2>
+                    𝓜𝓮𝓶𝓸𝓻𝓲𝓮𝓼
+                </h2>
+                <span>🪽</span>
+            </div>
             <nav
-                class="book-menu home-links"
+                class="home-links"
                 aria-label="เมนูหนังสือความทรงจำ"
             >
-                <button
-                    class="menu-item home-link"
-                    onclick="location.href='home.html'"
+                <!-- 01 -->
+                <a
+                    href="about.html"
+                    class="home-link"
                 >
-                    hׁׅ֮ᨵׁׅ ꩇׁׅ݊ꫀׁׅܻ ✦ ݁˖
-                </button>
-                <button
-                    class="menu-item home-link"
-                    onclick="location.href='about.html'"
+                    <span class="home-link-number">
+                        01
+                    </span>
+                    <div class="home-link-text">
+                        <strong>
+                            About Him ♡
+                        </strong>
+                        <small>
+                            เรื่องราวของพอร์ช
+                        </small>
+                    </div>
+                    <span class="home-link-icon">
+                        🩵
+                    </span>
+                </a>
+                <!-- 02 -->
+                <a
+                    href="story.html"
+                    class="home-link"
                 >
-                    ɑׁׅ֮ϐׁׅ֒ᨵׁׅυׁׅtׁׅ hׁׅ֮ꪱׁׅ ꩇׁׅ݊ 𓏲 ๋࣭ ࣪
-                </button>
-                <button
-                    class="menu-item home-link"
-                    onclick="location.href='story.html'"
+                    <span class="home-link-number">
+                        02
+                    </span>
+                    <div class="home-link-text">
+                        <strong>
+                            Our Story ˚˖𓍢ִ໋🦢˚
+                        </strong>
+                        <small>
+                            จุดเริ่มต้นของเรา
+                        </small>
+                    </div>
+                    <span class="home-link-icon">
+                        ୨ৎ
+                    </span>
+                </a>
+                <!-- 03 -->
+                <a
+                    href="timeline.html"
+                    class="home-link"
                 >
-                    ᨵׁׅυׁׅr ꯱ׁׅ֒tׁׅᨵׁׅrყ ˚˖𓍢ִ໋🦢˚
-                </button>
-                <button
-                    class="menu-item home-link"
-                    onclick="location.href='timeline.html'"
+                    <span class="home-link-number">
+                        03
+                    </span>
+                    <div class="home-link-text">
+                        <strong>
+                            Timeline 𓍯𓂃𓏧♡
+                        </strong>
+                        <small>
+                            ช่วงเวลาสำคัญของเรา
+                        </small>
+                    </div>
+                    <span class="home-link-icon">
+                        🪽
+                    </span>
+                </a>
+                <!-- 04 -->
+                <a
+                    href="memories.html"
+                    class="home-link"
                 >
-                    tׁׅꪱׁׅ ꩇׁׅ݊ꫀׁׅܻ ᥣׁׅ֪ꪱׁׅꪀׁׅܻe 𓍯𓂃𓏧♡
-                </button>
-                <button
-                    class="menu-item home-link"
-                    onclick="location.href='memories.html'"
+                    <span class="home-link-number">
+                        04
+                    </span>
+                    <div class="home-link-text">
+                        <strong>
+                            Gallery 🪽
+                        </strong>
+                        <small>
+                            ภาพความทรงจำของเรา
+                        </small>
+                    </div>
+                    <span class="home-link-icon">
+                        ✧
+                    </span>
+                </a>
+                <!-- 05 -->
+                <a
+                    href="letter.html"
+                    class="home-link"
                 >
-                    ᧁׁɑׁׅ֮ᥣׁׅ֪ᥣׁׅ֪ꫀׁׅܻry ᨮ꫶ׁׅ֮ ִֶָ🪽་༘
-                </button>
-                <button
-                    class="menu-item home-link"
-                    onclick="location.href='letter.html'"
+                    <span class="home-link-number">
+                        05
+                    </span>
+                    <div class="home-link-text">
+                        <strong>
+                            ˚₊‧ Letter ໒꒱ ‧₊˚
+                        </strong>
+                        <small>
+                            จดหมายจากอิ๊งค์
+                        </small>
+                    </div>
+                    <span class="home-link-icon">
+                        💌
+                    </span>
+                </a>
+                <!-- 06 -->
+                <a
+                    href="100-reasons.html"
+                    class="home-link"
                 >
-                    ˚₊‧꒰ა ᥣׁׅ֪ꫀׁׅܻtׁׅtׁׅꫀׁׅܻr ໒꒱ ‧₊˚
-                </button>
-                <button
-                    class="menu-item home-link"
-                    onclick="location.href='100-reasons.html'"
+                    <span class="home-link-number">
+                        06
+                    </span>
+                    <div class="home-link-text">
+                        <strong>
+                            100 Reasons ♡
+                        </strong>
+                        <small>
+                            100 เหตุผลที่รักเธอ
+                        </small>
+                    </div>
+                    <span class="home-link-icon">
+                        ♡
+                    </span>
+                </a>
+                <!-- 07 -->
+                <a
+                    href="family.html"
+                    class="home-link"
                 >
-                    100 rꫀׁׅܻɑׁׅ֮꯱ׁׅ֒ᨵׁׅꪀׁׅ꯱ׁׅ֒
-                </button>
-                <button
-                    class="menu-item home-link"
-                    onclick="location.href='family.html'"
+                    <span class="home-link-number">
+                        07
+                    </span>
+                    <div class="home-link-text">
+                        <strong>
+                            Our Family 🐶
+                        </strong>
+                        <small>
+                            ครอบครัวคอร์กี้ของเรา
+                        </small>
+                    </div>
+                    <span class="home-link-icon">
+                        🐶
+                    </span>
+                </a>
+                <!-- 08 -->
+                <a
+                    href="final.html"
+                    class="home-link"
                 >
-                    ᨵׁׅυׁׅr ⨍ɑׁׅ֮ ꩇׁׅ݊ꪱׁׅᥣׁׅ֪ᨮ꫶ׁׅ֮
-                </button>
-                <button
-                    class="menu-item home-link"
-                    onclick="location.href='final.html'"
-                >
-                    ⨍ꪱׁׅꪀׁׅɑׁׅ֮ᥣׁׅ֪
-                </button>
+                    <span class="home-link-number">
+                        08
+                    </span>
+                    <div class="home-link-text">
+                        <strong>
+                            Final ♡
+                        </strong>
+                        <small>
+                            หน้าสุดท้ายของหนังสือ
+                        </small>
+                    </div>
+                    <span class="home-link-icon">
+                        🪽
+                    </span>
+                </a>
             </nav>
-            <!-- =================================================
-                 ✦ ENDING
-            ================================================== -->
-            <div
-                class="home-ending"
-                id="homeEnding"
-            >
-                <p>
-                    ยังมีอีกหลายหน้าที่รอให้เธอเปิด
-                </p>
-                <p>
-                    ค่อย ๆ เปิดไปทีละหน้านะ ♡
-                </p>
-                <p>
-                    เพราะทุกหน้ามีเรื่องของเราอยู่ในนั้น
-                    𓂃 ࣪˖ ִֶָ
-                </p>
-            </div>
         </section>
+        <!-- =================================================
+             ✦ ENDING
+        ================================================== -->
+        <footer
+            class="home-ending"
+            id="homeEnding"
+        >
+            <p>
+                𓂃 ࣪˖ ִֶָ
+            </p>
+            <p>
+                ยังมีอีกหลายหน้าที่รอให้เธอเปิด
+            </p>
+            <p>
+                ค่อย ๆ เปิดไปทีละหน้านะ ♡
+            </p>
+            <p>
+                เพราะทุกหน้ามีเรื่องของเราอยู่ในนั้น
+            </p>
+            <p>
+                ໒꒰՞ ܸ. .ܸ՞꒱ა
+            </p>
+        </footer>
     </main>
     <!-- =====================================================
          ✦ SCRIPT
@@ -202,70 +321,120 @@
         document.addEventListener(
             "DOMContentLoaded",
             () => {
-                document.body.style.opacity = "0";
-                requestAnimationFrame(() => {
-                    document.body.style.transition =
-                        "opacity 0.8s ease";
-                    document.body.style.opacity =
-                        "1";
-                });
+                /* HEADER */
                 const header =
-                    document.getElementById("homeHeader");
+                    document.getElementById(
+                        "homeHeader"
+                    );
                 if (header) {
-                    setTimeout(() => {
-                        header.classList.add("home-show");
-                    }, 150);
+                    setTimeout(
+                        () => {
+                            header.classList.add(
+                                "home-show"
+                            );
+                        },
+                        150
+                    );
                 }
+                /* COUPLE */
                 const couple =
-                    document.getElementById("homeCouple");
+                    document.getElementById(
+                        "homeCouple"
+                    );
                 if (couple) {
-                    setTimeout(() => {
-                        couple.classList.add("home-show");
-                    }, 400);
+                    setTimeout(
+                        () => {
+                            couple.classList.add(
+                                "home-show"
+                            );
+                        },
+                        400
+                    );
                 }
+                /* MESSAGE */
                 const message =
-                    document.getElementById("homeMessage");
+                    document.getElementById(
+                        "homeMessage"
+                    );
                 if (message) {
-                    setTimeout(() => {
-                        message.classList.add("home-show");
-                    }, 650);
+                    setTimeout(
+                        () => {
+                            message.classList.add(
+                                "home-show"
+                            );
+                        },
+                        650
+                    );
                 }
+                /* MENU */
                 const links =
-                    document.querySelectorAll(".home-link");
+                    document.querySelectorAll(
+                        ".home-link"
+                    );
                 links.forEach(
                     (link, index) => {
-                        setTimeout(() => {
-                            link.classList.add("home-show");
-                        }, 850 + index * 100);
+                        setTimeout(
+                            () => {
+                                link.classList.add(
+                                    "home-show"
+                                );
+                            },
+                            850 + index * 120
+                        );
                     }
                 );
+                /* ENDING */
                 const ending =
-                    document.getElementById("homeEnding");
+                    document.getElementById(
+                        "homeEnding"
+                    );
                 if (ending) {
-                    setTimeout(() => {
-                        ending.classList.add("home-show");
-                    }, 1900);
+                    setTimeout(
+                        () => {
+                            ending.classList.add(
+                                "home-show"
+                            );
+                        },
+                        1900
+                    );
                 }
-            }
-        );
-        /* =====================================================
-           ✦ PAGE TRANSITION
-        ====================================================== */
-        document.addEventListener(
-            "click",
-            (event) => {
-                const button =
-                    event.target.closest(".menu-item");
-                if (!button) {
-                    return;
-                }
-                const href =
-                    button.getAttribute("onclick");
-                if (!href) {
-                    return;
-                }
-                document.body.classList.add(
-                    "page-leaving"
+                /* =================================================
+                   ✦ PAGE TRANSITION
+                ================================================== */
+                document.addEventListener(
+                    "click",
+                    (event) => {
+                        const link =
+                            event.target.closest(
+                                "a"
+                            );
+                        if (!link) {
+                            return;
+                        }
+                        const href =
+                            link.getAttribute(
+                                "href"
+                            );
+                        if (
+                            !href ||
+                            href.startsWith("#") ||
+                            href.startsWith("http") ||
+                            href.startsWith("mailto:")
+                        ) {
+                            return;
+                        }
+                        event.preventDefault();
+                        document.body.classList.add(
+                            "page-leaving"
+                        );
+                        setTimeout(
+                            () => {
+                                window.location.href =
+                                    href;
+                            },
+                            450
+                        );
+                    }
                 );
             }
         );
