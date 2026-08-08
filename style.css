@@ -3934,3 +3934,102 @@ main {
     filter: none !important;
     transform: none !important;
 }
+/* =========================================================
+   ✦ SHARED MENU — เมนูทุกหน้า ยกเว้น HOME
+========================================================= */
+
+.shared-menu {
+    width: min(1000px, 100%);
+    margin: 0 auto 45px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 8px 4px;
+
+    padding: 10px 14px;
+
+    border-top: 1px solid rgba(181, 153, 194, .18);
+    border-bottom: 1px solid rgba(181, 153, 194, .18);
+
+    background: rgba(255, 255, 255, .28);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    border-radius: 18px;
+}
+
+/* ลิงก์แต่ละเมนู */
+
+.shared-menu a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 8px 12px;
+
+    color: #8f729a;
+    text-decoration: none;
+
+    font-size: 13px;
+    font-weight: 400;
+
+    border-radius: 12px;
+
+    transition:
+        background .3s ease,
+        color .3s ease,
+        transform .3s ease;
+}
+
+/* ตอนเอาเมาส์ชี้ */
+
+.shared-menu a:hover {
+    background: rgba(190, 160, 200, .12);
+    color: #755b80;
+
+    transform: translateY(-2px);
+}
+
+/* หน้าที่กำลังเปิดอยู่ */
+
+.shared-menu a.active {
+    background: rgba(190, 160, 200, .16);
+    color: #80638a;
+}
+
+/* =========================================================
+   ✦ MOBILE MENU
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .shared-menu {
+        justify-content: flex-start;
+
+        overflow-x: auto;
+        flex-wrap: nowrap;
+
+        padding: 9px 10px;
+
+        margin-bottom: 35px;
+
+        scrollbar-width: none;
+
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .shared-menu::-webkit-scrollbar {
+        display: none;
+    }
+
+    .shared-menu a {
+        flex: 0 0 auto;
+
+        font-size: 12px;
+        padding: 8px 10px;
+        white-space: nowrap;
+    }
+}
