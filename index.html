@@ -5,316 +5,1676 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Dear Porch ✦</title>
+    <title>Dear Porchii ♡</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- ============================= -->
-    <!-- ✦ WELCOME PAGE -->
-    <!-- ============================= -->
+    <!-- =========================================
+         GLITTER
+    ========================================== -->
+
+    <div class="glitter"></div>
+    <div class="glitter"></div>
+    <div class="glitter"></div>
+    <div class="glitter"></div>
+    <div class="glitter"></div>
+
+
+    <!-- =========================================
+         BACKGROUND MUSIC
+    ========================================== -->
+
+    <audio id="backgroundMusic" loop>
+        <source src="music/song.mp3" type="audio/mpeg">
+    </audio>
+
 
     <main id="app">
 
-        <section class="welcome-page" id="welcomePage">
 
-            <!-- ชื่อเว็บไซต์ -->
-            <p class="website-name">
-                ժׁׅ݊ꫀׁׅܻɑׁׅ֮r&nbsp;&nbsp;pᨵׁׅrᝯׁhׁׅ֮ ✦
-            </p>
+        <!-- =========================================
+             01 — WELCOME
+        ========================================== -->
 
-            <!-- คอร์กี้ -->
-            <div class="welcome-characters">
+        <section class="hero page active" id="welcomePage">
 
-                <img
-                    src="images/characters/ink.png"
-                    alt="Ink Corgi"
-                    class="character ink">
+            <div class="hero-content">
 
-                <img
-                    src="images/characters/porch.png"
-                    alt="Porch Corgi"
-                    class="character porch">
-
-            </div>
-
-            <!-- ข้อความ -->
-            <div class="welcome-text">
-
-                <p class="typing-text" id="typingText">
-                    สวัสดี ! เธอคงเป็น..
-                </p>
-
-                <h1>
-                    พอร์ช!?!
-                </h1>
-
-                <p>
-                    ใช่ไหม… ^____^
-                </p>
-
-                <p>
-                    งั้นก็คงเป็นแฟนของอิ๊งค์สินะ
-                    𐔌՞ ܸ.ˬ.ܸ՞𐦯
-                </p>
-
-                <p class="little-message">
-                    รู้ไหม…
-                    <br>
-                    แฟนของเธอตั้งใจทำเว็บไซต์นี้
-                    <br>
-                    เพื่อเธอมาก ๆ เลยนะ
-                    ૮₍ ˃ ⤙ ˂ ₎ა
-                </p>
-
-                <p>
-                    ทุกภาพ ทุกความทรงจำ
-                    <br>
-                    และทุกข้อความในนี้
-                    <br>
-                    ล้วนเป็นสิ่งที่อิ๊งค์ตั้งใจเก็บเอาไว้
-                    <br>
-                    เพื่อให้เธอได้กลับมายิ้มกับมันอีกครั้ง ‹𝟹
-                </p>
-
-            </div>
-
-            <!-- ปุ่ม -->
-            <button
-                id="startButton"
-                class="start-button"
-                onclick="openMenu()">
-
-                ♫ &nbsp; Open our story
-            </button>
-
-            <!-- Glitter -->
-            <div class="sparkles" aria-hidden="true">
-                <span>✦</span>
-                <span>˚</span>
-                <span>✧</span>
-                <span>⋆</span>
-                <span>✦</span>
-                <span>˚</span>
-                <span>✧</span>
-                <span>⋆</span>
-                <span>·</span>
-                <span>✦</span>
-                <span>˚</span>
-                <span>✧</span>
-            </div>
-
-        </section>
-
-
-        <!-- ============================= -->
-        <!-- ✦ MENU PAGE -->
-        <!-- ============================= -->
-
-        <section
-            class="menu-page"
-            id="menuPage"
-            style="display: none;">
-
-            <div class="menu-container">
-
-                <!-- Logo -->
-                <p class="menu-logo">
+                <p class="hero-small">
                     ժׁׅ݊ꫀׁׅܻɑׁׅ֮r&nbsp;&nbsp;pᨵׁׅrᝯׁhׁׅ֮ ✦
                 </p>
 
-                <h2 class="menu-title">
-                    OUR BOOK
+                <div class="welcome-characters">
+
+                    <div class="photo-frame">
+                        <img
+                            src="images/characters/ink.png"
+                            alt="Ink Corgi">
+                    </div>
+
+                    <div class="photo-frame">
+                        <img
+                            src="images/characters/porch.png"
+                            alt="Porch Corgi">
+                    </div>
+
+                </div>
+
+                <h1>
+                    Dear Porchii
+                </h1>
+
+                <p
+                    class="typing"
+                    data-text="สวัสดี ! เธอคงเป็น..">
+                </p>
+
+                <div class="glass-card">
+
+                    <p>
+                        เธอคงเป็น… พอร์ช !?!
+                    </p>
+
+                    <p>
+                        ใช่ไหม… ^_____^
+                    </p>
+
+                    <p>
+                        งั้นก็คงเป็นแฟนของอิ๊งค์สินะ
+                        𐔌՞ ܸ.ˬ.ܸ՞𐦯
+                    </p>
+
+                    <br>
+
+                    <p>
+                        รู้ไหม…
+                    </p>
+
+                    <p>
+                        แฟนของเธอตั้งใจทำเว็บไซต์นี้
+                        เพื่อเธอมาก ๆ เลยนะ
+                        ૮₍ ˃ ⤙ ˂ ₎ა
+                    </p>
+
+                    <br>
+
+                    <p>
+                        ทุกภาพ ทุกความทรงจำ และทุกข้อความในนี้
+                    </p>
+
+                    <p>
+                        ล้วนเป็นสิ่งที่อิ๊งค์ตั้งใจเก็บเอาไว้
+                    </p>
+
+                    <p>
+                        เพื่อให้เธอได้กลับมายิ้มกับมันอีกครั้ง ‹𝟹
+                    </p>
+
+                    <br>
+
+                    <p>
+                        ขอบคุณที่เข้ามาในชีวิตของอิ๊งค์นะ
+                        ૮₍ ˶ᵔ ᵕ ᵔ˶ ₎ა
+                    </p>
+
+                </div>
+
+                <button
+                    id="enterButton"
+                    class="next-btn">
+
+                    📖 เปิดสมุดความทรงจำของเรา
+                </button>
+
+                <button
+                    id="musicButton"
+                    class="memory-btn">
+
+                    ♫ &nbsp; Play our song
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================
+             02 — MENU
+        ========================================== -->
+
+        <section
+            class="page"
+            id="menu">
+
+            <div class="section-title">
+
+                <h2>
+                    📖 ᨵׁׅυׁׅr ꯱ׁׅ֒tׁׅᨵׁׅrყ
                 </h2>
 
-                <div class="menu-line">
-                    ─────────────
+                <p>
+                    our little book of memories ♡
+                </p>
+
+            </div>
+
+
+            <div class="about-grid">
+
+                <button
+                    class="about-card memory-btn"
+                    onclick="document.getElementById('story').scrollIntoView({behavior:'smooth'})">
+
+                    <h3>☘︎ Our Story</h3>
+
+                    <p>
+                        เรื่องราวตั้งแต่วันที่เราได้รู้จักกัน
+                        จนกลายเป็นแฟนกัน
+                    </p>
+
+                </button>
+
+
+                <button
+                    class="about-card memory-btn"
+                    onclick="document.getElementById('timeline').scrollIntoView({behavior:'smooth'})">
+
+                    <h3>♡ Timeline</h3>
+
+                    <p>
+                        วันที่สำคัญของอิ๊งค์กับพอร์ช
+                    </p>
+
+                </button>
+
+
+                <button
+                    class="about-card memory-btn"
+                    onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">
+
+                    <h3>𓂃 About Us</h3>
+
+                    <p>
+                        เรื่องเล็ก ๆ ที่อยากให้พอร์ชรู้
+                    </p>
+
+                </button>
+
+
+                <button
+                    class="about-card memory-btn"
+                    onclick="document.getElementById('reasons').scrollIntoView({behavior:'smooth'})">
+
+                    <h3>♡ 100 Reasons</h3>
+
+                    <p>
+                        100 เหตุผลที่เค้ารักเธอ
+                    </p>
+
+                </button>
+
+
+                <button
+                    class="about-card memory-btn"
+                    onclick="document.getElementById('family').scrollIntoView({behavior:'smooth'})">
+
+                    <h3>🐶 Our Family</h3>
+
+                    <p>
+                        Kishin · Ferbie · Yoshin
+                    </p>
+
+                </button>
+
+
+                <button
+                    class="about-card memory-btn"
+                    onclick="document.getElementById('message').scrollIntoView({behavior:'smooth'})">
+
+                    <h3>💌 Little Message</h3>
+
+                    <p>
+                        ข้อความจากครอบครัวของเรา
+                    </p>
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================
+             03 — OUR STORY
+        ========================================== -->
+
+        <section
+            class="page"
+            id="story">
+
+            <div class="section-title">
+
+                <h2>
+                    ᨵׁׅυׁׅr ꯱ׁׅ֒tׁׅᨵׁׅrყ
+                </h2>
+
+                <p>
+                    เรื่องราวของเราตั้งแต่จุดเริ่มต้น
+                </p>
+
+            </div>
+
+
+            <div class="story-container">
+
+
+                <article class="story-card reveal">
+
+                    <h3>
+                        จุดเริ่มต้น ──.☘︎ ݁˖
+                    </h3>
+
+                    <p>
+เรากับพอร์ชก่อนหน้านี้ก็ไม่รู้จักกันมาก่อนหรอก
+
+แต่วันที่ 23 ธันวาคม เราทักไปถามเรื่องสภานักเรียนกับพอร์ช พรรคเราชนะเลือกตั้งแล้วอาจารย์ให้หาคนเพิ่ม เราเลยเห็นว่าพอร์ชเคยลงแต่พลาดโอกาส เราเลยคิดว่าชวนพอร์ชดีกว่า
+
+หลังจากนั้นก็ไม่มีอะไร แต่มีพอร์ชมาเป็นส่วนหนึ่งของสภานักเรียน
+                    </p>
+
+                </article>
+
+
+                <article class="story-card reveal">
+
+                    <h3>
+                        𑣲𝄞 เพลงที่ทำให้เราเริ่มคุยกัน
+                    </h3>
+
+                    <p>
+วันนึงพอร์ชมากดใจสตอรี่ ทั้ง ๆ ที่ไม่เคยกดมาก่อน เราก็แอบคิดเล็ก ๆ ว่าเขาจะมีอะไรรึเปล่า
+
+แล้วเขาก็ลงสตอรี่ 1 Song เราก็กดไป แล้วเขาก็ส่งเพลง “คนสวย” ของ Tattoo Colour มา แล้วบอกว่ามันเหมาะกับเราดี ตั้งใจเลือกมาก ๆ
+
+เราก็เขิน ๆ แล้วก็คุยกันจนดึกเลย บอกฝันดี แล้วก็นอน
+                    </p>
+
+                </article>
+
+
+                <article class="story-card reveal">
+
+                    <h3>
+                        ⋮ ⌗ เช้าวันต่อมา
+                    </h3>
+
+                    <p>
+เช้าวันต่อมาเราก็ไม่ได้คุยกันต่อ
+
+แต่เราเห็นเขาลงโน้ตอะไรไม่รู้ เราเลยลงโน้ตกลับให้เขารู้ตัวว่าเราก็อยากคุยต่อ เป็นเพลง “พี่ ๆ ช่วยตัดแว่นให้หน่อย”
+
+จริง ๆ ตอนนั้นคิดไว้แล้วว่า ถ้าเขาไม่ทักมาต่อก็ปล่อยไป เพราะช่วงนั้นเราก็ไม่ได้อยากมีใคร
+
+แต่ก็แอบหวังนิด ๆ เหมือนกัน
+                    </p>
+
+                </article>
+
+
+                <article class="story-card reveal">
+
+                    <h3>
+                        🧸ྀི วันที่ 22 มกราคม 2026
+                    </h3>
+
+                    <p>
+แล้วเขาก็ทักมาจริง ๆ
+
+เขาบอกว่าอยากรู้จักเรา พร้อมจีบเราไปด้วย
+
+เขาถามเราว่ามันแปลกไหม ?
+
+เราก็บอกว่าไม่แปลกหรอก ˙𐃷˙
+
+เขาบอกว่าเขาเป็นคนขี้กังวล กลัวเราคิดว่ามันแปลก …
+
+หลังจากนั้นเราก็ตัดสินใจลองดู ૮₍ ´ ꒳ `₎ა
+                    </p>
+
+                </article>
+
+
+                <article class="story-card reveal">
+
+                    <h3>
+                        𓏵‧₊˚ ┊ช่วงคนคุย
+                    </h3>
+
+                    <p>
+เราก็คุยกันมาเรื่อย ๆ
+
+ยิ่งเป็นสภานักเรียนด้วยกัน ก็ยิ่งทำงานร่วมกันบ่อย
+
+แรก ๆ ก็มีหลบหน้าเพราะเขิน ๆ (,,>﹏<,,)
+
+เขาอยู่ห้อง 5/3 ส่วนเราอยู่ 5/4 ^^
+
+ยิ่งได้รู้จักกันมากขึ้น เราก็ยิ่งใกล้ชิดกันมากขึ้น
+                    </p>
+
+                </article>
+
+
+                <article class="story-card reveal">
+
+                    <h3>
+                        ✶⋆.˚ เดตแรก
+                    </h3>
+
+                    <p>
+ระหว่างเป็นคนคุย เราได้ไปเดตแรกกับเขา
+
+ไปดูหนังด้วยกัน
+
+เขาซื้อพวงกุญแจให้เราด้วย
+
+แล้วก็พาไปไหว้แม่ตั้งแต่ยังเป็นคนคุยกัน
+
+เราได้ไปดูเขาแข่งบาสวันที่ 1 กุมภาพันธ์ด้วย
+                    </p>
+
+                </article>
+
+
+                <article class="story-card reveal">
+
+                    <h3>
+                        * ความรู้สึกที่ค่อย ๆ เปลี่ยนไป૮꒰ ˶• ༝ •˶꒱ა ♡
+                    </h3>
+
+                    <p>
+เขาซื้อดอกไม้แบบตุ๊กตาให้เรา
+
+เรามีความสุขมากเลยย ย ย ย ย
+
+เหมือนเราเป็นแฟนกันแล้ว٩(ˊᗜˋ*)و ♡
+
+เรารู้สึกเริ่มผูกพัน
+
+จากชอบก็ค่อย ๆ กลายเป็นเริ่มรู้สึกรัก
+                    </p>
+
+                </article>
+
+
+                <article class="story-card reveal">
+
+                    <h3>
+                        ˚⊱🪷⊰˚12-13 กุมภาพันธ์
+                    </h3>
+
+                    <p>
+ช่วงนั้นเรารู้สึกอยากเป็นแฟนกับเขาแล้ว( •̯́ ₃ •̯̀)
+
+อยากเป็นมาก ๆ >___<
+
+เราเลยวางแผนทำเซอร์ไพรส์ !
+
+ทำการ์ด
+
+แล้วก็ทำช่อดอกไม้เอง
+
+ถึงจะทำไม่เป็น แต่ก็พยายามมาก ๆ จนเสร็จ
+
+เราอยากให้เขาประทับใจ
+
+อยากให้เป็นจุดเริ่มต้นที่ดีและน่าจดจำ
+
+เราอยากให้รักครั้งนี้เป็นรักครั้งสุดท้าย แล้วก็ดีที่สุดเลย ₍ᐢ. .ᐢ₎ ₊˚⊹♡
+                    </p>
+
+                </article>
+
+
+                <article class="story-card reveal">
+
+                    <h3>
+                        𐔌 . ⋮ 14 กุมภาพันธ์ 2026.ᐟ ֹ ₊ ꒱
+                    </h3>
+
+                    <p>
+แม่เขามารับเรา
+
+พอขึ้นรถไป เราก็เจอช่อดอกไม้กับตุ๊กตาคุโรมิที่เราชอบ
+
+เรารู้สึกดีมากกก ก ก ก
+
+แล้วเราก็ได้ First Kiss กันด้วย(๑>؂•̀๑)
+
+เราได้ไปบางแสนด้วยกัน
+
+ไปกินชาบู
+
+วาดเค้ก
+
+แล้วก็ไปเดินทะเล . . .
+
+ตอนเดินอยู่ที่บางแสน … เราก็เอากล่องที่เตรียมไว้เซอร์ไพรส์ให้เขาอ่าน
+
+เขาก็นั่งอ่านแล้วยิ้ม
+
+เราเห็นแล้วใจฟูมาก
+
+แล้วหลังจากนั้น
+
+เขาก็ขอเราเป็นแฟน໒꒰՞ ܸ. .ܸ՞꒱ა
+
+จุดนั้นคือ…
+
+มันดีมาก ๆ
+
+ดีจนเราอยากร้องไห้เลย ໒꒰ྀིっ˕ -｡꒱ྀི১
+                    </p>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================
+             04 — TIMELINE
+        ========================================== -->
+
+        <section
+            class="page"
+            id="timeline">
+
+            <div class="section-title">
+
+                <h2>
+                    ✦ ݁ ˖ tׁׅꪱׁׅ ꩇׁׅ݊ꫀׁׅܻ ᥣׁׅ֪ꪱׁׅꪀׁׅܻ ✦
+                </h2>
+
+            </div>
+
+
+            <div class="timeline">
+
+
+                <div class="timeline-item reveal">
+
+                    <span class="timeline-dot"></span>
+
+                    <div class="timeline-content">
+
+                        <h3>💜 06 November 2008</h3>
+
+                        <p>
+                            วันเกิดของอิ๊งค์
+                            <br><br>
+                            “วันที่เด็กผู้หญิงคนหนึ่งได้เกิดมา
+                            เพื่อเติบโตและกลายเป็นคนสำคัญของพอร์ชในวันหนึ่ง”
+                        </p>
+
+                    </div>
+
                 </div>
 
 
-                <!-- เมนู -->
-                <nav class="book-menu">
+                <div class="timeline-item reveal">
 
-                    <button
-                        class="menu-item"
-                        onclick="location.href='home.html'">
+                    <span class="timeline-dot"></span>
 
-                        hׁׅ֮ᨵׁׅ ꩇׁׅ݊ꫀׁׅܻ ✦ ݁˖
+                    <div class="timeline-content">
 
-                    </button>
+                        <h3>🩵 07 May 2009</h3>
 
+                        <p>
+                            วันเกิดของพอร์ช
+                            <br><br>
+                            “วันที่เด็กผู้ชายคนหนึ่งได้เกิดมา
+                            เพื่อเติบโตและเข้ามาเปลี่ยนโลกทั้งใบของอิ๊งค์”
+                        </p>
 
-                    <button
-                        class="menu-item"
-                        onclick="location.href='about.html'">
+                    </div>
 
-                        ɑׁׅ֮ϐׁׅ֒ᨵׁׅυׁׅtׁׅ hׁׅ֮ꪱׁׅ ꩇׁׅ݊
-                        𓏲 ๋࣭ ࣪
-
-                    </button>
+                </div>
 
 
-                    <button
-                        class="menu-item"
-                        onclick="location.href='story.html'">
+                <div class="timeline-item reveal">
 
-                        ᨵׁׅυׁׅr ꯱ׁׅ֒tׁׅᨵׁׅrყ
-                        ˚˖𓍢ִ໋🦢˚
+                    <span class="timeline-dot"></span>
 
-                    </button>
+                    <div class="timeline-content">
 
+                        <h3>🌷 23 December 2025</h3>
 
-                    <button
-                        class="menu-item"
-                        onclick="location.href='timeline.html'">
+                        <p>
+                            วันแรกที่เราได้คุยกัน
+                            <br><br>
+                            เรื่องราวของเราทั้งหมด
+                            เริ่มต้นจากการชวนเข้าร่วมสภานักเรียน
+                            <br><br>
+                            และไม่มีใครรู้เลยว่า
+                            บทสนทนาสั้น ๆ ในวันนั้น
+                            จะกลายเป็นจุดเริ่มต้นของความรักในวันนี้
+                        </p>
 
-                        tׁׅꪱׁׅ ꩇׁׅ݊ꫀׁׅܻ
-                        ᥣׁׅ֪ꪱׁׅꪀׁׅܻ
-                        𓍯𓂃𓏧♡
+                    </div>
 
-                    </button>
-
-
-                    <button
-                        class="menu-item"
-                        onclick="location.href='gallery.html'">
-
-                        ᧁׁɑׁׅ֮ᥣׁׅ֪ᥣׁׅ֪ꫀׁׅܻry
-                        ᨮ꫶ׁׅ֮ ִֶָ🪽་༘
-
-                    </button>
+                </div>
 
 
-                    <button
-                        class="menu-item"
-                        onclick="location.href='letter.html'">
+                <div class="timeline-item reveal">
 
-                        ˚₊‧꒰ა ᥣׁׅ֪ꫀׁׅܻtׁׅtׁׅꫀׁׅܻr ໒꒱
-                        ‧₊˚
+                    <span class="timeline-dot"></span>
 
-                    </button>
+                    <div class="timeline-content">
 
+                        <h3>💛 14 February 2026</h3>
 
-                    <button
-                        class="menu-item"
-                        onclick="location.href='reasons.html'">
+                        <p>
+                            วันแรกที่เราเป็นแฟนกัน
+                            <br><br>
+                            วันที่เต็มไปด้วยรอยยิ้ม
+                            ดอกไม้
+                            ของขวัญ
+                            ทะเล
+                            และความทรงจำที่สวยงาม
+                            <br><br>
+                            เป็นวันที่อิ๊งค์กับพอร์ช
+                            ได้เริ่มต้นใช้คำว่า
+                            <br>
+                            “แฟน”
+                            <br>
+                            อย่างเป็นทางการ 🤍
+                        </p>
 
-                        100 rꫀׁׅܻɑׁׅ֮꯱ׁׅ֒ᨵׁׅꪀׁׅ꯱ׁׅ֒
+                    </div>
 
-                    </button>
-
-
-                    <button
-                        class="menu-item"
-                        onclick="location.href='family.html'">
-
-                        ᨵׁׅυׁׅr
-                        ⨍ɑׁׅ֮ ꩇׁׅ݊ꪱׁׅᥣׁׅ֪ᨮ꫶ׁׅ֮
-
-                    </button>
-
-
-                    <button
-                        class="menu-item"
-                        onclick="location.href='final.html'">
-
-                        ⨍ꪱׁׅꪀׁׅɑׁׅ֮ᥣׁׅ֪
-
-                    </button>
-
-                </nav>
-
-
-                <!-- 🐶 Corgi -->
-                <pre class="ascii-corgi">
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠰⠎⠉⢶⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰⠊⠙⡆⠀
-⠀⢸⠀⠒⢌⠣⢤⡀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡀⣠⠾⠁⠞⠀⡏⠀
-⠀⠀⠙⡦⢀⢕⣄⣀⣉⣉⡓⠰⢄⡀⠀⠀⠀⣀⠶⠒⢉⠁⢉⠀⡀⠀⢴⡏⠀⠀
-⠀⠀⢺⠀⠶⠰⠡⠟⢇⣼⣷⣆⡄⢳⠀⠀⡶⠁⣠⣶⣮⣅⢥⠁⠁⠠⠀⡿⠀⠀
-⠀⠀⠈⠉⠚⡷⠀⠀⢼⡟⠌⠅⡎⢸⠆⠈⣇⠈⡪⡃⠙⣿⠔⠅⢼⠓⠙⠁⠀⠀
-⠀⠀⠀⠀⠀⠙⠴⠴⠚⠧⣠⢤⡴⠋⠀⠀⠘⠇⢬⡬⠼⠓⠶⠶⠊⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-                </pre>
-
-                <div class="menu-star">
-                    ✦
                 </div>
 
             </div>
 
         </section>
+
+
+
+        <!-- =========================================
+             05 — ABOUT US
+        ========================================== -->
+
+        <section
+            class="page"
+            id="about">
+
+            <div class="section-title">
+
+                <h2>
+                    ✦ ݁ ˖ ɑׁׅ֮ϐׁׅ֒ᨵׁׅυׁׅtׁׅ ᥙׁׅ꯱ׁׅ֒ ✦
+                </h2>
+
+            </div>
+
+
+            <div class="about-grid">
+
+
+                <article class="about-card reveal">
+
+                    <h3>🩷 𓂃 Ink</h3>
+
+                    <p>
+                        🎂 6 November 2008
+                    </p>
+
+                    <p>
+                        📅 Thursday
+                    </p>
+
+                    <p>
+                        🎨 Favorite Color
+                        <br>
+                        ม่วง 💜
+                    </p>
+
+                    <p>
+                        🌹 Favorite Flower
+                        <br>
+                        กุหลาบ
+                    </p>
+
+                    <p>
+                        🍲 Favorite Food
+                        <br>
+                        ชาบู
+                        <br>
+                        หมูกระทะ
+                        <br>
+                        แกงเขียวหวาน
+                    </p>
+
+                    <p>
+                        🌷 Dream
+                        <br><br>
+                        อยากเป็นครู
+                        <br>
+                        อยากได้ไปเที่ยวในหลาย ๆ ที่กับคนที่รัก
+                        <br>
+                        อยากมีลูก 3 คน
+                        <br>
+                        อยากเลี้ยงหมา เลี้ยงแมวกับแฟน
+                        <br>
+                        และมีบ้านหลังใหญ่ ๆ
+                        <br>
+                        ที่พอให้ลูก ๆ วิ่งเล่นได้อย่างมีความสุข
+                    </p>
+
+                </article>
+
+
+                <article class="about-card reveal">
+
+                    <h3>💛 𓂃 Porch</h3>
+
+                    <p>
+                        🎂 7 May 2009
+                    </p>
+
+                    <p>
+                        📅 Thursday
+                    </p>
+
+                    <p>
+                        🎨 Favorite Color
+                        <br>
+                        ฟ้า 🩵
+                    </p>
+
+                    <p>
+                        🍜 Favorite Food
+                        <br>
+                        กินได้ทุกอย่างเลย
+                        <br>
+                        แต่ดูจะชอบหม่าล่าเป็นพิเศษ
+                    </p>
+
+                    <p>
+                        ⚙️ Dream
+                        <br><br>
+                        อยากเป็นวิศวกร
+                        <br>
+                        อยากมีอนาคตที่มั่นคง
+                        <br>
+                        อยากสร้างธุรกิจของตัวเอง
+                        <br>
+                        และอยากพาคนที่รักไปใช้ชีวิตดี ๆ ด้วยกัน
+                    </p>
+
+                </article>
+
+
+                <article class="about-card reveal">
+
+                    <h3>🩷💛 𓂃 Our Dream</h3>
+
+                    <p>
+                        เราอยากมีบ้าน
+                        <br>
+                        อยากมีครอบครัว
+                        <br>
+                        อยากเลี้ยงหมาและแมว
+                        <br>
+                        อยากพากันไปเที่ยวในหลาย ๆ ที่
+                        <br>
+                        อยากเติบโตไปด้วยกัน
+                        <br>
+                        และอยากอยู่ในชีวิตของกันและกันไปนาน ๆ ✨
+                    </p>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================
+             06 — 100 REASONS
+        ========================================== -->
+
+        <section
+            class="page"
+            id="reasons">
+
+            <div class="section-title">
+
+                <h2>
+                    100 reasons ♡
+                </h2>
+
+                <p>
+                    100 เหตุผลที่เค้ารักเธอ
+                </p>
+
+            </div>
+
+
+            <div class="reasons-grid">
+
+
+                <div class="reason reveal">
+                    <span class="reason-number">01</span>
+                    <p class="reason-text">พอร์ชทำให้เค้ายิ้มง่ายขึ้น</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">02</span>
+                    <p class="reason-text">พอร์ชชอบบอกรักเค้าทุกคืน</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">03</span>
+                    <p class="reason-text">พอร์ชถือกระเป๋าให้ตลอด</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">04</span>
+                    <p class="reason-text">พอร์ชสุภาพมาก</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">05</span>
+                    <p class="reason-text">พอร์ชตั้งใจเรียน</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">06</span>
+                    <p class="reason-text">พอร์ชเป็นห่วงเค้าเสมอ</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">07</span>
+                    <p class="reason-text">พอร์ชชอบง้อเค้า</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">08</span>
+                    <p class="reason-text">พอร์ชทำให้พ่อแม่เค้าชอบ</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">09</span>
+                    <p class="reason-text">พอร์ชทำให้ชีวิตเค้ามีสีสัน</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">10</span>
+                    <p class="reason-text">พอร์ชดูมีอนาคตมากกก</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">11</span>
+                    <p class="reason-text">พ่อแม่พอร์ชปฏิบัติกับเค้าดีมาก</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">12</span>
+                    <p class="reason-text">อยู่กับพอร์ชแล้วสบายใจมาก ๆ</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">13</span>
+                    <p class="reason-text">เป็นที่พึ่งให้ตลอด</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">14</span>
+                    <p class="reason-text">มีเวลาให้</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">15</span>
+                    <p class="reason-text">คอยตามใจตลอด</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">16</span>
+                    <p class="reason-text">คอยรับฟังปัญหาของเค้า</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">17</span>
+                    <p class="reason-text">คอยดูแล</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">18</span>
+                    <p class="reason-text">คอยชม</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">19</span>
+                    <p class="reason-text">ไม่กดใจผู้หญิง ไม่รี ไม่ฟอล</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">20</span>
+                    <p class="reason-text">ไม่มีความลับกับเค้า</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">21</span>
+                    <p class="reason-text">ไม่กินเหล้า ไม่สูบบุหรี่</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">22</span>
+                    <p class="reason-text">ไม่ติดเพื่อน</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">23</span>
+                    <p class="reason-text">ไม่เที่ยวกลางคืน</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">24</span>
+                    <p class="reason-text">คอยชมตลอด</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">25</span>
+                    <p class="reason-text">คอยลูบหัวตลอดด</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">26</span>
+                    <p class="reason-text">ทำให้รู้สึกปลอดภัยตอนอยู่กับเธอ</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">27</span>
+                    <p class="reason-text">คอยรายงานตลอดว่าไปไหนทำอะไร</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">28</span>
+                    <p class="reason-text">ไม่ให้ไปไหนไม่ให้ทำอะไรก็ไม่ทำ</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">29</span>
+                    <p class="reason-text">แคร์ความรู้สึกเค้า</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">30</span>
+                    <p class="reason-text">คอยทำอะไรเพื่อเค้า</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">31</span>
+                    <p class="reason-text">ปรับในเรื่องที่เค้าไม่โอเค</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">32</span>
+                    <p class="reason-text">หล่อมากก</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">33</span>
+                    <p class="reason-text">ทำตัวน่ารักกับเค้า</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">34</span>
+                    <p class="reason-text">น่ารักกับเค้าแค่คนเดียว</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">35</span>
+                    <p class="reason-text">ดูแลตัวเอง</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">36</span>
+                    <p class="reason-text">ติดเค้ามากกก ติดแฟน</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">37</span>
+                    <p class="reason-text">ไปไหนก็ไปด้วยกันตลอดด เค้าอยู่ไหนก็จะมาหา</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">38</span>
+                    <p class="reason-text">อยู่ข้าง ๆ เค้าเสมอ</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">39</span>
+                    <p class="reason-text">ไม่เฟลนลี่กับคนอื่น</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">40</span>
+                    <p class="reason-text">ทำให้เค้ารู้สึกไว้ใจ</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">41</span>
+                    <p class="reason-text">คอยแกะกุ้งให้เค้า</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">42</span>
+                    <p class="reason-text">คอยย่างหมูให้เค้า</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">43</span>
+                    <p class="reason-text">เก็บดอกไม้มาง้อเค้า</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">44</span>
+                    <p class="reason-text">คอยพาไปกินของอร่อย</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">45</span>
+                    <p class="reason-text">พาไปซื้อนมกล้วย</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">46</span>
+                    <p class="reason-text">พูดจาน่ารัก</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">47</span>
+                    <p class="reason-text">อินกับสิ่งที่เค้าอินเหมือนกัน</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">48</span>
+                    <p class="reason-text">ชอบอะไรคล้าย ๆ กัน</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">49</span>
+                    <p class="reason-text">ชัดเจนกับเค้า</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">50</span>
+                    <p class="reason-text">ให้เกียรติเค้า</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">51</span>
+                    <p class="reason-text">คอยเล่านิทานก่อนนอนกล่อมนอนตลอด</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">52</span>
+                    <p class="reason-text">ไม่เคยขัดตอนที่บอกให้เล่านิทานหรือกล่อมนอน</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">53</span>
+                    <p class="reason-text">ถึงจะง่วงเธอก็ไม่เคยบ่นเลยแถมกล่อมเหมือนเดิม</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">54</span>
+                    <p class="reason-text">เธอไม่หงุดหงิดใจเย็นมากก</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">55</span>
+                    <p class="reason-text">ใส่ใจเค้า</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">56</span>
+                    <p class="reason-text">คอยเอาใจเค้า ถึงเค้าจะเอาแต่ใจ</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">57</span>
+                    <p class="reason-text">เธอเรียนรู้สิ่งใหม่ ๆ เสมอ</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">58</span>
+                    <p class="reason-text">เธอดูมีเป้าหมายในชีวิต</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">59</span>
+                    <p class="reason-text">เธอดูเก่งมากกกในหลาย ๆ เรื่อง</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">60</span>
+                    <p class="reason-text">เป็นคนที่พูดแล้วทำ</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">61</span>
+                    <p class="reason-text">ทำให้เค้ามองเห็นอนาคตร่วมกัน</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">62</span>
+                    <p class="reason-text">มีไลฟ์สไตล์คล้ายกัน</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">63</span>
+                    <p class="reason-text">ภาษารักก็คล้าย ๆ กัน</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">64</span>
+                    <p class="reason-text">เธอปรับตัวให้เข้ากับเค้า</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">65</span>
+                    <p class="reason-text">เธอทำให้เค้ารู้สึกมั่นใจมากตอนอยู่กับเธอ</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">66</span>
+                    <p class="reason-text">เธอทำให้รู้สึกอุ่นใจ</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">67</span>
+                    <p class="reason-text">เป็นกำลังใจในการใช้ชีวิตของเค้า</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">68</span>
+                    <p class="reason-text">เป็นเป้าหมายในชีวิตของเค้า</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">69</span>
+                    <p class="reason-text">ทำให้ชีวิตม.ปลายของเค้ามีความหมาย</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">70</span>
+                    <p class="reason-text">คอยสร้างความทรงจำดี ๆ ด้วยกัน</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">71</span>
+                    <p class="reason-text">มีเป้าหมายเดียวกัน</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">72</span>
+                    <p class="reason-text">เป็นคนทัศนคติดีมาก ๆ</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">73</span>
+                    <p class="reason-text">มีความเป็นผู้ใหญ่มาก ๆ</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">74</span>
+                    <p class="reason-text">ดูเป็นสุภาพบุรุษ</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">75</span>
+                    <p class="reason-text">เล่นเกมเป็นเพื่อนเค้าได้</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">76</span>
+                    <p class="reason-text">คอยแสดงด้านหึงหวงเค้าออกมา</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">77</span>
+                    <p class="reason-text">ทำให้เค้าไม่ต้องกังวลว่าเธอจะไม่รักเค้ามั้ย</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">78</span>
+                    <p class="reason-text">คอยอยู่กับเค้าในวันที่เค้าไม่ได้น่ารัก</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">79</span>
+                    <p class="reason-text">พยายามเข้าใจเค้า</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">80</span>
+                    <p class="reason-text">พยายามรักษาความสัมพันธ์</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">81</span>
+                    <p class="reason-text">อวดเค้าก็ค่อนข้างเก่ง</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">82</span>
+                    <p class="reason-text">ตอนที่เค้ากำลังเก็บตังเธอก็ใช้ตังตัวเองมาเลี้ยงเค้า เพราะเธอไม่อยากให้เค้าลำบาก</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">83</span>
+                    <p class="reason-text">เธอคอยพูดกับเค้าอย่างมีเหตุผลเสมอถึงแม้จะมีเถียงบ้างแต่สุดท้ายเธอก็ยอมเค้าตลอด</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">84</span>
+                    <p class="reason-text">เธอรู้จักทำงานแบ่งเบาภาระคนในครอบครัว</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">85</span>
+                    <p class="reason-text">เป็นเด็กดีเชื่อฟังพ่อแม่</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">86</span>
+                    <p class="reason-text">เคารพผู้ใหญ่วางตัวดีมีมารยาท</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">87</span>
+                    <p class="reason-text">เธอทำให้เค้ารู้สึกจริง ๆ ว่าเธอรักเค้าจริง ๆ</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">88</span>
+                    <p class="reason-text">ทำให้เค้ารู้สึกสบายใจเรื่องผู้หญิงได้จากคนที่ระแวงมาก ๆ</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">89</span>
+                    <p class="reason-text">ให้เค้าเป็นที่ 1 เสมอ</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">90</span>
+                    <p class="reason-text">เธอวางแผนอนาคตที่มีเค้าด้วย</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">91</span>
+                    <p class="reason-text">เธอคอยซัพพอร์ตเค้าในหลายเรื่อง</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">92</span>
+                    <p class="reason-text">เธอเป็นคนที่ทำให้เค้าอยากพยายามเพื่อใครซักคนหนึ่ง</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">93</span>
+                    <p class="reason-text">เธอทำให้เค้าได้เจอกับความรักที่ดีจริง ๆ จากคนที่พยายามเหมือน ๆ กันถึงแม้จะผิดพลาดไปบ้างเธอก็ยังพยายามต่อเค้าเรื่อยมา</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">94</span>
+                    <p class="reason-text">เธอใจดีมากก กับเด็ก หรือว่า สัตว์เล็กสัตว์น้อย</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">95</span>
+                    <p class="reason-text">เธอดูเป็นคนอ่อนโยนมาก</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">96</span>
+                    <p class="reason-text">ดูเป็นคนอบอุ่นมาก ๆ ทั้งการพูดและการกระทำ</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">97</span>
+                    <p class="reason-text">การที่จะทำอะไรซักอย่างที่พูดอะไรซักอย่างคือเธอคิดมาแล้ว</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">98</span>
+                    <p class="reason-text">เธอเป็นคนที่ตลกเฮฮา เป็นรอยยิ้มให้เค้าทำให้เค้ามีความสุขเป็นพลังบวกให้เค้าเสมอ</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">99</span>
+                    <p class="reason-text">เธอทำทุกอย่างเพื่อที่จะให้ความสัมพันธ์เราดีขึ้นต่อให้จะเป็นช่วงขาลงเธอก็ยังคุยกับเค้าเพื่อที่จะได้เข้าใจกันทำให้ความสัมพันธ์ดีขึ้น</p>
+                </div>
+
+                <div class="reason reveal">
+                    <span class="reason-number">100</span>
+                    <p class="reason-text">ความพยายามทุกอย่างในชีวิตของเธอมันทำให้เค้ารู้สึกว่าเธอพึ่งพาได้ ทุกอย่างที่เธอทำไม่ว่าจะเป็นการแสดงความรักพยายามทำทุกอย่างให้เค้าถึงแม้จะไม่เก่งแต่ก็พยายามทำให้เค้ารู้สึกรักเธอมาก ๆ</p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================
+             07 — OUR FAMILY
+        ========================================== -->
+
+        <section
+            class="page"
+            id="family">
+
+            <div class="section-title">
+
+                <h2>
+                    🐶 Our little family
+                </h2>
+
+                <p>
+                    Kishin · Ferbie · Yoshin
+                </p>
+
+            </div>
+
+
+            <div class="family">
+
+
+                <div class="family-card reveal">
+
+                    <div class="family-icon">
+                        🐶
+                    </div>
+
+                    <h3>
+                        Kishin
+                    </h3>
+
+                    <p>
+                        สุขสันต์ครบรอบนะครับพ่อพอร์ชกับแม่อิ๊งค์ 🩷
+                        <br><br>
+                        ขอบคุณที่รักกันมาก ๆ นะครับ
+                        <br>
+                        พวกเราดีใจที่ได้เกิดมาเป็นส่วนหนึ่งของครอบครัวนี้
+                        <br>
+                        ขอให้พ่อกับแม่อยู่ด้วยกันแบบนี้ไปนาน ๆ เลยนะครับ
+                    </p>
+
+                </div>
+
+
+                <div class="family-card reveal">
+
+                    <div class="family-icon">
+                        🎀
+                    </div>
+
+                    <h3>
+                        Ferbie
+                    </h3>
+
+                    <p>
+                        สุขสันต์ครบรอบนะคะ 🥺🎀
+                        <br><br>
+                        หนูขอให้พ่อกับแม่มีความสุขมาก ๆ
+                        <br>
+                        รักกันเยอะ ๆ
+                        <br>
+                        ดูแลกันแบบนี้ไปทุกวันเลยนะ
+                        <br><br>
+                        แล้วก็อย่าลืมสร้างความทรงจำดี ๆ
+                        ให้พวกเราไปด้วยกันเยอะ ๆ นะคะ 🩷
+                    </p>
+
+                </div>
+
+
+                <div class="family-card reveal">
+
+                    <div class="family-icon">
+                        🐶
+                    </div>
+
+                    <h3>
+                        Yoshin
+                    </h3>
+
+                    <p>
+                        พ่อกับแม่ครับ
+                        <br><br>
+                        ขอให้ต่อจากนี้มีแต่เรื่องดี ๆ เข้ามา
+                        <br>
+                        ไม่ว่าจะเจอเรื่องอะไร
+                        <br>
+                        ก็ขอให้พ่อกับแม่คอยจับมือและอยู่ข้าง ๆ กันเสมอ
+                        <br><br>
+                        พวกเราจะคอยเติบโตไปพร้อมกับพ่อและแม่นะครับ 🌷
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="love-message reveal">
+
+                <h3>
+                    🩷 From Kishin, Ferbie & Yoshin
+                </h3>
+
+                <br>
+
+                <p>
+                    ถึงวันนี้พวกเราอาจเป็นเพียง
+                    <br>
+                    ตัวละครเล็ก ๆ อยู่ในเว็บไซต์ของพ่อกับแม่
+                    <br><br>
+                    แต่พวกเราถูกสร้างขึ้นมาจาก
+                    <br>
+                    ความฝันของคนสองคน
+                    <br><br>
+                    ที่อยากมีครอบครัว
+                    <br>
+                    อยากมีบ้าน
+                    <br>
+                    อยากมีหมา
+                    <br>
+                    อยากมีแมว
+                    <br>
+                    และอยากมีลูก ๆ ทั้งสามคน
+                    <br><br>
+                    ขอให้ความฝันของพ่อกับแม่
+                    <br>
+                    ค่อย ๆ กลายเป็นจริงทีละอย่างนะ
+                    <br><br>
+                    สุขสันต์ครบรอบ 6 เดือนนะครับ/คะ
+                    <br>
+                    รักพ่อกับแม่มาก ๆ 🐶🎀🩷
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================
+             08 — SIX MONTH MESSAGE
+        ========================================== -->
+
+        <section
+            class="page"
+            id="message">
+
+            <div class="section-title">
+
+                <h2>
+                    ˚₊‧꒰ა 𝒂 𝒍𝒊𝒕𝒕𝒍𝒆 𝒎𝒆𝒔𝒔𝒂𝒈𝒆 ໒꒱ ‧₊˚
+                </h2>
+
+                <p>
+                    6 months with you ♡
+                </p>
+
+            </div>
+
+
+            <div class="love-message reveal">
+
+                <p>
+                    นี่ก็เดินทางมาถึง 6 เดือนแล้วนะ
+                    ก็ครึ่งปีแล้วที่เราอยู่ด้วยกันมา
+                    เค้ารู้สึกโชคดีมากเลยที่มีเธอ
+                </p>
+
+                <br>
+
+                <p>
+                    ที่ผ่านมาถึงเราจะทะเลาะกันบ้าง
+                    เธอก็ไม่เคยเลือกที่จะทิ้งความสัมพันธ์นี้ไปเลย
+                    เธอคอยบอกรักเค้าเสมอแบบไม่ขาดไม่หาย
+                </p>
+
+                <br>
+
+                <p>
+                    ในทุกคืน เธอก็บอกรักบอกฝันดีเค้าในทุก ๆ วัน
+                    คอยรับฟังเค้ามาตลอด
+                    ทำให้เค้าสบายใจที่มีเธอ
+                    ไม่ว่าจะเป็นตอนไหน
+                </p>
+
+                <br>
+
+                <p>
+                    ขอแค่เค้ามีเธออยู่ข้าง ๆ
+                    เค้าก็รู้สึกว่ามั่นใจในตัวเองมากขึ้น
+                    เธอเป็นเหมือนความสดใสของเค้า
+                </p>
+
+                <br>
+
+                <p>
+                    ในทุก ๆ วันเค้ามีความสุขมาก
+                    ชีวิตเค้าดูมีสีสันมาก ๆ เลย
+                    เธอเป็นกำลังใจในการใช้ชีวิตเค้ามาก ๆ
+                </p>
+
+                <br>
+
+                <p>
+                    พอมีเธอก็อุ่นใจแล้ววว
+                    ต่อให้โลกนี้ไม่มีดาว
+                    ชีวิตเค้าก็ยังมีแสงสว่าง >__<
+                </p>
+
+                <br>
+
+                <p>
+                    เพราะเธอคือแสงสว่างของเค้า
+                    ต่อให้เค้าเจอเรื่องแย่ ๆ แค่ไหน
+                    ได้บอกเธอมันก็หายหมดแล้ว
+                </p>
+
+                <br>
+
+                <p>
+                    เป็นโชคดีมากที่เค้าได้เป็นแฟนกับเธอ
+                    เธอเป็นทุกอย่างของเค้าเลย
+                    เป็นทั้งหัวใจ
+                </p>
+
+                <br>
+
+                <p>
+                    ตั้งแต่คบกับเธอมา
+                    เธอเป็นเรื่องมหัศจรรย์ที่สุดเลยย ย ยย
+                </p>
+
+                <br>
+
+                <p>
+                    ตอนที่เค้าต้องการที่พึ่ง
+                    เค้าก็มีเธอตลอด
+                    หันไปก็เจอเธอตลอด
+                </p>
+
+                <br>
+
+                <p>
+                    เธอน่ารักกับเค้าตลอดเลย
+                    ถึงตอนทะเลาะเค้าจะชอบเงียบใส่เธอ
+                    แต่เธอก็คอยง้อเค้าตลอด
+                </p>
+
+                <br>
+
+                <p>
+                    ดูแลเค้าในตอนที่เค้าบาดเจ็บ
+                    เค้ารู้สึกเหมือนเธอเป็นห่วงเค้าจริง ๆ
+                    เค้าซึ้งใจมากก
+                </p>
+
+                <br>
+
+                <p>
+                    เธอคอยดูแลเค้าในทุก ๆ วัน
+                    ทำให้เค้าสบายที่สุด
+                    พยายามทำให้ไม่ต้องลำบาก
+                </p>
+
+                <br>
+
+                <p>
+                    6 เดือนนี้ เราผ่านอะไรมาเยอะมาก
+                    ทั้งเรื่องที่ดีแล้วก็ไม่ดี
+                    แต่เราก็ยังอยู่ด้วยกันถึงทุกวันนี้
+                </p>
+
+                <br>
+
+                <p>
+                    ตอนที่เราใช้เวลาด้วยกัน
+                    เค้ามีความสุขมาก
+                </p>
+
+                <br>
+
+                <p>
+                    ยิ่งมองหน้าเธอ
+                    มันทำให้เค้ารู้สึกว่า
+                    ทำไมเค้าถึงมีแฟนหล่อจัง
+                </p>
+
+                <br>
+
+                <p>
+                    นอกจากหล่อแล้ว
+                    เธอยังดีกับเค้ามาก ๆ
+                    ทำให้เค้ารู้สึกเป็นผู้หญิงที่โชคดีที่สุดอะ
+                </p>
+
+                <br>
+
+                <p>
+                    อยากใช้ชีวิตกับเธอในทุก ๆ วัน
+                    แบบนี้ไปนาน ๆ เลย
+                </p>
+
+                <br>
+
+                <p>
+                    เค้ารู้สึกว่า
+                    เค้าเจอคนที่ดีแล้วจริง ๆ 😭😭
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================
+             09 — FINAL
+        ========================================== -->
+
+        <section
+            class="hero page"
+            id="final">
+
+            <div class="hero-content">
+
+                <p class="hero-small">
+                    ───── ୨ৎ ─────
+                </p>
+
+                <h1>
+                    Dear Porchii
+                </h1>
+
+                <div class="love-message reveal">
+
+                    <p>
+                        ขอบคุณที่เข้ามาเป็นส่วนหนึ่ง
+                        ของชีวิตเค้านะ
+                    </p>
+
+                    <br>
+
+                    <p>
+                        ขอบคุณสำหรับทุกความทรงจำ
+                        ทุกเสียงหัวเราะ
+                        ทุกการดูแล
+                        และทุกวันที่เราได้อยู่ด้วยกัน
+                    </p>
+
+                    <br>
+
+                    <p>
+                        จากวันแรกที่เราไม่รู้จักกัน
+                        จนวันนี้เราได้เรียกกันว่า
+                        “แฟน”
+                    </p>
+
+                    <br>
+
+                    <p>
+                        เค้าไม่รู้ว่าอนาคตจะมีอะไรเกิดขึ้นบ้าง
+                        แต่เค้าอยากค่อย ๆ เติบโต
+                        และสร้างความทรงจำกับเธอไปเรื่อย ๆ
+                    </p>
+
+                    <br>
+
+                    <p>
+                        สุขสันต์ครบรอบ 6 เดือนนะพอร์ช
+                        🩷🩵
+                    </p>
+
+                    <br>
+
+                    <p>
+                        รักเธอนะ
+                        ♡
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
 
     </main>
 
 
-    <!-- ============================= -->
-    <!-- ✦ SCRIPT -->
-    <!-- ============================= -->
+    <!-- =========================================
+         SCRIPT
+    ========================================== -->
 
-    <script>
-
-        function openMenu() {
-
-            const welcome = document.getElementById("welcomePage");
-            const menu = document.getElementById("menuPage");
-
-            welcome.style.opacity = "0";
-
-            setTimeout(() => {
-
-                welcome.style.display = "none";
-
-                menu.style.display = "flex";
-
-                setTimeout(() => {
-                    menu.style.opacity = "1";
-                }, 50);
-
-            }, 700);
-
-        }
-
-
-        /* ✦ ข้อความค่อย ๆ พิมพ์ */
-
-        const text = "สวัสดี ! เธอคงเป็น..";
-        const typingElement = document.getElementById("typingText");
-
-        let index = 0;
-
-        function typing() {
-
-            if (index < text.length) {
-
-                typingElement.textContent += text.charAt(index);
-
-                index++;
-
-                setTimeout(typing, 80);
-
-            }
-
-        }
-
-        typingElement.textContent = "";
-        typing();
-
-
-        /* ✦ ปุ่มเด้ง */
-
-        const button = document.getElementById("startButton");
-
-        setTimeout(() => {
-
-            button.classList.add("show-button");
-
-        }, 2500);
-
-    </script>
+    <script src="script.js"></script>
 
 </body>
-
 </html>
