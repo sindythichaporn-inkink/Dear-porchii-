@@ -1,408 +1,218 @@
 /* =========================================================
-   ✦ DEAR PORCH — MAIN STYLE
-   ✦ Shared CSS for the whole memory book
-========================================================= */
-
-
-/* =========================================================
    ✦ RESET
 ========================================================= */
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
 html {
     scroll-behavior: smooth;
 }
-
 body {
     min-height: 100vh;
     overflow-x: hidden;
-
     font-family: "Kanit", sans-serif;
-    font-weight: 300;
-
-    color: #5d4b5f;
-
+    color: #5f5262;
     background:
         radial-gradient(
-            circle at 50% 0%,
-            rgba(255, 240, 250, 0.95),
-            transparent 38%
+            circle at 50% 20%,
+            rgba(255, 255, 255, 0.95),
+            transparent 35%
         ),
         linear-gradient(
             135deg,
             #fff8fc 0%,
-            #f8f1ff 45%,
-            #eef8f7 100%
+            #f7efff 45%,
+            #eef8ff 100%
         );
-
     transition:
-        opacity 0.55s ease,
-        transform 0.55s ease;
+        opacity 0.45s ease,
+        transform 0.45s ease;
 }
-
-a {
-    color: inherit;
-    text-decoration: none;
-}
-
-button,
-a {
-    -webkit-tap-highlight-color: transparent;
-}
-
-img {
-    max-width: 100%;
-}
-
-
 /* =========================================================
    ✦ PAGE TRANSITION
 ========================================================= */
-
 body.page-leaving {
     opacity: 0;
     transform: translateY(8px);
-    pointer-events: none;
 }
-
-
 /* =========================================================
-   ✦ COMMON GLITTER
+   ✦ BACKGROUND
 ========================================================= */
-
-.home-glitter,
-.index-sparkles {
+.cover-page {
+    position: relative;
+    isolation: isolate;
+}
+.cover-glitter {
     position: fixed;
     inset: 0;
-
     width: 100%;
     height: 100%;
-
     overflow: hidden;
-
     pointer-events: none;
-
-    z-index: 0;
+    z-index: -1;
 }
-
-.home-glitter span,
-.index-sparkles span {
+.cover-glitter span {
     position: absolute;
-
-    display: block;
-
     font-family:
-        "Playfair Display",
+        "Times New Roman",
         serif;
-
-    font-size: clamp(
-        12px,
-        1.7vw,
-        24px
-    );
-
-    opacity: 0;
-
+    color: rgba(190, 157, 207, 0.35);
     animation:
-        sparkleFloat
-        9s ease-in-out infinite;
-}
-
-.home-glitter span:nth-child(1),
-.index-sparkles span:nth-child(1) {
-    left: 7%;
-    top: 18%;
-    animation-delay: 0s;
-}
-
-.home-glitter span:nth-child(2),
-.index-sparkles span:nth-child(2) {
-    left: 19%;
-    top: 72%;
-    animation-delay: 1.2s;
-}
-
-.home-glitter span:nth-child(3),
-.index-sparkles span:nth-child(3) {
-    left: 31%;
-    top: 14%;
-    animation-delay: 2.4s;
-}
-
-.home-glitter span:nth-child(4),
-.index-sparkles span:nth-child(4) {
-    left: 45%;
-    top: 83%;
-    animation-delay: 3.1s;
-}
-
-.home-glitter span:nth-child(5),
-.index-sparkles span:nth-child(5) {
-    left: 58%;
-    top: 22%;
-    animation-delay: 4s;
-}
-
-.home-glitter span:nth-child(6),
-.index-sparkles span:nth-child(6) {
-    left: 69%;
-    top: 67%;
-    animation-delay: 1.8s;
-}
-
-.home-glitter span:nth-child(7),
-.index-sparkles span:nth-child(7) {
-    left: 81%;
-    top: 12%;
-    animation-delay: 3.7s;
-}
-
-.home-glitter span:nth-child(8),
-.index-sparkles span:nth-child(8) {
-    left: 91%;
-    top: 48%;
-    animation-delay: 5s;
-}
-
-.home-glitter span:nth-child(9),
-.index-sparkles span:nth-child(9) {
-    left: 13%;
-    top: 42%;
-    animation-delay: 2.8s;
-}
-
-.home-glitter span:nth-child(10),
-.index-sparkles span:nth-child(10) {
-    left: 74%;
-    top: 88%;
-    animation-delay: 4.8s;
-}
-
-.home-glitter span:nth-child(11),
-.index-sparkles span:nth-child(11) {
-    left: 38%;
-    top: 54%;
-    animation-delay: 1.5s;
-}
-
-.home-glitter span:nth-child(12),
-.index-sparkles span:nth-child(12) {
-    left: 87%;
-    top: 76%;
-    animation-delay: 3.8s;
-}
-
-@keyframes sparkleFloat {
-
-    0% {
-        opacity: 0;
-        transform:
-            translateY(20px)
-            scale(0.75)
-            rotate(-8deg);
-    }
-
-    25% {
-        opacity: 0.42;
-    }
-
-    50% {
-        opacity: 0.7;
-        transform:
-            translateY(-12px)
-            scale(1)
-            rotate(5deg);
-    }
-
-    75% {
-        opacity: 0.35;
-    }
-
-    100% {
-        opacity: 0;
-        transform:
-            translateY(-35px)
-            scale(0.8)
-            rotate(-5deg);
-    }
-}
-
-
-/* =========================================================
-   ✦ INDEX PAGE
-========================================================= */
-
-.index-page {
-    min-height: 100vh;
-
-    background:
-        radial-gradient(
-            circle at 50% 38%,
-            rgba(255,255,255,0.96),
-            rgba(255,248,252,0.8) 35%,
-            transparent 70%
-        ),
-        linear-gradient(
-            145deg,
-            #fff8fc,
-            #f7f0ff 50%,
-            #eef9f7
-        );
-}
-
-.index-background {
-    position: fixed;
-    inset: 0;
-
-    pointer-events: none;
-
-    z-index: 0;
-}
-
-.index-glow {
-    position: absolute;
-
-    width: 520px;
-    height: 520px;
-
-    left: 50%;
-    top: 42%;
-
-    transform: translate(-50%, -50%);
-
-    border-radius: 50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(255, 216, 237, 0.32),
-            transparent 68%
-        );
-
-    filter: blur(20px);
-
-    animation:
-        softGlow
+        floating-glitter
         7s ease-in-out infinite;
 }
-
-@keyframes softGlow {
-
+/* ตำแหน่งดาว */
+.cover-glitter span:nth-child(1) {
+    left: 8%;
+    top: 15%;
+    font-size: 20px;
+    animation-delay: 0s;
+}
+.cover-glitter span:nth-child(2) {
+    left: 18%;
+    top: 70%;
+    font-size: 16px;
+    animation-delay: 1s;
+}
+.cover-glitter span:nth-child(3) {
+    left: 30%;
+    top: 30%;
+    font-size: 14px;
+    animation-delay: 2s;
+}
+.cover-glitter span:nth-child(4) {
+    left: 43%;
+    top: 80%;
+    font-size: 18px;
+    animation-delay: 3s;
+}
+.cover-glitter span:nth-child(5) {
+    left: 55%;
+    top: 12%;
+    font-size: 17px;
+    animation-delay: 1.5s;
+}
+.cover-glitter span:nth-child(6) {
+    left: 67%;
+    top: 62%;
+    font-size: 22px;
+    animation-delay: 2.5s;
+}
+.cover-glitter span:nth-child(7) {
+    left: 77%;
+    top: 24%;
+    font-size: 15px;
+    animation-delay: 4s;
+}
+.cover-glitter span:nth-child(8) {
+    left: 87%;
+    top: 76%;
+    font-size: 20px;
+    animation-delay: 1.8s;
+}
+.cover-glitter span:nth-child(9) {
+    left: 93%;
+    top: 40%;
+    font-size: 13px;
+    animation-delay: 3.5s;
+}
+.cover-glitter span:nth-child(10) {
+    left: 5%;
+    top: 45%;
+    font-size: 17px;
+    animation-delay: 2.2s;
+}
+.cover-glitter span:nth-child(11) {
+    left: 73%;
+    top: 87%;
+    font-size: 16px;
+    animation-delay: 4.5s;
+}
+.cover-glitter span:nth-child(12) {
+    left: 35%;
+    top: 8%;
+    font-size: 13px;
+    animation-delay: 5s;
+}
+/* =========================================================
+   ✦ GLITTER ANIMATION
+========================================================= */
+@keyframes floating-glitter {
     0%,
     100% {
+        opacity: 0.25;
         transform:
-            translate(-50%, -50%)
-            scale(0.95);
-        opacity: 0.7;
+            translate3d(0, 0, 0)
+            rotate(0deg);
     }
-
     50% {
+        opacity: 0.8;
         transform:
-            translate(-50%, -50%)
-            scale(1.08);
-        opacity: 1;
+            translate3d(0, -18px, 0)
+            rotate(10deg);
     }
 }
-
-
 /* =========================================================
-   ✦ INDEX MAIN
+   ✦ COVER
 ========================================================= */
-
-.index-main {
-    position: relative;
-    z-index: 2;
-
-    width: min(
-        920px,
-        calc(100% - 32px)
-    );
-
+.cover {
+    width: min(920px, 92%);
     min-height: 100vh;
-
     margin: 0 auto;
-
     padding:
-        35px
+        45px
         20px
-        70px;
-
+        60px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
     text-align: center;
 }
-
-
 /* =========================================================
-   ✦ ASCII WINGS
+   ✦ WINGS
 ========================================================= */
-
-.index-wings {
+.cover-wings {
     width: 100%;
-
-    margin-bottom: 8px;
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin:
+        0 auto
+        22px;
+    overflow: hidden;
     opacity: 0;
-
     animation:
-        wingsAppear
+        wings-appear
         1.5s
         ease
         forwards;
-
-    animation-delay: 0.25s;
 }
-
-.index-wings pre {
-    width: 100%;
-
-    overflow-x: auto;
-
-    white-space: pre;
-
+.cover-wings pre {
+    width: max-content;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
     font-family:
         "Courier New",
         monospace;
-
-    font-size: clamp(
-        4px,
-        0.75vw,
-        9px
-    );
-
+    font-size:
+        clamp(5px, 1.55vw, 12px);
     line-height: 1.05;
-
-    color: rgba(
-        128,
-        104,
-        128,
-        0.55
-    );
-
-    scrollbar-width: none;
+    white-space: pre;
+    color: rgba(128, 103, 139, 0.65);
+    text-align: center;
 }
-
-.index-wings pre::-webkit-scrollbar {
-    display: none;
-}
-
-@keyframes wingsAppear {
-
+@keyframes wings-appear {
     from {
         opacity: 0;
         transform:
-            translateY(10px)
-            scale(0.97);
+            translateY(15px)
+            scale(0.96);
     }
-
     to {
         opacity: 1;
         transform:
@@ -410,1293 +220,308 @@ body.page-leaving {
             scale(1);
     }
 }
-
-
 /* =========================================================
-   ✦ DECORATION
+   ✦ SMALL TITLE
 ========================================================= */
-
-.index-decoration {
-    margin-bottom: 18px;
-
-    color: #c895b5;
-
+.cover-small {
+    margin-bottom: 12px;
     font-family:
         "Playfair Display",
         serif;
-
-    font-size: 20px;
-
-    letter-spacing: 5px;
-
+    font-size: 14px;
+    letter-spacing: 1.5px;
+    color: #9b7ba8;
     opacity: 0;
-
     animation:
-        decorationAppear
-        1.2s
+        soft-appear
+        1s
         ease
-        0.8s
+        0.5s
         forwards;
 }
-
-@keyframes decorationAppear {
-
+/* =========================================================
+   ✦ MAIN TITLE
+========================================================= */
+.cover-title {
+    margin: 0;
+    font-family:
+        "Playfair Display",
+        serif;
+    font-size:
+        clamp(48px, 9vw, 88px);
+    font-weight: 400;
+    font-style: italic;
+    letter-spacing: 2px;
+    line-height: 1.1;
+    color: #8c6c99;
+    text-shadow:
+        0 4px 20px
+        rgba(150, 112, 164, 0.16);
+    opacity: 0;
+    animation:
+        title-appear
+        1.2s
+        cubic-bezier(
+            0.22,
+            1,
+            0.36,
+            1
+        )
+        0.7s
+        forwards;
+}
+@keyframes title-appear {
     from {
         opacity: 0;
-        transform: translateY(8px);
+        transform:
+            translateY(25px)
+            scale(0.96);
     }
-
     to {
         opacity: 1;
-        transform: translateY(0);
+        transform:
+            translateY(0)
+            scale(1);
     }
 }
-
-
 /* =========================================================
-   ✦ INDEX LETTER
+   ✦ SUBTITLE
 ========================================================= */
-
-.index-letter {
-    width: min(
-        680px,
-        100%
-    );
-
-    padding:
-        25px
-        20px
-        10px;
-
-    position: relative;
-
-    z-index: 3;
+.cover-subtitle {
+    margin-top: 10px;
+    font-family:
+        "Playfair Display",
+        serif;
+    font-size: 16px;
+    font-style: italic;
+    letter-spacing: 1px;
+    color: #b28fba;
+    opacity: 0;
+    animation:
+        soft-appear
+        1s
+        ease
+        1s
+        forwards;
 }
-
-.typing-line {
-    min-height: 1.8em;
-
-    margin:
-        0
-        0
-        6px;
-
-    color: #69566a;
-
+/* =========================================================
+   ✦ TYPEWRITER AREA
+========================================================= */
+.cover-message {
+    width: min(720px, 100%);
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    min-height: 260px;
+}
+/* =========================================================
+   ✦ TYPEWRITER TEXT
+========================================================= */
+.typewriter-line {
+    position: relative;
+    min-height: 1.5em;
     font-family:
         "Itim",
         "Kanit",
         sans-serif;
-
-    font-size: clamp(
-        17px,
-        2.4vw,
-        24px
-    );
-
+    font-size:
+        clamp(16px, 3.5vw, 20px);
     line-height: 1.8;
-
     letter-spacing: 0.2px;
-
-    text-shadow:
-        0 1px 0 rgba(
-            255,
-            255,
-            255,
-            0.7
-        );
+    color: #67596c;
+    opacity: 0;
+    transition:
+        opacity 0.3s ease;
 }
-
-.typing-line.typing-active::after {
+/* ข้อความที่กำลังพิมพ์ */
+.typewriter-line.typing {
+    opacity: 1;
+}
+/* เคอร์เซอร์ */
+.typewriter-line.typing::after {
     content: "";
-
     display: inline-block;
-
     width: 2px;
     height: 1em;
-
-    margin-left: 3px;
-
-    vertical-align: -0.1em;
-
-    background: #c98fac;
-
+    margin-left: 4px;
+    vertical-align: -2px;
+    background: #9d7aaa;
     animation:
-        typingCursor
-        0.8s
+        typing-cursor
+        0.7s
         steps(1)
         infinite;
 }
-
-@keyframes typingCursor {
-
+@keyframes typing-cursor {
     0%,
     49% {
         opacity: 1;
     }
-
     50%,
     100% {
         opacity: 0;
     }
 }
-
-.typing-space {
-    height: 18px;
-}
-
-
 /* =========================================================
-   ✦ OPEN BUTTON
+   ✦ OPEN BOOK BUTTON
 ========================================================= */
-
-.index-open {
-    margin-top: 25px;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    opacity: 0;
-
-    transform:
-        translateY(18px)
-        scale(0.97);
-
-    pointer-events: none;
-
-    transition:
-        opacity 0.8s ease,
-        transform 0.8s ease;
-}
-
-.index-open.index-show {
-    opacity: 1;
-
-    transform:
-        translateY(0)
-        scale(1);
-
-    pointer-events: auto;
-}
-
-.index-open-decoration {
-    margin-bottom: 14px;
-
-    color: #c99ab5;
-
-    font-size: 15px;
-
-    letter-spacing: 3px;
-}
-
-.index-button {
-    position: relative;
-
+.cover-button {
     display: inline-flex;
-
     align-items: center;
     justify-content: center;
-
-    gap: 12px;
-
-    min-width: 235px;
-
-    padding:
-        13px
-        25px;
-
+    min-width: 220px;
+    margin-top: 28px;
+    padding: 13px 27px;
     border:
         1px solid
-        rgba(
-            190,
-            140,
-            168,
-            0.35
-        );
-
+        rgba(163, 126, 174, 0.35);
     border-radius: 999px;
-
-    color: #76576b;
-
     background:
-        rgba(
-            255,
-            255,
-            255,
-            0.7
-        );
-
+        rgba(255, 255, 255, 0.58);
     box-shadow:
-        0 10px 30px
-        rgba(
-            174,
-            127,
-            157,
-            0.12
-        );
-
+        0 12px 35px
+        rgba(140, 108, 153, 0.12);
     backdrop-filter: blur(10px);
-
+    color: #80648a;
+    text-decoration: none;
     font-family:
         "Itim",
         sans-serif;
-
     font-size: 18px;
-
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease,
-        background 0.3s ease;
-}
-
-.index-button span {
-    font-size: 20px;
-
-    transition:
-        transform 0.3s ease;
-}
-
-.index-button:hover {
-    transform:
-        translateY(-3px);
-
-    background:
-        rgba(
-            255,
-            255,
-            255,
-            0.92
-        );
-
-    box-shadow:
-        0 15px 35px
-        rgba(
-            174,
-            127,
-            157,
-            0.2
-        );
-}
-
-.index-button:hover span {
-    transform:
-        scale(1.25)
-        rotate(-8deg);
-}
-
-
-/* =========================================================
-   ✦ BOTTOM DECORATION
-========================================================= */
-
-.index-bottom-decoration {
-    margin-top: 35px;
-
-    display: flex;
-    align-items: center;
-
-    gap: 14px;
-
-    color: #b99aaf;
-
-    font-family:
-        "Playfair Display",
-        serif;
-
-    font-size: 13px;
-
-    font-style: italic;
-
-    letter-spacing: 2px;
-
-    opacity: 0.8;
-}
-
-
-/* =========================================================
-   ✦ COMMON HEADER
-========================================================= */
-
-.home-page,
-.reasons-main {
-    position: relative;
-    z-index: 2;
-}
-
-.home-header {
-    position: relative;
-
-    width: min(
-        900px,
-        calc(100% - 32px)
-    );
-
-    margin: 0 auto;
-
-    padding:
-        35px
-        20px
-        25px;
-
-    text-align: center;
-
     opacity: 0;
-    transform: translateY(18px);
-
-    transition:
-        opacity 0.8s ease,
-        transform 0.8s ease;
-}
-
-.home-header.home-show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.home-back {
-    position: absolute;
-
-    left: 0;
-    top: 35px;
-
-    padding:
-        7px
-        13px;
-
-    border-radius: 999px;
-
-    color: #87677d;
-
-    background:
-        rgba(
-            255,
-            255,
-            255,
-            0.55
-        );
-
-    border:
-        1px solid
-        rgba(
-            180,
-            145,
-            168,
-            0.2
-        );
-
-    font-family:
-        "Itim",
-        sans-serif;
-
-    font-size: 15px;
-
-    transition:
-        transform 0.25s ease,
-        background 0.25s ease;
-}
-
-.home-back:hover {
-    transform:
-        translateX(-3px);
-
-    background:
-        rgba(
-            255,
-            255,
-            255,
-            0.9
-        );
-}
-
-.home-logo {
-    color: #9d6f8c;
-
-    font-family:
-        "Playfair Display",
-        serif;
-
-    font-size: 19px;
-
-    letter-spacing: 1px;
-}
-
-.home-small {
-    margin-top: 8px;
-
-    color: #b695aa;
-
-    font-family:
-        "Playfair Display",
-        serif;
-
-    font-size: 13px;
-
-    font-style: italic;
-
-    letter-spacing: 1px;
-}
-
-.home-header h1 {
-    margin-top: 15px;
-
-    color: #74546a;
-
-    font-family:
-        "Playfair Display",
-        "Itim",
-        serif;
-
-    font-size: clamp(
-        32px,
-        6vw,
-        58px
-    );
-
-    font-weight: 400;
-
-    line-height: 1.25;
-}
-
-.home-intro {
-    margin-top: 15px;
-
-    color: #806b7d;
-
-    font-family:
-        "Itim",
-        sans-serif;
-
-    font-size: 17px;
-
-    line-height: 1.8;
-}
-
-
-/* =========================================================
-   ✦ HOME MAIN
-========================================================= */
-
-.home-main {
-    width: min(
-        850px,
-        calc(100% - 32px)
-    );
-
-    margin: 0 auto;
-
-    padding:
-        15px
-        0
-        70px;
-}
-
-
-/* =========================================================
-   ✦ COUPLE
-========================================================= */
-
-.home-couple {
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    gap: clamp(
-        15px,
-        5vw,
-        50px
-    );
-
-    margin:
-        15px
-        auto
-        35px;
-
-    opacity: 0;
-
-    transform:
-        translateY(20px)
-        scale(0.97);
-
-    transition:
-        opacity 0.8s ease,
-        transform 0.8s ease;
-}
-
-.home-couple.home-show {
-    opacity: 1;
-
-    transform:
-        translateY(0)
-        scale(1);
-}
-
-.home-photo {
-    width: clamp(
-        115px,
-        24vw,
-        190px
-    );
-
-    aspect-ratio: 1;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    overflow: hidden;
-
-    border:
-        7px solid
-        rgba(
-            255,
-            255,
-            255,
-            0.75
-        );
-
-    border-radius: 50%;
-
-    background:
-        rgba(
-            255,
-            255,
-            255,
-            0.5
-        );
-
-    box-shadow:
-        0 15px 35px
-        rgba(
-            160,
-            120,
-            145,
-            0.14
-        );
-}
-
-.home-photo img {
-    width: 100%;
-    height: 100%;
-
-    object-fit: cover;
-}
-
-.home-heart {
-    color: #d48cab;
-
-    font-size: clamp(
-        25px,
-        5vw,
-        45px
-    );
-
-    animation:
-        heartBeat
-        2.5s
-        ease-in-out
-        infinite;
-}
-
-@keyframes heartBeat {
-
-    0%,
-    100% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.13);
-    }
-}
-
-
-/* =========================================================
-   ✦ MESSAGE
-========================================================= */
-
-.home-message {
-    width: min(
-        650px,
-        100%
-    );
-
-    margin:
-        0
-        auto
-        35px;
-
-    padding:
-        28px
-        25px;
-
-    text-align: center;
-
-    border:
-        1px solid
-        rgba(
-            192,
-            157,
-            181,
-            0.22
-        );
-
-    border-radius: 25px;
-
-    background:
-        rgba(
-            255,
-            255,
-            255,
-            0.56
-        );
-
-    box-shadow:
-        0 15px 40px
-        rgba(
-            174,
-            140,
-            160,
-            0.08
-        );
-
-    backdrop-filter: blur(10px);
-
-    opacity: 0;
-
-    transform: translateY(20px);
-
-    transition:
-        opacity 0.8s ease,
-        transform 0.8s ease;
-}
-
-.home-message.home-show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.home-message span {
-    color: #c891ae;
-
-    font-size: 18px;
-}
-
-.home-message p {
-    margin:
-        10px
-        0;
-
-    color: #756274;
-
-    font-family:
-        "Itim",
-        sans-serif;
-
-    font-size: 17px;
-
-    line-height: 1.8;
-}
-
-
-/* =========================================================
-   ✦ HOME LINKS
-========================================================= */
-
-.home-links {
-    display: grid;
-
-    grid-template-columns:
-        repeat(
-            2,
-            minmax(0, 1fr)
-        );
-
-    gap: 14px;
-
-    width: 100%;
-}
-
-.home-link {
-    position: relative;
-
-    display: flex;
-    flex-direction: column;
-
-    padding:
-        18px
-        18px
-        17px
-        52px;
-
-    border:
-        1px solid
-        rgba(
-            187,
-            150,
-            176,
-            0.2
-        );
-
-    border-radius: 20px;
-
-    background:
-        rgba(
-            255,
-            255,
-            255,
-            0.58
-        );
-
-    box-shadow:
-        0 10px 30px
-        rgba(
-            166,
-            132,
-            154,
-            0.06
-        );
-
-    backdrop-filter: blur(8px);
-
-    opacity: 0;
-
-    transform:
-        translateY(18px);
-
-    transition:
-        opacity 0.65s ease,
-        transform 0.3s ease,
-        box-shadow 0.3s ease,
-        background 0.3s ease;
-}
-
-.home-link.home-show {
-    opacity: 1;
-
-    transform:
-        translateY(0);
-}
-
-.home-link:hover {
-    transform:
-        translateY(-4px);
-
-    background:
-        rgba(
-            255,
-            255,
-            255,
-            0.9
-        );
-
-    box-shadow:
-        0 16px 35px
-        rgba(
-            166,
-            132,
-            154,
-            0.13
-        );
-}
-
-.home-link-number {
-    position: absolute;
-
-    left: 17px;
-    top: 19px;
-
-    color: #c491ad;
-
-    font-family:
-        "Playfair Display",
-        serif;
-
-    font-size: 13px;
-}
-
-.home-link strong {
-    color: #73566b;
-
-    font-family:
-        "Itim",
-        sans-serif;
-
-    font-size: 20px;
-
-    font-weight: 400;
-}
-
-.home-link small {
-    margin-top: 5px;
-
-    color: #9b8494;
-
-    font-size: 13px;
-}
-
-
-/* =========================================================
-   ✦ ENDING
-========================================================= */
-
-.home-ending {
-    margin:
-        55px
-        auto
-        0;
-
-    text-align: center;
-
-    color: #8e7587;
-
-    font-family:
-        "Itim",
-        sans-serif;
-
-    font-size: 16px;
-
-    line-height: 2;
-
-    opacity: 0;
-
-    transform: translateY(18px);
-
-    transition:
-        opacity 1s ease,
-        transform 1s ease;
-}
-
-.home-ending.home-show {
-    opacity: 1;
-
-    transform: translateY(0);
-}
-
-
-/* =========================================================
-   ✦ REASONS PAGE
-========================================================= */
-
-.reasons-page {
-    background:
-        radial-gradient(
-            circle at 50% 0%,
-            rgba(
-                255,
-                239,
-                249,
-                0.95
-            ),
-            transparent 40%
-        ),
-        linear-gradient(
-            145deg,
-            #fff9fc,
-            #f8f1ff,
-            #f0faf8
-        );
-}
-
-.reasons-main {
-    width: min(
-        900px,
-        calc(100% - 32px)
-    );
-
-    margin: 0 auto;
-
-    padding:
-        10px
-        0
-        80px;
-}
-
-.reasons-intro {
-    width: min(
-        650px,
-        100%
-    );
-
-    margin:
-        10px
-        auto
-        35px;
-
-    text-align: center;
-
-    color: #80687a;
-
-    font-family:
-        "Itim",
-        sans-serif;
-
-    font-size: 17px;
-
-    line-height: 1.9;
-}
-
-.reasons-intro span {
-    display: block;
-
-    margin:
-        10px
-        0;
-
-    color: #c492af;
-
-    letter-spacing: 2px;
-}
-
-.reasons-list {
-    display: grid;
-
-    grid-template-columns:
-        repeat(
-            2,
-            minmax(0, 1fr)
-        );
-
-    gap: 14px;
-}
-
-.reason-card {
-    position: relative;
-
-    display: flex;
-    align-items: flex-start;
-
-    gap: 15px;
-
-    min-height: 80px;
-
-    padding:
-        18px;
-
-    border:
-        1px solid
-        rgba(
-            190,
-            154,
-            180,
-            0.18
-        );
-
-    border-radius: 18px;
-
-    background:
-        rgba(
-            255,
-            255,
-            255,
-            0.62
-        );
-
-    box-shadow:
-        0 8px 25px
-        rgba(
-            160,
-            125,
-            150,
-            0.05
-        );
-
-    backdrop-filter: blur(8px);
-
-    opacity: 0;
-
+    pointer-events: none;
     transform:
         translateY(15px);
-
     transition:
-        opacity 0.6s ease,
-        transform 0.3s ease,
+        opacity 0.7s ease,
+        transform 0.7s ease,
+        background 0.3s ease,
         box-shadow 0.3s ease;
 }
-
-.reason-card.home-show {
+/* JS จะเพิ่ม class นี้เมื่อพิมพ์เสร็จ */
+.cover-button.show-button {
     opacity: 1;
-
+    pointer-events: auto;
     transform:
         translateY(0);
 }
-
-.reason-card:hover {
+.cover-button:hover {
+    background:
+        rgba(255, 255, 255, 0.9);
+    box-shadow:
+        0 15px 40px
+        rgba(140, 108, 153, 0.2);
     transform:
         translateY(-3px);
-
-    box-shadow:
-        0 14px 30px
-        rgba(
-            160,
-            125,
-            150,
-            0.11
-        );
 }
-
-.reason-card > span {
-    flex: 0 0 auto;
-
-    color: #c58eaa;
-
+/* =========================================================
+   ✦ FOOTER
+========================================================= */
+.cover-footer {
+    margin-top: 28px;
     font-family:
         "Playfair Display",
         serif;
-
-    font-size: 13px;
-}
-
-.reason-card p {
-    color: #725f6e;
-
-    font-family:
-        "Itim",
-        sans-serif;
-
-    font-size: 16px;
-
-    line-height: 1.65;
-}
-
-.reasons-ending {
-    margin:
-        60px
-        auto
-        0;
-
-    text-align: center;
-
-    color: #806878;
-
-    font-family:
-        "Itim",
-        sans-serif;
-
-    font-size: 17px;
-
-    line-height: 2;
-
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: #b39bb9;
     opacity: 0;
-
-    transform: translateY(20px);
-
-    transition:
-        opacity 1s ease,
-        transform 1s ease;
+    animation:
+        soft-appear
+        1s
+        ease
+        1.3s
+        forwards;
 }
-
-.reasons-ending.home-show {
-    opacity: 1;
-
-    transform: translateY(0);
-}
-
-.reasons-ending span {
-    display: block;
-
-    margin:
-        15px
-        0;
-
-    color: #c58fac;
-}
-
-.reasons-love {
-    margin-top: 15px;
-
-    color: #a96f8e;
-
-    font-size: 20px;
-}
-
-
 /* =========================================================
-   ✦ RESPONSIVE — TABLET
+   ✦ GENERAL APPEAR
 ========================================================= */
-
-@media (max-width: 700px) {
-
-    .index-main {
-        padding-top: 20px;
-    }
-
-    .index-wings pre {
-        font-size: 5px;
-    }
-
-    .home-header {
-        padding-top: 80px;
-    }
-
-    .home-back {
-        left: 50%;
-        top: 22px;
-
+@keyframes soft-appear {
+    from {
+        opacity: 0;
         transform:
-            translateX(-50%);
+            translateY(12px);
     }
-
-    .home-back:hover {
+    to {
+        opacity: 1;
         transform:
-            translateX(-50%)
-            translateY(-2px);
-    }
-
-    .home-links,
-    .reasons-list {
-        grid-template-columns: 1fr;
-    }
-
-    .home-link {
-        padding:
-            17px
-            17px
-            16px
-            50px;
+            translateY(0);
     }
 }
-
-
 /* =========================================================
-   ✦ RESPONSIVE — PHONE
+   ✦ MOBILE
 ========================================================= */
-
-@media (max-width: 480px) {
-
-    body {
-        font-size: 15px;
-    }
-
-    .index-main {
-        width:
-            calc(100% - 20px);
-
+@media (max-width: 600px) {
+    .cover {
+        width: 94%;
         padding:
-            15px
-            5px
-            50px;
+            28px
+            12px
+            45px;
     }
-
-    .index-wings {
-        margin-top: 5px;
-        margin-bottom: 3px;
+    .cover-wings {
+        margin-bottom: 16px;
     }
-
-    .index-wings pre {
-        font-size: 3.8px;
+    .cover-wings pre {
+        font-size: 5.3px;
+        transform:
+            scaleX(0.92);
+        transform-origin:
+            center;
     }
-
-    .index-letter {
-        padding:
-            15px
-            8px
-            5px;
+    .cover-small {
+        font-size: 12px;
+        letter-spacing: 1px;
     }
-
-    .typing-line {
-        font-size: 17px;
+    .cover-title {
+        font-size: 48px;
+    }
+    .cover-subtitle {
+        font-size: 14px;
+    }
+    .cover-message {
+        margin-top: 30px;
+        gap: 7px;
+        min-height: 300px;
+    }
+    .typewriter-line {
+        font-size: 16px;
         line-height: 1.7;
     }
-
-    .typing-space {
-        height: 10px;
-    }
-
-    .index-button {
-        min-width: 210px;
-
+    .cover-button {
+        min-width: 200px;
         padding:
             12px
-            20px;
-
+            22px;
         font-size: 17px;
-    }
-
-    .home-header {
-        width:
-            calc(100% - 20px);
-
-        padding:
-            72px
-            8px
-            20px;
-    }
-
-    .home-logo {
-        font-size: 17px;
-    }
-
-    .home-header h1 {
-        font-size: 34px;
-    }
-
-    .home-intro {
-        font-size: 16px;
-    }
-
-    .home-main,
-    .reasons-main {
-        width:
-            calc(100% - 20px);
-    }
-
-    .home-couple {
-        gap: 10px;
-    }
-
-    .home-photo {
-        width: 110px;
-    }
-
-    .home-message {
-        padding:
-            22px
-            17px;
-        border-radius: 20px;
-    }
-
-    .home-message p {
-        font-size: 16px;
-    }
-
-    .home-link strong {
-        font-size: 18px;
-    }
-
-    .home-link small {
-        font-size: 12px;
-    }
-
-    .reason-card {
-        padding: 15px;
-
-        gap: 11px;
-    }
-
-    .reason-card p {
-        font-size: 15px;
-    }
-
-    .reasons-ending {
-        font-size: 16px;
     }
 }
-
-
 /* =========================================================
-   ✦ REDUCED MOTION
+   ✦ VERY SMALL SCREEN
 ========================================================= */
-
+@media (max-width: 380px) {
+    .cover-wings pre {
+        font-size: 4.5px;
+    }
+    .cover-title {
+        font-size: 42px;
+    }
+    .cover-message {
+        min-height: 330px;
+    }
+}
+/* =========================================================
+   ✦ REDUCE MOTION
+========================================================= */
 @media (prefers-reduced-motion: reduce) {
-
     *,
     *::before,
     *::after {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
         scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
     }
 }
