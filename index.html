@@ -3,94 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dear Porch ♡</title>
-<!-- Google Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link
-    href="https://fonts.googleapis.com/css2?family=Itim&family=Kanit:wght@300;400;500&display=swap"
-    rel="stylesheet"
->
-<!-- Main CSS -->
-<link rel="stylesheet" href="style.css">
+    <title>Dear Porch ♡</title>
+    <!-- =====================================================
+         GOOGLE FONTS
+    ====================================================== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Itim&family=Kanit:wght@300;400;500&display=swap"
+        rel="stylesheet"
+    >
+    <!-- =====================================================
+         MAIN CSS
+    ====================================================== -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<!-- =====================================================
-     BACKGROUND
-====================================================== -->
-<div class="sparkles" aria-hidden="true">
-    <span>✦</span>
-    <span>♡</span>
-    <span>✧</span>
-    <span>⋆</span>
-    <span>♡</span>
-    <span>✦</span>
-    <span>✧</span>
-    <span>♡</span>
-    <span>⋆</span>
-    <span>✦</span>
-    <span>♡</span>
-    <span>✧</span>
-</div>
-<!-- =====================================================
-     WELCOME PAGE
-====================================================== -->
-<main class="welcome-page" id="welcome">
-    <!-- =================================================
-         MAIN CONTENT
-    ================================================== -->
-    <div class="welcome-content">
-        <!-- WEBSITE TITLE -->
-        <div class="website-name">
-            𓂃 ࣪˖ Dear Porch ♡ ִֶָ
-        </div>
-        <!-- =================================================
-             CORGI CHARACTERS
-        ================================================== -->
-        <div class="welcome-characters">
-            <!-- อิ๊งค์ -->
-            <img
-                src="images/ink-corgi.png"
-                alt="อิ๊งค์"
-                class="character"
-                onerror="this.style.display='none';"
-            >
-            <!-- พอร์ช -->
-            <img
-                src="images/porch-corgi.png"
-                alt="พอร์ช"
-                class="character porch"
-                onerror="this.style.display='none';"
-            >
-        </div>
-        <!-- =================================================
-             FULL TYPING MESSAGE
-             IMPORTANT:
-             JavaScript จะเป็นคนพิมพ์ข้อความทั้งหมด
-             จึงไม่ใส่ข้อความซ้ำไว้ตรงนี้
-        ================================================== -->
-        <section
-            class="welcome-text"
-            id="typingText"
-            aria-label="ข้อความต้อนรับ"
-        ></section>
-        <!-- =================================================
-             OPEN BOOK BUTTON
-             จะถูกแสดงหลังพิมพ์ข้อความจบ
-        ================================================== -->
-        <a
-            href="menu.html"
-            class="start-button"
-            id="openStory"
-        >
-            <span>เปิดสมุดความทรงจำ</span>
-            <span class="button-heart">♡</span>
-        </a>
+    <!-- =====================================================
+         BACKGROUND SPARKLES
+    ====================================================== -->
+    <div class="sparkles" aria-hidden="true">
+        <span>✦</span>
+        <span>♡</span>
+        <span>✧</span>
+        <span>⋆</span>
+        <span>♡</span>
+        <span>✦</span>
+        <span>✧</span>
+        <span>♡</span>
+        <span>⋆</span>
+        <span>✦</span>
+        <span>♡</span>
+        <span>✧</span>
     </div>
-</main>
-<!-- =====================================================
-     JAVASCRIPT
-====================================================== -->
-<script src="script.js"></script>
+    <!-- =====================================================
+         WELCOME PAGE
+    ====================================================== -->
+    <main
+        class="welcome-page"
+        id="welcome"
+    >
+        <div class="welcome-content">
+            <!-- =================================================
+                 WEBSITE TITLE
+            ================================================== -->
+            <div class="website-name">
+                𓂃 ࣪˖ Dear Porch ♡ ִֶָ
+            </div>
+            <!-- =================================================
+                 CORGI CHARACTERS
+            ================================================== -->
+            <div class="welcome-characters">
+                <!-- อิ๊งค์ -->
+                <img
+                    src="images/ink-corgi.png"
+                    alt="อิ๊งค์"
+                    class="character"
+                    onerror="this.style.display='none';"
+                >
+                <!-- พอร์ช -->
+                <img
+                    src="images/porch-corgi.png"
+                    alt="พอร์ช"
+                    class="character porch"
+                    onerror="this.style.display='none';"
+                >
+            </div>
+            <!-- =================================================
+                 WELCOME MESSAGE
+                 
+                 สำคัญ:
+                 ตรงนี้จะว่างไว้
+                 เพราะ script.js จะพิมพ์ข้อความให้ทั้งหมด
+                 
+                 จะไม่ใส่ข้อความซ้ำใน HTML
+                 เพื่อป้องกันข้อความขึ้นซ้ำ 2 รอบ
+            ================================================== -->
+            <section
+                class="welcome-text"
+                id="typingText"
+                aria-label="ข้อความต้อนรับ"
+            ></section>
+            <!-- =================================================
+                 OPEN MEMORY BOOK
+                 
+                 เมื่อกดแล้วจะไปหน้า home.html
+                 ซึ่งทำหน้าที่เป็นหน้าเมนูหลัก
+            ================================================== -->
+            <a
+                href="home.html"
+                class="start-button"
+                id="openStory"
+                aria-label="เปิดสมุดความทรงจำ"
+            >
+                <span>
+                    เปิดสมุดความทรงจำ
+                </span>
+                <span class="button-heart">
+                    ♡
+                </span>
+            </a>
+        </div>
+    </main>
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+    <script src="script.js"></script>
 </body>
 </html>
