@@ -1,6 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Itim&family=Kanit:wght@300;400;500;600&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Itim&family=Kanit:wght@300;400;500;600&display=swap');
 /* =========================================================
-   DEAR PORCH — COMPLETE STYLE
+   DEAR PORCH ✦
+   COMPLETE WEBSITE STYLE
    ========================================================= */
 /* =========================================================
    01 — RESET
@@ -15,37 +16,35 @@ html {
 }
 body {
     min-height: 100vh;
+    overflow-x: hidden;
     font-family: "Kanit", sans-serif;
     font-weight: 300;
     color: #665b69;
     background:
         radial-gradient(
             circle at 12% 8%,
-            rgba(255, 218, 236, 0.72),
+            rgba(255, 218, 235, 0.72),
             transparent 30%
         ),
         radial-gradient(
-            circle at 90% 15%,
-            rgba(222, 228, 255, 0.72),
+            circle at 88% 16%,
+            rgba(222, 230, 255, 0.72),
             transparent 30%
         ),
         radial-gradient(
             circle at 50% 100%,
             rgba(241, 220, 238, 0.65),
-            transparent 38%
+            transparent 35%
         ),
         linear-gradient(
             135deg,
-            #fffafd 0%,
+            #fff9fc 0%,
             #faf5ff 45%,
-            #f2f8ff 100%
+            #f1f8ff 100%
         );
     background-attachment: fixed;
-    overflow-x: hidden;
-    line-height: 1.8;
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-    transition: opacity 0.45s ease;
+    opacity: 1;
+    transition: opacity 0.5s ease;
 }
 body.page-leaving {
     opacity: 0;
@@ -61,7 +60,7 @@ a {
 button,
 input,
 textarea {
-    font-family: inherit;
+    font-family: "Kanit", sans-serif;
 }
 button {
     cursor: pointer;
@@ -71,7 +70,7 @@ img {
     max-width: 100%;
 }
 /* =========================================================
-   02 — BACKGROUND DECORATION
+   02 — SOFT BACKGROUND LIGHT
    ========================================================= */
 body::before {
     content: "";
@@ -79,65 +78,32 @@ body::before {
     width: 320px;
     height: 320px;
     top: -150px;
-    left: -120px;
+    left: -110px;
     border-radius: 50%;
     background: rgba(255, 205, 228, 0.34);
-    filter: blur(35px);
+    filter: blur(40px);
     pointer-events: none;
     z-index: -2;
-    animation: backgroundFloat 9s ease-in-out infinite;
 }
 body::after {
     content: "";
     position: fixed;
-    width: 340px;
-    height: 340px;
-    right: -150px;
-    bottom: -150px;
+    width: 330px;
+    height: 330px;
+    right: -140px;
+    bottom: -140px;
     border-radius: 50%;
-    background: rgba(215, 224, 255, 0.38);
-    filter: blur(40px);
+    background: rgba(215, 224, 255, 0.4);
+    filter: blur(45px);
     pointer-events: none;
     z-index: -2;
-    animation: backgroundFloat 11s ease-in-out infinite reverse;
-}
-@keyframes backgroundFloat {
-    0%,
-    100% {
-        transform: translate(0, 0);
-    }
-    50% {
-        transform: translate(20px, -15px);
-    }
 }
 /* =========================================================
-   03 — GLOBAL TEXT
-   ========================================================= */
-p,
-h1,
-h2,
-h3,
-h4,
-button,
-a {
-    overflow-wrap: break-word;
-}
-p {
-    line-height: 2;
-}
-h1,
-h2,
-h3 {
-    line-height: 1.35;
-}
-.cute-font {
-    font-family: "Itim", cursive;
-}
-/* =========================================================
-   04 — SPARKLES
+   03 — SPARKLES
    ========================================================= */
 .sparkles,
-.home-glitter {
+.home-glitter,
+.glitter-container {
     position: fixed;
     inset: 0;
     pointer-events: none;
@@ -151,8 +117,9 @@ h3 {
     font-size: 13px;
     text-shadow:
         0 0 8px rgba(255, 255, 255, 0.9),
-        0 0 15px rgba(236, 190, 220, 0.55);
-    animation: floatingSparkle 5s ease-in-out infinite;
+        0 0 16px rgba(236, 190, 220, 0.55);
+    animation:
+        floatingSparkle 5s ease-in-out infinite;
 }
 .sparkles span:nth-child(1),
 .home-glitter span:nth-child(1) {
@@ -244,13 +211,52 @@ h3 {
     }
 }
 /* =========================================================
-   05 — GENERAL PAGE
+   04 — GLITTER FALL
+   ========================================================= */
+.glitter {
+    position: absolute;
+    top: -20px;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.85);
+    box-shadow:
+        0 0 7px rgba(255, 255, 255, 0.9),
+        0 0 13px rgba(231, 190, 220, 0.55);
+    animation:
+        glitterFall 8s linear infinite,
+        glitterTwinkle 2s ease-in-out infinite;
+    transform: translateX(0);
+}
+@keyframes glitterFall {
+    from {
+        transform:
+            translate3d(0, -20px, 0);
+    }
+    to {
+        transform:
+            translate3d(var(--drift), 110vh, 0);
+    }
+}
+@keyframes glitterTwinkle {
+    0%,
+    100% {
+        opacity: 0.2;
+        transform: scale(0.7);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.3);
+    }
+}
+/* =========================================================
+   05 — GLOBAL PAGE
    ========================================================= */
 .home-page {
     position: relative;
     width: 100%;
     min-height: 100vh;
-    padding-bottom: 90px;
+    padding-bottom: 80px;
 }
 .home-header,
 .home-main {
@@ -258,7 +264,7 @@ h3 {
     z-index: 2;
 }
 /* =========================================================
-   06 — HEADER
+   06 — COMMON HEADER
    ========================================================= */
 .home-header {
     width: min(900px, 92%);
@@ -275,12 +281,13 @@ h3 {
     opacity: 1;
     transform: translateY(0);
 }
-.home-back {
+.home-back,
+.back-button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 6px;
-    padding: 8px 18px;
+    padding: 8px 17px;
     border: 1px solid rgba(174, 140, 167, 0.22);
     border-radius: 999px;
     background: rgba(255, 255, 255, 0.58);
@@ -294,7 +301,8 @@ h3 {
         background 0.25s ease,
         box-shadow 0.25s ease;
 }
-.home-back:hover {
+.home-back:hover,
+.back-button:hover {
     transform: translateY(-2px);
     background: rgba(255, 255, 255, 0.9);
     box-shadow:
@@ -303,6 +311,7 @@ h3 {
 .home-logo {
     margin-top: 24px;
     color: #8d7085;
+    font-family: "Itim", cursive;
     font-size: 18px;
     letter-spacing: 1.5px;
 }
@@ -336,34 +345,34 @@ h3 {
     margin: 0 auto;
 }
 /* =========================================================
-   08 — GLASS CARD SYSTEM
+   08 — GLASS SYSTEM
    ========================================================= */
 .home-message,
 .story-card,
 .our-dream,
 .person-card,
 .timeline-item,
-.gallery-grid figure {
+.gallery-grid figure,
+.memory-card,
+.family-card,
+.letter-paper,
+.final-letter,
+.reason-card {
     border: 1px solid rgba(185, 153, 180, 0.2);
     background:
-        linear-gradient(
-            145deg,
-            rgba(255, 255, 255, 0.72),
-            rgba(255, 248, 253, 0.54)
-        );
+        rgba(255, 255, 255, 0.6);
     box-shadow:
         0 18px 55px rgba(145, 110, 140, 0.075);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(14px);
 }
 /* =========================================================
-   09 — HOME MESSAGE
+   09 — MESSAGE CARD
    ========================================================= */
 .home-message {
     width: min(760px, 96%);
     margin: 25px auto;
-    padding: 34px 28px;
-    border-radius: 30px;
+    padding: 32px 25px;
+    border-radius: 28px;
     text-align: center;
     opacity: 0;
     transform: translateY(25px);
@@ -398,8 +407,8 @@ h3 {
 .story-card {
     position: relative;
     margin: 20px 0;
-    padding: 30px;
-    border-radius: 30px;
+    padding: 28px;
+    border-radius: 28px;
     overflow: hidden;
     opacity: 0;
     transform: translateY(30px);
@@ -464,8 +473,8 @@ h3 {
     position: relative;
     width: calc(50% - 30px);
     margin: 35px 0;
-    padding: 26px;
-    border-radius: 27px;
+    padding: 24px;
+    border-radius: 25px;
     opacity: 0;
     transform: translateY(25px);
     transition:
@@ -478,6 +487,10 @@ h3 {
     opacity: 1;
     transform: translateY(0);
 }
+.timeline-item:hover {
+    box-shadow:
+        0 24px 60px rgba(145, 110, 140, 0.11);
+}
 .timeline-item:nth-child(odd) {
     margin-right: auto;
 }
@@ -488,8 +501,8 @@ h3 {
     content: "♡";
     position: absolute;
     top: 50%;
-    width: 27px;
-    height: 27px;
+    width: 26px;
+    height: 26px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -501,10 +514,10 @@ h3 {
     transform: translateY(-50%);
 }
 .timeline-item:nth-child(odd)::before {
-    right: -44px;
+    right: -43px;
 }
 .timeline-item:nth-child(even)::before {
-    left: -44px;
+    left: -43px;
 }
 .timeline-item h2,
 .timeline-item h3 {
@@ -527,13 +540,14 @@ h3 {
     display: grid;
     grid-template-columns:
         repeat(2, minmax(0, 1fr));
-    gap: 22px;
+    gap: 20px;
     width: min(900px, 96%);
     margin: 0 auto;
 }
 .gallery-grid figure {
     position: relative;
     overflow: hidden;
+    padding: 9px;
     border-radius: 28px;
     opacity: 0;
     transform: translateY(25px);
@@ -549,28 +563,29 @@ h3 {
 }
 .gallery-grid figure:hover {
     box-shadow:
-        0 25px 60px rgba(145, 110, 140, 0.13);
+        0 25px 65px rgba(145, 110, 140, 0.14);
 }
 .gallery-grid img {
     width: 100%;
     height: 320px;
     object-fit: cover;
+    border-radius: 21px;
     transition:
-        transform 0.6s cubic-bezier(.2,.8,.2,1);
+        transform 0.6s ease,
+        filter 0.6s ease;
 }
 .gallery-grid figure:hover img {
-    transform: scale(1.045);
+    transform: scale(1.035);
+    filter: brightness(1.025);
 }
 .gallery-grid figcaption {
-    padding: 15px 18px;
-    background:
-        rgba(255, 255, 255, 0.74);
+    padding: 14px 18px 10px;
     color: #806b7b;
     text-align: center;
     line-height: 1.7;
 }
 /* =========================================================
-   13 — MEMORY
+   13 — MEMORIES
    ========================================================= */
 .memory-grid {
     display: grid;
@@ -580,13 +595,7 @@ h3 {
 }
 .memory-card {
     overflow: hidden;
-    border:
-        1px solid rgba(185, 153, 180, 0.2);
-    border-radius: 30px;
-    background:
-        rgba(255, 255, 255, 0.64);
-    box-shadow:
-        0 18px 55px rgba(145, 110, 140, 0.08);
+    border-radius: 28px;
     transition:
         transform 0.3s ease,
         box-shadow 0.3s ease;
@@ -609,14 +618,15 @@ h3 {
     width: 100%;
     height: 260px;
     object-fit: cover;
-    border-radius: 22px;
-    transition: transform 0.5s ease;
+    border-radius: 20px;
+    transition:
+        transform 0.5s ease;
 }
 .memory-card:hover .memory-photo img {
-    transform: scale(1.02);
+    transform: scale(1.025);
 }
 .memory-info {
-    padding: 21px;
+    padding: 20px;
     text-align: center;
 }
 .memory-info h2,
@@ -639,8 +649,8 @@ h3 {
     gap: 20px;
 }
 .person-card {
-    padding: 27px;
-    border-radius: 30px;
+    padding: 25px;
+    border-radius: 28px;
     text-align: center;
     opacity: 0;
     transform: translateY(25px);
@@ -665,12 +675,15 @@ h3 {
     object-fit: contain;
     filter:
         drop-shadow(
-            0 12px 16px rgba(120, 90, 110, 0.13)
+            0 12px 16px rgba(120, 90, 110, 0.12)
         );
-    transition: transform 0.4s ease;
+    transition:
+        transform 0.4s ease;
 }
 .person-card:hover img {
-    transform: translateY(-5px);
+    transform:
+        translateY(-5px)
+        rotate(2deg);
 }
 .person-card h2,
 .person-card h3 {
@@ -688,8 +701,8 @@ h3 {
 .our-dream {
     width: min(760px, 96%);
     margin: 30px auto;
-    padding: 34px;
-    border-radius: 30px;
+    padding: 32px;
+    border-radius: 28px;
     text-align: center;
     opacity: 0;
     transform: translateY(25px);
@@ -716,18 +729,16 @@ h3 {
    ========================================================= */
 .letter-paper {
     position: relative;
-    width: min(760px, 96%);
+    width: min(740px, 96%);
     margin: 0 auto;
     padding:
-        52px clamp(25px, 7vw, 72px);
-    border:
-        1px solid rgba(185, 151, 179, 0.25);
-    border-radius: 32px;
+        48px clamp(25px, 7vw, 72px);
+    border-radius: 30px;
     background:
         linear-gradient(
             145deg,
             rgba(255, 255, 255, 0.86),
-            rgba(255, 248, 252, 0.74)
+            rgba(255, 248, 252, 0.75)
         );
     box-shadow:
         0 28px 75px rgba(145, 110, 140, 0.1);
@@ -751,38 +762,55 @@ h3 {
     right: -75px;
     top: -75px;
     border-radius: 50%;
-    background: rgba(255, 210, 232, 0.3);
+    background:
+        rgba(255, 210, 232, 0.32);
     filter: blur(2px);
 }
 .letter-paper::after {
     content: "♡";
     position: absolute;
-    right: 24px;
-    top: 24px;
-    color: rgba(194, 151, 177, 0.35);
-    font-size: 24px;
+    left: 25px;
+    bottom: 20px;
+    color:
+        rgba(195, 149, 172, 0.15);
+    font-size: 34px;
+    animation:
+        softPulse 3s ease-in-out infinite;
+}
+@keyframes softPulse {
+    0%,
+    100% {
+        opacity: 0.35;
+        transform: scale(0.9);
+    }
+    50% {
+        opacity: 0.8;
+        transform: scale(1.08);
+    }
 }
 .letter-decoration {
     position: relative;
-    z-index: 1;
     text-align: center;
     color: #c395ac;
     margin-bottom: 25px;
-    font-size: 15px;
+    font-size: 18px;
 }
 .letter-date {
+    position: relative;
     text-align: right;
     color: #ae94a5;
     font-size: 12px;
 }
 .letter-greeting {
+    position: relative;
     margin-top: 35px;
     color: #786071;
     font-family: "Itim", cursive;
-    font-size: 26px;
-    line-height: 1.5;
+    font-size: 25px;
+    line-height: 1.6;
 }
 .letter-content {
+    position: relative;
     margin-top: 28px;
 }
 .letter-content p {
@@ -795,6 +823,7 @@ h3 {
     font-size: 19px;
 }
 .letter-signature {
+    position: relative;
     margin-top: 35px;
     color: #98768b;
     text-align: right;
@@ -816,18 +845,20 @@ h3 {
     align-items: center;
     gap: 16px;
     padding: 18px 20px;
-    border:
-        1px solid rgba(185, 153, 180, 0.18);
-    border-radius: 23px;
-    background:
-        rgba(255, 255, 255, 0.61);
-    box-shadow:
-        0 10px 30px rgba(145, 110, 140, 0.045);
-    backdrop-filter: blur(12px);
+    border-radius: 22px;
     transition:
         transform 0.25s ease,
         box-shadow 0.25s ease,
-        background 0.25s ease;
+        background 0.25s ease,
+        opacity 0.7s ease;
+}
+.reason-card.reveal {
+    opacity: 0;
+    transform: translateY(22px);
+}
+.reason-card.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 .reason-card:hover {
     transform: translateY(-3px);
@@ -836,7 +867,7 @@ h3 {
     box-shadow:
         0 16px 40px rgba(145, 110, 140, 0.1);
 }
-.reason-card span {
+.reason-number {
     flex: 0 0 42px;
     width: 42px;
     height: 42px;
@@ -847,14 +878,16 @@ h3 {
     background:
         linear-gradient(
             145deg,
-            rgba(255, 219, 235, 0.8),
-            rgba(235, 226, 255, 0.8)
+            rgba(255, 219, 235, 0.85),
+            rgba(235, 226, 255, 0.85)
         );
     color: #98768b;
-    font-size: 11px;
+    font-family: "Itim", cursive;
+    font-size: 13px;
+    box-shadow:
+        inset 0 0 0 1px rgba(255,255,255,0.35);
 }
-.reason-card p {
-    margin: 0;
+.reason-text {
     color: #716474;
     line-height: 1.8;
 }
@@ -869,14 +902,7 @@ h3 {
 }
 .family-card {
     overflow: hidden;
-    border:
-        1px solid rgba(185, 153, 180, 0.22);
-    border-radius: 31px;
-    background:
-        rgba(255, 255, 255, 0.64);
-    box-shadow:
-        0 18px 55px rgba(145, 110, 140, 0.075);
-    backdrop-filter: blur(12px);
+    border-radius: 30px;
     opacity: 0;
     transform: translateY(30px);
     transition:
@@ -959,9 +985,7 @@ h3 {
     margin: 0 auto;
     padding:
         50px clamp(25px, 7vw, 72px);
-    border:
-        1px solid rgba(185, 153, 180, 0.23);
-    border-radius: 31px;
+    border-radius: 30px;
     background:
         rgba(255, 255, 255, 0.74);
     box-shadow:
@@ -981,6 +1005,7 @@ h3 {
 .final-symbol {
     margin-bottom: 30px;
     color: #c397ae;
+    font-size: 22px;
 }
 .final-letter > p {
     margin-bottom: 25px;
@@ -1056,28 +1081,47 @@ h3 {
 /* =========================================================
    20 — WELCOME / INDEX
    ========================================================= */
-.welcome-page {
+.welcome-page,
+#welcome {
     position: relative;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 55px 20px;
+    padding: 45px 20px;
     text-align: center;
     overflow: hidden;
     opacity: 1;
     transition:
-        opacity 0.7s ease;
+        opacity 0.7s ease,
+        transform 0.7s ease;
+}
+.welcome-page.hide,
+#welcome.hide {
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
 }
 .website-name {
     position: relative;
     z-index: 2;
     color: #8d7085;
-    font-size: 18px;
-    letter-spacing: 2px;
+    font-family: "Itim", cursive;
+    font-size: 19px;
+    letter-spacing: 1.5px;
     animation:
-        softAppear 1s ease both;
+        fadeDown 1s ease both;
+}
+@keyframes fadeDown {
+    from {
+        opacity: 0;
+        transform: translateY(-15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 .welcome-characters {
     position: relative;
@@ -1088,7 +1132,21 @@ h3 {
     gap: 15px;
     margin: 30px auto 20px;
     animation:
-        softAppear 1s 0.2s ease both;
+        charactersAppear 1s ease 0.15s both;
+}
+@keyframes charactersAppear {
+    from {
+        opacity: 0;
+        transform:
+            translateY(20px)
+            scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform:
+            translateY(0)
+            scale(1);
+    }
 }
 .character {
     width: clamp(120px, 30vw, 190px);
@@ -1101,32 +1159,49 @@ h3 {
     animation:
         characterFloat 4s ease-in-out infinite;
 }
-.character.ink {
-    animation-delay: 0s;
-}
 .character.porch {
     animation-delay: 0.7s;
 }
 @keyframes characterFloat {
     0%,
     100% {
-        transform: translateY(0) rotate(0deg);
+        transform: translateY(0);
     }
     50% {
-        transform: translateY(-8px) rotate(1deg);
+        transform: translateY(-8px);
     }
 }
+/* =========================================================
+   21 — WELCOME TEXT
+   ========================================================= */
 .welcome-text {
     position: relative;
     z-index: 2;
-    width: min(620px, 95%);
+    width: min(650px, 94%);
     color: #6f6370;
+    font-size: 15px;
     line-height: 2;
     animation:
-        softAppear 1s 0.4s ease both;
+        welcomeTextAppear 1s ease 0.35s both;
 }
+@keyframes welcomeTextAppear {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/*
+   สำคัญ:
+   ให้พื้นที่ของ typing อยู่คงที่
+   เพื่อไม่ให้หน้าเว็บกระโดดตอนตัวหนังสือพิมพ์
+*/
 .typing-text {
-    min-height: 32px;
+    min-height: 2em;
+    margin-bottom: 2px;
     white-space: pre-wrap;
 }
 .welcome-text h1 {
@@ -1136,63 +1211,73 @@ h3 {
     font-size: clamp(38px, 9vw, 65px);
     font-weight: 400;
     line-height: 1.25;
+    letter-spacing: 0;
+    text-shadow:
+        0 5px 25px rgba(174, 135, 164, 0.13);
 }
 .welcome-text p {
     margin: 8px 0;
 }
 .little-message {
-    margin: 22px 0 !important;
+    margin: 22px 0;
     color: #806c7c;
 }
-.start-button {
+/* =========================================================
+   22 — START BUTTON
+   ========================================================= */
+.start-button,
+#openStory {
     position: relative;
     z-index: 3;
     margin-top: 30px;
-    padding: 13px 28px;
+    padding: 13px 27px;
     border:
         1px solid rgba(180, 145, 170, 0.25);
     border-radius: 999px;
     background:
-        rgba(255, 255, 255, 0.72);
+        rgba(255, 255, 255, 0.7);
     color: #846a7c;
     font-size: 14px;
     box-shadow:
         0 12px 35px rgba(145, 110, 140, 0.09);
     opacity: 0;
-    transform: translateY(10px);
+    transform:
+        translateY(10px)
+        scale(0.98);
     transition:
         opacity 0.6s ease,
         transform 0.6s ease,
         background 0.25s ease,
         box-shadow 0.25s ease;
 }
-.start-button.show-button {
+.start-button.show-button,
+#openStory.show {
     opacity: 1;
-    transform: translateY(0);
+    transform:
+        translateY(0)
+        scale(1);
 }
-.start-button:hover {
+.start-button:hover,
+#openStory:hover {
     background:
         rgba(255, 255, 255, 0.95);
     box-shadow:
         0 18px 45px rgba(145, 110, 140, 0.14);
-    transform: translateY(-3px);
+    transform:
+        translateY(-3px)
+        scale(1.015);
 }
-@keyframes softAppear {
-    from {
-        opacity: 0;
-        transform:
-            translateY(15px);
-    }
-    to {
-        opacity: 1;
-        transform:
-            translateY(0);
-    }
+.start-button:active,
+#openStory:active {
+    transform:
+        translateY(0)
+        scale(0.96);
 }
 /* =========================================================
-   21 — MENU
+   23 — MENU PAGE
    ========================================================= */
-.menu-page {
+.menu-page,
+#bookMenu {
     min-height: 100vh;
     width: 100%;
     display: flex;
@@ -1203,41 +1288,32 @@ h3 {
     transition:
         opacity 0.7s ease;
 }
+.menu-page.show,
+#bookMenu.show {
+    opacity: 1;
+}
 .menu-container {
     position: relative;
     z-index: 2;
-    width: min(650px, 94%);
-    padding: 40px 25px;
+    width: min(620px, 94%);
+    padding: 35px 25px;
     text-align: center;
-    animation:
-        menuAppear 0.8s ease both;
-}
-@keyframes menuAppear {
-    from {
-        opacity: 0;
-        transform:
-            translateY(25px)
-            scale(0.98);
-    }
-    to {
-        opacity: 1;
-        transform:
-            translateY(0)
-            scale(1);
-    }
 }
 .menu-logo {
     color: #8d7085;
-    font-size: 18px;
-    letter-spacing: 2px;
+    font-family: "Itim", cursive;
+    font-size: 19px;
+    letter-spacing: 1.5px;
 }
 .menu-title {
     margin-top: 20px;
     color: #765e72;
     font-family: "Itim", cursive;
-    font-size: 34px;
+    font-size: 38px;
     font-weight: 400;
     letter-spacing: 1px;
+    text-shadow:
+        0 5px 20px rgba(174, 135, 164, 0.12);
 }
 .menu-line {
     margin: 10px auto 25px;
@@ -1246,18 +1322,21 @@ h3 {
 }
 .book-menu {
     display: grid;
-    gap: 13px;
+    gap: 12px;
 }
 .menu-item {
     width: 100%;
-    padding: 16px 18px;
+    min-height: 55px;
+    padding: 15px 18px;
     border:
         1px solid rgba(185, 153, 180, 0.18);
-    border-radius: 22px;
+    border-radius: 20px;
     background:
-        rgba(255, 255, 255, 0.58);
+        rgba(255, 255, 255, 0.55);
     color: #806a7b;
-    font-size: 14px;
+    font-family: "Itim", "Kanit", cursive;
+    font-size: 17px;
+    line-height: 1.6;
     box-shadow:
         0 8px 25px rgba(145, 110, 140, 0.045);
     backdrop-filter: blur(10px);
@@ -1269,15 +1348,18 @@ h3 {
 .menu-item:hover {
     transform: translateY(-3px);
     background:
-        rgba(255, 255, 255, 0.9);
+        rgba(255, 255, 255, 0.88);
     box-shadow:
         0 14px 35px rgba(145, 110, 140, 0.1);
 }
 .menu-item:active {
     transform:
-        translateY(-1px)
-        scale(0.99);
+        translateY(0)
+        scale(0.98);
 }
+/* =========================================================
+   24 — ASCII CORGI
+   ========================================================= */
 .ascii-corgi {
     margin: 35px auto 0;
     max-width: 100%;
@@ -1286,6 +1368,17 @@ h3 {
     font-size: 8px;
     line-height: 1.2;
     opacity: 0.75;
+    animation:
+        corgiFloat 4s ease-in-out infinite;
+}
+@keyframes corgiFloat {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-4px);
+    }
 }
 .menu-star {
     margin-top: 20px;
@@ -1302,16 +1395,18 @@ h3 {
     }
 }
 /* =========================================================
-   22 — FADE / SCROLL ANIMATIONS
+   25 — REVEAL ANIMATIONS
    ========================================================= */
-.fade-up {
+.fade-up,
+.reveal {
     opacity: 0;
     transform: translateY(30px);
     transition:
         opacity 0.8s ease,
         transform 0.8s ease;
 }
-.fade-up.visible {
+.fade-up.visible,
+.reveal.visible {
     opacity: 1;
     transform: translateY(0);
 }
@@ -1346,31 +1441,35 @@ h3 {
     transform: translateX(0);
 }
 /* =========================================================
-   23 — IMAGE FALLBACK
+   26 — IMAGE FALLBACK
    ========================================================= */
 .image-missing {
     opacity: 0.3;
     filter: grayscale(1);
 }
 /* =========================================================
-   24 — BUTTON / LINK SAFETY
+   27 — COMMON FOOTER / SMALL TEXT
    ========================================================= */
-button {
-    -webkit-tap-highlight-color: transparent;
+.page-footer {
+    width: min(760px, 92%);
+    margin: 55px auto 0;
+    padding: 20px;
+    text-align: center;
+    color: #a28d9e;
+    font-size: 12px;
+    line-height: 2;
 }
-button:focus-visible,
-a:focus-visible {
-    outline:
-        2px solid rgba(180, 140, 170, 0.45);
-    outline-offset: 3px;
+.page-footer .heart {
+    color: #c697af;
+    animation:
+        softPulse 2.5s ease-in-out infinite;
 }
 /* =========================================================
-   25 — MOBILE
+   28 — MOBILE
    ========================================================= */
 @media (max-width: 700px) {
     body {
         background-attachment: scroll;
-        font-size: 14px;
     }
     .home-header {
         padding:
@@ -1404,9 +1503,6 @@ a:focus-visible {
     .gallery-grid img {
         height: 280px;
     }
-    .timeline {
-        width: 94%;
-    }
     .timeline::before {
         left: 10px;
     }
@@ -1427,8 +1523,8 @@ a:focus-visible {
     .final-letter {
         width: 96%;
         padding:
-            38px 22px;
-        border-radius: 26px;
+            35px 22px;
+        border-radius: 24px;
     }
     .letter-content p,
     .final-letter > p {
@@ -1436,26 +1532,25 @@ a:focus-visible {
         line-height: 2;
     }
     .letter-greeting {
-        font-size: 23px;
+        font-size: 22px;
     }
     .reason-card {
         align-items: flex-start;
         padding: 16px;
     }
-    .reason-card span {
-        flex: 0 0 38px;
+    .reason-number {
+        flex:
+            0 0 38px;
         width: 38px;
         height: 38px;
     }
-    .reason-card p {
+    .reason-text {
         font-size: 13px;
     }
-    .welcome-page {
+    .welcome-page,
+    #welcome {
         padding:
             35px 18px;
-    }
-    .website-name {
-        font-size: 15px;
     }
     .welcome-characters {
         gap: 5px;
@@ -1468,37 +1563,35 @@ a:focus-visible {
     .welcome-text {
         width: 100%;
         font-size: 14px;
+        line-height: 2;
     }
     .welcome-text h1 {
         font-size: 42px;
     }
-    .little-message {
-        margin:
-            18px 0 !important;
-    }
-    .start-button {
+    .start-button,
+    #openStory {
         margin-top: 22px;
     }
     .menu-container {
         width: 96%;
         padding:
-            25px 8px;
+            25px 10px;
     }
     .menu-title {
         font-size: 30px;
     }
     .menu-item {
+        min-height: 52px;
         padding:
-            15px 12px;
-        font-size: 13px;
-        line-height: 1.7;
+            13px 12px;
+        font-size: 15px;
     }
     .ascii-corgi {
         font-size: 5px;
     }
 }
 /* =========================================================
-   26 — SMALL PHONES
+   29 — SMALL PHONES
    ========================================================= */
 @media (max-width: 390px) {
     .home-header h1 {
@@ -1525,37 +1618,30 @@ a:focus-visible {
         padding:
             20px 17px;
     }
-    .letter-paper {
+    .letter-paper,
+    .final-letter {
         padding:
-            32px 18px;
-    }
-    .letter-greeting {
-        font-size: 21px;
-    }
-}
-/* =========================================================
-   27 — VERY SMALL PHONES
-   ========================================================= */
-@media (max-width: 340px) {
-    .welcome-characters {
-        gap: 0;
-    }
-    .character {
-        width: 115px;
-        height: 115px;
-    }
-    .welcome-text h1 {
-        font-size: 34px;
+            30px 18px;
     }
     .menu-title {
-        font-size: 27px;
+        font-size: 28px;
     }
     .menu-item {
-        font-size: 12px;
+        font-size: 14px;
     }
 }
 /* =========================================================
-   28 — REDUCED MOTION
+   30 — ACCESSIBILITY
+   ========================================================= */
+button:focus-visible,
+a:focus-visible {
+    outline:
+        2px solid rgba(190, 145, 177, 0.65);
+    outline-offset:
+        4px;
+}
+/* =========================================================
+   31 — REDUCED MOTION
    ========================================================= */
 @media (prefers-reduced-motion: reduce) {
     html {
