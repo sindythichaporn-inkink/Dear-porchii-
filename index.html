@@ -7,1710 +7,311 @@
 
     <title>Dear Porch ✦</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: "Kanit", sans-serif;
-            background: #fff8fc;
-            color: #594b57;
-            overflow-x: hidden;
-        }
-
-        button {
-            font-family: inherit;
-        }
-
-        /* =========================
-           พื้นหลัง + กริตเตอร์
-        ========================= */
-
-        body::before {
-            content: "";
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            background:
-                radial-gradient(circle at 15% 20%, rgba(255, 190, 220, .35), transparent 25%),
-                radial-gradient(circle at 85% 70%, rgba(205, 190, 255, .3), transparent 25%);
-            z-index: -2;
-        }
-
-        .sparkle {
-            position: fixed;
-            width: 7px;
-            height: 7px;
-            border-radius: 50%;
-            background: white;
-            box-shadow: 0 0 12px rgba(255, 255, 255, .9);
-            opacity: .8;
-            pointer-events: none;
-            animation: floatSparkle linear infinite;
-            z-index: 20;
-        }
-
-        @keyframes floatSparkle {
-            0% {
-                transform: translateY(110vh) scale(.4);
-                opacity: 0;
-            }
-
-            20% {
-                opacity: .8;
-            }
-
-            80% {
-                opacity: .8;
-            }
-
-            100% {
-                transform: translateY(-10vh) scale(1.4);
-                opacity: 0;
-            }
-        }
-
-        /* =========================
-           ทุกหน้า
-        ========================= */
-
-        .page {
-            min-height: 100vh;
-            display: none;
-            padding: 45px 20px;
-            position: relative;
-        }
-
-        .page.active {
-            display: flex;
-            animation: pageIn .8s ease both;
-        }
-
-        @keyframes pageIn {
-            from {
-                opacity: 0;
-                transform: scale(.97) translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: scale(1) translateY(0);
-            }
-        }
-
-        .page-inner {
-            width: min(900px, 100%);
-            margin: auto;
-        }
-
-        /* =========================
-           หน้าแรก
-        ========================= */
-
-        #welcome {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            min-height: 100vh;
-            overflow: hidden;
-        }
-
-        .welcome-card {
-            width: min(760px, 100%);
-            padding: 45px 25px;
-            border-radius: 40px;
-            background: rgba(255, 255, 255, .65);
-            backdrop-filter: blur(15px);
-            box-shadow:
-                0 20px 70px rgba(150, 110, 150, .18),
-                inset 0 0 0 1px rgba(255, 255, 255, .8);
-            animation: welcomeFloat 4s ease-in-out infinite;
-        }
-
-        @keyframes welcomeFloat {
-
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-8px);
-            }
-        }
-
-        .website-name {
-            font-size: 20px;
-            letter-spacing: 3px;
-            margin-bottom: 30px;
-        }
-
-        .characters {
-            display: flex;
-            justify-content: center;
-            align-items: end;
-            gap: 15px;
-            min-height: 190px;
-            margin-bottom: 20px;
-        }
-
-        .character {
-            width: 145px;
-            max-width: 40%;
-            object-fit: contain;
-            animation: characterFloat 3s ease-in-out infinite;
-        }
-
-        .character:nth-child(2) {
-            animation-delay: .5s;
-        }
-
-        @keyframes characterFloat {
-
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-12px);
-            }
-        }
-
-        .welcome-text p {
-            margin: 12px 0;
-            font-size: 18px;
-        }
-
-        .welcome-text h1 {
-            font-size: clamp(42px, 12vw, 75px);
-            color: #d985b2;
-            margin: 5px 0;
-            text-shadow: 0 8px 25px rgba(210, 120, 170, .2);
-        }
-
-        .little-message {
-            margin-top: 25px !important;
-            line-height: 1.8;
-        }
-
-        .typing {
-            min-height: 30px;
-        }
-
-        .start-button {
-            margin-top: 30px;
-            border: none;
-            padding: 14px 28px;
-            border-radius: 999px;
-            background: #fff;
-            color: #a65b88;
-            box-shadow: 0 10px 30px rgba(160, 100, 140, .18);
-            cursor: pointer;
-            font-size: 16px;
-            transition: .3s;
-        }
-
-        .start-button:hover {
-            transform: translateY(-5px) scale(1.04);
-            box-shadow: 0 15px 35px rgba(160, 100, 140, .28);
-        }
-
-        /* =========================
-           MENU
-        ========================= */
-
-        #menu {
-            text-align: center;
-            align-items: center;
-        }
-
-        .menu-logo {
-            letter-spacing: 4px;
-            margin-bottom: 15px;
-        }
-
-        .menu-title {
-            font-size: clamp(35px, 8vw, 60px);
-            color: #bc7ca4;
-            margin-bottom: 5px;
-        }
-
-        .menu-line {
-            opacity: .5;
-            margin-bottom: 30px;
-        }
-
-        .book-menu {
-            display: grid;
-            gap: 13px;
-            width: min(620px, 100%);
-            margin: auto;
-        }
-
-        .menu-item {
-            border: 1px solid rgba(210, 170, 200, .35);
-            background: rgba(255, 255, 255, .72);
-            padding: 17px 20px;
-            border-radius: 22px;
-            color: #654f60;
-            cursor: pointer;
-            font-size: 17px;
-            box-shadow: 0 8px 25px rgba(150, 110, 150, .08);
-            transition: .35s;
-        }
-
-        .menu-item:hover {
-            transform: translateX(8px) scale(1.02);
-            background: #fff;
-            box-shadow: 0 15px 35px rgba(160, 110, 150, .18);
-        }
-
-        .menu-star {
-            margin-top: 30px;
-            font-size: 28px;
-            animation: spinStar 5s linear infinite;
-        }
-
-        @keyframes spinStar {
-            to {
-                transform: rotate(360deg);
-            }
-        }
-
-        /* =========================
-           หน้าภายใน
-        ========================= */
-
-        .content-card {
-            background: rgba(255, 255, 255, .72);
-            backdrop-filter: blur(15px);
-            padding: clamp(25px, 5vw, 55px);
-            border-radius: 35px;
-            box-shadow: 0 20px 60px rgba(150, 110, 150, .13);
-        }
-
-        .page-title {
-            text-align: center;
-            color: #bd7aa4;
-            font-size: clamp(30px, 7vw, 52px);
-            margin-bottom: 35px;
-        }
-
-        .content-card h3 {
-            color: #b56d98;
-            margin-top: 30px;
-            margin-bottom: 12px;
-        }
-
-        .content-card p {
-            line-height: 2;
-            margin-bottom: 14px;
-            font-size: 16px;
-        }
-
-        .back-button {
-            display: block;
-            margin: 35px auto 0;
-            border: none;
-            background: #fff;
-            color: #a8668d;
-            padding: 12px 25px;
-            border-radius: 999px;
-            cursor: pointer;
-            box-shadow: 0 8px 25px rgba(150, 100, 140, .13);
-            transition: .3s;
-        }
-
-        .back-button:hover {
-            transform: translateY(-4px);
-        }
-
-        /* =========================
-           Timeline
-        ========================= */
-
-        .timeline {
-            border-left: 2px dashed #d8abc5;
-            padding-left: 25px;
-        }
-
-        .timeline-item {
-            margin-bottom: 35px;
-            position: relative;
-        }
-
-        .timeline-item::before {
-            content: "";
-            position: absolute;
-            left: -34px;
-            top: 7px;
-            width: 14px;
-            height: 14px;
-            border-radius: 50%;
-            background: #e7a8c7;
-            box-shadow: 0 0 0 7px rgba(231, 168, 199, .18);
-        }
-
-        /* =========================
-           Gallery
-        ========================= */
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 18px;
-        }
-
-        .month-card {
-            min-height: 170px;
-            border-radius: 25px;
-            background: rgba(255, 255, 255, .8);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 15px;
-            overflow: hidden;
-            transition: .4s;
-        }
-
-        .month-card:hover {
-            transform: translateY(-8px) rotate(1deg);
-        }
-
-        .month-card img {
-            width: 100%;
-            height: 190px;
-            object-fit: cover;
-            border-radius: 18px;
-        }
-
-        /* =========================
-           Reasons
-        ========================= */
-
-        .reasons {
-            display: grid;
-            gap: 12px;
-        }
-
-        .reason {
-            background: rgba(255, 255, 255, .72);
-            padding: 15px 18px;
-            border-radius: 18px;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: reasonIn .6s ease forwards;
-        }
-
-        @keyframes reasonIn {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* =========================
-           Family
-        ========================= */
-
-        .family-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 18px;
-        }
-
-        .family-card {
-            text-align: center;
-            padding: 25px 15px;
-            background: rgba(255, 255, 255, .75);
-            border-radius: 25px;
-            transition: .3s;
-        }
-
-        .family-card:hover {
-            transform: translateY(-8px);
-        }
-
-        .family-icon {
-            font-size: 45px;
-            margin-bottom: 10px;
-        }
-
-        /* =========================
-           Responsive
-        ========================= */
-
-        @media (max-width: 600px) {
-
-            .page {
-                padding: 25px 15px;
-            }
-
-            .welcome-card {
-                padding: 35px 18px;
-                border-radius: 30px;
-            }
-
-            .characters {
-                min-height: 145px;
-            }
-
-            .character {
-                width: 120px;
-            }
-
-            .gallery-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .family-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .content-card {
-                padding: 25px 20px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- ✦ กริตเตอร์กลม ๆ -->
-    <div class="sparkle" style="left:5%;animation-duration:9s;"></div>
-    <div class="sparkle" style="left:14%;animation-duration:12s;animation-delay:2s;"></div>
-    <div class="sparkle" style="left:26%;animation-duration:10s;animation-delay:4s;"></div>
-    <div class="sparkle" style="left:38%;animation-duration:13s;animation-delay:1s;"></div>
-    <div class="sparkle" style="left:50%;animation-duration:8s;animation-delay:3s;"></div>
-    <div class="sparkle" style="left:62%;animation-duration:11s;animation-delay:5s;"></div>
-    <div class="sparkle" style="left:74%;animation-duration:9s;animation-delay:2s;"></div>
-    <div class="sparkle" style="left:86%;animation-duration:12s;animation-delay:1s;"></div>
-    <div class="sparkle" style="left:94%;animation-duration:10s;animation-delay:4s;"></div>
+    <!-- ============================= -->
+    <!-- ✦ WELCOME PAGE -->
+    <!-- ============================= -->
 
-    <!-- =========================
-         หน้าแรก
-    ========================= -->
+    <main id="app">
 
-    <section class="page active" id="welcome">
+        <section class="welcome-page" id="welcomePage">
 
-        <div class="welcome-card">
-
+            <!-- ชื่อเว็บไซต์ -->
             <p class="website-name">
                 ժׁׅ݊ꫀׁׅܻɑׁׅ֮r&nbsp;&nbsp;pᨵׁׅrᝯׁhׁׅ֮ ✦
             </p>
 
-            <div class="characters">
+            <!-- คอร์กี้ -->
+            <div class="welcome-characters">
 
                 <img
                     src="images/characters/ink.png"
                     alt="Ink Corgi"
-                    class="character">
+                    class="character ink">
 
                 <img
                     src="images/characters/porch.png"
                     alt="Porch Corgi"
-                    class="character">
+                    class="character porch">
 
             </div>
 
+            <!-- ข้อความ -->
             <div class="welcome-text">
 
-                <p id="typingText" class="typing"></p>
+                <p class="typing-text" id="typingText">
+                    สวัสดี ! เธอคงเป็น..
+                </p>
 
-                <h1>พอร์ช!?!</h1>
-
-                <p>ใช่ไหม…</p>
+                <h1>
+                    พอร์ช!?!
+                </h1>
 
                 <p>
-                    งั้นคงเป็นแฟนกับอิ๊งค์สินะ
-                    ^____^
+                    ใช่ไหม… ^____^
+                </p>
+
+                <p>
+                    งั้นก็คงเป็นแฟนของอิ๊งค์สินะ
+                    𐔌՞ ܸ.ˬ.ܸ՞𐦯
                 </p>
 
                 <p class="little-message">
-                    รู้ไหมแฟนของเธอตั้งใจทำเว็บไซต์นี้<br>
-                    เพื่อเธอมาก ๆ !
+                    รู้ไหม…
+                    <br>
+                    แฟนของเธอตั้งใจทำเว็บไซต์นี้
+                    <br>
+                    เพื่อเธอมาก ๆ เลยนะ
+                    ૮₍ ˃ ⤙ ˂ ₎ა
+                </p>
+
+                <p>
+                    ทุกภาพ ทุกความทรงจำ
+                    <br>
+                    และทุกข้อความในนี้
+                    <br>
+                    ล้วนเป็นสิ่งที่อิ๊งค์ตั้งใจเก็บเอาไว้
+                    <br>
+                    เพื่อให้เธอได้กลับมายิ้มกับมันอีกครั้ง ‹𝟹
                 </p>
 
             </div>
 
-            <button class="start-button" onclick="openPage('menu')">
-                ♡ เปิดสมุดความทรงจำของเรา
+            <!-- ปุ่ม -->
+            <button
+                id="startButton"
+                class="start-button"
+                onclick="openMenu()">
+
+                ♫ &nbsp; Open our story
             </button>
 
-        </div>
+            <!-- Glitter -->
+            <div class="sparkles" aria-hidden="true">
+                <span>✦</span>
+                <span>˚</span>
+                <span>✧</span>
+                <span>⋆</span>
+                <span>✦</span>
+                <span>˚</span>
+                <span>✧</span>
+                <span>⋆</span>
+                <span>·</span>
+                <span>✦</span>
+                <span>˚</span>
+                <span>✧</span>
+            </div>
 
-    </section>
+        </section>
 
 
-    <!-- =========================
-         MENU
-    ========================= -->
+        <!-- ============================= -->
+        <!-- ✦ MENU PAGE -->
+        <!-- ============================= -->
 
-    <section class="page" id="menu">
+        <section
+            class="menu-page"
+            id="menuPage"
+            style="display: none;">
 
-        <div class="page-inner">
+            <div class="menu-container">
 
-            <div class="content-card" style="text-align:center;">
-
+                <!-- Logo -->
                 <p class="menu-logo">
                     ժׁׅ݊ꫀׁׅܻɑׁׅ֮r&nbsp;&nbsp;pᨵׁׅrᝯׁhׁׅ֮ ✦
                 </p>
 
-                <h2 class="menu-title">OUR BOOK</h2>
+                <h2 class="menu-title">
+                    OUR BOOK
+                </h2>
 
                 <div class="menu-line">
                     ─────────────
                 </div>
 
+
+                <!-- เมนู -->
                 <nav class="book-menu">
 
-                    <button class="menu-item" onclick="openPage('home')">
+                    <button
+                        class="menu-item"
+                        onclick="location.href='home.html'">
+
                         hׁׅ֮ᨵׁׅ ꩇׁׅ݊ꫀׁׅܻ ✦ ݁˖
+
                     </button>
 
-                    <button class="menu-item" onclick="openPage('about')">
-                        ɑׁׅ֮ϐׁׅ֒ᨵׁׅυׁׅtׁׅ hׁׅ֮ꪱׁׅ ꩇׁׅ݊ 𓏲 ๋࣭ ࣪
+
+                    <button
+                        class="menu-item"
+                        onclick="location.href='about.html'">
+
+                        ɑׁׅ֮ϐׁׅ֒ᨵׁׅυׁׅtׁׅ hׁׅ֮ꪱׁׅ ꩇׁׅ݊
+                        𓏲 ๋࣭ ࣪
+
                     </button>
 
-                    <button class="menu-item" onclick="openPage('story')">
-                        ᨵׁׅυׁׅr ꯱ׁׅ֒tׁׅᨵׁׅry ˚˖𓍢ִ໋🦢˚
+
+                    <button
+                        class="menu-item"
+                        onclick="location.href='story.html'">
+
+                        ᨵׁׅυׁׅr ꯱ׁׅ֒tׁׅᨵׁׅrყ
+                        ˚˖𓍢ִ໋🦢˚
+
                     </button>
 
-                    <button class="menu-item" onclick="openPage('timeline')">
-                        tׁׅꪱׁׅ ꩇׁׅ݊ꫀׁׅܻ ᥣׁׅ֪ꪱׁׅꪀׁׅܻ 𓍯𓂃𓏧♡
+
+                    <button
+                        class="menu-item"
+                        onclick="location.href='timeline.html'">
+
+                        tׁׅꪱׁׅ ꩇׁׅ݊ꫀׁׅܻ
+                        ᥣׁׅ֪ꪱׁׅꪀׁׅܻ
+                        𓍯𓂃𓏧♡
+
                     </button>
 
-                    <button class="menu-item" onclick="openPage('gallery')">
-                        ᧁׁɑׁׅ֮ᥣׁׅ֪ᥣׁׅ֪ꫀׁׅܻryᨮ꫶ׁׅ֮ ִֶָ🪽་༘
+
+                    <button
+                        class="menu-item"
+                        onclick="location.href='gallery.html'">
+
+                        ᧁׁɑׁׅ֮ᥣׁׅ֪ᥣׁׅ֪ꫀׁׅܻry
+                        ᨮ꫶ׁׅ֮ ִֶָ🪽་༘
+
                     </button>
 
-                    <button class="menu-item" onclick="openPage('letter')">
-                        ˚₊‧꒰ა ᥣׁׅ֪ꫀׁׅܻtׁׅtׁׅꫀׁׅܻr ໒꒱ ‧₊˚
+
+                    <button
+                        class="menu-item"
+                        onclick="location.href='letter.html'">
+
+                        ˚₊‧꒰ა ᥣׁׅ֪ꫀׁׅܻtׁׅtׁׅꫀׁׅܻr ໒꒱
+                        ‧₊˚
+
                     </button>
 
-                    <button class="menu-item" onclick="openPage('reasons')">
+
+                    <button
+                        class="menu-item"
+                        onclick="location.href='reasons.html'">
+
                         100 rꫀׁׅܻɑׁׅ֮꯱ׁׅ֒ᨵׁׅꪀׁׅ꯱ׁׅ֒
+
                     </button>
 
-                    <button class="menu-item" onclick="openPage('family')">
-                        ᨵׁׅυׁׅr ⨍ɑׁׅ֮ ꩇׁׅ݊ꪱׁׅᥣׁׅ֪ᨮ꫶ׁׅ֮
+
+                    <button
+                        class="menu-item"
+                        onclick="location.href='family.html'">
+
+                        ᨵׁׅυׁׅr
+                        ⨍ɑׁׅ֮ ꩇׁׅ݊ꪱׁׅᥣׁׅ֪ᨮ꫶ׁׅ֮
+
                     </button>
 
-                    <button class="menu-item" onclick="openPage('final')">
+
+                    <button
+                        class="menu-item"
+                        onclick="location.href='final.html'">
+
                         ⨍ꪱׁׅꪀׁׅɑׁׅ֮ᥣׁׅ֪
+
                     </button>
 
                 </nav>
 
-                <button class="back-button" onclick="openPage('welcome')">
-                    ← กลับไปหน้าแรก
-                </button>
 
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         HOME
-    ========================= -->
-
-    <section class="page" id="home">
-
-        <div class="page-inner">
-
-            <div class="content-card">
-
-                <h2 class="page-title">
-                    ♡ Welcome to our little world ♡
-                </h2>
-
-                <p>
-                    สวัสดี 𐔌՞ ܸ.ˬ.ܸ՞𐦯
-                </p>
-
-                <p>
-                    แฟนของเธอตั้งใจทำเว็บไซต์นี้เพื่อเธอมาก ๆ เลยนะ
-                </p>
-
-                <p>
-                    ทุกภาพ ทุกความทรงจำ และทุกข้อความในนี้
-                    ล้วนเป็นสิ่งที่อิ๊งค์ตั้งใจเก็บเอาไว้
-                    เพื่อให้เธอได้กลับมายิ้มกับมันอีกครั้ง ‹𝟹
-                </p>
-
-                <p>
-                    ขอบคุณที่เข้ามาในชีวิตของอิ๊งค์นะ ૮₍ ˶ᵔ ᵕ ᵔ˶ ₎ა
-                </p>
-
-                <p>
-                    พร้อมแล้ว…
-                    ไปเปิดสมุดความทรงจำของเรากัน ♡
-                </p>
-
-                <button class="back-button" onclick="openPage('menu')">
-                    ← OUR BOOK
-                </button>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         ABOUT
-    ========================= -->
-
-    <section class="page" id="about">
-
-        <div class="page-inner">
-
-            <div class="content-card">
-
-                <h2 class="page-title">
-                    ✦ ݁ ˖ ɑׁׅ֮ϐׁׅ֒ᨵׁׅυׁׅtׁׅ ᥙׁׅ꯱ׁׅ֒ ✦ ݁ ˖
-                </h2>
-
-                <h3>🩷 𓂃 Ink</h3>
-
-                <p>🎂 6 November 2008</p>
-                <p>📅 Thursday</p>
-                <p>🎨 Favorite Color — ม่วง 💜</p>
-                <p>🌹 Favorite Flower — กุหลาบ</p>
-
-                <h3>🌷 Dream</h3>
-
-                <p>
-                    อยากเป็นครู
-                </p>
-
-                <p>
-                    อยากได้ไปเที่ยวในหลาย ๆ ที่กับคนที่รัก
-                </p>
-
-                <p>
-                    อยากมีลูก 3 คน
-                </p>
-
-                <p>
-                    อยากเลี้ยงหมา เลี้ยงแมวกับแฟน
-                </p>
-
-                <p>
-                    และมีบ้านหลังใหญ่ ๆ
-                    ที่พอให้ลูก ๆ วิ่งเล่นได้อย่างมีความสุข
-                </p>
-
-                <h3>💛 𓂃 Porch</h3>
-
-                <p>🎂 7 May 2009</p>
-                <p>📅 Thursday</p>
-                <p>🎨 Favorite Color — ฟ้า 🩵</p>
-                <p>🍜 Favorite Food — กินได้ทุกอย่างเลย แต่ดูจะชอบหม่าล่าเป็นพิเศษ</p>
-
-                <h3>⚙️ Dream</h3>
-
-                <p>
-                    อยากเป็นวิศวกร
-                </p>
-
-                <p>
-                    อยากมีอนาคตที่มั่นคง
-                </p>
-
-                <p>
-                    อยากสร้างธุรกิจของตัวเอง
-                </p>
-
-                <p>
-                    และอยากพาคนที่รักไปใช้ชีวิตดี ๆ ด้วยกัน
-                </p>
-
-                <h3>🩷💛 𓂃 Our Dream</h3>
-
-                <p>
-                    เราอยากมีบ้าน
-                    อยากมีครอบครัว
-                    อยากเลี้ยงหมาและแมว
-                    อยากพากันไปเที่ยวในหลาย ๆ ที่
-                    อยากเติบโตไปด้วยกัน
-                    และอยากอยู่ในชีวิตของกันและกันไปนาน ๆ ✨
-                </p>
-
-                <button class="back-button" onclick="openPage('menu')">
-                    ← OUR BOOK
-                </button>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         STORY
-    ========================= -->
-
-    <section class="page" id="story">
-
-        <div class="page-inner">
-
-            <div class="content-card">
-
-                <h2 class="page-title">
-                    📖 ᨵׁׅυׁׅr ꯱ׁׅ֒tׁׅᨵׁׅry
-                </h2>
-
-                <h3>จุดเริ่มต้น ──.☘︎ ݁˖</h3>
-
-                <p>
-                    เรากับพอร์ชก่อนหน้านี้ก็ไม่รู้จักกันมาก่อนหรอก
-                </p>
-
-                <p>
-                    แต่วันที่ 23 ธันวาคม เราทักไปถามเรื่องสภานักเรียนกับพอร์ช
-                    พรรคเราชนะเลือกตั้งแล้วอาจารย์ให้หาคนเพิ่ม
-                    เราเลยเห็นว่าพอร์ชเคยลงแต่พลาดโอกาส
-                    เราเลยคิดว่าชวนพอร์ชดีกว่า
-                </p>
-
-                <p>
-                    หลังจากนั้นก็ไม่มีอะไร
-                    แต่มีพอร์ชมาเป็นส่วนหนึ่งของสภานักเรียน
-                </p>
-
-                <h3>𑣲𝄞 เพลงที่ทำให้เราเริ่มคุยกัน</h3>
-
-                <p>
-                    วันนึงพอร์ชมากดใจสตอรี่ ทั้ง ๆ ที่ไม่เคยกดมาก่อน
-                    เราก็แอบคิดเล็ก ๆ ว่าเขาจะมีอะไรรึเปล่า
-                </p>
-
-                <p>
-                    แล้วเขาก็ลงสตอรี่ 1 Song เราก็กดไป
-                    แล้วเขาก็ส่งเพลง “คนสวย” ของ Tattoo Colour มา
-                    แล้วบอกว่ามันเหมาะกับเราดี ตั้งใจเลือกมาก ๆ
-                </p>
-
-                <p>
-                    เราก็เขิน ๆ แล้วก็คุยกันจนดึกเลย
-                    บอกฝันดี แล้วก็นอน
-                </p>
-
-                <h3>⋮ ⌗ เช้าวันต่อมา</h3>
-
-                <p>
-                    เช้าวันต่อมาเราก็ไม่ได้คุยกันต่อ
-                </p>
-
-                <p>
-                    แต่เราเห็นเขาลงโน้ตอะไรไม่รู้
-                    เราเลยลงโน้ตกลับให้เขารู้ตัวว่าเราก็อยากคุยต่อ
-                    เป็นเพลง “พี่ ๆ ช่วยตัดแว่นให้หน่อย”
-                </p>
-
-                <p>
-                    จริง ๆ ตอนนั้นคิดไว้แล้วว่า ถ้าเขาไม่ทักมาต่อก็ปล่อยไป
-                    เพราะช่วงนั้นเราก็ไม่ได้อยากมีใคร
-                    แต่ก็แอบหวังนิด ๆ เหมือนกัน
-                </p>
-
-                <h3>🧸ྀི วันที่ 22 มกราคม 2026</h3>
-
-                <p>
-                    แล้วเขาก็ทักมาจริง ๆ
-                </p>
-
-                <p>
-                    เขาบอกว่าอยากรู้จักเรา พร้อมจีบเราไปด้วย
-                </p>
-
-                <p>
-                    เขาถามเราว่ามันแปลกไหม ?
-                </p>
-
-                <p>
-                    เราก็บอกว่าไม่แปลกหรอก ˙𐃷˙
-                </p>
-
-                <p>
-                    เขาบอกว่าเขาเป็นคนขี้กังวล
-                    กลัวเราคิดว่ามันแปลก …
-                </p>
-
-                <p>
-                    หลังจากนั้นเราก็ตัดสินใจลองดู ૮₍ ´ ꒳ `₎ა
-                </p>
-
-                <h3>𓏵‧₊˚ ┊ช่วงคนคุย</h3>
-
-                <p>
-                    เราก็คุยกันมาเรื่อย ๆ
-                </p>
-
-                <p>
-                    ยิ่งเป็นสภานักเรียนด้วยกัน ก็ยิ่งทำงานร่วมกันบ่อย
-                </p>
-
-                <p>
-                    แรก ๆ ก็มีหลบหน้าเพราะเขิน ๆ (,,&gt;﹏&lt;,,)
-                </p>
-
-                <p>
-                    เขาอยู่ห้อง 5/3 ส่วนเราอยู่ 5/4 ^^
-                </p>
-
-                <p>
-                    ยิ่งได้รู้จักกันมากขึ้น เราก็ยิ่งใกล้ชิดกันมากขึ้น
-                </p>
-
-                <h3>✶⋆.˚ เดตแรก</h3>
-
-                <p>
-                    ระหว่างเป็นคนคุย เราได้ไปเดตแรกกับเขา
-                </p>
-
-                <p>ไปดูหนังด้วยกัน</p>
-
-                <p>เขาซื้อพวงกุญแจให้เราด้วย</p>
-
-                <p>
-                    แล้วก็พาไปไหว้แม่ตั้งแต่ยังเป็นคนคุยกัน
-                </p>
-
-                <p>
-                    เราได้ไปดูเขาแข่งบาสวันที่ 1 กุมภาพันธ์ด้วย
-                </p>
-
-                <h3>* ความรู้สึกที่ค่อย ๆ เปลี่ยนไป૮꒰ ˶• ༝ •˶꒱ა ♡</h3>
-
-                <p>
-                    เขาซื้อดอกไม้แบบตุ๊กตาให้เรา
-                </p>
-
-                <p>
-                    เรามีความสุขมากเลยย ย ย ย ย
-                </p>
-
-                <p>
-                    เหมือนเราเป็นแฟนกันแล้ว٩(ˊᗜˋ*)و ♡
-                </p>
-
-                <p>
-                    เรารู้สึกเริ่มผูกพัน
-                </p>
-
-                <p>
-                    จากชอบก็ค่อย ๆ กลายเป็นเริ่มรู้สึกรัก
-                </p>
-
-                <h3>˚⊱🪷⊰˚12-13 กุมภาพันธ์</h3>
-
-                <p>
-                    ช่วงนั้นเรารู้สึกอยากเป็นแฟนกับเขาแล้ว( •̯́ ₃ •̯̀)
-                </p>
-
-                <p>อยากเป็นมาก ๆ &gt;___&lt;</p>
-
-                <p>
-                    เราเลยวางแผนทำเซอร์ไพรส์ !
-                </p>
-
-                <p>ทำการ์ด</p>
-
-                <p>แล้วก็ทำช่อดอกไม้เอง</p>
-
-                <p>
-                    ถึงจะทำไม่เป็น แต่ก็พยายามมาก ๆ จนเสร็จ
-                </p>
-
-                <p>
-                    เราอยากให้เขาประทับใจ
-                </p>
-
-                <p>
-                    อยากให้เป็นจุดเริ่มต้นที่ดีและน่าจดจำ
-                </p>
-
-                <p>
-                    เราอยากให้รักครั้งนี้เป็นรักครั้งสุดท้าย
-                    แล้วก็ดีที่สุดเลย ₍ᐢ. .ᐢ₎ ₊˚⊹♡
-                </p>
-
-                <h3>𐔌 . ⋮ 14 กุมภาพันธ์ 2026.ᐟ ֹ ₊ ꒱</h3>
-
-                <p>แม่เขามารับเรา</p>
-
-                <p>
-                    พอขึ้นรถไป เราก็เจอช่อดอกไม้กับตุ๊กตาคุโรมิที่เราชอบ
-                </p>
-
-                <p>เรารู้สึกดีมากกก ก ก ก</p>
-
-                <p>
-                    แล้วเราก็ได้ First Kiss กันด้วย(๑&gt;؂•̀๑)
-                </p>
-
-                <p>เราได้ไปบางแสนด้วยกัน</p>
-
-                <p>ไปกินชาบู</p>
-
-                <p>วาดเค้ก</p>
-
-                <p>แล้วก็ไปเดินทะเล . . .</p>
-
-                <p>
-                    ตอนเดินอยู่ที่บางแสน …
-                    เราก็เอากล่องที่เตรียมไว้เซอร์ไพรส์ให้เขาอ่าน
-                </p>
-
-                <p>
-                    เขาก็นั่งอ่านแล้วยิ้ม
-                </p>
-
-                <p>เราเห็นแล้วใจฟูมาก</p>
-
-                <p>แล้วหลังจากนั้น</p>
-
-                <p>
-                    เขาก็ขอเราเป็นแฟน໒꒰՞ ܸ. .ܸ՞꒱ა
-                </p>
-
-                <p>จุดนั้นคือ…</p>
-
-                <p>มันดีมาก ๆ</p>
-
-                <p>
-                    ดีจนเราอยากร้องไห้เลย ໒꒰ྀིっ˕ -｡꒱ྀི১
-                </p>
-
-                <button class="back-button" onclick="openPage('menu')">
-                    ← OUR BOOK
-                </button>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         TIMELINE
-    ========================= -->
-
-    <section class="page" id="timeline">
-
-        <div class="page-inner">
-
-            <div class="content-card">
-
-                <h2 class="page-title">
-                    ✦ ݁ ˖ tׁׅꪱׁׅ ꩇׁׅ݊ꫀׁׅܻ ᥣׁׅ֪ꪱׁׅꪀׁׅܻ ✦ ݁ ˖
-                </h2>
-
-                <div class="timeline">
-
-                    <div class="timeline-item">
-                        <h3>💜 06 November 2008</h3>
-                        <p>วันเกิดของอิ๊งค์</p>
-                        <p>
-                            “วันที่เด็กผู้หญิงคนหนึ่งได้เกิดมา
-                            เพื่อเติบโตและกลายเป็นคนสำคัญของพอร์ชในวันหนึ่ง”
-                        </p>
-                    </div>
-
-                    <div class="timeline-item">
-                        <h3>🩵 07 May 2009</h3>
-                        <p>วันเกิดของพอร์ช</p>
-                        <p>
-                            “วันที่เด็กผู้ชายคนหนึ่งได้เกิดมา
-                            เพื่อเติบโตและเข้ามาเปลี่ยนโลกทั้งใบของอิ๊งค์”
-                        </p>
-                    </div>
-
-                    <div class="timeline-item">
-                        <h3>🌷 23 December 2025</h3>
-                        <p>วันแรกที่เราได้คุยกัน</p>
-                        <p>
-                            เรื่องราวของเราทั้งหมด
-                            เริ่มต้นจากการชวนเข้าร่วมสภานักเรียน
-                        </p>
-                        <p>
-                            และไม่มีใครรู้เลยว่า
-                            บทสนทนาสั้น ๆ ในวันนั้น
-                            จะกลายเป็นจุดเริ่มต้นของความรักในวันนี้
-                        </p>
-                    </div>
-
-                    <div class="timeline-item">
-                        <h3>💛 14 February 2026</h3>
-                        <p>วันแรกที่เราเป็นแฟนกัน</p>
-                        <p>
-                            วันที่เต็มไปด้วยรอยยิ้ม
-                            ดอกไม้
-                            ของขวัญ
-                            ทะเล
-                            และความทรงจำที่สวยงาม
-                        </p>
-                        <p>
-                            เป็นวันที่อิ๊งค์กับพอร์ช
-                            ได้เริ่มต้นใช้คำว่า
-                            “แฟน”
-                            อย่างเป็นทางการ 🤍
-                        </p>
-                    </div>
-
+                <!-- 🐶 Corgi -->
+                <pre class="ascii-corgi">
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠰⠎⠉⢶⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰⠊⠙⡆⠀
+⠀⢸⠀⠒⢌⠣⢤⡀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡀⣠⠾⠁⠞⠀⡏⠀
+⠀⠀⠙⡦⢀⢕⣄⣀⣉⣉⡓⠰⢄⡀⠀⠀⠀⣀⠶⠒⢉⠁⢉⠀⡀⠀⢴⡏⠀⠀
+⠀⠀⢺⠀⠶⠰⠡⠟⢇⣼⣷⣆⡄⢳⠀⠀⡶⠁⣠⣶⣮⣅⢥⠁⠁⠠⠀⡿⠀⠀
+⠀⠀⠈⠉⠚⡷⠀⠀⢼⡟⠌⠅⡎⢸⠆⠈⣇⠈⡪⡃⠙⣿⠔⠅⢼⠓⠙⠁⠀⠀
+⠀⠀⠀⠀⠀⠙⠴⠴⠚⠧⣠⢤⡴⠋⠀⠀⠘⠇⢬⡬⠼⠓⠶⠶⠊⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+                </pre>
+
+                <div class="menu-star">
+                    ✦
                 </div>
 
-                <button class="back-button" onclick="openPage('menu')">
-                    ← OUR BOOK
-                </button>
-
             </div>
 
-        </div>
+        </section>
 
-    </section>
+    </main>
 
 
-    <!-- =========================
-         GALLERY
-    ========================= -->
-
-    <section class="page" id="gallery">
-
-        <div class="page-inner">
-
-            <div class="content-card">
-
-                <h2 class="page-title">
-                    ᧁׁɑׁׅ֮ᥣׁׅ֪ᥣׁׅ֪ꫀׁׅܻryᨮ꫶ׁׅ֮ ִֶָ🪽
-                </h2>
-
-                <div class="gallery-grid">
-
-                    <div class="month-card">
-                        <div>
-                            <h3>January 2026</h3>
-                            <p>จุดเริ่มต้นของเรื่องราวของเรา ♡</p>
-                        </div>
-                    </div>
-
-                    <div class="month-card">
-                        <div>
-                            <h3>February 2026</h3>
-                            <p>เดือนที่เราได้เป็นแฟนกัน 💛</p>
-                        </div>
-                    </div>
-
-                    <div class="month-card">
-                        <div>
-                            <h3>March 2026</h3>
-                            <p>ความทรงจำที่ค่อย ๆ เพิ่มขึ้น</p>
-                        </div>
-                    </div>
-
-                    <div class="month-card">
-                        <div>
-                            <h3>April 2026</h3>
-                            <p>ช่วงเวลาที่เราได้อยู่ด้วยกัน</p>
-                        </div>
-                    </div>
-
-                    <div class="month-card">
-                        <div>
-                            <h3>May 2026</h3>
-                            <p>วันเกิดของพอร์ช 🩵</p>
-                        </div>
-                    </div>
-
-                    <div class="month-card">
-                        <div>
-                            <h3>June 2026</h3>
-                            <p>อีกเดือนที่มีเธออยู่ข้าง ๆ</p>
-                        </div>
-                    </div>
-
-                    <div class="month-card">
-                        <div>
-                            <h3>July 2026</h3>
-                            <p>ความทรงจำใหม่ ๆ ของเรา</p>
-                        </div>
-                    </div>
-
-                    <div class="month-card">
-                        <div>
-                            <h3>August 2026</h3>
-                            <p>และเรื่องราวของเรายังเดินต่อไป ✨</p>
-                        </div>
-                    </div>
-
-                </div>
-
-                <button class="back-button" onclick="openPage('menu')">
-                    ← OUR BOOK
-                </button>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         LETTER
-    ========================= -->
-
-    <section class="page" id="letter">
-
-        <div class="page-inner">
-
-            <div class="content-card">
-
-                <h2 class="page-title">
-                    ˚₊‧꒰ა 𝒂 𝒍𝒊𝒕𝒕𝒍𝒆 𝒎𝒆𝒔𝒔𝒂𝒈𝒆 ໒꒱ ‧₊˚
-                </h2>
-
-                <p>
-                    นี่ก็เดินทางมาถึง 6 เดือนแล้วนะ
-                    ก็ครึ่งปีแล้วที่เราอยู่ด้วยกันมา
-                </p>
-
-                <p>
-                    เค้ารู้สึกโชคดีมากเลยที่มีเธอ
-                    ที่ผ่านมาถึงเราจะทะเลาะกันบ้าง
-                    เธอก็ไม่เคยเลือกที่จะทิ้งความสัมพันธ์นี้ไปเลย
-                </p>
-
-                <p>
-                    เธอคอยบอกรักเค้าเสมอแบบไม่ขาดไม่หาย
-                    ในทุกคืนเธอก็บอกรักบอกฝันดีเค้าในทุก ๆ วัน
-                    คอยรับฟังเค้ามาตลอด
-                    ทำให้เค้าสบายใจที่มีเธอไม่ว่าจะเป็นตอนไหน
-                </p>
-
-                <p>
-                    ขอแค่เค้ามีเธออยู่ข้าง ๆ
-                    เค้าก็รู้สึกว่ามั่นใจในตัวเองมากขึ้น
-                </p>
-
-                <p>
-                    เธอเป็นเหมือนความสดใสของเค้า
-                    ในทุก ๆ วันเค้ามีความสุขมาก
-                    ชีวิตเค้าดูมีสีสันมาก ๆ เลย
-                </p>
-
-                <p>
-                    เธอเป็นกำลังใจในการใช้ชีวิตเค้ามาก ๆ
-                    แทบจะเป็นลมหายใจของเค้าเลยนะ
-                </p>
-
-                <p>
-                    พอมีเธอก็อุ่นใจแล้ววว
-                    ต่อให้โลกนี้ไม่มีดาว
-                    ชีวิตเค้าก็ยังมีแสงสว่าง &gt;__&lt;
-                </p>
-
-                <p>
-                    เพราะเธอคือแสงสว่างของเค้า
-                    ต่อให้เค้าเจอเรื่องแย่ ๆ แค่ไหน
-                    ได้บอกเธอมันก็หายหมดแล้ว
-                </p>
-
-                <p>
-                    เป็นโชคดีมากที่เค้าได้เป็นแฟนกับเธอ
-                    เธอเป็นทุกอย่างของเค้าเลย
-                    เป็นทั้งหัวใจ
-                </p>
-
-                <p>
-                    ตั้งแต่คบกับเธอมา
-                    เธอเป็นเรื่องมหัศจรรย์ที่สุดเลยย ย ยย
-                </p>
-
-                <p>
-                    ตอนที่เค้าต้องการที่พึ่ง
-                    เค้าก็มีเธอตลอด
-                    หันไปก็เจอเธอตลอด
-                </p>
-
-                <p>
-                    เธอเป็นเหมือนพ่อคนที่ 2 ของเค้าเลยนะ
-                    เธอน่ารักกับเค้าตลอดเลย
-                </p>
-
-                <p>
-                    ถึงตอนทะเลาะเค้าจะชอบเงียบใส่เธอ
-                    แต่เธอก็คอยง้อเค้าตลอด
-                </p>
-
-                <p>
-                    ดูแลเค้าในตอนที่เค้าบาดเจ็บ
-                    เค้ารู้สึกเหมือนเธอเป็นห่วงเค้าจริง ๆ
-                    เค้าซึ้งใจมากก
-                </p>
-
-                <p>
-                    เธอคอยดูแลเค้าในทุก ๆ วัน
-                    ทำให้เค้าสบายที่สุด
-                    พยายามทำให้ไม่ต้องลำบาก
-                </p>
-
-                <p>
-                    6 เดือนนี้ เราผ่านอะไรมาเยอะมาก
-                    ทั้งเรื่องที่ดีแล้วก็ไม่ดี
-                    แต่เราก็ยังอยู่ด้วยกันถึงทุกวันนี้
-                </p>
-
-                <p>
-                    ตอนที่เราใช้เวลาด้วยกันเค้ามีความสุขมาก
-                    อ้อมกอดของเธออบอุ่นที่สุดเลย
-                    เป็นกอดที่ดีที่สุด
-                </p>
-
-                <p>
-                    ทำให้เค้ารู้สึกเป็นผู้หญิงที่โชคดีที่สุดอะ
-                </p>
-
-                <p>
-                    อยากใช้ชีวิตกับเธอในทุก ๆ วัน
-                    แบบนี้ไปนาน ๆ เลย
-                </p>
-
-                <p>
-                    เค้ารู้สึกว่า
-                    เค้าเจอคนที่ดีแล้วจริง ๆ 😭😭
-                </p>
-
-                <button class="back-button" onclick="openPage('menu')">
-                    ← OUR BOOK
-                </button>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         100 REASONS
-    ========================= -->
-
-    <section class="page" id="reasons">
-
-        <div class="page-inner">
-
-            <div class="content-card">
-
-                <h2 class="page-title">
-                    100 rꫀׁׅܻɑׁׅ֮꯱ׁׅ֒ᨵׁׅ꯱ׁׅ֒
-                </h2>
-
-                <div class="reasons">
-
-                    <div class="reason">01. เธอทำให้เค้ายิ้มง่ายขึ้น</div>
-                    <div class="reason">02. เธอชอบบอกรักเค้าทุกคืน</div>
-                    <div class="reason">03. เธอถือกระเป๋าให้ตลอด</div>
-                    <div class="reason">04. เธอสุภาพมาก</div>
-                    <div class="reason">05. เธอตั้งใจเรียน</div>
-                    <div class="reason">06. เธอเป็นห่วงเค้าเสมอ</div>
-                    <div class="reason">07. เธอชอบง้อเค้า</div>
-                    <div class="reason">08. เธอทำให้พ่อแม่เค้าชอบ</div>
-                    <div class="reason">09. เธอทำให้ชีวิตเค้ามีสีสัน</div>
-                    <div class="reason">10. เธอดูมีอนาคตมากกก</div>
-                    <div class="reason">11. พ่อแม่เธอปฏิบัติกับเค้าดีมาก</div>
-                    <div class="reason">12. อยู่กับเธอแล้วสบายใจมาก ๆ</div>
-                    <div class="reason">13. เป็นที่พึ่งให้ตลอด</div>
-                    <div class="reason">14. มีเวลาให้</div>
-                    <div class="reason">15. คอยตามใจตลอด</div>
-                    <div class="reason">16. คอยรับฟังปัญหาของเค้า</div>
-                    <div class="reason">17. คอยดูแล</div>
-                    <div class="reason">18. คอยชม</div>
-                    <div class="reason">19. ไม่กดใจผู้หญิง ไม่รี ไม่ฟอล</div>
-                    <div class="reason">20. ไม่มีความลับกับเค้า</div>
-                    <div class="reason">21. ไม่กินเหล้า ไม่สูบบุหรี่</div>
-                    <div class="reason">22. ไม่ติดเพื่อน</div>
-                    <div class="reason">23. ไม่เที่ยวกลางคืน</div>
-                    <div class="reason">24. คอยชมตลอด</div>
-                    <div class="reason">25. คอยลูบหัวตลอดด</div>
-                    <div class="reason">26. ทำให้รู้สึกปลอดภัยตอนอยู่กับเธอ</div>
-                    <div class="reason">27. คอยรายงานตลอดว่าไปไหนทำอะไร</div>
-                    <div class="reason">28. ไม่ให้ไปไหนไม่ให้ทำอะไรก็ไม่ทำ</div>
-                    <div class="reason">29. แคร์ความรู้สึกเค้า</div>
-                    <div class="reason">30. คอยทำอะไรเพื่อเค้า</div>
-                    <div class="reason">31. ปรับในเรื่องที่เค้าไม่โอเค</div>
-                    <div class="reason">32. หล่อมากก</div>
-                    <div class="reason">33. ทำตัวน่ารักกับเค้า</div>
-                    <div class="reason">34. น่ารักกับเค้าแค่คนเดียว</div>
-                    <div class="reason">35. ดูแลตัวเอง</div>
-                    <div class="reason">36. ติดเค้ามากกก ติดแฟน</div>
-                    <div class="reason">37. ไปไหนก็ไปด้วยกันตลอดด เค้าอยู่ไหนก็จะมาหา</div>
-                    <div class="reason">38. ไม่เคยทำให้เค้ารู้สึกว่าอยู่คนเดียว</div>
-                    <div class="reason">39. ไม่เฟลนลี่กับคนอื่น</div>
-                    <div class="reason">40. ทำให้เค้ารู้สึกไว้ใจ</div>
-                    <div class="reason">41. คอยแกะกุ้งให้เค้า</div>
-                    <div class="reason">42. คอยย่างหมูให้เค้า</div>
-                    <div class="reason">43. เก็บดอกไม้มาง้อเค้า</div>
-                    <div class="reason">44. คอยพาไปกินของอร่อย</div>
-                    <div class="reason">45. พาไปซื้อนมกล้วย</div>
-                    <div class="reason">46. พูดจาน่ารัก</div>
-                    <div class="reason">47. อินกับสิ่งที่เค้าอินเหมือนกัน</div>
-                    <div class="reason">48. ชอบอะไรคล้าย ๆ กัน</div>
-                    <div class="reason">49. ชัดเจนกับเค้า</div>
-                    <div class="reason">50. ให้เกียรติเค้า</div>
-                    <div class="reason">51. คอยเล่านิทานก่อนนอนกล่อมนอนตลอด</div>
-                    <div class="reason">52. ไม่เคยขัดตอนที่บอกให้เล่านิทานหรือกล่อมนอน</div>
-                    <div class="reason">53. ถึงจะง่วงเธอก็ไม่เคยบ่นเลย แถมกล่อมเหมือนเดิม</div>
-                    <div class="reason">54. เธอไม่หงุดหงิด ใจเย็นมากก</div>
-                    <div class="reason">55. ใส่ใจเค้า</div>
-                    <div class="reason">56. คอยเอาใจเค้า ถึงเค้าจะเอาแต่ใจ</div>
-                    <div class="reason">57. เธอเรียนรู้สิ่งใหม่ ๆ เสมอ</div>
-                    <div class="reason">58. เธอดูมีเป้าหมายในชีวิต</div>
-                    <div class="reason">59. เธอดูเก่งมากกกในหลาย ๆ เรื่อง</div>
-                    <div class="reason">60. เป็นคนที่พูดแล้วทำ</div>
-                    <div class="reason">61. ทำให้เค้ามองเห็นอนาคตร่วมกัน</div>
-                    <div class="reason">62. มีไลฟ์สไตล์คล้ายกัน</div>
-                    <div class="reason">63. ภาษารักก็คล้าย ๆ กัน</div>
-                    <div class="reason">64. เธอปรับตัวให้เข้ากับเค้า</div>
-                    <div class="reason">65. เธอทำให้เค้ารู้สึกมั่นใจมากตอนอยู่กับเธอ</div>
-                    <div class="reason">66. เธอทำให้รู้สึกอุ่นใจ</div>
-                    <div class="reason">67. เป็นกำลังใจในการใช้ชีวิตของเค้า</div>
-                    <div class="reason">68. เป็นเป้าหมายในชีวิตของเค้า</div>
-                    <div class="reason">69. ทำให้ชีวิต ม.ปลาย ของเค้ามีความหมาย</div>
-                    <div class="reason">70. คอยสร้างความทรงจำดี ๆ ด้วยกัน</div>
-                    <div class="reason">71. มีเป้าหมายเดียวกัน</div>
-                    <div class="reason">72. เป็นคนทัศนคติดีมาก ๆ</div>
-                    <div class="reason">73. มีความเป็นผู้ใหญ่มาก ๆ</div>
-                    <div class="reason">74. ดูเป็นสุภาพบุรุษ</div>
-                    <div class="reason">75. เล่นเกมเป็นเพื่อนเค้าได้</div>
-                    <div class="reason">76. คอยแสดงด้านหึงหวงเค้าออกมา</div>
-                    <div class="reason">77. ทำให้เค้าไม่ต้องกังวลว่าเธอจะไม่รักเค้ามั้ย</div>
-                    <div class="reason">78. คอยอยู่กับเค้าในวันที่เค้าไม่ได้น่ารัก</div>
-                    <div class="reason">79. พยายามเข้าใจเค้า</div>
-                    <div class="reason">80. พยายามรักษาความสัมพันธ์</div>
-                    <div class="reason">81. อวดเค้าก็ค่อนข้างเก่ง</div>
-                    <div class="reason">82. ตอนที่เค้ากำลังเก็บตัง เธอก็ใช้ตังตัวเองมาเลี้ยงเค้า เพราะเธอไม่อยากให้เค้าลำบาก</div>
-                    <div class="reason">83. เธอคอยพูดกับเค้าอย่างมีเหตุผลเสมอ ถึงแม้จะมีเถียงบ้างแต่สุดท้ายเธอก็ยอมเค้าตลอด</div>
-                    <div class="reason">84. เธอรู้จักทำงานแบ่งเบาภาระคนในครอบครัว</div>
-                    <div class="reason">85. เป็นเด็กดีเชื่อฟังพ่อแม่</div>
-                    <div class="reason">86. เคารพผู้ใหญ่ วางตัวดี มีมารยาท</div>
-                    <div class="reason">87. เธอทำให้เค้ารู้สึกจริง ๆ ว่าเธอรักเค้าจริง ๆ</div>
-                    <div class="reason">88. ทำให้เค้ารู้สึกสบายใจเรื่องผู้หญิงได้ จากคนที่ระแวงมาก ๆ</div>
-                    <div class="reason">89. ให้เค้าเป็นที่ 1 เสมอ</div>
-                    <div class="reason">90. เธอวางแผนอนาคตที่มีเค้าด้วย</div>
-                    <div class="reason">91. เธอคอยซัพพอร์ตเค้าในหลายเรื่อง</div>
-                    <div class="reason">92. เธอเป็นคนที่ทำให้เค้าอยากพยายามเพื่อใครซักคนหนึ่ง</div>
-                    <div class="reason">93. เธอทำให้เค้าได้เจอกับความรักที่ดีจริง ๆ จากคนที่พยายามเหมือน ๆ กัน ถึงแม้จะผิดพลาดไปบ้าง เธอก็ยังพยายามต่อเค้าเรื่อยมา</div>
-                    <div class="reason">94. เธอใจดีมากกกับเด็ก หรือว่าสัตว์เล็กสัตว์น้อย</div>
-                    <div class="reason">95. เธอดูเป็นคนอ่อนโยนมาก</div>
-                    <div class="reason">96. ดูเป็นคนอบอุ่นมาก ๆ ทั้งการพูดและการกระทำ</div>
-                    <div class="reason">97. การที่จะทำอะไรซักอย่างที่พูดอะไรซักอย่างคือเธอคิดมาแล้ว</div>
-                    <div class="reason">98. เธอเป็นคนที่ตลกเฮฮา เป็นรอยยิ้มให้เค้า ทำให้เค้ามีความสุข เป็นพลังบวกให้เค้าเสมอ</div>
-                    <div class="reason">99. เธอทำทุกอย่างเพื่อที่จะให้ความสัมพันธ์เราดีขึ้น ต่อให้จะเป็นช่วงขาลงเธอก็ยังคุยกับเค้าเพื่อที่จะได้เข้าใจกัน ทำให้ความสัมพันธ์ดีขึ้น</div>
-                    <div class="reason">100. ความพยายามทุกอย่างในชีวิตของเธอ มันทำให้เค้ารู้สึกว่าเธอพึ่งพาได้ ทุกอย่างที่เธอทำ ไม่ว่าจะเป็นการแสดงความรัก พยายามทำทุกอย่างให้เค้า ถึงแม้จะไม่เก่งแต่ก็พยายามทำให้เค้ารู้สึกรักเธอมาก ๆ</div>
-
-                </div>
-
-                <button class="back-button" onclick="openPage('menu')">
-                    ← OUR BOOK
-                </button>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         FAMILY
-    ========================= -->
-
-    <section class="page" id="family">
-
-        <div class="page-inner">
-
-            <div class="content-card">
-
-                <h2 class="page-title">
-                    ᨵׁׅυׁׅr ⨍ɑׁׅ֮ ꩇׁׅ݊ꪱׁׅᥣׁׅ֪ᨮ꫶ׁׅ֮
-                </h2>
-
-                <p style="text-align:center;">
-                    ครอบครัวคอร์กี้ของเรา 🐶🎀🩷
-                </p>
-
-                <div class="family-grid">
-
-                    <div class="family-card">
-                        <div class="family-icon">🐶</div>
-                        <h3>Kishin</h3>
-                        <p>ลูกชาย</p>
-                    </div>
-
-                    <div class="family-card">
-                        <div class="family-icon">🎀</div>
-                        <h3>Ferbie</h3>
-                        <p>ลูกสาว</p>
-                    </div>
-
-                    <div class="family-card">
-                        <div class="family-icon">🐶</div>
-                        <h3>Yoshin</h3>
-                        <p>ลูกชาย</p>
-                    </div>
-
-                </div>
-
-                <h3 style="text-align:center;margin-top:40px;">
-                    ˚₊‧꒰ა 𝒂 𝒍𝒊𝒕𝒕𝒍𝒆 𝒎𝒆𝒔𝒔𝒂𝒈𝒆 𝒇𝒓𝒐𝒎 𝒖𝒔 ໒꒱ ‧₊˚
-                </h3>
-
-                <p>
-                    🐶 Kishin
-                </p>
-
-                <p>
-                    สุขสันต์ครบรอบนะครับพ่อพอร์ชกับแม่อิ๊งค์ 🩷
-                </p>
-
-                <p>
-                    ขอบคุณที่รักกันมาก ๆ นะครับ
-                    พวกเราดีใจที่ได้เกิดมาเป็นส่วนหนึ่งของครอบครัวนี้
-                    ขอให้พ่อกับแม่อยู่ด้วยกันแบบนี้ไปนาน ๆ เลยนะครับ
-                </p>
-
-                <p>
-                    🎀 Ferbie
-                </p>
-
-                <p>
-                    สุขสันต์ครบรอบนะคะ 🥺🎀
-                </p>
-
-                <p>
-                    หนูขอให้พ่อกับแม่มีความสุขมาก ๆ
-                    รักกันเยอะ ๆ
-                    ดูแลกันแบบนี้ไปทุกวันเลยนะ
-                </p>
-
-                <p>
-                    แล้วก็อย่าลืมสร้างความทรงจำดี ๆ
-                    ให้พวกเราไปด้วยกันเยอะ ๆ นะคะ 🩷
-                </p>
-
-                <p>
-                    🐶 Yoshin
-                </p>
-
-                <p>
-                    พ่อกับแม่ครับ
-                </p>
-
-                <p>
-                    ขอให้ต่อจากนี้มีแต่เรื่องดี ๆ เข้ามา
-                    ไม่ว่าจะเจอเรื่องอะไร
-                    ก็ขอให้พ่อกับแม่คอยจับมือและอยู่ข้าง ๆ กันเสมอ
-                </p>
-
-                <p>
-                    พวกเราจะคอยเติบโตไปพร้อมกับพ่อและแม่นะครับ 🌷
-                </p>
-
-                <p style="text-align:center;">
-                    ──────── ୨ৎ ────────
-                </p>
-
-                <p>
-                    🩷 From Kishin, Ferbie & Yoshin
-                </p>
-
-                <p>
-                    ถึงวันนี้พวกเราอาจเป็นเพียง
-                    ตัวละครเล็ก ๆ อยู่ในเว็บไซต์ของพ่อกับแม่
-                </p>
-
-                <p>
-                    แต่พวกเราถูกสร้างขึ้นมาจาก
-                    ความฝันของคนสองคน
-                </p>
-
-                <p>
-                    ที่อยากมีครอบครัว
-                    อยากมีบ้าน
-                    อยากมีหมา
-                    อยากมีแมว
-                    และอยากมีลูก ๆ ทั้งสามคน
-                </p>
-
-                <p>
-                    ขอให้ความฝันของพ่อกับแม่
-                    ค่อย ๆ กลายเป็นจริงทีละอย่างนะ
-                </p>
-
-                <p>
-                    สุขสันต์ครบรอบ 6 เดือนนะครับ/คะ
-                    รักพ่อกับแม่มาก ๆ 🐶🎀🩷
-                </p>
-
-                <button class="back-button" onclick="openPage('menu')">
-                    ← OUR BOOK
-                </button>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         FINAL
-    ========================= -->
-
-    <section class="page" id="final">
-
-        <div class="page-inner">
-
-            <div class="content-card" style="text-align:center;">
-
-                <h2 class="page-title">
-                    ⨍ꪱׁׅꪀׁׅɑׁׅ֮ᥣׁׅ֪
-                </h2>
-
-                <p>
-                    ขอบคุณที่เข้ามาเป็นส่วนหนึ่ง
-                    ในชีวิตของเค้านะ
-                </p>
-
-                <p>
-                    ขอบคุณสำหรับทุกความทรงจำ
-                    ทุกเสียงหัวเราะ
-                    ทุกครั้งที่กอดกัน
-                    และทุกวันที่ยังเลือกที่จะอยู่ด้วยกัน
-                </p>
-
-                <p>
-                    6 เดือนที่ผ่านมา
-                    เป็นเพียงจุดเริ่มต้นของเรื่องราวของเรา
-                </p>
-
-                <p style="font-size:25px;">
-                    ขอให้หลังจากนี้
-                    เรามีเรื่องให้เขียนเพิ่มอีกเยอะ ๆ เลยนะ ♡
-                </p>
-
-                <p style="font-size:32px;">
-                    รักเธอนะ พอร์ช 🩷
-                </p>
-
-                <p>
-                    — อิ๊งค์
-                </p>
-
-                <button class="back-button" onclick="openPage('menu')">
-                    ← กลับไปเปิด OUR BOOK
-                </button>
-
-            </div>
-
-        </div>
-
-    </section>
-
+    <!-- ============================= -->
+    <!-- ✦ SCRIPT -->
+    <!-- ============================= -->
 
     <script>
 
-        /* =========================
-           เปลี่ยนหน้าโดยการกด
-        ========================= */
+        function openMenu() {
 
-        function openPage(pageId) {
+            const welcome = document.getElementById("welcomePage");
+            const menu = document.getElementById("menuPage");
 
-            document.querySelectorAll(".page").forEach(page => {
-                page.classList.remove("active");
-            });
+            welcome.style.opacity = "0";
 
-            const target = document.getElementById(pageId);
+            setTimeout(() => {
 
-            if (target) {
-                target.classList.add("active");
-            }
+                welcome.style.display = "none";
 
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-            });
+                menu.style.display = "flex";
 
-            /* เอฟเฟกต์เหตุผล 100 ข้อ */
-            if (pageId === "reasons") {
+                setTimeout(() => {
+                    menu.style.opacity = "1";
+                }, 50);
 
-                document.querySelectorAll(".reason").forEach((item, index) => {
+            }, 700);
 
-                    item.style.animationDelay =
-                        (index * 0.025) + "s";
+        }
 
-                });
+
+        /* ✦ ข้อความค่อย ๆ พิมพ์ */
+
+        const text = "สวัสดี ! เธอคงเป็น..";
+        const typingElement = document.getElementById("typingText");
+
+        let index = 0;
+
+        function typing() {
+
+            if (index < text.length) {
+
+                typingElement.textContent += text.charAt(index);
+
+                index++;
+
+                setTimeout(typing, 80);
 
             }
 
         }
 
+        typingElement.textContent = "";
+        typing();
 
-        /* =========================
-           เอฟเฟกต์พิมพ์ข้อความ
-        ========================= */
 
-        const typingElement =
-            document.getElementById("typingText");
+        /* ✦ ปุ่มเด้ง */
 
-        const typingMessage =
-            "สวัสดี ! เธอคงเป็น..";
+        const button = document.getElementById("startButton");
 
-        let typingIndex = 0;
+        setTimeout(() => {
 
-        function typeText() {
+            button.classList.add("show-button");
 
-            if (typingIndex < typingMessage.length) {
-
-                typingElement.textContent +=
-                    typingMessage.charAt(typingIndex);
-
-                typingIndex++;
-
-                setTimeout(typeText, 100);
-
-            }
-
-        }
-
-        window.addEventListener("load", () => {
-
-            setTimeout(typeText, 700);
-
-        });
+        }, 2500);
 
     </script>
 
