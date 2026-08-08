@@ -823,3 +823,148 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+/* =========================================================
+   ✦ MEMORIES / GALLERY PAGE SCRIPT
+   ✦ ADD TO THE END OF script.js
+   ✦ ไม่ต้องลบของเดิม
+========================================================= */
+document.addEventListener("DOMContentLoaded", () => {
+    const memoriesPage =
+        document.querySelector(".memories-page");
+    if (!memoriesPage) {
+        return;
+    }
+    /* =====================================================
+       ✦ HEADER
+    ===================================================== */
+    const header =
+        memoriesPage.querySelector(
+            ".page-header, .home-header"
+        );
+    if (header) {
+        setTimeout(() => {
+            header.classList.add(
+                "visible",
+                "home-show"
+            );
+        }, 180);
+    }
+    /* =====================================================
+       ✦ PHOTOS
+    ===================================================== */
+    const photos =
+        memoriesPage.querySelectorAll(
+            ".memory-photo"
+        );
+    photos.forEach(
+        (photo, index) => {
+            photo.style.transitionDelay =
+                `${index * 100}ms`;
+        }
+    );
+    /* =====================================================
+       ✦ SCROLL REVEAL
+    ===================================================== */
+    if (
+        "IntersectionObserver"
+        in window
+    ) {
+        const observer =
+            new IntersectionObserver(
+                entries => {
+                    entries.forEach(
+                        entry => {
+                            if (
+                                entry.isIntersecting
+                            ) {
+                                entry.target.classList.add(
+                                    "visible"
+                                );
+                                observer.unobserve(
+                                    entry.target
+                                );
+                            }
+                        }
+                    );
+                },
+                {
+                    threshold: .12,
+                    rootMargin:
+                        "0px 0px -45px 0px"
+                }
+            );
+        photos.forEach(photo => {
+            observer.observe(
+                photo
+            );
+        });
+    } else {
+        photos.forEach(photo => {
+            photo.classList.add(
+                "visible"
+            );
+        });
+    }
+    /* =====================================================
+       ✦ IMAGE LIGHTBOX
+       กดรูป → เปิดรูปใหญ่
+    ===================================================== */
+    const images =
+        memoriesPage.querySelectorAll(
+            ".memory-image img"
+        );
+    images.forEach(image => {
+        image.addEventListener(
+            "click",
+            () => {
+                if (
+                    !image.src ||
+                    image.style.display === "none"
+                ) {
+                    return;
+                }
+                const overlay =
+                    document.createElement(
+                        "div"
+                    );
+                overlay.className =
+                    "image-lightbox";
+                const largeImage =
+                    document.createElement(
+                        "img"
+                    );
+                largeImage.src =
+                    image.src;
+                largeImage.alt =
+                    image.alt || "Memory";
+                overlay.appendChild(
+                    largeImage
+                );
+                document.body.appendChild(
+                    overlay
+                );
+                requestAnimationFrame(
+                    () => {
+                        overlay.classList.add(
+                            "show"
+                        );
+                    }
+                );
+                overlay.addEventListener(
+                    "click",
+                    () => {
+                        overlay.classList.remove(
+                            "show"
+                        );
+                        setTimeout(
+                            () => {
+                                overlay.remove();
+                            },
+                            300
+                        );
+                    }
+                );
+            }
+        );
+    });
+});
