@@ -744,3 +744,82 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+/* =========================================================
+   ✦ TIMELINE PAGE SCRIPT
+   ✦ ADD TO THE END OF script.js
+========================================================= */
+document.addEventListener("DOMContentLoaded", () => {
+    const timelinePage =
+        document.querySelector(".timeline-page");
+    if (!timelinePage) {
+        return;
+    }
+    /* =====================================================
+       ✦ HEADER
+    ===================================================== */
+    const header =
+        timelinePage.querySelector(".page-header");
+    if (header) {
+        setTimeout(() => {
+            header.classList.add(
+                "visible"
+            );
+        }, 180);
+    }
+    /* =====================================================
+       ✦ TIMELINE ITEMS
+    ===================================================== */
+    const items =
+        timelinePage.querySelectorAll(
+            ".timeline-item"
+        );
+    items.forEach(
+        (item, index) => {
+            item.style.transitionDelay =
+                `${index * 130}ms`;
+        }
+    );
+    /* =====================================================
+       ✦ SCROLL REVEAL
+    ===================================================== */
+    if (
+        "IntersectionObserver"
+        in window
+    ) {
+        const observer =
+            new IntersectionObserver(
+                entries => {
+                    entries.forEach(
+                        entry => {
+                            if (
+                                entry.isIntersecting
+                            ) {
+                                entry.target.classList.add(
+                                    "visible"
+                                );
+                                observer.unobserve(
+                                    entry.target
+                                );
+                            }
+                        }
+                    );
+                },
+                {
+                    threshold: .12,
+                    rootMargin:
+                        "0px 0px -45px 0px"
+                }
+            );
+        items.forEach(item => {
+            observer.observe(
+                item
+            );
+        });
+    } else {
+        items.forEach(item => {
+            item.classList.add(
+                "visible"
+            );
+        });
+    }
+});
