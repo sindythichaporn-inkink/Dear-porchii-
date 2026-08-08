@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home ♡ Dear Porch</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="home-page">
+<!-- ✦ Glitter -->
+<div class="home-glitter" aria-hidden="true">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+<!-- ✦ Header -->
+<header class="home-header">
+    <a
+        href="index.html"
+        class="home-back">
+        ← dear porch
+    </a>
+    <p class="home-logo">
+        ժׁׅ݊ꫀׁׅܻɑׁׅ֮r&nbsp;&nbsp;
+        pᨵׁׅrᝯׁhׁׅ֮ ✦
+    </p>
+    <p class="home-small">
+        welcome to our little book
+    </p>
+    <h1>
+        Our Memories
+    </h1>
+    <p class="home-intro">
+        สมุดเล่มเล็ก ๆ
+        <br>
+        ที่เก็บเรื่องราวของอิ๊งค์กับพอร์ชเอาไว้ ♡
+    </p>
+</header>
+<!-- ✦ Couple -->
+<main class="home-main">
+    <div class="home-couple">
+        <div class="home-photo">
+            <img
+                src="images/characters/ink.png"
+                alt="Ink">
+        </div>
+        <div class="home-heart">
+            ♡
+        </div>
+        <div class="home-photo">
+            <img
+                src="images/characters/porch.png"
+                alt="Porch">
+        </div>
+    </div>
+    <!-- ✦ Welcome message -->
+    <section class="home-message">
+        <span>✦</span>
+        <p>
+            ยินดีต้อนรับกลับมานะ
+        </p>
+        <p>
+            ที่นี่คือพื้นที่เล็ก ๆ
+            <br>
+            ที่เค้าเก็บเรื่องราวของเราเอาไว้
+        </p>
+        <span>♡</span>
+    </section>
+    <!-- ✦ Quick Menu -->
+    <section class="home-links">
+        <a href="about.html">
+            <span>01</span>
+            <strong>
+                ɑׁׅ֮ϐׁׅ֒ᨵׁׅυׁׅtׁׅ hׁׅ֮ꪱׁׅ ꩇׁׅ݊
+            </strong>
+            <small>
+                เรื่องราวของพอร์ช
+            </small>
+        </a>
+        <a href="story.html">
+            <span>02</span>
+            <strong>
+                ᨵׁׅυׁׅr ꯱ׁׅ֒tׁׅᨵׁׅrყ
+            </strong>
+            <small>
+                จุดเริ่มต้นของเรา
+            </small>
+        </a>
+        <a href="timeline.html">
+            <span>03</span>
+            <strong>
+                tׁׅꪱׁׅ ꩇׁׅ݊ꫀׁׅܻᥣׁׅ֪ꪱׁׅꪀׁׅܻ
+            </strong>
+            <small>
+                ช่วงเวลาสำคัญของเรา
+            </small>
+        </a>
+        <a href="memories.html">
+            <span>04</span>
+            <strong>
+                ᧁׁɑׁׅ֮ᥣׁׅ֪ᥣׁׅ֪ꫀׁׅܻry
+            </strong>
+            <small>
+                รูปภาพและความทรงจำ
+            </small>
+        </a>
+        <a href="letter.html">
+            <span>05</span>
+            <strong>
+                ᥣׁׅ֪ꫀׁׅܻtׁׅtׁׅꫀׁׅܻr
+            </strong>
+            <small>
+                จดหมายจากเค้าถึงเธอ
+            </small>
+        </a>
+        <a href="100-reasons.html">
+            <span>06</span>
+            <strong>
+                100 rꫀׁׅܻɑׁׅ֮꯱ׁׅ֒ᨵׁׅꪀׁׅ꯱ׁׅ֒
+            </strong>
+            <small>
+                100 เหตุผลที่เค้ารักเธอ
+            </small>
+        </a>
+        <a href="family.html">
+            <span>07</span>
+            <strong>
+                ᨵׁׅυׁׅr ⨍ɑׁׅ֮ꩇׁׅ݊ꪱׁׅᥣׁׅ֪ᨮ꫶ׁׅ֮
+            </strong>
+            <small>
+                ครอบครัวเล็ก ๆ ของเรา
+            </small>
+        </a>
+        <a href="final.html">
+            <span>08</span>
+            <strong>
+                ⨍ꪱׁׅꪀׁׅɑׁׅ֮ᥣׁׅ֪
+            </strong>
+            <small>
+                หน้าสุดท้ายของสมุด
+            </small>
+        </a>
+    </section>
+    <!-- ✦ Ending -->
+    <p class="home-ending">
+        made with love
+        <br>
+        for Porch ♡
+    </p>
+</main>
+<!-- ✦ Script -->
+<script>
+    document.addEventListener(
+        "DOMContentLoaded",
+        () => {
+            const elements =
+                document.querySelectorAll(
+                    ".home-header, .home-couple, .home-message, .home-links a, .home-ending"
+                );
+            const observer =
+                new IntersectionObserver(
+                    (entries) => {
+                        entries.forEach(
+                            (entry) => {
+                                if (
+                                    entry.isIntersecting
+                                ) {
+                                    entry.target.classList.add(
+                                        "home-show"
+                                    );
+                                }
+                            }
+                        );
+                    },
+                    {
+                        threshold: 0.1
+                    }
+                );
+            elements.forEach(
+                element => {
+                    observer.observe(
+                        element
+                    );
+                }
+            );
+        }
+    );
+</script>
+</body>
+</html>
