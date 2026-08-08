@@ -1935,3 +1935,765 @@ a {
     }
 
 }
+/* =========================================================
+✦ DEAR PORCH — TIMELINE
+========================================================= */
+
+/* ================================
+✦ PAGE
+================================ */
+
+.timeline-page {
+min-height: 100vh;
+margin: 0;
+overflow-x: hidden;
+
+background:
+    radial-gradient(
+        circle at 20% 10%,
+        rgba(255, 210, 235, 0.55),
+        transparent 28%
+    ),
+    radial-gradient(
+        circle at 85% 25%,
+        rgba(205, 225, 255, 0.5),
+        transparent 30%
+    ),
+    linear-gradient(
+        145deg,
+        #fff9fc,
+        #f8f4ff 48%,
+        #eef7ff
+    );
+color: #51485a;
+font-family:
+    "Noto Sans Thai",
+    "Prompt",
+    sans-serif;
+position: relative;
+
+}
+
+/* ================================
+✦ HEADER
+================================ */
+
+.timeline-header {
+text-align: center;
+
+max-width: 760px;
+margin: 0 auto;
+padding:
+    70px
+    24px
+    55px;
+position: relative;
+z-index: 2;
+
+}
+
+.timeline-back {
+display: inline-block;
+
+padding:
+    9px
+    18px;
+border-radius: 999px;
+background: rgba(255, 255, 255, 0.7);
+border: 1px solid
+    rgba(180, 150, 180, 0.2);
+color: #76677c;
+text-decoration: none;
+font-size: 14px;
+transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease;
+
+}
+
+.timeline-back:hover {
+transform: translateY(-3px);
+
+background: white;
+box-shadow:
+    0 10px 30px
+    rgba(160, 130, 170, 0.18);
+
+}
+
+.timeline-logo {
+margin-top: 32px;
+
+font-size: 14px;
+letter-spacing: 3px;
+color: #b59bbd;
+
+}
+
+.timeline-small-title {
+margin-top: 28px;
+
+margin-bottom: 6px;
+color: #c7a9c9;
+font-size: 13px;
+letter-spacing: 2px;
+
+}
+
+.timeline-header h1 {
+margin: 0;
+
+font-size:
+    clamp(38px, 8vw, 72px);
+font-weight: 500;
+letter-spacing: -1px;
+background:
+    linear-gradient(
+        90deg,
+        #a983a8,
+        #d19bb8,
+        #91a8c9
+    );
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+
+}
+
+.timeline-intro {
+margin-top: 18px;
+
+line-height: 1.9;
+color: #837588;
+font-size: 15px;
+
+}
+
+/* ================================
+✦ TIMELINE CONTAINER
+================================ */
+
+.timeline-container {
+position: relative;
+
+width: min(
+    900px,
+    calc(100% - 32px)
+);
+margin: 0 auto;
+padding:
+    20px
+    0
+    80px;
+
+}
+
+/* เส้นตรงกลาง */
+
+.timeline-container::before {
+content: “”;
+
+position: absolute;
+top: 0;
+bottom: 0;
+left: 50%;
+width: 2px;
+transform: translateX(-50%);
+background:
+    linear-gradient(
+        to bottom,
+        transparent,
+        rgba(190, 160, 200, 0.35),
+        rgba(190, 160, 200, 0.55),
+        transparent
+    );
+
+}
+
+/* ================================
+✦ MEMORY ITEM
+================================ */
+
+.timeline-memory {
+width: 50%;
+
+padding:
+    22px
+    38px;
+box-sizing: border-box;
+position: relative;
+opacity: 0;
+transform:
+    translateY(50px)
+    scale(0.96);
+transition:
+    opacity 0.8s ease,
+    transform 0.8s cubic-bezier(
+        0.2,
+        0.8,
+        0.2,
+        1
+    );
+
+}
+
+.timeline-memory:nth-child(odd) {
+margin-left: 0;
+
+text-align: right;
+
+}
+
+.timeline-memory:nth-child(even) {
+margin-left: 50%;
+}
+
+.timeline-memory.timeline-show {
+opacity: 1;
+
+transform:
+    translateY(0)
+    scale(1);
+
+}
+
+/* ================================
+✦ NUMBER DOT
+================================ */
+
+.timeline-dot {
+position: absolute;
+
+top: 38px;
+width: 42px;
+height: 42px;
+display: flex;
+align-items: center;
+justify-content: center;
+border-radius: 50%;
+background:
+    rgba(255, 255, 255, 0.9);
+border:
+    1px solid
+    rgba(188, 160, 195, 0.35);
+box-shadow:
+    0 8px 25px
+    rgba(160, 130, 175, 0.15);
+color: #a27ea9;
+font-size: 11px;
+letter-spacing: 1px;
+z-index: 3;
+transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+
+}
+
+.timeline-memory:nth-child(odd)
+.timeline-dot {
+
+right: -21px;
+
+}
+
+.timeline-memory:nth-child(even)
+.timeline-dot {
+
+left: -21px;
+
+}
+
+.timeline-memory:hover
+.timeline-dot {
+
+transform:
+    scale(1.15)
+    rotate(8deg);
+box-shadow:
+    0 12px 35px
+    rgba(170, 130, 190, 0.3);
+
+}
+
+/* ================================
+✦ CARD
+================================ */
+
+.timeline-card {
+
+padding: 24px;
+border-radius: 28px;
+background:
+    rgba(255, 255, 255, 0.72);
+border:
+    1px solid
+    rgba(255, 255, 255, 0.9);
+box-shadow:
+    0 18px 50px
+    rgba(120, 100, 140, 0.10);
+backdrop-filter:
+    blur(18px);
+-webkit-backdrop-filter:
+    blur(18px);
+cursor: pointer;
+transition:
+    transform 0.4s
+    cubic-bezier(
+        0.2,
+        0.8,
+        0.2,
+        1
+    ),
+    box-shadow 0.4s ease,
+    background 0.4s ease;
+
+}
+
+.timeline-card:hover {
+
+transform:
+    translateY(-8px)
+    rotate(-0.5deg);
+background:
+    rgba(255, 255, 255, 0.9);
+box-shadow:
+    0 25px 60px
+    rgba(130, 105, 145, 0.18);
+
+}
+
+.timeline-card:active {
+
+transform:
+    scale(0.97);
+
+}
+
+/* ================================
+✦ DATE
+================================ */
+
+.timeline-date {
+
+margin: 0 0 9px;
+color: #b493bd;
+font-size: 12px;
+letter-spacing: 1.5px;
+text-transform: uppercase;
+
+}
+
+.timeline-card h2 {
+
+margin:
+    0
+    0
+    14px;
+font-size: 22px;
+font-weight: 600;
+color: #67586d;
+
+}
+
+.timeline-card p {
+
+line-height: 1.85;
+font-size: 14px;
+color: #817487;
+margin-bottom: 0;
+
+}
+
+/* ================================
+✦ PHOTO
+================================ */
+
+.timeline-photo {
+
+width: 100%;
+aspect-ratio: 4 / 3;
+margin:
+    16px
+    0
+    18px;
+overflow: hidden;
+border-radius: 22px;
+background:
+    linear-gradient(
+        135deg,
+        rgba(245, 224, 238, 0.9),
+        rgba(225, 232, 248, 0.9)
+    );
+position: relative;
+box-shadow:
+    inset 0 0 0 1px
+    rgba(255, 255, 255, 0.8),
+    0 12px 30px
+    rgba(140, 115, 150, 0.1);
+
+}
+
+.timeline-photo::after {
+
+content: "";
+position: absolute;
+inset: 0;
+background:
+    linear-gradient(
+        120deg,
+        transparent 20%,
+        rgba(255,255,255,0.45) 50%,
+        transparent 80%
+    );
+transform:
+    translateX(-120%);
+transition:
+    transform 0.8s ease;
+pointer-events: none;
+
+}
+
+.timeline-card:hover
+.timeline-photo::after {
+
+transform:
+    translateX(120%);
+
+}
+
+.timeline-photo img {
+
+width: 100%;
+height: 100%;
+display: block;
+object-fit: cover;
+transition:
+    transform 0.7s
+    cubic-bezier(
+        0.2,
+        0.8,
+        0.2,
+        1
+    );
+
+}
+
+.timeline-card:hover
+.timeline-photo img {
+
+transform:
+    scale(1.06);
+
+}
+
+.big-photo {
+
+aspect-ratio: 16 / 10;
+
+}
+
+/* ================================
+✦ SPECIAL CARD
+================================ */
+
+.special-timeline-card {
+
+background:
+    linear-gradient(
+        145deg,
+        rgba(255, 244, 250, 0.9),
+        rgba(244, 244, 255, 0.88)
+    );
+box-shadow:
+    0 25px 70px
+    rgba(190, 140, 175, 0.18);
+
+}
+
+.highlight-text {
+
+margin-top: 18px !important;
+color: #b17b9c !important;
+font-weight: 600;
+font-size: 15px !important;
+
+}
+
+/* ================================
+✦ CLICK POP
+================================ */
+
+.timeline-pop {
+
+animation:
+    timelinePop 0.55s
+    ease;
+
+}
+
+@keyframes timelinePop {
+
+0% {
+    transform: scale(1);
+}
+40% {
+    transform:
+        scale(1.035)
+        rotate(-0.5deg);
+}
+70% {
+    transform:
+        scale(0.985);
+}
+100% {
+    transform:
+        scale(1);
+}
+
+}
+
+/* ================================
+✦ GLITTER
+================================ */
+
+.timeline-glitter {
+
+position: fixed;
+inset: 0;
+pointer-events: none;
+overflow: hidden;
+z-index: 1;
+
+}
+
+.timeline-glitter span {
+
+position: absolute;
+width: 5px;
+height: 5px;
+border-radius: 50%;
+background:
+    rgba(255, 255, 255, 0.9);
+box-shadow:
+    0 0 10px
+    rgba(255, 255, 255, 0.9),
+    0 0 18px
+    rgba(211, 177, 225, 0.55);
+animation:
+    glitterFloat
+    var(--speed, 7s)
+    linear
+    infinite;
+opacity: 0.7;
+
+}
+
+.timeline-glitter span:nth-child(1) {
+left: 8%;
+bottom: -10px;
+–speed: 8s;
+}
+
+.timeline-glitter span:nth-child(2) {
+left: 17%;
+bottom: -20px;
+–speed: 11s;
+}
+
+.timeline-glitter span:nth-child(3) {
+left: 27%;
+bottom: -10px;
+–speed: 7s;
+}
+
+.timeline-glitter span:nth-child(4) {
+left: 39%;
+bottom: -30px;
+–speed: 13s;
+}
+
+.timeline-glitter span:nth-child(5) {
+left: 48%;
+bottom: -20px;
+–speed: 9s;
+}
+
+.timeline-glitter span:nth-child(6) {
+left: 59%;
+bottom: -30px;
+–speed: 12s;
+}
+
+.timeline-glitter span:nth-child(7) {
+left: 68%;
+bottom: -10px;
+–speed: 8s;
+}
+
+.timeline-glitter span:nth-child(8) {
+left: 76%;
+bottom: -20px;
+–speed: 10s;
+}
+
+.timeline-glitter span:nth-child(9) {
+left: 84%;
+bottom: -30px;
+–speed: 14s;
+}
+
+.timeline-glitter span:nth-child(10) {
+left: 92%;
+bottom: -10px;
+–speed: 9s;
+}
+
+.timeline-glitter span:nth-child(11) {
+left: 33%;
+bottom: -20px;
+–speed: 15s;
+}
+
+.timeline-glitter span:nth-child(12) {
+left: 72%;
+bottom: -10px;
+–speed: 11s;
+}
+
+@keyframes glitterFloat {
+
+0% {
+    transform:
+        translateY(0)
+        scale(0.5);
+    opacity: 0;
+}
+10% {
+    opacity: 0.8;
+}
+50% {
+    transform:
+        translateY(-50vh)
+        translateX(18px)
+        scale(1);
+    opacity: 0.75;
+}
+100% {
+    transform:
+        translateY(-110vh)
+        translateX(-15px)
+        scale(0.4);
+    opacity: 0;
+}
+
+}
+
+/* ================================
+✦ FOOTER
+================================ */
+
+.timeline-footer {
+
+text-align: center;
+padding:
+    10px
+    20px
+    70px;
+color: #9a879f;
+position: relative;
+z-index: 2;
+
+}
+
+.timeline-footer p {
+
+margin-bottom: 18px;
+font-size: 13px;
+letter-spacing: 1px;
+
+}
+
+.timeline-footer a {
+
+display: inline-block;
+padding:
+    11px
+    20px;
+border-radius: 999px;
+color: #77627e;
+background:
+    rgba(255,255,255,0.72);
+border:
+    1px solid
+    rgba(180,150,190,0.2);
+text-decoration: none;
+transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+
+}
+
+.timeline-footer a:hover {
+
+transform:
+    translateY(-3px);
+box-shadow:
+    0 10px 30px
+    rgba(150,120,160,0.15);
+
+}
+
+/* ================================
+✦ MOBILE
+================================ */
+
+@media (max-width: 700px) {
+
+.timeline-header {
+    padding-top: 45px;
+    padding-bottom: 35px;
+}
+.timeline-container {
+    width:
+        calc(100% - 22px);
+}
+.timeline-container::before {
+    left: 20px;
+}
+.timeline-memory,
+.timeline-memory:nth-child(even),
+.timeline-memory:nth-child(odd) {
+    width: 100%;
+    margin-left: 0;
+    padding:
+        18px
+        0
+        30px
+        52px;
+    text-align: left;
+}
+.timeline-dot,
+.timeline-memory:nth-child(odd) .timeline-dot,
+.timeline-memory:nth-child(even) .timeline-dot {
+    left: -1px;
+    right: auto;
+    top: 34px;
+    width: 42px;
+    height: 42px;
+}
+.timeline-card {
+    padding: 19px;
+    border-radius: 24px;
+}
+.timeline-card h2 {
+    font-size: 19px;
+}
+.timeline-card p {
+    font-size: 13px;
+    line-height: 1.8;
+}
+.timeline-photo {
+    border-radius: 18px;
+}
+
+}
