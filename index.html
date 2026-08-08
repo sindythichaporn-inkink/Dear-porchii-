@@ -3,118 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dear Porch ♡</title>
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Itim&family=Kanit:wght@300;400;500&display=swap"
-        rel="stylesheet"
-    >
-    <link rel="stylesheet" href="style.css">
+<title>Dear Porch ♡</title>
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+    href="https://fonts.googleapis.com/css2?family=Itim&family=Kanit:wght@300;400;500&display=swap"
+    rel="stylesheet"
+>
+<!-- Main CSS -->
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- =========================================
-         FLOATING GLITTER
-    ========================================== -->
-    <div class="glitter-container" aria-hidden="true"></div>
-    <!-- =========================================
-         WELCOME PAGE
-    ========================================== -->
-    <main class="welcome-page" id="welcome">
-        <!-- Website name -->
+<!-- =====================================================
+     BACKGROUND
+====================================================== -->
+<div class="sparkles" aria-hidden="true">
+    <span>✦</span>
+    <span>♡</span>
+    <span>✧</span>
+    <span>⋆</span>
+    <span>♡</span>
+    <span>✦</span>
+    <span>✧</span>
+    <span>♡</span>
+    <span>⋆</span>
+    <span>✦</span>
+    <span>♡</span>
+    <span>✧</span>
+</div>
+<!-- =====================================================
+     WELCOME PAGE
+====================================================== -->
+<main class="welcome-page" id="welcome">
+    <!-- =================================================
+         MAIN CONTENT
+    ================================================== -->
+    <div class="welcome-content">
+        <!-- WEBSITE TITLE -->
         <div class="website-name">
-            𓂃 ࣪˖ ִֶָ ♡ Dear Porch ♡ ִֶָ ࣪˖ 𓂃
+            𓂃 ࣪˖ Dear Porch ♡ ִֶָ
         </div>
-        <!-- =====================================
+        <!-- =================================================
              CORGI CHARACTERS
-        ====================================== -->
+        ================================================== -->
         <div class="welcome-characters">
             <!-- อิ๊งค์ -->
             <img
-                src="images/ing-corgi.png"
-                alt="อิ๊งค์ คอร์กี้"
+                src="images/ink-corgi.png"
+                alt="อิ๊งค์"
                 class="character"
                 onerror="this.style.display='none';"
             >
             <!-- พอร์ช -->
             <img
                 src="images/porch-corgi.png"
-                alt="พอร์ช คอร์กี้"
+                alt="พอร์ช"
                 class="character porch"
                 onerror="this.style.display='none';"
             >
         </div>
-        <!-- =====================================
-             WELCOME TEXT
-        ====================================== -->
-        <section class="welcome-text">
-            <!-- Typing line -->
-            <p
-                id="typingText"
-                class="typing-text"
-                aria-live="polite"
-            ></p>
-            <!-- ชื่อพอร์ช -->
-            <h1 id="porchText">
-                พอร์ช!?!
-            </h1>
-            <!-- ประโยค -->
-            <p class="welcome-question">
-                ใช่ไหม… ^_____^
-            </p>
-            <p class="welcome-question second-question">
-                งั้นก็คงเป็นแฟนของอิ๊งค์สินะ
-                𐔌՞ ܸ. .ܸ՞𐦯
-            </p>
-            <!-- =================================
-                 MESSAGE
-            ================================== -->
-            <div class="welcome-message">
-                <p>
-                    รู้ไหม…
-                </p>
-                <p>
-                    แฟนของเธอตั้งใจทำเว็บไซต์นี้
-                    <br>
-                    เพื่อเธอมาก ๆ เลยนะ
-                    ૮₍ ˃ ⤙ ˂ ₎ა
-                </p>
-                <p>
-                    ทุกภาพ ทุกความทรงจำ
-                    <br>
-                    และทุกข้อความในนี้
-                </p>
-                <p>
-                    ล้วนเป็นสิ่งที่อิ๊งค์ตั้งใจเก็บเอาไว้
-                </p>
-                <p>
-                    เพื่อให้เธอได้กลับมายิ้มกับมันอีกครั้ง
-                    ‹𝟹
-                </p>
-            </div>
-            <!-- =================================
-                 SMALL DECORATION
-            ================================== -->
-            <div class="welcome-decoration">
-                𓂃 ࣪˖ ִֶָ ♡ ִֶָ ࣪˖ 𓂃
-            </div>
-            <!-- =================================
-                 OPEN BOOK BUTTON
-            ================================== -->
-            <a
-                href="menu.html"
-                class="start-button"
-                id="openStory"
-            >
-                เปิดสมุดความทรงจำของเรา
-                ໒꒰՞ ܸ. .ܸ՞꒱ა
-            </a>
-        </section>
-    </main>
-    <!-- =========================================
-         JAVASCRIPT
-    ========================================== -->
-    <script src="script.js"></script>
+        <!-- =================================================
+             FULL TYPING MESSAGE
+             IMPORTANT:
+             JavaScript จะเป็นคนพิมพ์ข้อความทั้งหมด
+             จึงไม่ใส่ข้อความซ้ำไว้ตรงนี้
+        ================================================== -->
+        <section
+            class="welcome-text"
+            id="typingText"
+            aria-label="ข้อความต้อนรับ"
+        ></section>
+        <!-- =================================================
+             OPEN BOOK BUTTON
+             จะถูกแสดงหลังพิมพ์ข้อความจบ
+        ================================================== -->
+        <a
+            href="menu.html"
+            class="start-button"
+            id="openStory"
+        >
+            <span>เปิดสมุดความทรงจำ</span>
+            <span class="button-heart">♡</span>
+        </a>
+    </div>
+</main>
+<!-- =====================================================
+     JAVASCRIPT
+====================================================== -->
+<script src="script.js"></script>
 </body>
 </html>
