@@ -2194,3 +2194,137 @@ body.page-leaving {
         letter-spacing: 5px;
     }
 }
+/* =========================================================
+   ✦ STORY PAGE EFFECTS
+   ✦ ADD TO THE END OF style.css
+   ✦ ไม่ต้องลบของเดิม
+========================================================= */
+.story-page {
+    position: relative;
+    min-height: 100vh;
+}
+/* =========================================================
+   ✦ STORY HEADER
+========================================================= */
+.story-page .page-header {
+    opacity: 0;
+    transform: translateY(22px);
+    filter: blur(5px);
+    transition:
+        opacity .9s ease,
+        transform .9s ease,
+        filter .9s ease;
+}
+.story-page .page-header.visible {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+}
+/* =========================================================
+   ✦ STORY SECTIONS
+========================================================= */
+.story-section {
+    opacity: 0;
+    transform:
+        translateY(28px)
+        scale(.985);
+    filter: blur(4px);
+    transition:
+        opacity .85s ease,
+        transform .85s ease,
+        filter .85s ease;
+}
+.story-section.visible {
+    opacity: 1;
+    transform:
+        translateY(0)
+        scale(1);
+    filter: blur(0);
+}
+/* =========================================================
+   ✦ STORY TEXT
+========================================================= */
+.story-section h2,
+.story-section h3,
+.story-section p {
+    transition:
+        transform .45s ease;
+}
+.story-section:hover h2,
+.story-section:hover h3 {
+    transform:
+        translateX(2px);
+}
+/* =========================================================
+   ✦ STORY DECORATION
+========================================================= */
+.story-section::after {
+    transition:
+        transform .5s ease,
+        opacity .5s ease;
+}
+.story-section:hover::after {
+    transform:
+        translateY(-4px)
+        rotate(5deg);
+    opacity: .8;
+}
+/* =========================================================
+   ✦ STORY IMAGE
+========================================================= */
+.story-section img {
+    transition:
+        transform .7s ease,
+        filter .7s ease;
+}
+.story-section:hover img {
+    transform:
+        scale(1.025);
+    filter:
+        brightness(1.03);
+}
+/* =========================================================
+   ✦ FLOATING STORY DECOR
+========================================================= */
+.story-page::before {
+    content:
+        "𓂃 ࣪˖ ִֶָ   ♡   ✧   ♡   𓂃 ࣪˖ ִֶָ";
+    position: fixed;
+    top: 16%;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    color:
+        rgba(181, 153, 194, .16);
+    font-size: 15px;
+    letter-spacing: 5px;
+    pointer-events: none;
+    animation:
+        storyDecorFloat
+        8s ease-in-out infinite;
+    z-index: 0;
+}
+@keyframes storyDecorFloat {
+    0%,
+    100% {
+        transform:
+            translateY(0);
+    }
+    50% {
+        transform:
+            translateY(-12px);
+    }
+}
+/* =========================================================
+   ✦ MOBILE
+========================================================= */
+@media (max-width: 768px) {
+    .story-page::before {
+        font-size: 11px;
+        letter-spacing: 3px;
+    }
+    .story-section:hover img {
+        transform:
+            scale(1.01);
+    }
+}
