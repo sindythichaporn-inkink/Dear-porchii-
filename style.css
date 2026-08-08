@@ -1755,3 +1755,290 @@ body.page-leaving {
         animation-duration: 6s;
     }
 }
+/* =========================================================
+   ✦ HOME PAGE EFFECTS
+   ✦ ADD TO THE END OF style.css
+   ✦ ไม่ต้องลบ CSS เดิม
+========================================================= */
+/* =========================================================
+   ✦ HOME GLITTER
+========================================================= */
+.home-glitter {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+}
+.home-glitter span {
+    position: absolute;
+    display: block;
+    color: rgba(181, 154, 194, .38);
+    font-size: 15px;
+    animation:
+        homeSparkleFloat 7s ease-in-out infinite,
+        homeSparkleGlow 4s ease-in-out infinite;
+}
+.home-glitter span:nth-child(1) {
+    top: 12%;
+    left: 8%;
+}
+.home-glitter span:nth-child(2) {
+    top: 20%;
+    right: 12%;
+    animation-delay: 1s;
+}
+.home-glitter span:nth-child(3) {
+    top: 42%;
+    left: 5%;
+    animation-delay: 2s;
+}
+.home-glitter span:nth-child(4) {
+    top: 58%;
+    right: 8%;
+    animation-delay: .5s;
+}
+.home-glitter span:nth-child(5) {
+    bottom: 20%;
+    left: 13%;
+    animation-delay: 1.5s;
+}
+.home-glitter span:nth-child(6) {
+    bottom: 10%;
+    right: 17%;
+    animation-delay: 2.5s;
+}
+.home-glitter span:nth-child(7) {
+    top: 32%;
+    left: 28%;
+    animation-delay: 1.2s;
+}
+.home-glitter span:nth-child(8) {
+    top: 72%;
+    right: 28%;
+    animation-delay: 3s;
+}
+.home-glitter span:nth-child(9) {
+    top: 15%;
+    left: 48%;
+    animation-delay: 2.2s;
+}
+.home-glitter span:nth-child(10) {
+    bottom: 35%;
+    right: 42%;
+    animation-delay: 1.8s;
+}
+.home-glitter span:nth-child(11) {
+    bottom: 8%;
+    left: 38%;
+    animation-delay: 3.5s;
+}
+.home-glitter span:nth-child(12) {
+    top: 48%;
+    right: 25%;
+    animation-delay: 2.8s;
+}
+@keyframes homeSparkleFloat {
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            rotate(0deg);
+    }
+    50% {
+        transform:
+            translateY(-14px)
+            rotate(8deg);
+    }
+}
+@keyframes homeSparkleGlow {
+    0%,
+    100% {
+        opacity: .25;
+    }
+    50% {
+        opacity: .75;
+    }
+}
+/* =========================================================
+   ✦ HOME HEADER
+========================================================= */
+.home-header {
+    opacity: 0;
+    transform:
+        translateY(20px);
+    filter: blur(5px);
+    transition:
+        opacity .9s ease,
+        transform .9s ease,
+        filter .9s ease;
+}
+.home-header.home-show {
+    opacity: 1;
+    transform:
+        translateY(0);
+    filter: blur(0);
+}
+/* =========================================================
+   ✦ HOME COUPLE
+========================================================= */
+.home-couple {
+    opacity: 0;
+    transform:
+        translateY(25px)
+        scale(.97);
+    filter: blur(4px);
+    transition:
+        opacity 1s ease,
+        transform 1s ease,
+        filter 1s ease;
+}
+.home-couple.home-show {
+    opacity: 1;
+    transform:
+        translateY(0)
+        scale(1);
+    filter: blur(0);
+}
+/* รูปค่อย ๆ ลอยเบา ๆ */
+.home-photo img {
+    animation:
+        homePhotoFloat 5s ease-in-out infinite;
+}
+.home-photo:nth-child(3) img {
+    animation-delay: 1.2s;
+}
+@keyframes homePhotoFloat {
+    0%,
+    100% {
+        transform:
+            translateY(0);
+    }
+    50% {
+        transform:
+            translateY(-5px);
+    }
+}
+/* =========================================================
+   ✦ HOME HEART
+========================================================= */
+.home-heart {
+    animation:
+        homeHeartFloat 3.5s ease-in-out infinite;
+}
+@keyframes homeHeartFloat {
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            scale(1);
+    }
+    50% {
+        transform:
+            translateY(-5px)
+            scale(1.08);
+    }
+}
+/* =========================================================
+   ✦ HOME MESSAGE
+========================================================= */
+.home-message {
+    opacity: 0;
+    transform:
+        translateY(20px);
+    filter: blur(4px);
+    transition:
+        opacity .9s ease,
+        transform .9s ease,
+        filter .9s ease;
+}
+.home-message.home-show {
+    opacity: 1;
+    transform:
+        translateY(0);
+    filter: blur(0);
+}
+/* =========================================================
+   ✦ HOME MENU
+========================================================= */
+.home-link {
+    opacity: 0;
+    transform:
+        translateY(18px)
+        scale(.98);
+    filter: blur(3px);
+    transition:
+        opacity .7s ease,
+        transform .7s ease,
+        filter .7s ease,
+        box-shadow .3s ease;
+}
+.home-link.home-show {
+    opacity: 1;
+    transform:
+        translateY(0)
+        scale(1);
+    filter: blur(0);
+}
+/* =========================================================
+   ✦ MENU HOVER
+========================================================= */
+.home-link:hover {
+    transform:
+        translateY(-4px)
+        scale(1.015);
+    box-shadow:
+        0 15px 40px
+        rgba(160, 130, 175, .14);
+}
+.home-link-number {
+    transition:
+        transform .35s ease;
+}
+.home-link:hover
+.home-link-number {
+    transform:
+        rotate(-6deg)
+        scale(1.08);
+}
+/* =========================================================
+   ✦ CURRENT PAGE
+========================================================= */
+.home-link.current-page {
+    border-color:
+        rgba(190, 158, 200, .45);
+    box-shadow:
+        0 10px 35px
+        rgba(170, 140, 185, .12);
+}
+/* =========================================================
+   ✦ HOME ENDING
+========================================================= */
+.home-ending {
+    opacity: 0;
+    transform:
+        translateY(18px);
+    filter: blur(4px);
+    transition:
+        opacity 1s ease,
+        transform 1s ease,
+        filter 1s ease;
+}
+.home-ending.home-show {
+    opacity: 1;
+    transform:
+        translateY(0);
+    filter: blur(0);
+}
+/* =========================================================
+   ✦ MOBILE
+========================================================= */
+@media (max-width: 768px) {
+    .home-glitter span {
+        font-size: 12px;
+    }
+    .home-link:hover {
+        transform:
+            translateY(-2px);
+    }
+}
