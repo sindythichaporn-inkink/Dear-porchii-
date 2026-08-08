@@ -1,5 +1,5 @@
 /* =========================================================
-   ✦ GOOGLE FONTS
+   ✦ RESET
 ========================================================= */
 * {
     box-sizing: border-box;
@@ -11,18 +11,22 @@ body {
     margin: 0;
     min-height: 100vh;
     font-family: "Kanit", sans-serif;
+    color: #66566d;
     background:
         radial-gradient(
-            circle at 50% 20%,
-            rgba(255, 235, 250, 0.95),
-            rgba(247, 230, 245, 0.85) 35%,
-            rgba(225, 214, 238, 0.95) 100%
+            circle at 50% 15%,
+            #fff7fc 0%,
+            #f8eaf6 38%,
+            #e8dced 72%,
+            #ddd1e5 100%
         );
-    color: #66566d;
     overflow-x: hidden;
     transition:
         opacity 0.45s ease,
         transform 0.45s ease;
+}
+a {
+    color: inherit;
 }
 /* =========================================================
    ✦ PAGE TRANSITION
@@ -32,73 +36,80 @@ body.page-leaving {
     transform: translateY(10px);
 }
 /* =========================================================
-   ✦ BACKGROUND
+   ✦ BACKGROUND SPARKLES
 ========================================================= */
-.index-page {
-    position: relative;
-    overflow-x: hidden;
-}
-.index-background {
+.index-background,
+.home-glitter {
     position: fixed;
     inset: 0;
-    pointer-events: none;
     overflow: hidden;
+    pointer-events: none;
     z-index: 0;
 }
-.index-background span {
+.index-background span,
+.home-glitter span {
     position: absolute;
-    font-size: 20px;
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 18px;
     animation:
-        floatingSparkle 6s ease-in-out infinite;
-    opacity: 0.7;
+        floatingSparkle
+        6s ease-in-out infinite;
 }
-.index-background span:nth-child(1) {
+.index-background span:nth-child(1),
+.home-glitter span:nth-child(1) {
     left: 8%;
     top: 12%;
-    animation-delay: 0s;
 }
-.index-background span:nth-child(2) {
+.index-background span:nth-child(2),
+.home-glitter span:nth-child(2) {
     left: 85%;
     top: 18%;
     animation-delay: 1s;
 }
-.index-background span:nth-child(3) {
+.index-background span:nth-child(3),
+.home-glitter span:nth-child(3) {
     left: 18%;
     top: 42%;
     animation-delay: 2s;
 }
-.index-background span:nth-child(4) {
+.index-background span:nth-child(4),
+.home-glitter span:nth-child(4) {
     left: 78%;
     top: 48%;
     animation-delay: 3s;
 }
-.index-background span:nth-child(5) {
+.index-background span:nth-child(5),
+.home-glitter span:nth-child(5) {
     left: 10%;
     top: 75%;
     animation-delay: 1.5s;
 }
-.index-background span:nth-child(6) {
+.index-background span:nth-child(6),
+.home-glitter span:nth-child(6) {
     left: 90%;
     top: 72%;
     animation-delay: 2.5s;
 }
-.index-background span:nth-child(7) {
+.index-background span:nth-child(7),
+.home-glitter span:nth-child(7) {
     left: 45%;
     top: 8%;
     animation-delay: 4s;
 }
-.index-background span:nth-child(8) {
+.index-background span:nth-child(8),
+.home-glitter span:nth-child(8) {
     left: 55%;
     top: 85%;
     animation-delay: 3.5s;
 }
-.index-background span:nth-child(9) {
+.index-background span:nth-child(9),
+.home-glitter span:nth-child(9) {
     left: 30%;
     top: 65%;
     animation-delay: 1s;
 }
-.index-background span:nth-child(10) {
+.index-background span:nth-child(10),
+.home-glitter span:nth-child(10) {
     left: 68%;
     top: 35%;
     animation-delay: 4.5s;
@@ -109,7 +120,7 @@ body.page-leaving {
         transform:
             translateY(0)
             rotate(0deg);
-        opacity: 0.35;
+        opacity: 0.3;
     }
     50% {
         transform:
@@ -119,36 +130,31 @@ body.page-leaving {
     }
 }
 /* =========================================================
-   ✦ MAIN CONTAINER
+   ✦ INDEX
 ========================================================= */
 .index-container {
     position: relative;
     z-index: 2;
     width: min(
-        100% - 32px,
+        calc(100% - 24px),
         850px
     );
-    margin: 0 auto;
     min-height: 100vh;
+    margin: 0 auto;
     padding:
-        45px 0
+        40px 0
         70px;
     text-align: center;
 }
-/* =========================================================
-   ✦ ASCII WINGS
-========================================================= */
 .index-ascii-wings {
     width: 100%;
     margin:
-        0 auto
-        18px;
+        0 auto 18px;
     padding: 0;
-    text-align: center;
     white-space: pre;
     overflow-x: auto;
-    font-family:
-        monospace;
+    text-align: center;
+    font-family: monospace;
     font-size:
         clamp(
             5px,
@@ -156,7 +162,7 @@ body.page-leaving {
             13px
         );
     line-height: 1;
-    color: #9c7da3;
+    color: #98789f;
     opacity: 0;
     animation:
         wingsAppear
@@ -178,12 +184,8 @@ body.page-leaving {
             scale(1);
     }
 }
-/* =========================================================
-   ✦ LOGO
-========================================================= */
 .index-logo {
-    margin:
-        12px 0 5px;
+    margin: 12px 0 5px;
     font-family:
         "Playfair Display",
         serif;
@@ -196,17 +198,9 @@ body.page-leaving {
     font-style: italic;
     color: #7b5d82;
     letter-spacing: 1px;
-    opacity: 0;
-    animation:
-        fadeUp
-        1s
-        ease
-        1.2s
-        forwards;
 }
 .index-subtitle {
-    margin:
-        5px 0 18px;
+    margin: 5px 0 18px;
     font-family:
         "Playfair Display",
         serif;
@@ -217,21 +211,10 @@ body.page-leaving {
             17px
         );
     color: #a78baa;
-    opacity: 0;
-    animation:
-        fadeUp
-        1s
-        ease
-        1.45s
-        forwards;
 }
-/* =========================================================
-   ✦ DIVIDER
-========================================================= */
 .index-divider {
     margin:
-        18px auto
-        30px;
+        18px auto 30px;
     color: #b894bd;
     font-size:
         clamp(
@@ -240,24 +223,13 @@ body.page-leaving {
             20px
         );
     letter-spacing: 2px;
-    opacity: 0;
-    animation:
-        fadeUp
-        1s
-        ease
-        1.7s
-        forwards;
 }
-/* =========================================================
-   ✦ TYPING MESSAGE
-========================================================= */
 .index-message {
     width: min(
         100%,
         650px
     );
-    margin:
-        0 auto;
+    margin: 0 auto;
     padding:
         10px 10px 25px;
     font-size:
@@ -266,21 +238,13 @@ body.page-leaving {
             3.2vw,
             21px
         );
-    line-height:
-        1.9;
-    color: #66566d;
+    line-height: 1.9;
 }
 .typing-line {
-    min-height:
-        1.9em;
-    margin:
-        9px 0;
-    opacity: 1;
+    min-height: 1.9em;
+    margin: 9px 0;
     word-break: normal;
 }
-/* =========================================================
-   ✦ TYPING CURSOR
-========================================================= */
 .typing-active::after {
     content: "│";
     display: inline-block;
@@ -302,26 +266,20 @@ body.page-leaving {
         opacity: 0;
     }
 }
-/* =========================================================
-   ✦ OPEN BOOK BUTTON
-========================================================= */
 .index-open {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 14px;
-    min-width:
-        260px;
+    min-width: 260px;
     margin:
-        20px auto
-        25px;
+        20px auto 25px;
     padding:
         14px 25px;
     border:
         1px solid
         rgba(154, 119, 164, 0.45);
-    border-radius:
-        999px;
+    border-radius: 999px;
     background:
         rgba(255, 255, 255, 0.55);
     box-shadow:
@@ -329,144 +287,442 @@ body.page-leaving {
         rgba(120, 85, 130, 0.12);
     color: #74587b;
     text-decoration: none;
-    font-size:
-        16px;
     transition:
         transform 0.3s ease,
         background 0.3s ease,
         box-shadow 0.3s ease;
-    opacity: 0;
-    animation:
-        fadeUp
-        1s
-        ease
-        2.2s
-        forwards;
 }
 .index-open:hover {
-    transform:
-        translateY(-4px);
+    transform: translateY(-4px);
     background:
         rgba(255, 255, 255, 0.85);
     box-shadow:
         0 15px 35px
         rgba(120, 85, 130, 0.18);
 }
-.index-open:active {
-    transform:
-        translateY(-1px);
-}
-.index-open strong {
-    font-weight: 500;
-}
-.index-open span {
-    font-size: 18px;
-}
-/* =========================================================
-   ✦ FOOTER
-========================================================= */
 .index-footer {
-    margin:
-        15px 0 0;
+    margin-top: 15px;
     color: #a78baa;
     font-family:
         "Playfair Display",
         serif;
-    font-size:
-        13px;
-    opacity: 0;
-    animation:
-        fadeUp
-        1s
-        ease
-        2.5s
-        forwards;
+    font-size: 13px;
 }
 /* =========================================================
-   ✦ GENERAL FADE UP
+   ✦ HOME
 ========================================================= */
-@keyframes fadeUp {
-    from {
-        opacity: 0;
-        transform:
-            translateY(18px);
+.home-container {
+    position: relative;
+    z-index: 2;
+    width: min(
+        calc(100% - 30px),
+        900px
+    );
+    min-height: 100vh;
+    margin: 0 auto;
+    padding:
+        35px 0
+        70px;
+}
+/* =========================================================
+   ✦ HOME HEADER
+========================================================= */
+.home-header {
+    text-align: center;
+    opacity: 0;
+    transform:
+        translateY(25px);
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+.home-header.home-show {
+    opacity: 1;
+    transform:
+        translateY(0);
+}
+.home-back {
+    display: inline-block;
+    margin-bottom: 25px;
+    padding:
+        7px 16px;
+    border:
+        1px solid
+        rgba(140, 105, 150, 0.25);
+    border-radius: 999px;
+    background:
+        rgba(255, 255, 255, 0.45);
+    text-decoration: none;
+    font-size: 14px;
+    color: #806587;
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease;
+}
+.home-back:hover {
+    transform:
+        translateY(-3px);
+    background:
+        rgba(255, 255, 255, 0.8);
+}
+.home-logo {
+    margin: 5px 0;
+    font-family:
+        "Playfair Display",
+        serif;
+    font-size:
+        clamp(
+            25px,
+            5vw,
+            40px
+        );
+    font-style: italic;
+    color: #795b80;
+}
+.home-small {
+    margin: 0 0 10px;
+    font-family:
+        "Playfair Display",
+        serif;
+    color: #a48aaa;
+    font-size: 14px;
+}
+.home-header h1 {
+    margin: 15px 0 10px;
+    font-family:
+        "Playfair Display",
+        serif;
+    font-size:
+        clamp(
+            32px,
+            7vw,
+            52px
+        );
+    font-weight: 400;
+    color: #725579;
+}
+.home-intro {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.8;
+    color: #806c86;
+}
+.home-divider {
+    margin:
+        22px 0 35px;
+    color: #b08db7;
+    letter-spacing: 2px;
+}
+/* =========================================================
+   ✦ COUPLE
+========================================================= */
+.home-couple-section {
+    text-align: center;
+}
+.home-couple {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    opacity: 0;
+    transform:
+        translateY(25px)
+        scale(0.96);
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+.home-couple.home-show {
+    opacity: 1;
+    transform:
+        translateY(0)
+        scale(1);
+}
+.home-photo {
+    width: 170px;
+    height: 170px;
+    overflow: hidden;
+    border:
+        2px solid
+        rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    background:
+        rgba(255, 255, 255, 0.45);
+    box-shadow:
+        0 12px 35px
+        rgba(110, 75, 120, 0.16);
+}
+.home-photo img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+.home-heart {
+    font-size: 40px;
+    color: #c78cae;
+    animation:
+        heartBeat
+        2s
+        ease-in-out
+        infinite;
+}
+@keyframes heartBeat {
+    0%,
+    100% {
+        transform: scale(1);
     }
-    to {
-        opacity: 1;
-        transform:
-            translateY(0);
+    50% {
+        transform: scale(1.15);
     }
+}
+/* =========================================================
+   ✦ HOME MESSAGE
+========================================================= */
+.home-message {
+    width: min(
+        100%,
+        650px
+    );
+    margin:
+        35px auto 45px;
+    padding:
+        25px 25px;
+    text-align: center;
+    border:
+        1px solid
+        rgba(160, 125, 170, 0.2);
+    border-radius: 25px;
+    background:
+        rgba(255, 255, 255, 0.48);
+    box-shadow:
+        0 15px 40px
+        rgba(110, 75, 120, 0.08);
+    line-height: 1.8;
+    opacity: 0;
+    transform:
+        translateY(25px);
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+.home-message.home-show {
+    opacity: 1;
+    transform:
+        translateY(0);
+}
+.home-message span {
+    display: block;
+    margin: 5px 0 12px;
+    color: #b28db8;
+    font-size: 22px;
+}
+.home-message p {
+    margin: 8px 0;
+}
+/* =========================================================
+   ✦ MENU TITLE
+========================================================= */
+.home-menu-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    margin:
+        10px 0 25px;
+    color: #86668d;
+}
+.home-menu-title h2 {
+    margin: 0;
+    font-family:
+        "Playfair Display",
+        serif;
+    font-size:
+        clamp(
+            25px,
+            5vw,
+            35px
+        );
+    font-weight: 400;
+}
+.home-menu-title span {
+    font-size: 20px;
+}
+/* =========================================================
+   ✦ MENU
+========================================================= */
+.home-links {
+    display: grid;
+    grid-template-columns:
+        repeat(
+            2,
+            minmax(0, 1fr)
+        );
+    gap: 15px;
+}
+.home-link {
+    display: grid;
+    grid-template-columns:
+        42px 1fr 35px;
+    align-items: center;
+    gap: 12px;
+    min-height: 90px;
+    padding:
+        16px 18px;
+    border:
+        1px solid
+        rgba(150, 115, 160, 0.22);
+    border-radius: 20px;
+    background:
+        rgba(255, 255, 255, 0.5);
+    box-shadow:
+        0 8px 25px
+        rgba(100, 70, 110, 0.07);
+    text-decoration: none;
+    opacity: 0;
+    transform:
+        translateY(20px);
+    transition:
+        opacity 0.6s ease,
+        transform 0.6s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease;
+}
+.home-link.home-show {
+    opacity: 1;
+    transform:
+        translateY(0);
+}
+.home-link:hover {
+    background:
+        rgba(255, 255, 255, 0.85);
+    transform:
+        translateY(-4px);
+    box-shadow:
+        0 15px 35px
+        rgba(100, 70, 110, 0.13);
+}
+.home-link-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background:
+        rgba(220, 198, 224, 0.55);
+    color: #806487;
+    font-family:
+        "Playfair Display",
+        serif;
+    font-size: 14px;
+}
+.home-link-text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.home-link-text strong {
+    font-size: 17px;
+    font-weight: 500;
+    color: #705477;
+}
+.home-link-text small {
+    font-size: 13px;
+    font-weight: 300;
+    color: #9a829f;
+}
+.home-link-icon {
+    text-align: center;
+    font-size: 19px;
+}
+/* =========================================================
+   ✦ HOME ENDING
+========================================================= */
+.home-ending {
+    margin:
+        55px auto 0;
+    text-align: center;
+    color: #917397;
+    line-height: 1.9;
+    opacity: 0;
+    transform:
+        translateY(20px);
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+.home-ending.home-show {
+    opacity: 1;
+    transform:
+        translateY(0);
+}
+.home-ending p {
+    margin: 5px 0;
+}
+.home-ending p:first-child,
+.home-ending p:last-child {
+    color: #b18db8;
 }
 /* =========================================================
    ✦ MOBILE
 ========================================================= */
-@media (max-width: 600px) {
+@media (max-width: 700px) {
     .index-container {
         width:
-            calc(100% - 20px);
-        padding:
-            25px 0
-            50px;
+            calc(100% - 16px);
+        padding-top: 25px;
     }
     .index-ascii-wings {
-        font-size:
-            5px;
-        transform:
-            scale(0.92);
-        transform-origin:
-            center;
-    }
-    .index-logo {
-        font-size:
-            27px;
-    }
-    .index-subtitle {
-        font-size:
-            13px;
+        font-size: 4px;
     }
     .index-message {
-        padding:
-            5px 8px 20px;
-        font-size:
-            16px;
-        line-height:
-            1.8;
+        font-size: 16px;
     }
-    .typing-line {
-        min-height:
-            1.8em;
-        margin:
-            8px 0;
-    }
-    .index-open {
+    .home-container {
         width:
-            90%;
-        min-width:
-            0;
-        font-size:
-            15px;
-        padding:
-            13px 18px;
+            calc(100% - 20px);
+        padding-top: 25px;
     }
-    .index-footer {
-        font-size:
-            11px;
+    .home-couple {
+        gap: 12px;
+    }
+    .home-photo {
+        width: 125px;
+        height: 125px;
+    }
+    .home-heart {
+        font-size: 30px;
+    }
+    .home-links {
+        grid-template-columns: 1fr;
+    }
+    .home-link {
+        min-height: 82px;
     }
 }
-/* =========================================================
-   ✦ VERY SMALL PHONE
-========================================================= */
-@media (max-width: 380px) {
-    .index-ascii-wings {
-        font-size:
-            4px;
+@media (max-width: 400px) {
+    .home-photo {
+        width: 105px;
+        height: 105px;
     }
-    .index-message {
-        font-size:
-            15px;
+    .home-heart {
+        font-size: 26px;
     }
-    .index-open {
-        font-size:
-            14px;
+    .home-message {
+        padding:
+            20px 15px;
+    }
+    .home-link {
+        grid-template-columns:
+            36px 1fr 28px;
+        padding:
+            13px;
+    }
+    .home-link-text strong {
+        font-size: 15px;
+    }
+    .home-link-text small {
+        font-size: 12px;
     }
 }
