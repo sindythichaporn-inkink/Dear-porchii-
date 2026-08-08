@@ -574,3 +574,93 @@ document.addEventListener(
         );
     }
 );
+/* =========================================================
+   ✦ ABOUT PAGE SCRIPT
+   ✦ ADD TO THE END OF script.js
+   ✦ ไม่ต้องลบของเดิม
+========================================================= */
+document.addEventListener("DOMContentLoaded", () => {
+    const aboutPage =
+        document.querySelector(".about-page");
+    if (!aboutPage) {
+        return;
+    }
+    /* =====================================================
+       ✦ ABOUT HEADER
+    ===================================================== */
+    const header =
+        aboutPage.querySelector(".page-header");
+    if (header) {
+        setTimeout(() => {
+            header.classList.add(
+                "visible"
+            );
+        }, 180);
+    }
+    /* =====================================================
+       ✦ ABOUT CARDS
+       ค่อย ๆ โผล่ทีละการ์ด
+    ===================================================== */
+    const cards =
+        aboutPage.querySelectorAll(
+            ".about-card"
+        );
+    cards.forEach((card, index) => {
+        card.style.transitionDelay =
+            `${index * 140}ms`;
+    });
+    /* =====================================================
+       ✦ ABOUT IMAGE
+       รูปจะค่อย ๆ ปรากฏหลังการ์ด
+    ===================================================== */
+    const images =
+        aboutPage.querySelectorAll(
+            ".about-card img"
+        );
+    images.forEach((image, index) => {
+        image.style.transitionDelay =
+            `${250 + index * 100}ms`;
+    });
+    /* =====================================================
+       ✦ ABOUT SCROLL
+       เพิ่ม class visible ตอนเลื่อนมาถึง
+    ===================================================== */
+    if (
+        "IntersectionObserver"
+        in window
+    ) {
+        const observer =
+            new IntersectionObserver(
+                entries => {
+                    entries.forEach(
+                        entry => {
+                            if (
+                                entry.isIntersecting
+                            ) {
+                                entry.target.classList.add(
+                                    "visible"
+                                );
+                                observer.unobserve(
+                                    entry.target
+                                );
+                            }
+                        }
+                    );
+                },
+                {
+                    threshold: .15,
+                    rootMargin:
+                        "0px 0px -50px 0px"
+                }
+            );
+        cards.forEach(card => {
+            observer.observe(card);
+        });
+    } else {
+        cards.forEach(card => {
+            card.classList.add(
+                "visible"
+            );
+        });
+    }
+});
