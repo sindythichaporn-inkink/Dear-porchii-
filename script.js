@@ -1319,3 +1319,199 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 });
+/* =========================================================
+   ✦ DEAR PORCH — FINAL SCRIPT FIX
+   ✦ วางต่อท้ายสุดของ script.js
+========================================================= */
+document.addEventListener("DOMContentLoaded", () => {
+    /* =====================================================
+       ✦ 01 — REVEAL ELEMENTS
+    ===================================================== */
+    const revealElements = document.querySelectorAll(
+        ".about-card, " +
+        ".story-section, " +
+        ".timeline-item, " +
+        ".memory-photo, " +
+        ".memories-note, " +
+        ".reason-item, " +
+        ".family-member, " +
+        ".letter-paper, " +
+        ".letter-signature, " +
+        ".final-message, " +
+        ".final-back"
+    );
+    revealElements.forEach((element, index) => {
+        setTimeout(() => {
+            element.classList.add("visible");
+        }, 150 + (index * 100));
+    });
+    /* =====================================================
+       ✦ 02 — GALLERY LIGHTBOX
+    ===================================================== */
+    const memoryImages =
+        document.querySelectorAll(
+            ".memory-image img"
+        );
+    if (memoryImages.length > 0) {
+        let lightbox =
+            document.querySelector(
+                ".image-lightbox"
+            );
+        if (!lightbox) {
+            lightbox =
+                document.createElement("div");
+            lightbox.className =
+                "image-lightbox";
+            const image =
+                document.createElement("img");
+            lightbox.appendChild(image);
+            document.body.appendChild(
+                lightbox
+            );
+        }
+        const lightboxImage =
+            lightbox.querySelector("img");
+        memoryImages.forEach(image => {
+            image.addEventListener(
+                "click",
+                event => {
+                    event.stopPropagation();
+                    if (
+                        image.style.display ===
+                        "none"
+                    ) {
+                        return;
+                    }
+                    lightboxImage.src =
+                        image.src;
+                    lightboxImage.alt =
+                        image.alt ||
+                        "Our Memory";
+                    lightbox.classList.add(
+                        "show"
+                    );
+                    document.body.style.overflow =
+                        "hidden";
+                }
+            );
+        });
+        /* ปิดเมื่อแตะพื้นหลัง */
+        lightbox.addEventListener(
+            "click",
+            event => {
+                if (
+                    event.target ===
+                    lightbox
+                ) {
+                    lightbox.classList.remove(
+                        "show"
+                    );
+                    document.body.style.overflow =
+                        "";
+                }
+            }
+        );
+        /* ปิดด้วย ESC */
+        document.addEventListener(
+            "keydown",
+            event => {
+                if (
+                    event.key ===
+                    "Escape"
+                ) {
+                    lightbox.classList.remove(
+                        "show"
+                    );
+                    document.body.style.overflow =
+                        "";
+                }
+            }
+        );
+    }
+    /* =====================================================
+       ✦ 03 — FINAL PAGE
+    ===================================================== */
+    const finalPage =
+        document.querySelector(
+            ".final-page"
+        );
+    if (finalPage) {
+        const header =
+            finalPage.querySelector(
+                ".page-header"
+            );
+        const message =
+            finalPage.querySelector(
+                ".final-message"
+            );
+        const back =
+            finalPage.querySelector(
+                ".final-back"
+            );
+        if (header) {
+            setTimeout(() => {
+                header.classList.add(
+                    "visible"
+                );
+            }, 200);
+        }
+        if (message) {
+            setTimeout(() => {
+                message.classList.add(
+                    "visible"
+                );
+            }, 650);
+        }
+        if (back) {
+            setTimeout(() => {
+                back.classList.add(
+                    "visible"
+                );
+            }, 1200);
+        }
+    }
+});
+/* =========================================================
+   ✦ 04 — PAGE TRANSITION
+========================================================= */
+document.addEventListener(
+    "click",
+    event => {
+        const link =
+            event.target.closest("a");
+        if (!link) {
+            return;
+        }
+        const href =
+            link.getAttribute("href");
+        if (
+            !href ||
+            href.startsWith("#") ||
+            href.startsWith("http") ||
+            href.startsWith("mailto:") ||
+            href.startsWith("tel:") ||
+            link.target === "_blank"
+        ) {
+            return;
+        }
+        /*
+         * ไม่ทำ transition ถ้ากำลังอยู่
+         * ใน lightbox
+         */
+        if (
+            event.target.closest(
+                ".image-lightbox"
+            )
+        ) {
+            return;
+        }
+        event.preventDefault();
+        document.body.classList.add(
+            "page-leaving"
+        );
+        setTimeout(() => {
+            window.location.href =
+                href;
+        }, 450);
+    }
+);
