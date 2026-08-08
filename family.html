@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Family ♡ Dear Porch</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="family-page">
+<!-- ✦ Glitter -->
+<div class="family-glitter" aria-hidden="true">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+<!-- ✦ Header -->
+<header class="family-header">
+    <a href="index.html" class="family-back">
+        ← Dear Porch
+    </a>
+    <p class="family-logo">
+        dear porchii ✦
+    </p>
+    <p class="family-mini">
+        our little family
+    </p>
+    <h1>
+        Our Family
+    </h1>
+    <p class="family-intro">
+        จากความรักของเราสองคน
+        <br>
+        กลายเป็นครอบครัวเล็ก ๆ ที่แสนน่ารัก ♡
+    </p>
+</header>
+<!-- ✦ Family -->
+<main class="family-container">
+    <!-- Ink -->
+    <article class="family-card reveal-family">
+        <div class="family-number">
+            01
+        </div>
+        <div class="family-image">
+            <img
+                src="images/characters/ink.png"
+                alt="Ink Corgi">
+        </div>
+        <p class="family-role">
+            🩷 MAMA
+        </p>
+        <h2>
+            อิ๊งค์
+        </h2>
+        <p>
+            คอร์กี้ผู้หญิงใส่แว่น
+            <br>
+            เป็นคนเริ่มต้นสร้างบ้านหลังเล็ก ๆ
+            แห่งนี้ขึ้นมาเพื่อเก็บความทรงจำของเรา
+        </p>
+    </article>
+    <!-- Porch -->
+    <article class="family-card reveal-family">
+        <div class="family-number">
+            02
+        </div>
+        <div class="family-image">
+            <img
+                src="images/characters/porch.png"
+                alt="Porch Corgi">
+        </div>
+        <p class="family-role">
+            🩵 PAPA
+        </p>
+        <h2>
+            พอร์ช
+        </h2>
+        <p>
+            คอร์กี้ผู้ชายที่ชอบ Spider-Man
+            และบาสเกตบอล
+            <br>
+            คนสำคัญที่ทำให้บ้านหลังนี้มีความหมาย
+        </p>
+    </article>
+    <!-- Kishin -->
+    <article class="family-card reveal-family">
+        <div class="family-number">
+            03
+        </div>
+        <div class="family-image">
+            <img
+                src="images/characters/kishin.png"
+                alt="Kishin Corgi">
+        </div>
+        <p class="family-role">
+            🐶 SON
+        </p>
+        <h2>
+            Kishin
+        </h2>
+        <p>
+            ลูกชายตัวน้อยของครอบครัว
+            <br>
+            ตัวแทนของความน่ารักและความวุ่นวาย
+            ในบ้านของเรา
+        </p>
+    </article>
+    <!-- Ferbie -->
+    <article class="family-card reveal-family">
+        <div class="family-number">
+            04
+        </div>
+        <div class="family-image">
+            <img
+                src="images/characters/ferbie.png"
+                alt="Ferbie Corgi">
+        </div>
+        <p class="family-role">
+            🎀 DAUGHTER
+        </p>
+        <h2>
+            Ferbie
+        </h2>
+        <p>
+            ลูกสาวตัวน้อยของครอบครัว
+            <br>
+            น่ารักและเป็นอีกหนึ่งความสุข
+            ของบ้านหลังนี้
+        </p>
+    </article>
+    <!-- Yoshin -->
+    <article class="family-card reveal-family">
+        <div class="family-number">
+            05
+        </div>
+        <div class="family-image">
+            <img
+                src="images/characters/yoshin.png"
+                alt="Yoshin Corgi">
+        </div>
+        <p class="family-role">
+            🐶 SON
+        </p>
+        <h2>
+            Yoshin
+        </h2>
+        <p>
+            ลูกชายอีกคนของครอบครัว
+            <br>
+            ตัวเล็ก ๆ ที่เข้ามาเติมเต็ม
+            บ้านของเราให้สมบูรณ์ยิ่งขึ้น
+        </p>
+    </article>
+</main>
+<!-- ✦ Family message -->
+<section class="family-message reveal-family">
+    <div class="family-message-box">
+        <span>
+            ♡
+        </span>
+        <h2>
+            Our little family
+        </h2>
+        <p>
+            เราอาจเริ่มต้นจากคนสองคน
+            <br>
+            แต่ในจินตนาการของเรา
+            <br>
+            บ้านหลังนี้มีสมาชิกมากกว่านั้น
+        </p>
+        <p class="family-ending">
+            อิ๊งค์ · พอร์ช · Kishin · Ferbie · Yoshin
+        </p>
+        <span>
+            ✦
+        </span>
+    </div>
+</section>
+<!-- ✦ Footer -->
+<footer class="family-footer">
+    <p>
+        made with love for our little family ♡
+    </p>
+    <a href="index.html">
+        Back to our book
+    </a>
+</footer>
+<!-- ✦ Animation -->
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const elements =
+            document.querySelectorAll(".reveal-family");
+        const observer =
+            new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add(
+                                "family-show"
+                            );
+                        }
+                    });
+                },
+                {
+                    threshold: 0.12
+                }
+            );
+        elements.forEach((element) => {
+            observer.observe(element);
+        });
+        /* ✦ กดการ์ดแล้วเด้ง */
+        document
+            .querySelectorAll(".family-card")
+            .forEach((card) => {
+                card.addEventListener("click", () => {
+                    card.classList.remove(
+                        "family-pop"
+                    );
+                    void card.offsetWidth;
+                    card.classList.add(
+                        "family-pop"
+                    );
+                });
+            });
+    });
+</script>
+</body>
+</html>
