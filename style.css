@@ -1446,3 +1446,312 @@ body.page-leaving {
         height: 190px;
     }
 }
+/* =========================================================
+   ✦ PAGE EFFECTS — ADDITION ONLY
+   ✦ เอาไปต่อท้าย style.css เดิม
+========================================================= */
+/* =========================================================
+   ✦ GLOBAL PAGE REVEAL
+========================================================= */
+.home-page,
+.about-page,
+.story-page,
+.timeline-page,
+.memories-page,
+.letter-page,
+.reasons-page,
+.family-page,
+.final-page {
+    animation: pageSoftAppear .9s ease both;
+}
+@keyframes pageSoftAppear {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+        filter: blur(3px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
+/* =========================================================
+   ✦ FLOATING LIGHTS
+========================================================= */
+.home-page::after,
+.about-page::after,
+.story-page::after,
+.timeline-page::after,
+.memories-page::after,
+.letter-page::after,
+.reasons-page::after,
+.family-page::after,
+.final-page::after {
+    content: "✦   ˚   ♡   ✧   ˚   ⋆   ♡";
+    position: fixed;
+    left: 0;
+    bottom: 8%;
+    width: 100%;
+    text-align: center;
+    color: rgba(181, 153, 193, .22);
+    font-size: 18px;
+    letter-spacing: 20px;
+    pointer-events: none;
+    animation:
+        floatingLight 8s ease-in-out infinite;
+    z-index: -1;
+}
+@keyframes floatingLight {
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            translateX(0);
+        opacity: .25;
+    }
+    50% {
+        transform:
+            translateY(-18px)
+            translateX(8px);
+        opacity: .55;
+    }
+}
+/* =========================================================
+   ✦ HEADER GENTLE FLOAT
+========================================================= */
+.home-header h1,
+.page-header h1 {
+    animation:
+        titleGentleFloat 5s ease-in-out infinite;
+}
+@keyframes titleGentleFloat {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-4px);
+    }
+}
+/* =========================================================
+   ✦ ABOUT — SOFT CARD GLOW
+========================================================= */
+.about-card {
+    position: relative;
+    overflow: hidden;
+}
+.about-card::before {
+    content: "♡";
+    position: absolute;
+    top: 12px;
+    right: 18px;
+    color: rgba(194, 158, 196, .18);
+    font-size: 30px;
+    animation:
+        tinyFloat 4s ease-in-out infinite;
+}
+.about-card:hover {
+    box-shadow:
+        0 20px 50px
+        rgba(150, 120, 170, .14);
+}
+/* =========================================================
+   ✦ STORY — READING EFFECT
+========================================================= */
+.story-section {
+    overflow: hidden;
+}
+.story-section::after {
+    content: "𓂃 ࣪˖ ִֶָ";
+    display: block;
+    margin-top: 20px;
+    text-align: right;
+    color: rgba(177, 148, 188, .45);
+    animation:
+        tinyFloat 4s ease-in-out infinite;
+}
+/* =========================================================
+   ✦ TIMELINE — GLOWING DOT
+========================================================= */
+.timeline-dot {
+    animation:
+        timelinePulse 3s ease-in-out infinite;
+}
+@keyframes timelinePulse {
+    0%,
+    100% {
+        box-shadow:
+            0 0 0 5px
+            rgba(200, 169, 208, .13);
+    }
+    50% {
+        box-shadow:
+            0 0 0 9px
+            rgba(200, 169, 208, .06),
+            0 0 18px
+            rgba(200, 169, 208, .25);
+    }
+}
+/* =========================================================
+   ✦ MEMORIES — POLAROID FEEL
+========================================================= */
+.memory-photo {
+    position: relative;
+}
+.memory-photo::before {
+    content: "♡";
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    color: rgba(178, 145, 188, .45);
+    font-size: 18px;
+    opacity: 0;
+    transform: scale(.7);
+    transition:
+        opacity .3s ease,
+        transform .3s ease;
+}
+.memory-photo:hover::before {
+    opacity: 1;
+    transform: scale(1);
+}
+.memory-image {
+    position: relative;
+}
+.memory-image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.20),
+            transparent 45%
+        );
+    pointer-events: none;
+}
+/* =========================================================
+   ✦ LETTER — PAPER LIGHT
+========================================================= */
+.letter-paper {
+    animation:
+        letterFloat 6s ease-in-out infinite;
+}
+@keyframes letterFloat {
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            rotate(0deg);
+    }
+    50% {
+        transform:
+            translateY(-3px)
+            rotate(.15deg);
+    }
+}
+/* =========================================================
+   ✦ REASONS — HEART HOVER
+========================================================= */
+.reason-card {
+    overflow: hidden;
+}
+.reason-card::after {
+    content: "♡";
+    position: absolute;
+    right: 15px;
+    bottom: 8px;
+    color: rgba(191, 155, 196, .18);
+    font-size: 25px;
+    transition:
+        transform .35s ease,
+        opacity .35s ease;
+}
+.reason-card:hover::after {
+    transform:
+        scale(1.25)
+        rotate(8deg);
+    opacity: .8;
+}
+/* =========================================================
+   ✦ FAMILY — LITTLE CORKY SPARK
+========================================================= */
+.corky-card {
+    position: relative;
+    overflow: hidden;
+}
+.corky-card::after {
+    content: "✦";
+    position: absolute;
+    top: 10px;
+    right: 13px;
+    color: rgba(191, 157, 198, .35);
+    animation:
+        tinyFloat 3.5s ease-in-out infinite;
+}
+/* =========================================================
+   ✦ FINAL — SOFT HEART
+========================================================= */
+.final-content {
+    animation:
+        finalAppear 1.2s ease both;
+}
+.final-heart {
+    text-shadow:
+        0 0 20px
+        rgba(196, 155, 181, .25);
+}
+@keyframes finalAppear {
+    from {
+        opacity: 0;
+        transform:
+            translateY(25px)
+            scale(.98);
+        filter: blur(5px);
+    }
+    to {
+        opacity: 1;
+        transform:
+            translateY(0)
+            scale(1);
+        filter: blur(0);
+    }
+}
+/* =========================================================
+   ✦ SMALL FLOAT
+========================================================= */
+@keyframes tinyFloat {
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            rotate(0deg);
+    }
+    50% {
+        transform:
+            translateY(-5px)
+            rotate(4deg);
+    }
+}
+/* =========================================================
+   ✦ MOBILE — KEEP EFFECTS SOFT
+========================================================= */
+@media (max-width: 768px) {
+    .home-page::after,
+    .about-page::after,
+    .story-page::after,
+    .timeline-page::after,
+    .memories-page::after,
+    .letter-page::after,
+    .reasons-page::after,
+    .family-page::after,
+    .final-page::after {
+        font-size: 13px;
+        letter-spacing: 10px;
+    }
+    .home-header h1,
+    .page-header h1 {
+        animation-duration: 6s;
+    }
+}
