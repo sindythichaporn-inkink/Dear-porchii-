@@ -2328,3 +2328,176 @@ body.page-leaving {
             scale(1.01);
     }
 }
+/* =========================================================
+   ✦ TIMELINE PAGE EFFECTS
+   ✦ ADD TO THE END OF style.css
+========================================================= */
+.timeline-page {
+    position: relative;
+    min-height: 100vh;
+}
+/* =========================================================
+   ✦ TIMELINE HEADER
+========================================================= */
+.timeline-page .page-header {
+    opacity: 0;
+    transform: translateY(22px);
+    filter: blur(5px);
+    transition:
+        opacity .9s ease,
+        transform .9s ease,
+        filter .9s ease;
+}
+.timeline-page .page-header.visible {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+}
+/* =========================================================
+   ✦ TIMELINE ITEMS
+========================================================= */
+.timeline-item {
+    opacity: 0;
+    transform:
+        translateY(25px)
+        scale(.98);
+    filter: blur(4px);
+    transition:
+        opacity .85s ease,
+        transform .85s ease,
+        filter .85s ease,
+        box-shadow .35s ease;
+}
+.timeline-item.visible {
+    opacity: 1;
+    transform:
+        translateY(0)
+        scale(1);
+    filter: blur(0);
+}
+/* =========================================================
+   ✦ TIMELINE HOVER
+========================================================= */
+.timeline-item:hover {
+    transform:
+        translateY(-4px);
+    box-shadow:
+        0 18px 45px
+        rgba(155, 125, 175, .14);
+}
+/* =========================================================
+   ✦ TIMELINE IMAGE
+========================================================= */
+.timeline-item img {
+    transition:
+        transform .65s ease,
+        filter .65s ease;
+}
+.timeline-item:hover img {
+    transform:
+        scale(1.025);
+    filter:
+        brightness(1.03);
+}
+/* =========================================================
+   ✦ TIMELINE DATE
+========================================================= */
+.timeline-date {
+    transition:
+        transform .4s ease,
+        letter-spacing .4s ease;
+}
+.timeline-item:hover .timeline-date {
+    transform:
+        translateX(3px);
+    letter-spacing: 1px;
+}
+/* =========================================================
+   ✦ TIMELINE DOT
+========================================================= */
+.timeline-dot {
+    animation:
+        timelineSoftPulse 3.2s ease-in-out infinite;
+}
+@keyframes timelineSoftPulse {
+    0%,
+    100% {
+        transform: scale(1);
+        box-shadow:
+            0 0 0 5px
+            rgba(200, 169, 208, .10);
+    }
+    50% {
+        transform: scale(1.08);
+        box-shadow:
+            0 0 0 8px
+            rgba(200, 169, 208, .05),
+            0 0 18px
+            rgba(200, 169, 208, .18);
+    }
+}
+/* =========================================================
+   ✦ TIMELINE LINE
+========================================================= */
+.timeline-page .timeline::before {
+    transform-origin: top;
+    animation:
+        timelineLineAppear 1.5s ease both;
+}
+@keyframes timelineLineAppear {
+    from {
+        transform:
+            scaleY(0);
+        opacity: 0;
+    }
+    to {
+        transform:
+            scaleY(1);
+        opacity: 1;
+    }
+}
+/* =========================================================
+   ✦ FLOATING DECOR
+========================================================= */
+.timeline-page::before {
+    content:
+        "✦       𓂃       ♡       𓂃       ✧";
+    position: fixed;
+    top: 15%;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    color:
+        rgba(181, 153, 194, .15);
+    font-size: 15px;
+    letter-spacing: 8px;
+    pointer-events: none;
+    animation:
+        timelineDecorFloat
+        8s ease-in-out infinite;
+    z-index: 0;
+}
+@keyframes timelineDecorFloat {
+    0%,
+    100% {
+        transform:
+            translateY(0);
+    }
+    50% {
+        transform:
+            translateY(-12px);
+    }
+}
+/* =========================================================
+   ✦ MOBILE
+========================================================= */
+@media (max-width: 768px) {
+    .timeline-page::before {
+        font-size: 11px;
+        letter-spacing: 4px;
+    }
+    .timeline-item:hover {
+        transform:
+            translateY(-2px);
+    }
+}
