@@ -210,29 +210,24 @@ document.addEventListener(
 /* =========================================================
    ✦ HOME PHOTO STACK
 ========================================================= */
-
 document.addEventListener(
     "DOMContentLoaded",
     () => {
-
-        const stack =
+        const photoStack =
             document.getElementById(
                 "photoStack"
             );
-
-        if (!stack) return;
-
-        stack.addEventListener(
+        if (!photoStack) {
+            return;
+        }
+        photoStack.addEventListener(
             "click",
             () => {
-
-                stack.classList.toggle(
+                photoStack.classList.toggle(
                     "open"
                 );
-
             }
         );
-
     }
 );
 /* =========================================================
