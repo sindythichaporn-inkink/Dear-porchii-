@@ -333,161 +333,205 @@ document.addEventListener(
     }
 );
 /* =========================================================
-   ✦ DEAR PORCH
-   ✦ GLOBAL SCRIPT
-   ✦ ใช้ร่วมกันทุกหน้า
+   ✦ DEAR PORCH — SHARED SCRIPT
+   ใช้ร่วมกันทุกหน้า
 ========================================================= */
-document.addEventListener(
-    "DOMContentLoaded",
-    () => {
-        /* =================================================
-           ✦ PAGE FADE IN
-        ================================================== */
-        document.body.style.opacity = "0";
-        requestAnimationFrame(
-            () => {
-                document.body.style.transition =
-                    "opacity 0.8s ease";
-                document.body.style.opacity =
-                    "1";
-            }
+document.addEventListener("DOMContentLoaded", () => {
+    /* =====================================================
+       ✦ PAGE FADE IN
+    ===================================================== */
+    document.body.style.opacity = "0";
+    requestAnimationFrame(() => {
+        document.body.style.transition =
+            "opacity 0.7s ease";
+        document.body.style.opacity = "1";
+    });
+    /* =====================================================
+       ✦ HOME PAGE — PHOTO ANIMATION
+    ===================================================== */
+    const photoCards =
+        document.querySelectorAll(
+            ".home-photo-card"
         );
-        /* =================================================
-           ✦ HOME PHOTO STACK
-        ================================================== */
-        const photoStack =
-            document.getElementById(
-                "photoStack"
-            );
-        if (photoStack) {
-            photoStack.addEventListener(
-                "click",
-                () => {
-                    photoStack.classList.toggle(
-                        "open"
-                    );
-                }
-            );
-        }
-        /* =================================================
-           ✦ HOME MENU ANIMATION
-        ================================================== */
-        const homeMenuCards =
-            document.querySelectorAll(
-                ".home-menu-card"
-            );
-        homeMenuCards.forEach(
-            (
-                card,
-                index
-            ) => {
-                setTimeout(
-                    () => {
-                        card.classList.add(
-                            "show"
-                        );
-                    },
-                    600 + (index * 110)
-                );
-            }
+    photoCards.forEach((card, index) => {
+        card.style.opacity = "0";
+        card.style.transform =
+            `translateY(25px) rotate(${getPhotoRotation(card)})`;
+        setTimeout(() => {
+            card.style.transition =
+                "opacity 0.7s ease, transform 0.7s ease";
+            card.style.opacity = "1";
+            card.style.transform =
+                `translateY(0) rotate(${getPhotoRotation(card)})`;
+        }, 250 + index * 120);
+    });
+    /* =====================================================
+       ✦ HOME PAGE — MENU ANIMATION
+    ===================================================== */
+    const menuCards =
+        document.querySelectorAll(
+            ".home-menu-card"
         );
-        /* =================================================
-           ✦ GLOBAL PAGE TRANSITION
-        ================================================== */
-        let pageLeaving = false;
-        document.addEventListener(
-            "click",
-            (event) => {
-                const link =
-                    event.target.closest(
-                        "a"
-                    );
-                if (!link) {
-                    return;
-                }
-                const href =
-                    link.getAttribute(
-                        "href"
-                    );
-                /* ไม่มี href */
-                if (!href) {
-                    return;
-                }
-                /* ไม่จัดการลิงก์พิเศษ */
-                if (
-                    href.startsWith("#") ||
-                    href.startsWith("http://") ||
-                    href.startsWith("https://") ||
-                    href.startsWith("mailto:") ||
-                    href.startsWith("tel:")
-                ) {
-                    return;
-                }
-                /* ป้องกันกดซ้ำ */
-                if (pageLeaving) {
-                    event.preventDefault();
-                    return;
-                }
-                pageLeaving = true;
+    menuCards.forEach((card, index) => {
+        card.style.opacity = "0";
+        card.style.transform =
+            "translateY(25px)";
+        setTimeout(() => {
+            card.style.transition =
+                "opacity 0.65s ease, transform 0.65s ease";
+            card.style.opacity = "1";
+            card.style.transform =
+                "translateY(0)";
+        }, 650 + index * 110);
+    });
+    /* =====================================================
+       ✦ PAGE TRANSITION
+    ===================================================== */
+    let leaving = false;
+    document.addEventListener(
+        "click",
+        (event) => {
+            const link =
+                event.target.closest("a");
+            if (!link) {
+                return;
+            }
+            const href =
+                link.getAttribute("href");
+            if (
+                !href ||
+                href.startsWith("#") ||
+                href.startsWith("http://") ||
+                href.startsWith("https://") ||
+                href.startsWith("mailto:") ||
+                href.startsWith("tel:")
+            ) {
+                return;
+            }
+            if (leaving) {
                 event.preventDefault();
-                /* Fade Out */
-                document.body.classList.add(
-                    "page-leaving"
-                );
-                /* เปลี่ยนหน้า */
-                setTimeout(
-                    () => {
-                        window.location.href =
-                            href;
-                    },
-                    700
-                );
+                return;
             }
-        );
-        /* =================================================
-           ✦ IMAGE FALLBACK
-        ================================================== */
-        const images =
-            document.querySelectorAll(
-                "img"
+            leaving = true;
+            event.preventDefault();
+            document.body.classList.add(
+                "page-leaving"
             );
-        images.forEach(
-            (image) => {
-                image.addEventListener(
-                    "error",
-                    () => {
-                        image.classList.add(
-                            "image-error"
-                        );
-                    }
+            setTimeout(() => {
+                window.location.href =
+                    href;
+            }, 700);
+        }
+    );
+    /* =====================================================
+       ✦ IMAGE FALLBACK
+       ถ้ารูปยังไม่มี จะไม่ทำให้หน้าเว็บพัง
+    ===================================================== */
+    const images =
+        document.querySelectorAll(
+            "img"
+        );
+    images.forEach((image) => {
+        image.addEventListener(
+            "error",
+            () => {
+                image.classList.add(
+                    "image-error"
                 );
             }
         );
-        /* =================================================
-           ✦ ACTIVE MENU
-        ================================================== */
-        const currentPage =
-            window.location.pathname
-                .split("/")
-                .pop();
-        const allLinks =
-            document.querySelectorAll(
-                "a[href]"
-            );
-        allLinks.forEach(
-            (link) => {
-                const href =
-                    link.getAttribute(
-                        "href"
-                    );
-                if (
-                    href === currentPage
-                ) {
-                    link.classList.add(
-                        "current-page"
-                    );
-                }
+    });
+    /* =====================================================
+       ✦ MENU TOUCH EFFECT
+       สำหรับมือถือ
+    ===================================================== */
+    const touchCards =
+        document.querySelectorAll(
+            ".home-menu-card"
+        );
+    touchCards.forEach((card) => {
+        card.addEventListener(
+            "touchstart",
+            () => {
+                card.classList.add(
+                    "touch-glow"
+                );
+            },
+            {
+                passive: true
             }
         );
+        card.addEventListener(
+            "touchend",
+            () => {
+                setTimeout(() => {
+                    card.classList.remove(
+                        "touch-glow"
+                    );
+                }, 180);
+            },
+            {
+                passive: true
+            }
+        );
+    });
+});
+/* =========================================================
+   ✦ PHOTO ROTATION
+========================================================= */
+function getPhotoRotation(card) {
+    if (
+        card.classList.contains(
+            "photo-card-1"
+        )
+    ) {
+        return "-2deg";
     }
+    if (
+        card.classList.contains(
+            "photo-card-2"
+        )
+    ) {
+        return "1.5deg";
+    }
+    if (
+        card.classList.contains(
+            "photo-card-3"
+        )
+    ) {
+        return "-1deg";
+    }
+    if (
+        card.classList.contains(
+            "photo-card-4"
+        )
+    ) {
+        return "2deg";
+    }
+    return "0deg";
+}
+/* =========================================================
+   ✦ EXTRA TOUCH GLOW
+========================================================= */
+const touchStyle =
+    document.createElement("style");
+touchStyle.textContent = `
+    .home-menu-card.touch-glow {
+        transform:
+            translateY(-5px)
+            scale(1.02);
+        box-shadow:
+            0 0 22px
+            rgba(193, 155, 255, 0.6),
+            0 0 38px
+            rgba(255, 174, 218, 0.5),
+            0 0 55px
+            rgba(255, 228, 128, 0.35);
+    }
+    .image-error {
+        opacity: 0.25;
+    }
+`;
+document.head.appendChild(
+    touchStyle
 );
