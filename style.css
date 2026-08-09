@@ -667,3 +667,169 @@ body.page-leaving {
             6px;
     }
 }
+/* =========================================================
+   ✦ HOME PAGE
+========================================================= */
+
+.home-page{
+    position:relative;
+    z-index:2;
+    width:min(900px,92%);
+    margin:auto;
+    padding:60px 0;
+    text-align:center;
+}
+
+.home-logo{
+    color:#8f7890;
+    font-family:"Playfair Display",serif;
+    margin-bottom:10px;
+}
+
+.home-title{
+    font-family:"Itim",sans-serif;
+    font-size:42px;
+    color:#6b5b6c;
+}
+
+.home-subtitle{
+    color:#a28ca3;
+    margin-top:10px;
+}
+
+/* =========================================================
+   ✦ PHOTO STACK
+========================================================= */
+
+.photo-stack{
+    position:relative;
+    width:280px;
+    height:300px;
+    margin:70px auto 25px;
+    cursor:pointer;
+}
+
+.stack-photo{
+    position:absolute;
+    width:220px;
+    height:280px;
+    object-fit:cover;
+
+    left:50%;
+    top:50%;
+
+    border-radius:24px;
+    border:8px solid #fff;
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.12);
+
+    transition:.6s ease;
+
+    transform-origin:center;
+}
+
+.photo-1{
+    transform:
+        translate(-50%,-50%)
+        rotate(-10deg);
+}
+
+.photo-2{
+    transform:
+        translate(-50%,-50%)
+        rotate(5deg);
+}
+
+.photo-3{
+    transform:
+        translate(-50%,-50%)
+        rotate(-3deg);
+}
+
+.photo-4{
+    transform:
+        translate(-50%,-50%)
+        rotate(10deg);
+}
+
+.photo-stack.open .photo-1{
+    transform:
+        translate(-220px,-50%)
+        rotate(-18deg);
+}
+
+.photo-stack.open .photo-2{
+    transform:
+        translate(-80px,-50%)
+        rotate(-8deg);
+}
+
+.photo-stack.open .photo-3{
+    transform:
+        translate(60px,-50%)
+        rotate(8deg);
+}
+
+.photo-stack.open .photo-4{
+    transform:
+        translate(200px,-50%)
+        rotate(18deg);
+}
+
+.stack-hint{
+    color:#a58fa6;
+    margin-top:15px;
+}
+
+/* =========================================================
+   ✦ MESSAGE
+========================================================= */
+
+.home-message{
+    margin:60px auto;
+    line-height:2;
+    color:#6b5d6c;
+}
+
+/* =========================================================
+   ✦ MENU
+========================================================= */
+
+.home-menu{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+    margin-top:30px;
+}
+
+.home-menu a{
+
+    text-decoration:none;
+
+    color:#725f73;
+
+    background:
+        rgba(255,255,255,.55);
+
+    border:
+        1px solid
+        rgba(166,139,167,.15);
+
+    padding:18px;
+
+    border-radius:999px;
+
+    backdrop-filter:blur(12px);
+
+    transition:.3s;
+}
+
+.home-menu a:hover{
+
+    transform:
+        translateY(-4px);
+
+    background:
+        rgba(255,255,255,.8);
+}
