@@ -3335,3 +3335,204 @@ body.page-leaving {
             rotate(7deg);
     }
 }
+/* =========================================================
+   ✦ HOME LOVE MESSAGE
+========================================================= */
+
+.home-love-message {
+    width: min(760px, 94%);
+    margin: 10px auto 55px;
+    text-align: center;
+    position: relative;
+}
+
+
+/* =========================================================
+   ✦ DECORATION
+========================================================= */
+
+.love-message-decoration {
+    color: #b99abd;
+    font-family:
+        "Playfair Display",
+        serif;
+    font-size: 16px;
+    margin-bottom: 22px;
+
+    opacity: 0;
+    animation:
+        loveMessageAppear
+        1s
+        ease
+        0.3s
+        forwards;
+}
+
+
+/* =========================================================
+   ✦ TYPING AREA
+========================================================= */
+
+.love-typing {
+    min-height: 235px;
+    padding: 0 10px;
+}
+
+.love-line {
+    min-height: 30px;
+
+    margin: 0 0 13px;
+
+    color: #69596b;
+
+    font-family:
+        "Itim",
+        sans-serif;
+
+    font-size:
+        clamp(16px, 2.2vw, 20px);
+
+    line-height: 1.9;
+
+    letter-spacing: 0.2px;
+
+    text-shadow:
+        0 1px 10px
+        rgba(255,255,255,0.65);
+}
+
+
+/* =========================================================
+   ✦ TYPING CURSOR
+========================================================= */
+
+.love-cursor {
+    display: inline-block;
+
+    margin-top: -8px;
+
+    color: #a88ea9;
+
+    font-family:
+        "Itim",
+        sans-serif;
+
+    font-size: 20px;
+
+    opacity: 1;
+
+    animation:
+        loveCursorBlink
+        0.7s
+        infinite;
+}
+
+.love-cursor.hidden {
+    display: none;
+}
+
+@keyframes loveCursorBlink {
+
+    0%,
+    45% {
+        opacity: 1;
+    }
+
+    46%,
+    100% {
+        opacity: 0;
+    }
+}
+
+
+/* =========================================================
+   ✦ MENU TITLE
+========================================================= */
+
+.home-menu-title {
+    margin-top: 42px;
+
+    color: #806b83;
+
+    font-family:
+        "Itim",
+        sans-serif;
+
+    font-size:
+        clamp(32px, 6vw, 50px);
+
+    line-height: 1.2;
+
+    letter-spacing: 1px;
+
+    text-shadow:
+        0 5px 20px
+        rgba(148,112,160,0.18);
+
+    opacity: 0;
+
+    transform:
+        translateY(20px)
+        scale(0.96);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+.home-menu-title.show {
+    opacity: 1;
+
+    transform:
+        translateY(0)
+        scale(1);
+}
+
+
+/* =========================================================
+   ✦ MESSAGE APPEAR
+========================================================= */
+
+@keyframes loveMessageAppear {
+
+    from {
+        opacity: 0;
+        transform:
+            translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* =========================================================
+   ✦ MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .home-love-message {
+        width: 94%;
+        margin:
+            5px auto 45px;
+    }
+
+    .love-typing {
+        min-height: 270px;
+    }
+
+    .love-line {
+        font-size: 16px;
+        line-height: 1.85;
+        margin-bottom: 11px;
+    }
+
+    .home-menu-title {
+        margin-top: 35px;
+        font-size: 36px;
+    }
+}
