@@ -628,3 +628,225 @@ body.page-leaving {
             12px 20px;
     }
 }
+/* =========================================================
+   ✦ SOFT GLITTER
+========================================================= */
+
+.index-glitter {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+
+/* ✦ glitter dots */
+
+.index-glitter span {
+    position: absolute;
+
+    top: -20px;
+
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    opacity: 0;
+
+    filter:
+        blur(0.2px)
+        drop-shadow(0 0 5px currentColor);
+
+    animation:
+        glitterFall
+        linear
+        infinite;
+}
+
+
+/* ✦ pink */
+
+.index-glitter span:nth-child(1),
+.index-glitter span:nth-child(5),
+.index-glitter span:nth-child(11) {
+    background: #efb8ca;
+    color: #efb8ca;
+}
+
+
+/* ✦ soft gray */
+
+.index-glitter span:nth-child(2),
+.index-glitter span:nth-child(8),
+.index-glitter span:nth-child(14) {
+    background: #b9afb9;
+    color: #b9afb9;
+}
+
+
+/* ✦ warm yellow */
+
+.index-glitter span:nth-child(3),
+.index-glitter span:nth-child(7),
+.index-glitter span:nth-child(12) {
+    background: #f3d98b;
+    color: #f3d98b;
+}
+
+
+/* ✦ mixed */
+
+.index-glitter span:nth-child(4),
+.index-glitter span:nth-child(6),
+.index-glitter span:nth-child(9),
+.index-glitter span:nth-child(10),
+.index-glitter span:nth-child(13),
+.index-glitter span:nth-child(15) {
+    background: #e5cbd7;
+    color: #e5cbd7;
+}
+
+
+/* ✦ positions */
+
+.index-glitter span:nth-child(1) {
+    left: 5%;
+    animation-duration: 9s;
+}
+
+.index-glitter span:nth-child(2) {
+    left: 13%;
+    animation-duration: 12s;
+    animation-delay: 2s;
+}
+
+.index-glitter span:nth-child(3) {
+    left: 22%;
+    animation-duration: 10s;
+    animation-delay: 4s;
+}
+
+.index-glitter span:nth-child(4) {
+    left: 31%;
+    animation-duration: 13s;
+    animation-delay: 1s;
+}
+
+.index-glitter span:nth-child(5) {
+    left: 40%;
+    animation-duration: 11s;
+    animation-delay: 5s;
+}
+
+.index-glitter span:nth-child(6) {
+    left: 48%;
+    animation-duration: 14s;
+    animation-delay: 3s;
+}
+
+.index-glitter span:nth-child(7) {
+    left: 57%;
+    animation-duration: 10s;
+    animation-delay: 6s;
+}
+
+.index-glitter span:nth-child(8) {
+    left: 64%;
+    animation-duration: 12s;
+    animation-delay: 2s;
+}
+
+.index-glitter span:nth-child(9) {
+    left: 71%;
+    animation-duration: 15s;
+    animation-delay: 7s;
+}
+
+.index-glitter span:nth-child(10) {
+    left: 78%;
+    animation-duration: 11s;
+    animation-delay: 4s;
+}
+
+.index-glitter span:nth-child(11) {
+    left: 84%;
+    animation-duration: 13s;
+    animation-delay: 1s;
+}
+
+.index-glitter span:nth-child(12) {
+    left: 91%;
+    animation-duration: 10s;
+    animation-delay: 5s;
+}
+
+.index-glitter span:nth-child(13) {
+    left: 27%;
+    animation-duration: 16s;
+    animation-delay: 8s;
+}
+
+.index-glitter span:nth-child(14) {
+    left: 68%;
+    animation-duration: 14s;
+    animation-delay: 9s;
+}
+
+.index-glitter span:nth-child(15) {
+    left: 96%;
+    animation-duration: 12s;
+    animation-delay: 6s;
+}
+
+
+/* ✦ falling + shining */
+
+@keyframes glitterFall {
+
+    0% {
+        transform:
+            translateY(-30px)
+            translateX(0)
+            scale(0.5);
+
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.75;
+    }
+
+    30% {
+        transform:
+            translateY(30vh)
+            translateX(12px)
+            scale(1);
+    }
+
+    55% {
+        opacity: 1;
+
+        box-shadow:
+            0 0 4px currentColor,
+            0 0 10px currentColor;
+    }
+
+    75% {
+        transform:
+            translateY(70vh)
+            translateX(-10px)
+            scale(0.75);
+
+        opacity: 0.65;
+    }
+
+    100% {
+        transform:
+            translateY(110vh)
+            translateX(8px)
+            scale(0.35);
+
+        opacity: 0;
+    }
+}
