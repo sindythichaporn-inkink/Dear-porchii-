@@ -2579,3 +2579,759 @@ body.page-leaving {
             0.01ms !important;
     }
 }
+/* =========================================================
+   ✦ HOME PAGE — NEW PHOTO + MENU SYSTEM
+========================================================= */
+/* =========================================================
+   ✦ PHOTO SECTION
+========================================================= */
+.home-photo-section {
+    width: 100%;
+    margin: 35px auto 55px;
+    text-align: center;
+}
+/* =========================================================
+   ✦ PHOTO STACK AREA
+========================================================= */
+.photo-stack {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    height: 350px;
+    margin: 0 auto;
+    perspective: 1400px;
+    cursor: pointer;
+    touch-action: manipulation;
+}
+/* =========================================================
+   ✦ PHOTO CARD
+========================================================= */
+.stack-photo {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 205px;
+    height: 270px;
+    padding: 9px;
+    border: 0;
+    border-radius: 18px;
+    background: #fff;
+    box-shadow:
+        0 15px 35px
+        rgba(90,65,100,.15);
+    cursor: pointer;
+    overflow: hidden;
+    transform-origin: center center;
+    transition:
+        transform .8s cubic-bezier(.22,.75,.25,1),
+        box-shadow .45s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+/* =========================================================
+   ✦ PHOTO INNER
+========================================================= */
+.stack-photo-inner {
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 12px;
+    background:
+        linear-gradient(
+            135deg,
+            #eee1ff,
+            #ffddec,
+            #fff0aa
+        );
+}
+.stack-photo img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    pointer-events: none;
+    transition:
+        transform .6s ease;
+}
+/* =========================================================
+   ✦ CLOSED STACK
+========================================================= */
+.photo-1 {
+    z-index: 1;
+    transform:
+        translate(-50%, -50%)
+        rotate(-3deg)
+        translateY(-2px);
+}
+.photo-2 {
+    z-index: 2;
+    transform:
+        translate(-50%, -50%)
+        rotate(-1deg);
+}
+.photo-3 {
+    z-index: 3;
+    transform:
+        translate(-50%, -50%)
+        rotate(1deg);
+}
+.photo-4 {
+    z-index: 4;
+    transform:
+        translate(-50%, -50%)
+        rotate(3deg);
+}
+/* =========================================================
+   ✦ OPENED — FAN OUT
+========================================================= */
+.photo-stack.open {
+    cursor: default;
+}
+/* รูป 1 */
+.photo-stack.open .photo-1 {
+    z-index: 1;
+    transform:
+        translate(
+            calc(-50% - 315px),
+            -50%
+        )
+        rotate(-9deg);
+}
+/* รูป 2 */
+.photo-stack.open .photo-2 {
+    z-index: 2;
+    transform:
+        translate(
+            calc(-50% - 105px),
+            -50%
+        )
+        rotate(-3deg);
+}
+/* รูป 3 */
+.photo-stack.open .photo-3 {
+    z-index: 3;
+    transform:
+        translate(
+            calc(-50% + 105px),
+            -50%
+        )
+        rotate(3deg);
+}
+/* รูป 4 */
+.photo-stack.open .photo-4 {
+    z-index: 4;
+    transform:
+        translate(
+            calc(-50% + 315px),
+            -50%
+        )
+        rotate(9deg);
+}
+/* =========================================================
+   ✦ OPENED PHOTO HOVER
+========================================================= */
+.photo-stack.open .stack-photo:hover {
+    z-index: 20;
+    box-shadow:
+        0 25px 55px
+        rgba(80,55,95,.25);
+    transform:
+        translate(
+            var(--photo-x),
+            -50%
+        )
+        rotate(0deg)
+        scale(1.05);
+}
+/* =========================================================
+   ✦ HINT
+========================================================= */
+.photo-hint {
+    margin-top: 18px;
+    color: #a48ea7;
+    font-family:
+        "Itim",
+        sans-serif;
+    font-size: 14px;
+}
+/* =========================================================
+   ✦ PHOTO VIEWER
+========================================================= */
+.photo-viewer {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    background:
+        rgba(45,30,50,.72);
+    backdrop-filter:
+        blur(18px);
+    -webkit-backdrop-filter:
+        blur(18px);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition:
+        opacity .35s ease,
+        visibility .35s ease;
+}
+.photo-viewer.show {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+/* =========================================================
+   ✦ VIEWER IMAGE
+========================================================= */
+.photo-viewer-content {
+    position: relative;
+    max-width: 80vw;
+    max-height: 85vh;
+    text-align: center;
+    transform:
+        scale(.85)
+        translateY(15px);
+    transition:
+        transform .4s cubic-bezier(.22,.75,.25,1);
+}
+.photo-viewer.show
+.photo-viewer-content {
+    transform:
+        scale(1)
+        translateY(0);
+}
+.photo-viewer-content img {
+    display: block;
+    max-width: min(80vw, 650px);
+    max-height: 78vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 18px;
+    border: 8px solid white;
+    box-shadow:
+        0 25px 80px
+        rgba(0,0,0,.3);
+}
+/* =========================================================
+   ✦ VIEWER NUMBER
+========================================================= */
+.photo-viewer-number {
+    margin-top: 12px;
+    color: white;
+    font-family:
+        "Playfair Display",
+        serif;
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+/* =========================================================
+   ✦ CLOSE BUTTON
+========================================================= */
+.photo-viewer-close {
+    position: absolute;
+    top: 25px;
+    right: 30px;
+    width: 45px;
+    height: 45px;
+    border: 0;
+    border-radius: 50%;
+    background:
+        rgba(255,255,255,.2);
+    color: white;
+    font-size: 32px;
+    line-height: 1;
+    cursor: pointer;
+    transition:
+        transform .3s ease,
+        background .3s ease;
+}
+.photo-viewer-close:hover {
+    transform:
+        rotate(90deg)
+        scale(1.08);
+    background:
+        rgba(255,255,255,.35);
+}
+/* =========================================================
+   ✦ PREVIOUS / NEXT
+========================================================= */
+.photo-viewer-prev,
+.photo-viewer-next {
+    position: absolute;
+    top: 50%;
+    transform:
+        translateY(-50%);
+    width: 55px;
+    height: 55px;
+    border: 0;
+    border-radius: 50%;
+    background:
+        rgba(255,255,255,.18);
+    color: white;
+    font-size: 42px;
+    line-height: 1;
+    cursor: pointer;
+    transition:
+        background .3s ease,
+        transform .3s ease;
+}
+.photo-viewer-prev {
+    left: 30px;
+}
+.photo-viewer-next {
+    right: 30px;
+}
+.photo-viewer-prev:hover {
+    background:
+        rgba(255,255,255,.35);
+    transform:
+        translateY(-50%)
+        translateX(-4px);
+}
+.photo-viewer-next:hover {
+    background:
+        rgba(255,255,255,.35);
+    transform:
+        translateY(-50%)
+        translateX(4px);
+}
+/* =========================================================
+   ✦ MENU TITLE
+========================================================= */
+.home-menu-section {
+    margin:
+        65px auto 30px;
+    text-align:
+        center;
+}
+.home-menu-small {
+    margin-bottom:
+        8px;
+    color:
+        #b19ab3;
+    font-family:
+        "Playfair Display",
+        serif;
+    font-size:
+        12px;
+    font-style:
+        italic;
+    letter-spacing:
+        1px;
+}
+.home-menu-title {
+    margin:
+        0;
+    color:
+        #745f77;
+    font-family:
+        "Itim",
+        sans-serif;
+    font-size:
+        clamp(38px, 7vw, 58px);
+    line-height:
+        1.2;
+    text-shadow:
+        0 6px 25px
+        rgba(150,110,165,.16);
+}
+.home-menu-description {
+    margin-top:
+        8px;
+    color:
+        #9b859e;
+    font-size:
+        13px;
+}
+/* =========================================================
+   ✦ MENU GRID
+========================================================= */
+.home-menu {
+    display:
+        grid;
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+    gap:
+        20px;
+    width:
+        100%;
+}
+/* =========================================================
+   ✦ MENU CARD
+========================================================= */
+.home-menu-card {
+    position:
+        relative;
+    min-height:
+        130px;
+    padding:
+        24px 26px;
+    display:
+        flex;
+    flex-direction:
+        column;
+    justify-content:
+        center;
+    overflow:
+        hidden;
+    border:
+        1px solid
+        rgba(255,255,255,.85);
+    border-radius:
+        25px;
+    background:
+        rgba(255,255,255,.55);
+    backdrop-filter:
+        blur(15px);
+    -webkit-backdrop-filter:
+        blur(15px);
+    box-shadow:
+        0 10px 28px
+        rgba(100,70,110,.07);
+    text-decoration:
+        none;
+    transition:
+        transform .45s ease,
+        box-shadow .45s ease,
+        border-color .45s ease;
+    -webkit-tap-highlight-color:
+        transparent;
+}
+/* =========================================================
+   ✦ MENU COLOR GLOW
+========================================================= */
+.home-menu-card::before {
+    content:
+        "";
+    position:
+        absolute;
+    inset:
+        -25px;
+    z-index:
+        -1;
+    background:
+        linear-gradient(
+            115deg,
+            #bfa2ff,
+            #ffb8dc,
+            #ffe88d,
+            #d6b6ff,
+            #ffb8dc
+        );
+    background-size:
+        300% 300%;
+    filter:
+        blur(30px);
+    opacity:
+        0;
+    transform:
+        scale(.75);
+    transition:
+        opacity .45s ease,
+        transform .45s ease;
+    animation:
+        menuGlowMove
+        5s
+        ease
+        infinite;
+}
+@keyframes menuGlowMove {
+    0% {
+        background-position:
+            0% 50%;
+    }
+    50% {
+        background-position:
+            100% 50%;
+    }
+    100% {
+        background-position:
+            0% 50%;
+    }
+}
+/* =========================================================
+   ✦ MENU INNER SHINE
+========================================================= */
+.home-menu-card::after {
+    content:
+        "";
+    position:
+        absolute;
+    inset:
+        0;
+    border-radius:
+        inherit;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.55),
+            transparent 45%,
+            rgba(255,255,255,.2)
+        );
+    opacity:
+        0;
+    transition:
+        opacity .4s ease;
+    pointer-events:
+        none;
+}
+/* =========================================================
+   ✦ MENU HOVER / TOUCH
+========================================================= */
+.home-menu-card:hover,
+.home-menu-card:focus-visible,
+.home-menu-card:active {
+    transform:
+        translateY(-7px)
+        scale(1.025);
+    border-color:
+        white;
+    box-shadow:
+        0 0 22px
+        rgba(193,155,255,.55),
+        0 0 38px
+        rgba(255,174,218,.45),
+        0 0 58px
+        rgba(255,228,128,.35),
+        0 18px 40px
+        rgba(100,70,110,.14);
+}
+.home-menu-card:hover::before,
+.home-menu-card:focus-visible::before,
+.home-menu-card:active::before {
+    opacity:
+        .95;
+    transform:
+        scale(1);
+}
+.home-menu-card:hover::after,
+.home-menu-card:focus-visible::after,
+.home-menu-card:active::after {
+    opacity:
+        1;
+}
+/* =========================================================
+   ✦ MENU TEXT
+========================================================= */
+.menu-number {
+    margin-bottom:
+        8px;
+    color:
+        #c1a8c5;
+    font-family:
+        "Playfair Display",
+        serif;
+    font-size:
+        12px;
+    letter-spacing:
+        1px;
+}
+.home-menu-card strong {
+    position:
+        relative;
+    z-index:
+        2;
+    color:
+        #715d74;
+    font-family:
+        "Itim",
+        sans-serif;
+    font-size:
+        clamp(17px, 2.3vw, 21px);
+    font-weight:
+        400;
+    line-height:
+        1.5;
+}
+.home-menu-card small {
+    position:
+        relative;
+    z-index:
+        2;
+    margin-top:
+        7px;
+    color:
+        #a08aa2;
+    font-size:
+        12px;
+}
+/* =========================================================
+   ✦ FOOTER
+========================================================= */
+.home-footer {
+    margin-top:
+        60px;
+    padding-bottom:
+        20px;
+    text-align:
+        center;
+    color:
+        #aa96ad;
+    font-family:
+        "Playfair Display",
+        serif;
+    font-size:
+        11px;
+    line-height:
+        2;
+    letter-spacing:
+        .8px;
+}
+/* =========================================================
+   ✦ MOBILE
+========================================================= */
+@media (max-width: 700px) {
+    .photo-stack {
+        height:
+            285px;
+    }
+    .stack-photo {
+        width:
+            145px;
+        height:
+            200px;
+        padding:
+            7px;
+        border-radius:
+            15px;
+    }
+    .stack-photo-inner {
+        border-radius:
+            10px;
+    }
+    /* เปิดบนมือถือให้เห็นครบ 4 รูป */
+    .photo-stack.open .photo-1 {
+        transform:
+            translate(
+                calc(-50% - 112px),
+                -50%
+            )
+            rotate(-8deg);
+    }
+    .photo-stack.open .photo-2 {
+        transform:
+            translate(
+                calc(-50% - 38px),
+                -50%
+            )
+            rotate(-3deg);
+    }
+    .photo-stack.open .photo-3 {
+        transform:
+            translate(
+                calc(-50% + 38px),
+                -50%
+            )
+            rotate(3deg);
+    }
+    .photo-stack.open .photo-4 {
+        transform:
+            translate(
+                calc(-50% + 112px),
+                -50%
+            )
+            rotate(8deg);
+    }
+    .photo-viewer {
+        padding:
+            20px;
+    }
+    .photo-viewer-content img {
+        max-width:
+            88vw;
+        max-height:
+            75vh;
+        border-width:
+            5px;
+    }
+    .photo-viewer-prev,
+    .photo-viewer-next {
+        width:
+            42px;
+        height:
+            42px;
+        font-size:
+            32px;
+    }
+    .photo-viewer-prev {
+        left:
+            10px;
+    }
+    .photo-viewer-next {
+        right:
+            10px;
+    }
+    .photo-viewer-close {
+        top:
+            15px;
+        right:
+            15px;
+    }
+    .home-menu {
+        grid-template-columns:
+            1fr;
+        gap:
+            14px;
+    }
+    .home-menu-card {
+        min-height:
+            110px;
+        padding:
+            20px;
+    }
+    .home-menu-title {
+        font-size:
+            42px;
+    }
+}
+/* =========================================================
+   ✦ SMALL MOBILE
+========================================================= */
+@media (max-width: 390px) {
+    .photo-stack {
+        height:
+            250px;
+    }
+    .stack-photo {
+        width:
+            125px;
+        height:
+            175px;
+    }
+    .photo-stack.open .photo-1 {
+        transform:
+            translate(
+                calc(-50% - 92px),
+                -50%
+            )
+            rotate(-7deg);
+    }
+    .photo-stack.open .photo-2 {
+        transform:
+            translate(
+                calc(-50% - 31px),
+                -50%
+            )
+            rotate(-2deg);
+    }
+    .photo-stack.open .photo-3 {
+        transform:
+            translate(
+                calc(-50% + 31px),
+                -50%
+            )
+            rotate(2deg);
+    }
+    .photo-stack.open .photo-4 {
+        transform:
+            translate(
+                calc(-50% + 92px),
+                -50%
+            )
+            rotate(7deg);
+    }
+}
