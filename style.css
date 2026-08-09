@@ -1,184 +1,249 @@
 /* =========================================================
-   ✦ INDEX PAGE
+   ✦ INDEX PAGE FIX
 ========================================================= */
 
 .index-page {
     min-height: 100vh;
     overflow-x: hidden;
-    background:
-        radial-gradient(
-            circle at 50% 40%,
-            #fffaff 0%,
-            #f9f0f8 35%,
-            #eee3ef 70%,
-            #e5dbea 100%
-        );
 }
 
 
 /* =========================================================
-   ✦ BACKGROUND
+   ✦ OPEN BUTTON FIX
 ========================================================= */
 
-.index-background {
-    position: fixed;
-    inset: 0;
-    overflow: hidden;
+.index-open {
+    position: relative;
+    z-index: 10;
+
+    display: inline-flex !important;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    min-width: 250px;
+
+    padding: 13px 25px;
+
+    border: 1px solid rgba(166, 139, 167, 0.35);
+
+    border-radius: 999px;
+
+    background: rgba(255, 255, 255, 0.58);
+
+    color: #806c81;
+
+    font-family: "Itim", sans-serif;
+
+    font-size: 18px;
+
+    text-decoration: none;
+
+    opacity: 0;
+
     pointer-events: none;
-    z-index: 0;
+
+    transform: translateY(12px);
+
+    backdrop-filter: blur(10px);
+
+    box-shadow:
+        0 10px 30px
+        rgba(126, 100, 128, 0.12);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.index-open:hover {
+
+    background:
+        rgba(255, 255, 255, 0.82);
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 15px 35px
+        rgba(126, 100, 128, 0.18);
+
+}
+
+
+.index-open span {
+    color: #aa8faa;
 }
 
 
 /* =========================================================
-   ✦ SOFT GLOW
+   ✦ GLITTER
 ========================================================= */
 
-.index-glow {
+.index-glitter {
     position: absolute;
 
-    width: 520px;
-    height: 520px;
+    inset: 0;
 
-    left: 50%;
-    top: 50%;
+    overflow: hidden;
 
-    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+
+.index-glitter span {
+
+    position: absolute;
+
+    width: 7px;
+    height: 7px;
 
     border-radius: 50%;
 
     background:
         radial-gradient(
             circle,
-            rgba(255, 255, 255, 0.85),
-            rgba(255, 240, 250, 0.35),
-            transparent 70%
+            #fff 0%,
+            #f5d9e7 35%,
+            #d9b8c8 65%,
+            transparent 100%
         );
 
-    filter: blur(25px);
+    box-shadow:
+        0 0 8px rgba(255, 220, 235, 0.8),
+        0 0 16px rgba(220, 190, 205, 0.45);
 
     animation:
-        indexGlow 6s ease-in-out infinite;
-}
-
-
-@keyframes indexGlow {
-
-    0%,
-    100% {
-        transform:
-            translate(-50%, -50%)
-            scale(1);
-    }
-
-    50% {
-        transform:
-            translate(-50%, -50%)
-            scale(1.08);
-    }
-}
-
-
-/* =========================================================
-   ✦ SPARKLES
-========================================================= */
-
-.index-sparkles span {
-    position: absolute;
-
-    color:
-        rgba(255, 255, 255, 0.85);
-
-    font-family:
-        "Playfair Display",
-        serif;
-
-    animation:
-        indexSparkle
-        7s
+        glitterFloat
+        5s
         ease-in-out
         infinite;
 }
 
 
-.index-sparkles span:nth-child(1) {
-    left: 12%;
-    top: 18%;
-    font-size: 18px;
+.index-glitter span:nth-child(1) {
+    left: 8%;
+    top: 15%;
 }
 
-.index-sparkles span:nth-child(2) {
-    left: 83%;
-    top: 14%;
-    font-size: 22px;
+.index-glitter span:nth-child(2) {
+    left: 18%;
+    top: 65%;
     animation-delay: 1s;
 }
 
-.index-sparkles span:nth-child(3) {
-    left: 8%;
-    top: 68%;
-    font-size: 15px;
+.index-glitter span:nth-child(3) {
+    left: 28%;
+    top: 30%;
     animation-delay: 2s;
 }
 
-.index-sparkles span:nth-child(4) {
-    left: 90%;
-    top: 62%;
-    font-size: 18px;
-    animation-delay: 3s;
+.index-glitter span:nth-child(4) {
+    left: 38%;
+    top: 82%;
+    animation-delay: .5s;
 }
 
-.index-sparkles span:nth-child(5) {
-    left: 22%;
-    top: 84%;
-    font-size: 16px;
+.index-glitter span:nth-child(5) {
+    left: 48%;
+    top: 12%;
     animation-delay: 1.5s;
 }
 
-.index-sparkles span:nth-child(6) {
-    left: 76%;
-    top: 82%;
-    font-size: 20px;
+.index-glitter span:nth-child(6) {
+    left: 58%;
+    top: 75%;
     animation-delay: 2.5s;
 }
 
-.index-sparkles span:nth-child(7) {
-    left: 48%;
-    top: 10%;
-    font-size: 13px;
+.index-glitter span:nth-child(7) {
+    left: 68%;
+    top: 25%;
+    animation-delay: 1s;
+}
+
+.index-glitter span:nth-child(8) {
+    left: 78%;
+    top: 58%;
+    animation-delay: 3s;
+}
+
+.index-glitter span:nth-child(9) {
+    left: 88%;
+    top: 18%;
+    animation-delay: 1.8s;
+}
+
+.index-glitter span:nth-child(10) {
+    left: 92%;
+    top: 80%;
+    animation-delay: 2.8s;
+}
+
+.index-glitter span:nth-child(11) {
+    left: 13%;
+    top: 90%;
     animation-delay: 3.5s;
 }
 
-.index-sparkles span:nth-child(8) {
-    left: 55%;
+.index-glitter span:nth-child(12) {
+    left: 35%;
+    top: 18%;
+    animation-delay: 2.2s;
+}
+
+.index-glitter span:nth-child(13) {
+    left: 64%;
     top: 90%;
-    font-size: 15px;
-    animation-delay: 4s;
+    animation-delay: .8s;
+}
+
+.index-glitter span:nth-child(14) {
+    left: 82%;
+    top: 42%;
+    animation-delay: 2.7s;
+}
+
+.index-glitter span:nth-child(15) {
+    left: 45%;
+    top: 60%;
+    animation-delay: 1.2s;
+}
+
+.index-glitter span:nth-child(16) {
+    left: 5%;
+    top: 45%;
+    animation-delay: 3.2s;
 }
 
 
-@keyframes indexSparkle {
+@keyframes glitterFloat {
 
     0%,
     100% {
+        opacity: 0.25;
         transform:
             translateY(0)
-            rotate(0deg);
-
-        opacity: 0.3;
+            scale(.7);
     }
 
     50% {
+        opacity: 1;
         transform:
-            translateY(-15px)
-            rotate(8deg);
-
-        opacity: 0.9;
+            translateY(-14px)
+            scale(1.15);
     }
+
 }
 
 
 /* =========================================================
-   ✦ ASCII WINGS
+   ✦ WINGS
 ========================================================= */
 
 .index-ascii-wings {
@@ -200,28 +265,28 @@
     text-align: center;
 
     color:
-        rgba(178, 154, 181, 0.25);
+        rgba(178, 154, 181, 0.20);
 
-    font-family:
-        monospace;
+    font-family: monospace;
 
     font-size:
         clamp(5px, 0.85vw, 10px);
 
     line-height: 1.05;
 
-    filter:
-        blur(0.15px);
+    pointer-events: none;
+
+    z-index: 1;
 
     animation:
-        indexWingsFloat
+        wingsFloat
         8s
         ease-in-out
         infinite;
 }
 
 
-@keyframes indexWingsFloat {
+@keyframes wingsFloat {
 
     0%,
     100% {
@@ -235,618 +300,32 @@
             translate(-50%, -50%)
             translateY(-8px);
     }
+
 }
 
 
 /* =========================================================
-   ✦ MAIN
+   ✦ CONTENT ABOVE BACKGROUND
 ========================================================= */
 
 .index-main {
 
     position: relative;
 
-    z-index: 2;
-
-    min-height: 100vh;
-
-    width:
-        min(720px, 92%);
-
-    margin:
-        0 auto;
-
-    padding:
-        55px 0 35px;
-
-    display:
-        flex;
-
-    flex-direction:
-        column;
-
-    align-items:
-        center;
-
-    justify-content:
-        center;
-
-    text-align:
-        center;
-}
-
-
-/* =========================================================
-   ✦ LOGO
-========================================================= */
-
-.index-logo {
-
-    margin-bottom:
-        20px;
-
-    color:
-        #8f7890;
-
-    font-family:
-        "Playfair Display",
-        serif;
-
-    font-size:
-        16px;
-
-    letter-spacing:
-        1px;
-
-    opacity:
-        0;
-
-    animation:
-        indexFadeUp
-        1s
-        ease
-        0.2s
-        forwards;
-}
-
-
-/* =========================================================
-   ✦ SMALL TITLE
-========================================================= */
-
-.index-small-title {
-
-    margin-bottom:
-        15px;
-
-    color:
-        #a28ca3;
-
-    font-family:
-        "Playfair Display",
-        serif;
-
-    font-style:
-        italic;
-
-    font-size:
-        14px;
-
-    opacity:
-        0;
-
-    animation:
-        indexFadeUp
-        1s
-        ease
-        0.5s
-        forwards;
-}
-
-
-/* =========================================================
-   ✦ MESSAGE
-========================================================= */
-
-.index-message {
-
-    width:
-        100%;
-
-    min-height:
-        430px;
-
-    padding:
-        10px 20px;
-
-    display:
-        flex;
-
-    flex-direction:
-        column;
-
-    justify-content:
-        center;
-}
-
-
-.typing-line {
-
-    min-height:
-        31px;
-
-    margin-bottom:
-        8px;
-
-    color:
-        #625363;
-
-    font-family:
-        "Itim",
-        sans-serif;
-
-    font-size:
-        clamp(17px, 2.2vw, 22px);
-
-    line-height:
-        1.8;
-
-    letter-spacing:
-        0.2px;
-
-    text-shadow:
-        0 1px 10px
-        rgba(255, 255, 255, 0.7);
+    z-index: 5;
 
 }
 
 
 /* =========================================================
-   ✦ CURSOR
-========================================================= */
-
-.typing-active::after {
-
-    content:
-        "│";
-
-    display:
-        inline-block;
-
-    margin-left:
-        2px;
-
-    color:
-        #a88ea9;
-
-    animation:
-        indexCursor
-        0.7s
-        infinite;
-}
-
-
-@keyframes indexCursor {
-
-    0%,
-    45% {
-        opacity: 1;
-    }
-
-    46%,
-    100% {
-        opacity: 0;
-    }
-}
-
-
-/* =========================================================
-   ✦ OPEN BUTTON
-========================================================= */
-
-.index-open {
-
-    display:
-        inline-flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        center;
-
-    gap:
-        10px;
-
-    min-width:
-        250px;
-
-    padding:
-        13px 25px;
-
-    border:
-        1px solid
-        rgba(166, 139, 167, 0.35);
-
-    border-radius:
-        999px;
-
-    background:
-        rgba(255, 255, 255, 0.48);
-
-    box-shadow:
-        0 10px 30px
-        rgba(126, 100, 128, 0.12);
-
-    color:
-        #806c81;
-
-    font-family:
-        "Itim",
-        sans-serif;
-
-    font-size:
-        18px;
-
-    text-decoration:
-        none;
-
-    opacity:
-        0;
-
-    pointer-events:
-        none;
-
-    backdrop-filter:
-        blur(10px);
-
-    transition:
-        transform 0.3s ease,
-        background 0.3s ease,
-        box-shadow 0.3s ease;
-}
-
-
-.index-open:hover {
-
-    transform:
-        translateY(-3px);
-
-    background:
-        rgba(255, 255, 255, 0.75);
-
-    box-shadow:
-        0 14px 35px
-        rgba(126, 100, 128, 0.18);
-}
-
-
-.index-open:active {
-
-    transform:
-        translateY(0)
-        scale(0.98);
-}
-
-
-/* =========================================================
-   ✦ FOOTER
-========================================================= */
-
-.index-footer {
-
-    margin-top:
-        20px;
-
-    color:
-        #aa98aa;
-
-    font-family:
-        "Playfair Display",
-        serif;
-
-    font-size:
-        11px;
-
-    letter-spacing:
-        1px;
-
-    opacity:
-        0.75;
-}
-
-
-/* =========================================================
-   ✦ FADE
-========================================================= */
-
-@keyframes indexFadeUp {
-
-    from {
-        opacity: 0;
-        transform:
-            translateY(15px);
-    }
-
-    to {
-        opacity: 1;
-        transform:
-            translateY(0);
-    }
-}
-
-
-/* =========================================================
-   ✦ PAGE TRANSITION
+   ✦ PAGE LEAVING
 ========================================================= */
 
 body.page-leaving {
-    opacity: 0;
-}
-
-
-/* =========================================================
-   ✦ MOBILE
-========================================================= */
-
-@media (max-width: 600px) {
-
-    .index-main {
-        width: 92%;
-        padding:
-            35px 0 25px;
-    }
-
-    .index-logo {
-        font-size: 14px;
-    }
-
-    .index-small-title {
-        font-size: 13px;
-    }
-
-    .index-message {
-        min-height: 500px;
-        padding:
-            10px 5px;
-    }
-
-    .typing-line {
-        font-size: 17px;
-        line-height: 1.75;
-    }
-
-    .index-ascii-wings {
-        font-size: 4.5px;
-        opacity: 0.8;
-    }
-
-    .index-open {
-        min-width: 230px;
-        font-size: 16px;
-        padding:
-            12px 20px;
-    }
-}
-/* =========================================================
-   ✦ SOFT GLITTER
-========================================================= */
-
-.index-glitter {
-    position: absolute;
-    inset: 0;
-    overflow: hidden;
-    pointer-events: none;
-}
-
-
-/* ✦ glitter dots */
-
-.index-glitter span {
-    position: absolute;
-
-    top: -20px;
-
-    width: 6px;
-    height: 6px;
-
-    border-radius: 50%;
 
     opacity: 0;
 
-    filter:
-        blur(0.2px)
-        drop-shadow(0 0 5px currentColor);
+    transition:
+        opacity 0.45s ease;
 
-    animation:
-        glitterFall
-        linear
-        infinite;
-}
-
-
-/* ✦ pink */
-
-.index-glitter span:nth-child(1),
-.index-glitter span:nth-child(5),
-.index-glitter span:nth-child(11) {
-    background: #efb8ca;
-    color: #efb8ca;
-}
-
-
-/* ✦ soft gray */
-
-.index-glitter span:nth-child(2),
-.index-glitter span:nth-child(8),
-.index-glitter span:nth-child(14) {
-    background: #b9afb9;
-    color: #b9afb9;
-}
-
-
-/* ✦ warm yellow */
-
-.index-glitter span:nth-child(3),
-.index-glitter span:nth-child(7),
-.index-glitter span:nth-child(12) {
-    background: #f3d98b;
-    color: #f3d98b;
-}
-
-
-/* ✦ mixed */
-
-.index-glitter span:nth-child(4),
-.index-glitter span:nth-child(6),
-.index-glitter span:nth-child(9),
-.index-glitter span:nth-child(10),
-.index-glitter span:nth-child(13),
-.index-glitter span:nth-child(15) {
-    background: #e5cbd7;
-    color: #e5cbd7;
-}
-
-
-/* ✦ positions */
-
-.index-glitter span:nth-child(1) {
-    left: 5%;
-    animation-duration: 9s;
-}
-
-.index-glitter span:nth-child(2) {
-    left: 13%;
-    animation-duration: 12s;
-    animation-delay: 2s;
-}
-
-.index-glitter span:nth-child(3) {
-    left: 22%;
-    animation-duration: 10s;
-    animation-delay: 4s;
-}
-
-.index-glitter span:nth-child(4) {
-    left: 31%;
-    animation-duration: 13s;
-    animation-delay: 1s;
-}
-
-.index-glitter span:nth-child(5) {
-    left: 40%;
-    animation-duration: 11s;
-    animation-delay: 5s;
-}
-
-.index-glitter span:nth-child(6) {
-    left: 48%;
-    animation-duration: 14s;
-    animation-delay: 3s;
-}
-
-.index-glitter span:nth-child(7) {
-    left: 57%;
-    animation-duration: 10s;
-    animation-delay: 6s;
-}
-
-.index-glitter span:nth-child(8) {
-    left: 64%;
-    animation-duration: 12s;
-    animation-delay: 2s;
-}
-
-.index-glitter span:nth-child(9) {
-    left: 71%;
-    animation-duration: 15s;
-    animation-delay: 7s;
-}
-
-.index-glitter span:nth-child(10) {
-    left: 78%;
-    animation-duration: 11s;
-    animation-delay: 4s;
-}
-
-.index-glitter span:nth-child(11) {
-    left: 84%;
-    animation-duration: 13s;
-    animation-delay: 1s;
-}
-
-.index-glitter span:nth-child(12) {
-    left: 91%;
-    animation-duration: 10s;
-    animation-delay: 5s;
-}
-
-.index-glitter span:nth-child(13) {
-    left: 27%;
-    animation-duration: 16s;
-    animation-delay: 8s;
-}
-
-.index-glitter span:nth-child(14) {
-    left: 68%;
-    animation-duration: 14s;
-    animation-delay: 9s;
-}
-
-.index-glitter span:nth-child(15) {
-    left: 96%;
-    animation-duration: 12s;
-    animation-delay: 6s;
-}
-
-
-/* ✦ falling + shining */
-
-@keyframes glitterFall {
-
-    0% {
-        transform:
-            translateY(-30px)
-            translateX(0)
-            scale(0.5);
-
-        opacity: 0;
-    }
-
-    10% {
-        opacity: 0.75;
-    }
-
-    30% {
-        transform:
-            translateY(30vh)
-            translateX(12px)
-            scale(1);
-    }
-
-    55% {
-        opacity: 1;
-
-        box-shadow:
-            0 0 4px currentColor,
-            0 0 10px currentColor;
-    }
-
-    75% {
-        transform:
-            translateY(70vh)
-            translateX(-10px)
-            scale(0.75);
-
-        opacity: 0.65;
-    }
-
-    100% {
-        transform:
-            translateY(110vh)
-            translateX(8px)
-            scale(0.35);
-
-        opacity: 0;
-    }
 }
