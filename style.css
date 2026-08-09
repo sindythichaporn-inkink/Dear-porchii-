@@ -33,21 +33,12 @@ body {
     font-weight: 300;
 
     transition:
-        opacity 0.7s ease;
+        opacity 0.8s ease;
 }
 
 
 /* =========================================================
-   ✦ PAGE TRANSITION
-========================================================= */
-
-body.page-leaving {
-    opacity: 0;
-}
-
-
-/* =========================================================
-   ✦ BACKGROUND
+   ✦ INDEX BACKGROUND
 ========================================================= */
 
 .index-background {
@@ -73,7 +64,7 @@ body.page-leaving {
     height: 520px;
 
     left: 50%;
-    top: 45%;
+    top: 48%;
 
     transform:
         translate(-50%, -50%);
@@ -83,18 +74,15 @@ body.page-leaving {
     background:
         radial-gradient(
             circle,
-            rgba(255, 255, 255, 0.8),
-            rgba(255, 240, 250, 0.25),
+            rgba(255, 255, 255, 0.85),
+            rgba(255, 224, 244, 0.35),
             transparent 70%
         );
 
-    filter: blur(20px);
+    filter: blur(25px);
 
     animation:
-        softGlow
-        6s
-        ease-in-out
-        infinite;
+        softGlow 6s ease-in-out infinite;
 }
 
 
@@ -123,175 +111,185 @@ body.page-leaving {
     position: absolute;
     inset: 0;
 
-    overflow: hidden;
+    width: 100%;
+    height: 100%;
 }
 
 
+/* วงกลมกลิตเตอร์ */
+
 .index-glitter span {
     position: absolute;
-
-    top: -20px;
 
     width: 8px;
     height: 8px;
 
     border-radius: 50%;
 
-    opacity: 0;
+    opacity: 0.65;
 
     filter:
-        blur(1px);
+        blur(0.2px);
 
     box-shadow:
-        0 0 10px
-        currentColor;
+        0 0 8px currentColor,
+        0 0 16px rgba(255, 255, 255, 0.5);
 
     animation:
-        glitterFall
-        7s
-        linear
+        glitterFloat
+        6s
+        ease-in-out
         infinite;
 }
 
 
-/* Pink */
+/* ตำแหน่ง + สี */
 
 .index-glitter span:nth-child(1) {
-    left: 7%;
-    background: #dfc5d0;
-    color: #dfc5d0;
+    left: 8%;
+    top: 15%;
+    background: #e9b7c8;
+    color: #e9b7c8;
 }
 
 .index-glitter span:nth-child(2) {
     left: 18%;
-    background: #ead4a8;
-    color: #ead4a8;
+    top: 38%;
+    background: #c9c1c8;
+    color: #c9c1c8;
     animation-delay: 1s;
 }
 
 .index-glitter span:nth-child(3) {
-    left: 29%;
-    background: #d2c4cc;
-    color: #d2c4cc;
+    left: 28%;
+    top: 12%;
+    background: #f0d98b;
+    color: #f0d98b;
     animation-delay: 2s;
 }
 
 .index-glitter span:nth-child(4) {
-    left: 41%;
-    background: #e8cbd4;
-    color: #e8cbd4;
+    left: 37%;
+    top: 72%;
+    background: #e3aebe;
+    color: #e3aebe;
     animation-delay: 3s;
 }
 
 .index-glitter span:nth-child(5) {
-    left: 53%;
-    background: #e5d2a7;
-    color: #e5d2a7;
+    left: 47%;
+    top: 20%;
+    background: #d0c8cf;
+    color: #d0c8cf;
     animation-delay: 1.5s;
 }
 
 .index-glitter span:nth-child(6) {
-    left: 65%;
-    background: #d5c6ce;
-    color: #d5c6ce;
-    animation-delay: 4s;
-}
-
-.index-glitter span:nth-child(7) {
-    left: 77%;
-    background: #e7c8d2;
-    color: #e7c8d2;
+    left: 57%;
+    top: 82%;
+    background: #efd78d;
+    color: #efd78d;
     animation-delay: 2.5s;
 }
 
-.index-glitter span:nth-child(8) {
-    left: 89%;
-    background: #ead7ad;
-    color: #ead7ad;
-    animation-delay: 4.5s;
-}
-
-.index-glitter span:nth-child(9) {
-    left: 13%;
-    background: #d5c4ce;
-    color: #d5c4ce;
+.index-glitter span:nth-child(7) {
+    left: 67%;
+    top: 18%;
+    background: #e5b4c5;
+    color: #e5b4c5;
     animation-delay: 3.5s;
 }
 
-.index-glitter span:nth-child(10) {
-    left: 35%;
-    background: #e9ccd5;
-    color: #e9ccd5;
-    animation-delay: 5s;
-}
-
-.index-glitter span:nth-child(11) {
-    left: 58%;
-    background: #e8d5a9;
-    color: #e8d5a9;
-    animation-delay: 2s;
-}
-
-.index-glitter span:nth-child(12) {
-    left: 82%;
-    background: #d8c8d0;
-    color: #d8c8d0;
-    animation-delay: 5.5s;
-}
-
-.index-glitter span:nth-child(13) {
-    left: 23%;
-    background: #e8cbd4;
-    color: #e8cbd4;
-    animation-delay: 6s;
-}
-
-.index-glitter span:nth-child(14) {
-    left: 47%;
-    background: #e6d2a6;
-    color: #e6d2a6;
-    animation-delay: 3s;
-}
-
-.index-glitter span:nth-child(15) {
-    left: 72%;
-    background: #d2c4cc;
-    color: #d2c4cc;
-    animation-delay: 6.5s;
-}
-
-.index-glitter span:nth-child(16) {
-    left: 96%;
-    background: #e9cbd4;
-    color: #e9cbd4;
+.index-glitter span:nth-child(8) {
+    left: 76%;
+    top: 43%;
+    background: #c7c0c8;
+    color: #c7c0c8;
     animation-delay: 4s;
 }
 
+.index-glitter span:nth-child(9) {
+    left: 87%;
+    top: 20%;
+    background: #f0d991;
+    color: #f0d991;
+    animation-delay: 1.2s;
+}
 
-@keyframes glitterFall {
+.index-glitter span:nth-child(10) {
+    left: 91%;
+    top: 72%;
+    background: #e4afc1;
+    color: #e4afc1;
+    animation-delay: 2.2s;
+}
 
-    0% {
-        transform:
-            translateY(-10vh)
-            scale(0.6);
+.index-glitter span:nth-child(11) {
+    left: 12%;
+    top: 78%;
+    background: #d0c7ce;
+    color: #d0c7ce;
+    animation-delay: 3.2s;
+}
 
-        opacity: 0;
-    }
+.index-glitter span:nth-child(12) {
+    left: 24%;
+    top: 88%;
+    background: #efd78c;
+    color: #efd78c;
+    animation-delay: 4.2s;
+}
 
-    15% {
-        opacity: 0.8;
-    }
+.index-glitter span:nth-child(13) {
+    left: 73%;
+    top: 86%;
+    background: #e3afc1;
+    color: #e3afc1;
+    animation-delay: 1.8s;
+}
 
-    80% {
-        opacity: 0.6;
-    }
+.index-glitter span:nth-child(14) {
+    left: 83%;
+    top: 62%;
+    background: #c9c2ca;
+    color: #c9c2ca;
+    animation-delay: 2.8s;
+}
 
+.index-glitter span:nth-child(15) {
+    left: 43%;
+    top: 92%;
+    background: #f0d98d;
+    color: #f0d98d;
+    animation-delay: 3.8s;
+}
+
+.index-glitter span:nth-child(16) {
+    left: 4%;
+    top: 52%;
+    background: #e5b3c5;
+    color: #e5b3c5;
+    animation-delay: 4.8s;
+}
+
+
+@keyframes glitterFloat {
+
+    0%,
     100% {
         transform:
-            translateY(110vh)
-            scale(1);
+            translateY(0)
+            scale(0.8);
 
-        opacity: 0;
+        opacity: 0.3;
+    }
+
+    50% {
+        transform:
+            translateY(-18px)
+            scale(1.25);
+
+        opacity: 0.9;
     }
 }
 
@@ -419,7 +417,7 @@ body.page-leaving {
     text-align: center;
 
     color:
-        rgba(178, 154, 181, 0.28);
+        rgba(178, 154, 181, 0.22);
 
     font-family:
         monospace;
@@ -501,7 +499,8 @@ body.page-leaving {
 .index-logo {
     margin-bottom: 28px;
 
-    color: #8f7890;
+    color:
+        #8f7890;
 
     font-family:
         "Playfair Display",
@@ -529,13 +528,15 @@ body.page-leaving {
 .index-small-title {
     margin-bottom: 22px;
 
-    color: #a28ca3;
+    color:
+        #a28ca3;
 
     font-family:
         "Playfair Display",
         serif;
 
-    font-style: italic;
+    font-style:
+        italic;
 
     font-size: 15px;
 
@@ -569,7 +570,8 @@ body.page-leaving {
 
     margin-bottom: 10px;
 
-    color: #625363;
+    color:
+        #625363;
 
     font-family:
         "Itim",
@@ -578,9 +580,11 @@ body.page-leaving {
     font-size:
         clamp(17px, 2.2vw, 22px);
 
-    line-height: 1.8;
+    line-height:
+        1.8;
 
-    letter-spacing: 0.2px;
+    letter-spacing:
+        0.2px;
 
     text-shadow:
         0 1px 10px
@@ -593,14 +597,14 @@ body.page-leaving {
 ========================================================= */
 
 .typing-active::after {
-
     content: "│";
 
     display: inline-block;
 
     margin-left: 2px;
 
-    color: #a88ea9;
+    color:
+        #a88ea9;
 
     animation:
         cursorBlink
@@ -628,7 +632,6 @@ body.page-leaving {
 ========================================================= */
 
 .index-open {
-
     display:
         inline-flex;
 
@@ -667,26 +670,54 @@ body.page-leaving {
         "Itim",
         sans-serif;
 
-    font-size: 18px;
+    font-size:
+        18px;
 
-    text-decoration: none;
+    text-decoration:
+        none;
 
-    opacity: 0;
+    opacity:
+        0;
 
-    pointer-events: none;
+    visibility:
+        hidden;
+
+    pointer-events:
+        none;
 
     backdrop-filter:
         blur(10px);
 
+    transform:
+        translateY(12px)
+        scale(0.96);
+
     transition:
-        transform 0.3s ease,
-        background 0.3s ease,
-        box-shadow 0.3s ease;
+        transform 0.35s ease,
+        background 0.35s ease,
+        box-shadow 0.35s ease,
+        opacity 0.5s ease;
+}
+
+
+/* JS จะเพิ่ม class นี้ */
+
+.index-open.show {
+    opacity: 1;
+
+    visibility:
+        visible;
+
+    pointer-events:
+        auto;
+
+    transform:
+        translateY(0)
+        scale(1);
 }
 
 
 .index-open:hover {
-
     transform:
         translateY(-3px);
 
@@ -700,34 +731,9 @@ body.page-leaving {
 
 
 .index-open:active {
-
     transform:
         translateY(0)
         scale(0.98);
-}
-
-
-/* =========================================================
-   ✦ BUTTON APPEAR
-========================================================= */
-
-@keyframes indexButtonAppear {
-
-    from {
-        opacity: 0;
-
-        transform:
-            translateY(12px)
-            scale(0.96);
-    }
-
-    to {
-        opacity: 1;
-
-        transform:
-            translateY(0)
-            scale(1);
-    }
 }
 
 
@@ -736,20 +742,23 @@ body.page-leaving {
 ========================================================= */
 
 .index-footer {
-
     margin-top: 20px;
 
-    color: #aa98aa;
+    color:
+        #aa98aa;
 
     font-family:
         "Playfair Display",
         serif;
 
-    font-size: 11px;
+    font-size:
+        11px;
 
-    letter-spacing: 1px;
+    letter-spacing:
+        1px;
 
-    opacity: 0.75;
+    opacity:
+        0.75;
 }
 
 
@@ -772,6 +781,15 @@ body.page-leaving {
         transform:
             translateY(0);
     }
+}
+
+
+/* =========================================================
+   ✦ PAGE LEAVING
+========================================================= */
+
+body.page-leaving {
+    opacity: 0;
 }
 
 
@@ -800,7 +818,6 @@ body.page-leaving {
 
     .index-message {
         min-height: 500px;
-
         padding:
             10px 5px;
     }
@@ -809,21 +826,26 @@ body.page-leaving {
     .typing-line {
         font-size: 17px;
 
-        line-height: 1.75;
+        line-height:
+            1.75;
 
-        margin-bottom: 8px;
+        margin-bottom:
+            8px;
     }
 
 
     .index-ascii-wings {
-        font-size: 4.5px;
+        font-size:
+            4.5px;
     }
 
 
     .index-open {
-        min-width: 230px;
+        min-width:
+            230px;
 
-        font-size: 16px;
+        font-size:
+            16px;
 
         padding:
             12px 20px;
