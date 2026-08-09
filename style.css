@@ -763,23 +763,331 @@ body.page-leaving {
 /* =========================================================
    ✦ PHOTO STACK
 ========================================================= */
+
 .home-photo-section {
     width: 100%;
     text-align: center;
     margin: 25px auto 55px;
 }
+
+
 /* =========================================================
    ✦ STACK AREA
 ========================================================= */
+
 .photo-stack {
     position: relative;
+
     width: 100%;
-    max-width: 760px;
-    height: 340px;
+    max-width: 850px;
+
+    height: 350px;
+
     margin: 0 auto;
+
+    perspective: 1200px;
+
     cursor: pointer;
-    perspective: 1000px;
+
     touch-action: manipulation;
+}
+
+
+/* =========================================================
+   ✦ PHOTO
+========================================================= */
+
+.stack-photo {
+    position: absolute;
+
+    /* สำคัญมาก — ทุกใบเริ่มจากจุดเดียวกัน */
+    left: 50%;
+    top: 50%;
+
+    width: 210px;
+    height: 275px;
+
+    padding: 9px;
+
+    background: #ffffff;
+
+    border-radius: 18px;
+
+    border: 1px solid rgba(255,255,255,0.95);
+
+    box-shadow:
+        0 15px 35px
+        rgba(95,70,105,0.15);
+
+    transform-origin: center center;
+
+    transition:
+        transform 0.8s cubic-bezier(.22,.75,.25,1),
+        box-shadow 0.5s ease;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   ✦ IMAGE
+========================================================= */
+
+.stack-photo-inner {
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eee1ff,
+            #ffddec,
+            #fff0aa
+        );
+}
+
+.stack-photo img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+}
+
+
+/* =========================================================
+   ✦ CLOSED
+   ทั้ง 4 รูปซ้อนกัน
+========================================================= */
+
+.photo-1 {
+    z-index: 1;
+
+    transform:
+        translate(-50%, -50%)
+        rotate(-6deg)
+        translateY(-3px);
+}
+
+.photo-2 {
+    z-index: 2;
+
+    transform:
+        translate(-50%, -50%)
+        rotate(-2deg)
+        translateY(-1px);
+}
+
+.photo-3 {
+    z-index: 3;
+
+    transform:
+        translate(-50%, -50%)
+        rotate(2deg)
+        translateY(1px);
+}
+
+.photo-4 {
+    z-index: 4;
+
+    transform:
+        translate(-50%, -50%)
+        rotate(6deg)
+        translateY(3px);
+}
+
+
+/* =========================================================
+   ✦ OPEN
+   คลี่ออกจากตรงกลาง
+========================================================= */
+
+.photo-stack.open .photo-1 {
+    z-index: 1;
+
+    transform:
+        translate(
+            calc(-50% - 315px),
+            -50%
+        )
+        rotate(-9deg);
+}
+
+.photo-stack.open .photo-2 {
+    z-index: 2;
+
+    transform:
+        translate(
+            calc(-50% - 105px),
+            -50%
+        )
+        rotate(-3deg);
+}
+
+.photo-stack.open .photo-3 {
+    z-index: 3;
+
+    transform:
+        translate(
+            calc(-50% + 105px),
+            -50%
+        )
+        rotate(3deg);
+}
+
+.photo-stack.open .photo-4 {
+    z-index: 4;
+
+    transform:
+        translate(
+            calc(-50% + 315px),
+            -50%
+        )
+        rotate(9deg);
+}
+
+
+/* =========================================================
+   ✦ HOVER
+========================================================= */
+
+.photo-stack:hover .photo-4 {
+    box-shadow:
+        0 20px 45px
+        rgba(100,70,110,0.2);
+}
+
+
+/* =========================================================
+   ✦ HINT
+========================================================= */
+
+.photo-hint {
+    margin-top: 18px;
+
+    color: #a48ea7;
+
+    font-family:
+        "Itim",
+        sans-serif;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   ✦ MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .photo-stack {
+        height: 300px;
+    }
+
+    .stack-photo {
+        width: 155px;
+        height: 215px;
+    }
+
+
+    /* -------------------------
+       ตอนเปิด
+    ------------------------- */
+
+    .photo-stack.open .photo-1 {
+        transform:
+            translate(
+                calc(-50% - 115px),
+                -50%
+            )
+            rotate(-8deg);
+    }
+
+    .photo-stack.open .photo-2 {
+        transform:
+            translate(
+                calc(-50% - 39px),
+                -50%
+            )
+            rotate(-3deg);
+    }
+
+    .photo-stack.open .photo-3 {
+        transform:
+            translate(
+                calc(-50% + 39px),
+                -50%
+            )
+            rotate(3deg);
+    }
+
+    .photo-stack.open .photo-4 {
+        transform:
+            translate(
+                calc(-50% + 115px),
+                -50%
+            )
+            rotate(8deg);
+    }
+}
+
+
+/* =========================================================
+   ✦ VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 390px) {
+
+    .photo-stack {
+        height: 260px;
+    }
+
+    .stack-photo {
+        width: 135px;
+        height: 190px;
+    }
+
+    .photo-stack.open .photo-1 {
+        transform:
+            translate(
+                calc(-50% - 95px),
+                -50%
+            )
+            rotate(-8deg);
+    }
+
+    .photo-stack.open .photo-2 {
+        transform:
+            translate(
+                calc(-50% - 32px),
+                -50%
+            )
+            rotate(-3deg);
+    }
+
+    .photo-stack.open .photo-3 {
+        transform:
+            translate(
+                calc(-50% + 32px),
+                -50%
+            )
+            rotate(3deg);
+    }
+
+    .photo-stack.open .photo-4 {
+        transform:
+            translate(
+                calc(-50% + 95px),
+                -50%
+            )
+            rotate(8deg);
+    }
 }
 /* =========================================================
    ✦ EACH PHOTO
