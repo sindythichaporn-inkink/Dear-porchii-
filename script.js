@@ -235,3 +235,100 @@ document.addEventListener(
 
     }
 );
+/* =========================================================
+   ✦ HOME PAGE
+========================================================= */
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
+        /* ============================================
+           PHOTO STACK
+        ============================================ */
+        const stack =
+            document.querySelector(
+                ".photo-stack"
+            );
+        if (stack) {
+            stack.addEventListener(
+                "click",
+                () => {
+                    stack.classList.toggle(
+                        "opened"
+                    );
+                }
+            );
+        }
+        /* ============================================
+           MENU ANIMATION
+        ============================================ */
+        const links =
+            document.querySelectorAll(
+                ".home-link"
+            );
+        links.forEach(
+            (
+                link,
+                index
+            ) => {
+                setTimeout(
+                    () => {
+                        link.classList.add(
+                            "show"
+                        );
+                    },
+                    250 +
+                    (index * 120)
+                );
+            }
+        );
+        /* ============================================
+           PAGE FADE IN
+        ============================================ */
+        document.body.style.opacity =
+            "0";
+        requestAnimationFrame(
+            () => {
+                document.body.style.opacity =
+                    "1";
+            }
+        );
+    }
+);
+/* =========================================================
+   ✦ PAGE TRANSITION
+========================================================= */
+document.addEventListener(
+    "click",
+    (event) => {
+        const link =
+            event.target.closest(
+                "a"
+            );
+        if (!link) {
+            return;
+        }
+        const href =
+            link.getAttribute(
+                "href"
+            );
+        if (
+            !href ||
+            href.startsWith("#") ||
+            href.startsWith("http") ||
+            href.startsWith("mailto:")
+        ) {
+            return;
+        }
+        event.preventDefault();
+        document.body.classList.add(
+            "page-leaving"
+        );
+        setTimeout(
+            () => {
+                window.location.href =
+                    href;
+            },
+            700
+        );
+    }
+);
