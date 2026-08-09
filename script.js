@@ -530,3 +530,260 @@ touchStyle.textContent = `
 document.head.appendChild(
     touchStyle
 );
+/* =========================================================
+   ✦ HOME — PHOTO VIEWER
+========================================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const stack = document.getElementById("photoStack");
+
+    if (!stack) return;
+
+    const photos = [
+        "images/home/photo1.jpg",
+        "images/home/photo2.jpg",
+        "images/home/photo3.jpg",
+        "images/home/photo4.jpg"
+    ];
+
+    let currentPhoto = 0;
+
+    /* =====================================================
+       ✦ OPEN PHOTO
+    ====================================================== */
+
+    function openPhoto(index) {
+
+        currentPhoto = index;
+
+        const viewer = document.createElement("div");
+
+        viewer.className = "photo-viewer";
+
+        viewer.innerHTML = `
+            <button class="photo-viewer-close" aria-label="Close">
+                ×
+            </button>
+
+            <button class="photo-viewer-prev" aria-label="Previous">
+                ‹
+            </button>
+
+            <div class="photo-viewer-content">
+                <img
+                    src="${photos[currentPhoto]}"
+                    alt="Our memory"
+                    class="photo-viewer-image"
+                >
+
+                <p class="photo-viewer-count">
+                    ${currentPhoto + 1} / ${photos.length}
+                </p>
+            </div>
+
+            <button class="photo-viewer-next" aria-label="Next">
+                ›
+            </button>
+        `;
+
+        document.body.appendChild(viewer);
+
+        requestAnimationFrame(() => {
+            viewer.classList.add("show");
+        });
+
+        /* ปิด */
+
+        viewer
+            .querySelector(".photo-viewer-close")
+            .addEventListener("click", closeViewer);
+
+        /* ก่อนหน้า */
+
+        viewer
+            .querySelector(".photo-viewer-prev")
+            .addEventListener("click", () => {
+
+                currentPhoto =
+                    (currentPhoto - 1 + photos.length)
+                    % photos.length;
+
+                updatePhoto(viewer);
+
+            });
+
+        /* ถัดไป */
+
+        viewer
+            .querySelector(".photo-viewer-next")
+            .addEventListener("click", () => {
+
+                currentPhoto =
+                    (currentPhoto + 1)
+                    % photos.length;
+
+                updatePhoto(viewer);
+
+            });
+
+        /* คลิกพื้นหลังเพื่อปิด */
+
+        viewer.addEventListener("click", (event) => {
+
+            if (
+                event.target === viewer
+            ) {
+                closeViewer();
+            }
+
+        });
+
+    }
+
+
+    /* =====================================================
+       ✦ UPDATE PHOTO
+    ====================================================== */
+
+    function updatePhoto(viewer) {
+
+        const image =
+            viewer.querySelector(
+                ".photo-viewer-image"
+            );
+
+        const count =
+            viewer.querySelector(
+                ".photo-viewer-count"
+            );
+
+        image.classList.remove("photo-changing");
+
+        void image.offsetWidth;
+
+        image.src =
+            photos[currentPhoto];
+
+        count.textContent =
+            `${currentPhoto + 1} / ${photos.length}`;
+
+        image.classList.add(
+            "photo-changing"
+        );
+
+    }
+
+
+    /* =====================================================
+       ✦ CLOSE
+    ====================================================== */
+
+    function closeViewer() {
+
+        const viewer =
+            document.querySelector(
+                ".photo-viewer"
+            );
+
+        if (!viewer) return;
+
+        viewer.classList.remove("show");
+
+        setTimeout(() => {
+
+            viewer.remove();
+
+        }, 350);
+
+    }
+
+
+    /* =====================================================
+       ✦ PHOTO STACK
+    ====================================================== */
+
+    const stackPhotos =
+        stack.querySelectorAll(
+            ".stack-photo"
+        );
+
+    stack.addEventListener(
+        "click",
+        () => {
+
+            stack.classList.toggle(
+                "opened"
+            );
+
+        }
+    );
+
+
+    /* =====================================================
+       ✦ CLICK EACH PHOTO
+    ====================================================== */
+
+    stackPhotos.forEach(
+        (photo, index) => {
+
+            photo.addEventListener(
+                "click",
+                (event) => {
+
+                    event.stopPropagation();
+
+                    openPhoto(index);
+
+                }
+            );
+
+        }
+    );
+
+
+    /* =====================================================
+       ✦ KEYBOARD
+    ====================================================== */
+
+    document.addEventListener(
+        "keydown",
+        (event) => {
+
+            const viewer =
+                document.querySelector(
+                    ".photo-viewer"
+                );
+
+            if (!viewer) return;
+
+            if (event.key === "Escape") {
+
+                closeViewer();
+
+            }
+
+            if (event.key === "ArrowLeft") {
+
+                currentPhoto =
+                    (currentPhoto - 1 + photos.length)
+                    % photos.length;
+
+                updatePhoto(viewer);
+
+            }
+
+            if (event.key === "ArrowRight") {
+
+                currentPhoto =
+                    (currentPhoto + 1)
+                    % photos.length;
+
+                updatePhoto(viewer);
+
+            }
+
+        }
+    );
+
+});
