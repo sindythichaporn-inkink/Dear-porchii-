@@ -1,23 +1,17 @@
 /* =========================================================
    ✦ RESET
 ========================================================= */
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
-
 html {
     scroll-behavior: smooth;
 }
-
-
 body {
     min-height: 100vh;
     overflow-x: hidden;
-
     background:
         radial-gradient(
             circle at 50% 35%,
@@ -26,492 +20,388 @@ body {
             #eee3ef 70%,
             #e5dbea 100%
         );
-
     color: #665768;
-
-    font-family: "Kanit", sans-serif;
+    font-family:
+        "Kanit",
+        sans-serif;
     font-weight: 300;
-
     transition:
         opacity 0.8s ease;
 }
-
-
 /* =========================================================
-   ✦ INDEX BACKGROUND
+   ✦ BACKGROUND
 ========================================================= */
-
 .index-background {
     position: fixed;
     inset: 0;
-
     overflow: hidden;
-
     pointer-events: none;
-
     z-index: 0;
 }
-
-
 /* =========================================================
    ✦ SOFT GLOW
 ========================================================= */
-
 .index-glow {
     position: absolute;
-
     width: 520px;
     height: 520px;
-
     left: 50%;
-    top: 48%;
-
+    top: 45%;
     transform:
         translate(-50%, -50%);
-
     border-radius: 50%;
-
     background:
         radial-gradient(
             circle,
-            rgba(255, 255, 255, 0.85),
-            rgba(255, 224, 244, 0.35),
+            rgba(255, 255, 255, 0.8),
+            rgba(255, 238, 248, 0.35),
             transparent 70%
         );
-
-    filter: blur(25px);
-
+    filter:
+        blur(25px);
     animation:
-        softGlow 6s ease-in-out infinite;
+        softGlow
+        6s
+        ease-in-out
+        infinite;
 }
-
-
 @keyframes softGlow {
-
     0%,
     100% {
         transform:
             translate(-50%, -50%)
             scale(1);
     }
-
     50% {
         transform:
             translate(-50%, -50%)
             scale(1.08);
     }
 }
-
-
 /* =========================================================
    ✦ GLITTER
 ========================================================= */
-
 .index-glitter {
     position: absolute;
     inset: 0;
-
     width: 100%;
     height: 100%;
 }
-
-
-/* วงกลมกลิตเตอร์ */
-
 .index-glitter span {
     position: absolute;
-
     width: 8px;
     height: 8px;
-
     border-radius: 50%;
-
     opacity: 0.65;
-
-    filter:
-        blur(0.2px);
-
     box-shadow:
-        0 0 8px currentColor,
-        0 0 16px rgba(255, 255, 255, 0.5);
-
+        0 0 7px currentColor,
+        0 0 15px rgba(255,255,255,0.65);
     animation:
         glitterFloat
         6s
         ease-in-out
         infinite;
 }
-
-
-/* ตำแหน่ง + สี */
-
+/* =========================================================
+   ✦ GLITTER POSITIONS
+========================================================= */
 .index-glitter span:nth-child(1) {
     left: 8%;
-    top: 15%;
-    background: #e9b7c8;
-    color: #e9b7c8;
+    top: 14%;
+    background: #e9b5c7;
+    color: #e9b5c7;
 }
-
 .index-glitter span:nth-child(2) {
     left: 18%;
-    top: 38%;
-    background: #c9c1c8;
-    color: #c9c1c8;
+    top: 35%;
+    background: #c8c1c8;
+    color: #c8c1c8;
     animation-delay: 1s;
 }
-
 .index-glitter span:nth-child(3) {
     left: 28%;
-    top: 12%;
-    background: #f0d98b;
-    color: #f0d98b;
+    top: 11%;
+    background: #efd77f;
+    color: #efd77f;
     animation-delay: 2s;
 }
-
 .index-glitter span:nth-child(4) {
     left: 37%;
     top: 72%;
-    background: #e3aebe;
-    color: #e3aebe;
+    background: #e2adbf;
+    color: #e2adbf;
     animation-delay: 3s;
 }
-
 .index-glitter span:nth-child(5) {
-    left: 47%;
+    left: 46%;
     top: 20%;
-    background: #d0c8cf;
-    color: #d0c8cf;
+    background: #c9c2c9;
+    color: #c9c2c9;
     animation-delay: 1.5s;
 }
-
 .index-glitter span:nth-child(6) {
     left: 57%;
     top: 82%;
-    background: #efd78d;
-    color: #efd78d;
+    background: #efd77f;
+    color: #efd77f;
     animation-delay: 2.5s;
 }
-
 .index-glitter span:nth-child(7) {
     left: 67%;
-    top: 18%;
-    background: #e5b4c5;
-    color: #e5b4c5;
+    top: 17%;
+    background: #e5b3c4;
+    color: #e5b3c4;
     animation-delay: 3.5s;
 }
-
 .index-glitter span:nth-child(8) {
     left: 76%;
-    top: 43%;
+    top: 42%;
     background: #c7c0c8;
     color: #c7c0c8;
     animation-delay: 4s;
 }
-
 .index-glitter span:nth-child(9) {
-    left: 87%;
-    top: 20%;
-    background: #f0d991;
-    color: #f0d991;
+    left: 88%;
+    top: 19%;
+    background: #efd77f;
+    color: #efd77f;
     animation-delay: 1.2s;
 }
-
 .index-glitter span:nth-child(10) {
     left: 91%;
     top: 72%;
-    background: #e4afc1;
-    color: #e4afc1;
+    background: #e2adbf;
+    color: #e2adbf;
     animation-delay: 2.2s;
 }
-
 .index-glitter span:nth-child(11) {
-    left: 12%;
+    left: 11%;
     top: 78%;
-    background: #d0c7ce;
-    color: #d0c7ce;
+    background: #c9c1c8;
+    color: #c9c1c8;
     animation-delay: 3.2s;
 }
-
 .index-glitter span:nth-child(12) {
     left: 24%;
     top: 88%;
-    background: #efd78c;
-    color: #efd78c;
+    background: #efd77f;
+    color: #efd77f;
     animation-delay: 4.2s;
 }
-
 .index-glitter span:nth-child(13) {
     left: 73%;
     top: 86%;
-    background: #e3afc1;
-    color: #e3afc1;
+    background: #e2adbf;
+    color: #e2adbf;
     animation-delay: 1.8s;
 }
-
 .index-glitter span:nth-child(14) {
     left: 83%;
     top: 62%;
-    background: #c9c2ca;
-    color: #c9c2ca;
+    background: #c9c1c8;
+    color: #c9c1c8;
     animation-delay: 2.8s;
 }
-
 .index-glitter span:nth-child(15) {
     left: 43%;
     top: 92%;
-    background: #f0d98d;
-    color: #f0d98d;
+    background: #efd77f;
+    color: #efd77f;
     animation-delay: 3.8s;
 }
-
 .index-glitter span:nth-child(16) {
     left: 4%;
     top: 52%;
-    background: #e5b3c5;
-    color: #e5b3c5;
+    background: #e2adbf;
+    color: #e2adbf;
     animation-delay: 4.8s;
 }
-
-
 @keyframes glitterFloat {
-
     0%,
     100% {
         transform:
             translateY(0)
-            scale(0.8);
-
-        opacity: 0.3;
+            scale(0.75);
+        opacity:
+            0.25;
     }
-
     50% {
         transform:
             translateY(-18px)
-            scale(1.25);
-
-        opacity: 0.9;
+            scale(1.3);
+        opacity:
+            0.9;
     }
 }
-
-
 /* =========================================================
    ✦ SPARKLES
 ========================================================= */
-
 .index-sparkles span {
     position: absolute;
-
     color:
-        rgba(255, 255, 255, 0.85);
-
+        rgba(255,255,255,0.85);
     font-family:
         "Playfair Display",
         serif;
-
     animation:
         sparkleFloat
         7s
         ease-in-out
         infinite;
 }
-
-
 .index-sparkles span:nth-child(1) {
     left: 12%;
     top: 18%;
     font-size: 18px;
 }
-
 .index-sparkles span:nth-child(2) {
     left: 83%;
     top: 14%;
     font-size: 22px;
     animation-delay: 1s;
 }
-
 .index-sparkles span:nth-child(3) {
     left: 8%;
     top: 68%;
     font-size: 15px;
     animation-delay: 2s;
 }
-
 .index-sparkles span:nth-child(4) {
     left: 90%;
     top: 62%;
     font-size: 18px;
     animation-delay: 3s;
 }
-
 .index-sparkles span:nth-child(5) {
     left: 22%;
     top: 84%;
     font-size: 16px;
     animation-delay: 1.5s;
 }
-
 .index-sparkles span:nth-child(6) {
     left: 76%;
     top: 82%;
     font-size: 20px;
     animation-delay: 2.5s;
 }
-
 .index-sparkles span:nth-child(7) {
     left: 48%;
     top: 10%;
     font-size: 13px;
     animation-delay: 3.5s;
 }
-
 .index-sparkles span:nth-child(8) {
     left: 55%;
     top: 90%;
     font-size: 15px;
     animation-delay: 4s;
 }
-
-
 @keyframes sparkleFloat {
-
     0%,
     100% {
         transform:
             translateY(0)
             rotate(0deg);
-
-        opacity: 0.35;
+        opacity:
+            0.35;
     }
-
     50% {
         transform:
             translateY(-15px)
             rotate(8deg);
-
-        opacity: 0.9;
+        opacity:
+            0.9;
     }
 }
-
-
 /* =========================================================
    ✦ ASCII WINGS
 ========================================================= */
-
 .index-ascii-wings {
     position: absolute;
-
     left: 50%;
     top: 50%;
-
     transform:
         translate(-50%, -50%);
-
-    width: min(1000px, 95vw);
-
+    width:
+        min(1000px, 95vw);
     margin: 0;
-
-    white-space: pre;
-
-    overflow: hidden;
-
-    text-align: center;
-
+    white-space:
+        pre;
+    overflow:
+        hidden;
+    text-align:
+        center;
     color:
-        rgba(178, 154, 181, 0.22);
-
+        rgba(178,154,181,0.2);
     font-family:
         monospace;
-
     font-size:
         clamp(5px, 0.85vw, 10px);
-
-    line-height: 1.05;
-
+    line-height:
+        1.05;
     filter:
         blur(0.15px);
-
     animation:
         wingsFloat
         8s
         ease-in-out
         infinite;
 }
-
-
 @keyframes wingsFloat {
-
     0%,
     100% {
         transform:
             translate(-50%, -50%)
             translateY(0);
     }
-
     50% {
         transform:
             translate(-50%, -50%)
             translateY(-8px);
     }
 }
-
-
 /* =========================================================
    ✦ MAIN
 ========================================================= */
-
 .index-main {
     position: relative;
-
     z-index: 2;
-
-    min-height: 100vh;
-
+    min-height:
+        100vh;
     width:
         min(720px, 92%);
-
     margin:
         0 auto;
-
     padding:
         55px 0 35px;
-
     display:
         flex;
-
     flex-direction:
         column;
-
     align-items:
         center;
-
     justify-content:
         center;
-
     text-align:
         center;
 }
-
-
 /* =========================================================
    ✦ LOGO
 ========================================================= */
-
 .index-logo {
-    margin-bottom: 28px;
-
+    margin-bottom:
+        28px;
     color:
         #8f7890;
-
     font-family:
         "Playfair Display",
         serif;
-
-    font-size: 16px;
-
-    letter-spacing: 1px;
-
-    opacity: 0;
-
+    font-size:
+        16px;
+    letter-spacing:
+        1px;
+    opacity:
+        0;
     animation:
         fadeUp
         1s
@@ -519,29 +409,23 @@ body {
         0.2s
         forwards;
 }
-
-
 /* =========================================================
    ✦ SMALL TITLE
 ========================================================= */
-
 .index-small-title {
-    margin-bottom: 22px;
-
+    margin-bottom:
+        22px;
     color:
         #a28ca3;
-
     font-family:
         "Playfair Display",
         serif;
-
     font-style:
         italic;
-
-    font-size: 15px;
-
-    opacity: 0;
-
+    font-size:
+        15px;
+    opacity:
+        0;
     animation:
         fadeUp
         1s
@@ -549,305 +433,237 @@ body {
         0.5s
         forwards;
 }
-
-
 /* =========================================================
    ✦ MESSAGE
 ========================================================= */
-
 .index-message {
-    width: 100%;
-
-    min-height: 440px;
-
+    width:
+        100%;
+    min-height:
+        440px;
     padding:
         15px 20px;
 }
-
-
 .typing-line {
-    min-height: 30px;
-
-    margin-bottom: 10px;
-
+    min-height:
+        30px;
+    margin-bottom:
+        10px;
     color:
         #625363;
-
     font-family:
         "Itim",
         sans-serif;
-
     font-size:
         clamp(17px, 2.2vw, 22px);
-
     line-height:
         1.8;
-
     letter-spacing:
         0.2px;
-
     text-shadow:
         0 1px 10px
-        rgba(255, 255, 255, 0.6);
+        rgba(255,255,255,0.6);
 }
-
-
 /* =========================================================
-   ✦ TYPING CURSOR
+   ✦ CURSOR
 ========================================================= */
-
 .typing-active::after {
-    content: "│";
-
-    display: inline-block;
-
-    margin-left: 2px;
-
+    content:
+        "│";
+    display:
+        inline-block;
+    margin-left:
+        2px;
     color:
         #a88ea9;
-
     animation:
         cursorBlink
         0.7s
         infinite;
 }
-
-
 @keyframes cursorBlink {
-
     0%,
     45% {
-        opacity: 1;
+        opacity:
+            1;
     }
-
     46%,
     100% {
-        opacity: 0;
+        opacity:
+            0;
     }
 }
-
-
 /* =========================================================
    ✦ OPEN BUTTON
 ========================================================= */
-
 .index-open {
     display:
         inline-flex;
-
     align-items:
         center;
-
     justify-content:
         center;
-
-    gap: 10px;
-
+    gap:
+        10px;
     min-width:
         250px;
-
     padding:
         13px 25px;
-
     border:
         1px solid
-        rgba(166, 139, 167, 0.35);
-
+        rgba(166,139,167,0.35);
     border-radius:
         999px;
-
     background:
-        rgba(255, 255, 255, 0.48);
-
+        rgba(255,255,255,0.48);
     box-shadow:
         0 10px 30px
-        rgba(126, 100, 128, 0.12);
-
+        rgba(126,100,128,0.12);
     color:
         #806c81;
-
     font-family:
         "Itim",
         sans-serif;
-
     font-size:
         18px;
-
     text-decoration:
         none;
-
     opacity:
         0;
-
     visibility:
         hidden;
-
     pointer-events:
         none;
-
     backdrop-filter:
         blur(10px);
-
     transform:
         translateY(12px)
         scale(0.96);
-
     transition:
         transform 0.35s ease,
         background 0.35s ease,
         box-shadow 0.35s ease,
         opacity 0.5s ease;
 }
-
-
-/* JS จะเพิ่ม class นี้ */
-
 .index-open.show {
-    opacity: 1;
-
+    opacity:
+        1;
     visibility:
         visible;
-
     pointer-events:
         auto;
-
     transform:
         translateY(0)
         scale(1);
 }
-
-
 .index-open:hover {
     transform:
         translateY(-3px);
-
     background:
-        rgba(255, 255, 255, 0.75);
-
+        rgba(255,255,255,0.75);
     box-shadow:
         0 14px 35px
-        rgba(126, 100, 128, 0.18);
+        rgba(126,100,128,0.18);
 }
-
-
 .index-open:active {
     transform:
         translateY(0)
         scale(0.98);
 }
-
-
 /* =========================================================
    ✦ FOOTER
 ========================================================= */
-
 .index-footer {
-    margin-top: 20px;
-
+    margin-top:
+        20px;
     color:
         #aa98aa;
-
     font-family:
         "Playfair Display",
         serif;
-
     font-size:
         11px;
-
     letter-spacing:
         1px;
-
     opacity:
         0.75;
 }
-
-
 /* =========================================================
    ✦ FADE UP
 ========================================================= */
-
 @keyframes fadeUp {
-
     from {
-        opacity: 0;
-
+        opacity:
+            0;
         transform:
             translateY(15px);
     }
-
     to {
-        opacity: 1;
-
+        opacity:
+            1;
         transform:
             translateY(0);
     }
 }
-
-
 /* =========================================================
    ✦ PAGE LEAVING
 ========================================================= */
-
 body.page-leaving {
-    opacity: 0;
+    opacity:
+        0;
+    pointer-events:
+        none;
 }
-
-
 /* =========================================================
    ✦ MOBILE
 ========================================================= */
-
 @media (max-width: 600px) {
-
     .index-main {
         padding:
             35px 0 25px;
     }
-
-
     .index-logo {
-        font-size: 14px;
-        margin-bottom: 20px;
+        font-size:
+            14px;
+        margin-bottom:
+            20px;
     }
-
-
     .index-small-title {
-        font-size: 13px;
+        font-size:
+            13px;
     }
-
-
     .index-message {
-        min-height: 500px;
+        min-height:
+            500px;
         padding:
             10px 5px;
     }
-
-
     .typing-line {
-        font-size: 17px;
-
+        font-size:
+            17px;
         line-height:
             1.75;
-
         margin-bottom:
             8px;
     }
-
-
     .index-ascii-wings {
+        width:
+            1100px;
         font-size:
             4.5px;
     }
-
-
     .index-open {
         min-width:
             230px;
-
         font-size:
             16px;
-
         padding:
             12px 20px;
+    }
+    .index-glitter span {
+        width:
+            6px;
+        height:
+            6px;
     }
 }
