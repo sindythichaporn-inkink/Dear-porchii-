@@ -7,6 +7,7 @@
 
     <title>Dear Porch ✦ Our Memory Book</title>
 
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -15,8 +16,10 @@
         rel="stylesheet"
     >
 
+    <!-- CSS กลาง -->
     <link rel="stylesheet" href="style.css">
 </head>
+
 
 <body class="index-page">
 
@@ -26,10 +29,11 @@
 
     <div class="index-background" aria-hidden="true">
 
+        <!-- Soft Glow -->
         <div class="index-glow"></div>
 
-        <!-- ✦ GLITTER -->
 
+        <!-- Glitter -->
         <div class="index-glitter">
 
             <span></span>
@@ -52,8 +56,7 @@
         </div>
 
 
-        <!-- ✦ SPARKLES -->
-
+        <!-- Sparkles -->
         <div class="index-sparkles">
 
             <span>✦</span>
@@ -68,8 +71,7 @@
         </div>
 
 
-        <!-- ✦ WINGS -->
-
+        <!-- ASCII Wings -->
         <pre class="index-ascii-wings">
 
 ⠀⠀⠀⠀⢀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
@@ -92,17 +94,21 @@
 
     <main class="index-main">
 
+        <!-- Logo -->
+
         <p class="index-logo">
             𓂃 ࣪˖ ִֶָ Dear Porch ♡ ִֶָ ࣪˖ 𓂃
         </p>
 
+
+        <!-- Small Title -->
 
         <p class="index-small-title">
             𓂃 ࣪˖ a little message for you ִֶָ
         </p>
 
 
-        <!-- ✦ MESSAGE -->
+        <!-- Typing Message -->
 
         <section
             class="index-message"
@@ -123,7 +129,7 @@
         </section>
 
 
-        <!-- ✦ OPEN BOOK -->
+        <!-- Open Book -->
 
         <a
             href="home.html"
@@ -140,6 +146,8 @@
         </a>
 
 
+        <!-- Footer -->
+
         <p class="index-footer">
             made with love ♡ for Porch
         </p>
@@ -147,143 +155,9 @@
     </main>
 
 
-    <!-- =====================================================
-         ✦ INDEX SCRIPT
-    ====================================================== -->
-
-    <script>
-
-        document.addEventListener("DOMContentLoaded", () => {
-
-            const messages = [
-                "สวัสดี 𐔌՞ ܸ.ˬ.ܸ՞𐦯",
-                "เธอคงเป็น… พอร์ช !?!",
-                "ใช่ไหม… ^_____^",
-                "งั้นก็คงเป็นแฟนของอิ๊งค์สินะ 𐔌՞ . .՞𐦯",
-                "รู้ไหม…",
-                "แฟนของเธอตั้งใจทำเว็บไซต์นี้เพื่อเธอมาก ๆ เลยนะ ૮₍ ˃ ⤙ ˂ ₎ა",
-                "ทุกภาพ ทุกความทรงจำ และทุกข้อความในนี้",
-                "ล้วนเป็นสิ่งที่อิ๊งค์ตั้งใจเก็บเอาไว้",
-                "เพื่อให้เธอได้กลับมายิ้มกับมันอีกครั้ง ‹𝟹"
-            ];
-
-
-            const lines =
-                document.querySelectorAll(".typing-line");
-
-            const button =
-                document.getElementById("indexOpen");
-
-
-            let lineIndex = 0;
-
-
-            function typeLine() {
-
-                if (lineIndex >= messages.length) {
-
-                    button.style.opacity = "1";
-                    button.style.pointerEvents = "auto";
-                    button.style.transform = "translateY(0)";
-
-                    return;
-                }
-
-
-                const line = lines[lineIndex];
-                const text = messages[lineIndex];
-
-                let charIndex = 0;
-
-
-                line.classList.add("typing-active");
-
-
-                function typeCharacter() {
-
-                    if (charIndex < text.length) {
-
-                        line.textContent += text.charAt(charIndex);
-
-                        charIndex++;
-
-                        setTimeout(
-                            typeCharacter,
-                            45
-                        );
-
-                    } else {
-
-                        line.classList.remove("typing-active");
-
-                        lineIndex++;
-
-                        setTimeout(
-                            typeLine,
-                            350
-                        );
-
-                    }
-
-                }
-
-
-                typeCharacter();
-
-            }
-
-
-            setTimeout(
-                typeLine,
-                700
-            );
-
-
-            /* ✦ PAGE TRANSITION */
-
-            document
-                .querySelectorAll("a")
-                .forEach(link => {
-
-                    link.addEventListener(
-                        "click",
-                        event => {
-
-                            const href =
-                                link.getAttribute("href");
-
-
-                            if (
-                                !href ||
-                                href.startsWith("#") ||
-                                href.startsWith("http")
-                            ) {
-                                return;
-                            }
-
-
-                            event.preventDefault();
-
-                            document.body.classList.add(
-                                "page-leaving"
-                            );
-
-
-                            setTimeout(
-                                () => {
-                                    window.location.href = href;
-                                },
-                                450
-                            );
-
-                        }
-                    );
-
-                });
-
-        });
-
-    </script>
+    <!-- JS กลาง -->
+    <script src="script.js"></script>
 
 </body>
+
 </html>
