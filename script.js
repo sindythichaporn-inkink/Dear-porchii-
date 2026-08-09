@@ -332,3 +332,162 @@ document.addEventListener(
         );
     }
 );
+/* =========================================================
+   ✦ DEAR PORCH
+   ✦ GLOBAL SCRIPT
+   ✦ ใช้ร่วมกันทุกหน้า
+========================================================= */
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
+        /* =================================================
+           ✦ PAGE FADE IN
+        ================================================== */
+        document.body.style.opacity = "0";
+        requestAnimationFrame(
+            () => {
+                document.body.style.transition =
+                    "opacity 0.8s ease";
+                document.body.style.opacity =
+                    "1";
+            }
+        );
+        /* =================================================
+           ✦ HOME PHOTO STACK
+        ================================================== */
+        const photoStack =
+            document.getElementById(
+                "photoStack"
+            );
+        if (photoStack) {
+            photoStack.addEventListener(
+                "click",
+                () => {
+                    photoStack.classList.toggle(
+                        "open"
+                    );
+                }
+            );
+        }
+        /* =================================================
+           ✦ HOME MENU ANIMATION
+        ================================================== */
+        const homeMenuCards =
+            document.querySelectorAll(
+                ".home-menu-card"
+            );
+        homeMenuCards.forEach(
+            (
+                card,
+                index
+            ) => {
+                setTimeout(
+                    () => {
+                        card.classList.add(
+                            "show"
+                        );
+                    },
+                    600 + (index * 110)
+                );
+            }
+        );
+        /* =================================================
+           ✦ GLOBAL PAGE TRANSITION
+        ================================================== */
+        let pageLeaving = false;
+        document.addEventListener(
+            "click",
+            (event) => {
+                const link =
+                    event.target.closest(
+                        "a"
+                    );
+                if (!link) {
+                    return;
+                }
+                const href =
+                    link.getAttribute(
+                        "href"
+                    );
+                /* ไม่มี href */
+                if (!href) {
+                    return;
+                }
+                /* ไม่จัดการลิงก์พิเศษ */
+                if (
+                    href.startsWith("#") ||
+                    href.startsWith("http://") ||
+                    href.startsWith("https://") ||
+                    href.startsWith("mailto:") ||
+                    href.startsWith("tel:")
+                ) {
+                    return;
+                }
+                /* ป้องกันกดซ้ำ */
+                if (pageLeaving) {
+                    event.preventDefault();
+                    return;
+                }
+                pageLeaving = true;
+                event.preventDefault();
+                /* Fade Out */
+                document.body.classList.add(
+                    "page-leaving"
+                );
+                /* เปลี่ยนหน้า */
+                setTimeout(
+                    () => {
+                        window.location.href =
+                            href;
+                    },
+                    700
+                );
+            }
+        );
+        /* =================================================
+           ✦ IMAGE FALLBACK
+        ================================================== */
+        const images =
+            document.querySelectorAll(
+                "img"
+            );
+        images.forEach(
+            (image) => {
+                image.addEventListener(
+                    "error",
+                    () => {
+                        image.classList.add(
+                            "image-error"
+                        );
+                    }
+                );
+            }
+        );
+        /* =================================================
+           ✦ ACTIVE MENU
+        ================================================== */
+        const currentPage =
+            window.location.pathname
+                .split("/")
+                .pop();
+        const allLinks =
+            document.querySelectorAll(
+                "a[href]"
+            );
+        allLinks.forEach(
+            (link) => {
+                const href =
+                    link.getAttribute(
+                        "href"
+                    );
+                if (
+                    href === currentPage
+                ) {
+                    link.classList.add(
+                        "current-page"
+                    );
+                }
+            }
+        );
+    }
+);
