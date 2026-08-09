@@ -16,6 +16,10 @@
     >
     <link
         rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+    <link
+        rel="preconnect"
         href="https://fonts.gstatic.com"
         crossorigin
     >
@@ -40,9 +44,15 @@
     aria-hidden="true"
 >
     <!-- SOFT GLOW -->
-    <div class="home-glow home-glow-1"></div>
-    <div class="home-glow home-glow-2"></div>
-    <div class="home-glow home-glow-3"></div>
+    <div
+        class="home-glow home-glow-1"
+    ></div>
+    <div
+        class="home-glow home-glow-2"
+    ></div>
+    <div
+        class="home-glow home-glow-3"
+    ></div>
     <!-- FLOATING STARS -->
     <div class="home-stars">
         <span>✦</span>
@@ -63,7 +73,7 @@
     </div>
 </div>
 <!-- =========================================================
-     ✦ HOME
+     ✦ HOME PAGE
 ========================================================= -->
 <main class="home-page">
     <!-- =====================================================
@@ -83,7 +93,10 @@
     <!-- =====================================================
          ✦ PHOTO SECTION
     ====================================================== -->
-    <section class="home-photo-section">
+    <section
+        class="home-photo-section"
+        aria-label="รูปภาพความทรงจำ"
+    >
         <div
             class="photo-stack"
             id="photoStack"
@@ -195,46 +208,43 @@
             ›
         </button>
     </div>
-   <!-- =========================================================
-     ✦ HOME LOVE MESSAGE
-========================================================= -->
-<section class="home-love-message">
-
-    <div class="love-message-decoration">
-        𓂃 ࣪˖ ִֶָ ♡ ִֶָ ࣪˖ 𓂃
-    </div>
-
-    <div
-        class="love-typing"
-        id="loveTyping"
-        aria-live="polite"
-    >
-        <p class="love-line"></p>
-        <p class="love-line"></p>
-        <p class="love-line"></p>
-        <p class="love-line"></p>
-        <p class="love-line"></p>
-    </div>
-
-    <div
-        class="love-cursor"
-        id="loveCursor"
-    >
-        │
-    </div>
-
-    <div
-        class="home-menu-title"
-        id="homeMenuTitle"
-    >
-        ꩇׁׅ݊ꫀׁׅ݊ꪀׁׅ֮υׁׅ ✦ ݁˖
-    </div>
-
-</section>
     <!-- =====================================================
-         ✦ MENU TITLE
+         ✦ LOVE MESSAGE
     ====================================================== -->
-    <section class="home-menu-section">
+    <section
+        class="home-love-message"
+        id="homeLoveMessage"
+    >
+        <div class="typing-message-box">
+            <p
+                class="typing-message-line"
+                data-text="เค้าตั้งใจทำเว็บนี้ขึ้นมาเพื่อเธอคนเดียวเยยยน้า า"
+            ></p>
+            <p
+                class="typing-message-line"
+                data-text="૮ ྀིᴗ͈ . ᴗ͈ ྀིა"
+            ></p>
+            <p
+                class="typing-message-line"
+                data-text="เพื่อน้องพอร์ชของเค้า … เค้าสามารถทำได้ทุกอย่างค่ะ จุ้บมั้วะ ♥️"
+            ></p>
+            <p
+                class="typing-message-line"
+                data-text="ทุกหน้าในนี้ล้วนแล้วแต่เป็นความภาคภูมิใจของเค้าค่ะ อิอิ ૮₍ ˃ ⤙ ˂ ₎ა"
+            ></p>
+            <p
+                class="typing-message-line"
+                data-text="เลือกซักอันเยยย ย ยย บิบี๋ของเค้า (˶˃ᆺ˂˶)"
+            ></p>
+        </div>
+    </section>
+    <!-- =====================================================
+         ✦ MENU HEADER
+    ====================================================== -->
+    <section
+        class="home-menu-section"
+        aria-label="หัวข้อเมนู"
+    >
         <p class="home-menu-small">
             𓂃 ࣪˖ ִֶָ open the pages ִֶָ ࣪˖ 𓂃
         </p>
@@ -246,7 +256,7 @@
         </p>
     </section>
     <!-- =====================================================
-         ✦ MENU
+         ✦ MEMORY MENU
     ====================================================== -->
     <nav
         class="home-menu"
