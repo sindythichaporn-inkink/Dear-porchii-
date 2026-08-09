@@ -207,3 +207,31 @@ document.addEventListener(
         );
     }
 );
+/* =========================================================
+   ✦ HOME PHOTO STACK
+========================================================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
+
+        const stack =
+            document.getElementById(
+                "photoStack"
+            );
+
+        if (!stack) return;
+
+        stack.addEventListener(
+            "click",
+            () => {
+
+                stack.classList.toggle(
+                    "open"
+                );
+
+            }
+        );
+
+    }
+);
