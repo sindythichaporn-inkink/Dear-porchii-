@@ -324,10 +324,10 @@ document.addEventListener("DOMContentLoaded", () => {
            ✦ PHOTO VIEWER
         ================================================= */
         const photos = [
-            "images/home/photo1.jpg",
+            "images/home/photo1.JPG",
             "images/home/photo2.jpg",
-            "images/home/photo3.jpg",
-            "images/home/photo4.jpg"
+            "images/home/photo3.JPG",
+            "images/home/photo4.HEIC"
         ];
         let currentPhoto = 0;
         function openPhoto(index) {
