@@ -1,27 +1,42 @@
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
     <meta charset="UTF-8">
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Dear Porch ✦ Our Memory Book</title>
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <link
         href="https://fonts.googleapis.com/css2?family=Itim&family=Kanit:wght@300;400&family=Playfair+Display:ital,wght@0,400;1,400&display=swap"
-        rel="stylesheet">
-    <!-- CSS -->
-    <link rel="stylesheet" href="index.css">
+        rel="stylesheet"
+    >
+
+    <!-- ใช้ CSS กลางของทุกหน้า -->
+    <link rel="stylesheet" href="style.css">
 </head>
+
+
 <body class="index-page">
+
+
     <!-- =====================================================
          ✦ BACKGROUND
     ====================================================== -->
-    <div class="index-background">
+
+    <div class="index-background" aria-hidden="true">
+
         <div class="index-glow"></div>
-        <div class="index-sparkles" aria-hidden="true">
+
+
+        <!-- ✦ SPARKLES -->
+
+        <div class="index-sparkles">
+
             <span>✦</span>
             <span>♡</span>
             <span>✧</span>
@@ -30,81 +45,107 @@
             <span>♡</span>
             <span>✦</span>
             <span>𓂃</span>
+
         </div>
-        <!-- =================================================
-             ✦ ASCII WINGS
-        ================================================== -->
-        <pre class="index-ascii-wings" aria-hidden="true">
+
+
+        <!-- ✦ ASCII WINGS -->
+
+        <pre class="index-ascii-wings">
+
 ⠀⠀⠀⠀⢀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⢀⣾⠋⠉⠙⠲⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⠖⠋⠉⠉⢷⡀
 ⢸⣧⠀⠀⠀⠀⠈⢻⣢⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣰⡏⠁⠀⠀⠀⢠⣋⡇
 ⠀⢻⣡⣄⠀⠀⠀⠀⠈⠓⢦⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⡴⠚⠇⠀⠀⠀⢀⣠⣺⡞⠀
-⠀⠢⢾⠟⠁⠀⠀⠀⠀⠀⠀⠈⠛⢦⠀⠀⠀⠀⠀⠀⣴⠛⠁⠀⠀⠀⠀⠀⠀⠘⠻⣖⡀⠀
+⠀⢻⠟⠁⠀⠀⠀⠀⠀⠀⠈⠛⢦⠀⠀⠀⠀⠀⠀⣴⠛⠁⠀⠀⠀⠀⠀⠀⠘⠻⣖⡀⠀
 ⠀⠸⣼⣆⡀⣤⠀⠀⢀⣼⠟⠃⠀⠘⡇⠀⠀⠀⠀⢰⠃⠀⠰⠾⢶⡄⠀⠀⣀⢠⣰⣽⠇⠀
 ⠀⠀⠈⠉⢹⣏⢀⣀⣾⢟⡀⠀⢀⣠⠇⠀⠀⠀⠀⠸⣄⡀⠈⠀⣸⡏⣀⢀⣟⡏⠉⠀⠀⠀
 ⠀⠀⠀⠀⠀⠻⠿⠚⠏⠿⠶⠿⠻⠁⠀⠀⠀⠀⠀⠀⠙⠯⠶⠽⠾⠻⠧⠽⠟⠀⠀⠀⠀⠀
+
         </pre>
+
     </div>
+
+
+
     <!-- =====================================================
          ✦ MAIN
     ====================================================== -->
+
     <main class="index-main">
-        <!-- =================================================
-             ✦ SMALL LOGO
-        ================================================== -->
+
+
+        <!-- ✦ LOGO -->
+
         <p class="index-logo">
             𓂃 ࣪˖ ִֶָ Dear Porch ♡ ִֶָ ࣪˖ 𓂃
         </p>
+
+
+        <!-- ✦ SMALL TITLE -->
+
+        <p class="index-small-title">
+            𓂃 ࣪˖ a little message for you ִֶָ
+        </p>
+
+
         <!-- =================================================
-             ✦ INTRO
+             ✦ TYPING MESSAGE
         ================================================== -->
-        <section class="index-intro">
-            <p class="index-small-title">
-                𓂃 ࣪˖ a little message for you ִֶָ
-            </p>
-            <!-- =================================================
-                 ✦ TYPING MESSAGE
-            ================================================== -->
-            <div
-                class="index-message"
-                id="indexMessage"
-                aria-live="polite">
-                <p class="typing-line"></p>
-                <p class="typing-line"></p>
-                <p class="typing-line"></p>
-                <p class="typing-line"></p>
-                <p class="typing-line"></p>
-                <p class="typing-line"></p>
-                <p class="typing-line"></p>
-                <p class="typing-line"></p>
-                <p class="typing-line"></p>
-            </div>
-            <!-- =================================================
-                 ✦ OPEN BOOK BUTTON
-            ================================================== -->
-            <a
-                href="home.html"
-                class="index-open"
-                id="indexOpen">
-                <span>
-                    𓂃 ࣪˖ ִֶָ
-                </span>
-                เปิดสมุดความทรงจำ
-                <span>
-                    ໒꒰՞ ܸ. .ܸ՞꒱ა
-                </span>
-            </a>
+
+        <section
+            class="index-message"
+            id="indexMessage"
+            aria-label="ข้อความต้อนรับ"
+        >
+
+            <p class="typing-line"></p>
+            <p class="typing-line"></p>
+            <p class="typing-line"></p>
+            <p class="typing-line"></p>
+            <p class="typing-line"></p>
+            <p class="typing-line"></p>
+            <p class="typing-line"></p>
+            <p class="typing-line"></p>
+            <p class="typing-line"></p>
+
         </section>
+
+
         <!-- =================================================
-             ✦ FOOTER
+             ✦ OPEN BOOK
         ================================================== -->
+
+        <a
+            href="home.html"
+            class="index-open"
+            id="indexOpen"
+        >
+
+            <span>𓂃 ࣪˖ ִֶָ</span>
+
+            เปิดสมุดความทรงจำ
+
+            <span>໒꒰՞ ܸ. .ܸ՞꒱ა</span>
+
+        </a>
+
+
+        <!-- ✦ FOOTER -->
+
         <p class="index-footer">
             made with love ♡ for Porch
         </p>
+
+
     </main>
-    <!-- =====================================================
-         ✦ SCRIPT
-    ====================================================== -->
-    <script src="index.js"></script>
+
+
+
+    <!-- ใช้ JS กลางของทุกหน้า -->
+
+    <script src="script.js"></script>
+
 </body>
+
 </html>
