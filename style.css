@@ -3341,46 +3341,17 @@ body.page-leaving {
 
 .home-love-message {
     width: min(760px, 94%);
-    margin: 10px auto 55px;
+    margin: 20px auto 55px;
     text-align: center;
     position: relative;
 }
 
-
-/* =========================================================
-   ✦ DECORATION
-========================================================= */
-
-.love-message-decoration {
-    color: #b99abd;
-    font-family:
-        "Playfair Display",
-        serif;
-    font-size: 16px;
-    margin-bottom: 22px;
-
-    opacity: 0;
-    animation:
-        loveMessageAppear
-        1s
-        ease
-        0.3s
-        forwards;
+.typing-message-box {
+    padding: 10px 10px;
 }
 
-
-/* =========================================================
-   ✦ TYPING AREA
-========================================================= */
-
-.love-typing {
-    min-height: 235px;
-    padding: 0 10px;
-}
-
-.love-line {
+.typing-message-line {
     min-height: 30px;
-
     margin: 0 0 13px;
 
     color: #69596b;
@@ -3399,6 +3370,8 @@ body.page-leaving {
     text-shadow:
         0 1px 10px
         rgba(255,255,255,0.65);
+
+    white-space: pre-wrap;
 }
 
 
@@ -3406,32 +3379,20 @@ body.page-leaving {
    ✦ TYPING CURSOR
 ========================================================= */
 
-.love-cursor {
+.typing-cursor {
     display: inline-block;
 
-    margin-top: -8px;
+    margin-left: 3px;
 
     color: #a88ea9;
 
-    font-family:
-        "Itim",
-        sans-serif;
-
-    font-size: 20px;
-
-    opacity: 1;
-
     animation:
-        loveCursorBlink
+        typingCursorBlink
         0.7s
         infinite;
 }
 
-.love-cursor.hidden {
-    display: none;
-}
-
-@keyframes loveCursorBlink {
+@keyframes typingCursorBlink {
 
     0%,
     45% {
@@ -3452,6 +3413,8 @@ body.page-leaving {
 .home-menu-title {
     margin-top: 42px;
 
+    text-align: center;
+
     color: #806b83;
 
     font-family:
@@ -3468,44 +3431,6 @@ body.page-leaving {
     text-shadow:
         0 5px 20px
         rgba(148,112,160,0.18);
-
-    opacity: 0;
-
-    transform:
-        translateY(20px)
-        scale(0.96);
-
-    transition:
-        opacity 0.8s ease,
-        transform 0.8s ease;
-}
-
-.home-menu-title.show {
-    opacity: 1;
-
-    transform:
-        translateY(0)
-        scale(1);
-}
-
-
-/* =========================================================
-   ✦ MESSAGE APPEAR
-========================================================= */
-
-@keyframes loveMessageAppear {
-
-    from {
-        opacity: 0;
-        transform:
-            translateY(15px);
-    }
-
-    to {
-        opacity: 1;
-        transform:
-            translateY(0);
-    }
 }
 
 
@@ -3518,14 +3443,15 @@ body.page-leaving {
     .home-love-message {
         width: 94%;
         margin:
-            5px auto 45px;
+            10px auto 45px;
     }
 
-    .love-typing {
-        min-height: 270px;
+    .typing-message-box {
+        padding:
+            5px 5px;
     }
 
-    .love-line {
+    .typing-message-line {
         font-size: 16px;
         line-height: 1.85;
         margin-bottom: 11px;
