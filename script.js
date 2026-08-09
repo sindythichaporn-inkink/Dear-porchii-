@@ -1,7 +1,8 @@
-<script>
 document.addEventListener("DOMContentLoaded", () => {
     /* =====================================================
-       ✦ MESSAGE
+       ✦ MESSAGES
+       ข้อความจะพิมพ์ทีละบรรทัด
+       และจะไม่ถูกลบหลังพิมพ์เสร็จ
     ====================================================== */
     const messages = [
         "สวัสดี 𐔌՞ ܸ.ˬ.ܸ՞𐦯",
@@ -11,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
         "รู้ไหม…",
         "แฟนของเธอตั้งใจทำเว็บไซต์นี้เพื่อเธอมาก ๆ เลยนะ ૮₍ ˃ ⤙ ˂ ₎ა",
         "ทุกภาพ ทุกความทรงจำ และทุกข้อความในนี้ ล้วนเป็นสิ่งที่อิ๊งค์ตั้งใจเก็บเอาไว้ เพื่อให้เธอได้กลับมายิ้มกับมันอีกครั้ง ‹𝟹",
-        "ขอบคุณที่เข้ามาในชีวิตของอิ๊งค์นะ ૮₍ ˶ᵔ ᵕ ᵔ˶ ₎ა",
+        "ขอบคุณที่เข้ามาในชีวิตของอิ๊งค์นะ ૮₍ ˶ᵔ ᕽ ᵔ˶ ₎ა",
         "พร้อมแล้ว… ไปเปิดสมุดความทรงจำของเรากัน ໒꒰՞ ܸ. .ܸ՞꒱ა"
     ];
     const typingLines =
@@ -19,23 +20,25 @@ document.addEventListener("DOMContentLoaded", () => {
             ".typing-line"
         );
     const openButton =
-        document.querySelector(
-            ".index-open"
+        document.getElementById(
+            "indexOpen"
         );
     let currentLine = 0;
     /* =====================================================
        ✦ HIDE BUTTON
     ====================================================== */
     if (openButton) {
-        openButton.classList.remove(
-            "index-ready"
-        );
+        openButton.style.opacity = "0";
+        openButton.style.pointerEvents =
+            "none";
     }
     /* =====================================================
-       ✦ TYPE LINE
+       ✦ TYPE ONE LINE
     ====================================================== */
     function typeLine() {
-        /* ถ้าพิมพ์ครบทุกข้อความ */
+        /* -----------------------------------------------
+           ทุกข้อความพิมพ์ครบแล้ว
+        ------------------------------------------------ */
         if (
             currentLine >=
             messages.length
@@ -45,22 +48,18 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         const element =
             typingLines[currentLine];
-        /* ป้องกันกรณีหา element ไม่เจอ */
-        if (!element) {
-            currentLine++;
-            typeLine();
-            return;
-        }
         const text =
             messages[currentLine];
         let characterIndex = 0;
+        /*
+         * สำคัญ:
+         * เริ่มจากข้อความว่าง
+         * แต่ไม่เคยลบข้อความของบรรทัดก่อนหน้า
+         */
         element.textContent = "";
         element.classList.add(
             "typing-active"
         );
-        /* =================================================
-           ✦ TYPE CHARACTER
-        ================================================== */
         function typeCharacter() {
             if (
                 characterIndex <
@@ -75,45 +74,45 @@ document.addEventListener("DOMContentLoaded", () => {
                     typeCharacter,
                     45
                 );
-            }
-            else {
+            } else {
                 /*
-                 * ข้อความที่พิมพ์เสร็จแล้ว
-                 * จะค้างอยู่บนหน้าเว็บ
+                 * ลบบอกว่า "กำลังพิมพ์"
+                 * แต่ข้อความยังคงอยู่
                  */
                 element.classList.remove(
                     "typing-active"
                 );
                 currentLine++;
                 /*
-                 * เว้นจังหวะก่อนขึ้นบรรทัดใหม่
+                 * รอเล็กน้อย
+                 * แล้วค่อยพิมพ์บรรทัดถัดไป
                  */
                 setTimeout(
                     typeLine,
-                    450
+                    500
                 );
             }
         }
         typeCharacter();
     }
     /* =====================================================
-       ✦ SHOW BUTTON
-       แสดงหลังพิมพ์ครบทุกบรรทัดเท่านั้น
+       ✦ SHOW OPEN BUTTON
     ====================================================== */
     function showOpenButton() {
         if (!openButton) {
             return;
         }
-        openButton.classList.add(
-            "index-ready"
-        );
+        openButton.style.pointerEvents =
+            "auto";
+        openButton.style.animation =
+            "indexButtonAppear 1s ease forwards";
     }
     /* =====================================================
-       ✦ START
+       ✦ START TYPING
     ====================================================== */
     setTimeout(
         typeLine,
-        900
+        1000
     );
     /* =====================================================
        ✦ PAGE TRANSITION
@@ -127,9 +126,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
             const href =
-                link.getAttribute(
-                    "href"
-                );
+                link.getAttribute("href");
             if (
                 !href ||
                 href.startsWith("#") ||
@@ -138,6 +135,9 @@ document.addEventListener("DOMContentLoaded", () => {
             ) {
                 return;
             }
+            /*
+             * ป้องกันการเปลี่ยนหน้าทันที
+             */
             event.preventDefault();
             document.body.classList.add(
                 "page-leaving"
@@ -147,9 +147,8 @@ document.addEventListener("DOMContentLoaded", () => {
                     window.location.href =
                         href;
                 },
-                450
+                500
             );
         }
     );
 });
-</script>
