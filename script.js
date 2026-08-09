@@ -918,3 +918,78 @@ document.addEventListener(
 
     }
 );
+/* =========================================================
+   ✦ TYPING LOVE MESSAGE
+========================================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const lines = document.querySelectorAll(
+        ".typing-message-line"
+    );
+
+    let currentLine = 0;
+
+    function typeLine(line, text, index = 0) {
+
+        if (index < text.length) {
+
+            line.textContent += text.charAt(index);
+
+            setTimeout(() => {
+
+                typeLine(
+                    line,
+                    text,
+                    index + 1
+                );
+
+            }, 55);
+
+        } else {
+
+            currentLine++;
+
+            if (currentLine < lines.length) {
+
+                setTimeout(() => {
+
+                    startNextLine();
+
+                }, 350);
+
+            }
+
+        }
+
+    }
+
+
+    function startNextLine() {
+
+        const line = lines[currentLine];
+
+        const text =
+            line.getAttribute("data-text");
+
+        if (!text) {
+            currentLine++;
+            startNextLine();
+            return;
+        }
+
+        typeLine(
+            line,
+            text
+        );
+
+    }
+
+
+    if (lines.length > 0) {
+
+        startNextLine();
+
+    }
+
+});
