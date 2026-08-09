@@ -787,3 +787,134 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
 });
+/* =========================================================
+   ✦ HOME LOVE MESSAGE — TYPING EFFECT
+========================================================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
+
+        const typingArea =
+            document.getElementById(
+                "loveTyping"
+            );
+
+        const cursor =
+            document.getElementById(
+                "loveCursor"
+            );
+
+        const menuTitle =
+            document.getElementById(
+                "homeMenuTitle"
+            );
+
+        if (
+            !typingArea ||
+            !cursor ||
+            !menuTitle
+        ) {
+            return;
+        }
+
+
+        const lines = [
+            "เค้าตั้งใจทำเว็บนี้ขึ้นมาเพื่อเธอคนเดียวเยยยน้า า",
+            "૮ ྀིᴗ͈ . ᴗ͈ ྀིა",
+            "เพื่อน้องพอร์ชของเค้า … เค้าสามารถทำได้ทุกอย่างค่ะ จุ้บมั้วะ ♥️",
+            "ทุกหน้าในนี้ล้วนแล้วแต่เป็นความภาคภูมิใจของเค้าค่ะ อิอิ ૮₍ ˃ ⤙ ˂ ₎ა",
+            "เลือกซักอันเยยย ย ยย บิบี๋ของเค้า (˶˃ᆺ˂˶)"
+        ];
+
+
+        const lineElements =
+            typingArea.querySelectorAll(
+                ".love-line"
+            );
+
+
+        let lineIndex = 0;
+        let charIndex = 0;
+
+
+        function typeNextCharacter() {
+
+            if (
+                lineIndex >=
+                lines.length
+            ) {
+
+                cursor.classList.add(
+                    "hidden"
+                );
+
+
+                setTimeout(
+                    () => {
+
+                        menuTitle.classList.add(
+                            "show"
+                        );
+
+                    },
+                    500
+                );
+
+                return;
+            }
+
+
+            const currentLine =
+                lineElements[
+                    lineIndex
+                ];
+
+            const currentText =
+                lines[
+                    lineIndex
+                ];
+
+
+            if (
+                charIndex <
+                currentText.length
+            ) {
+
+                currentLine.textContent +=
+                    currentText.charAt(
+                        charIndex
+                    );
+
+                charIndex++;
+
+
+                setTimeout(
+                    typeNextCharacter,
+                    55
+                );
+
+            } else {
+
+                lineIndex++;
+
+                charIndex = 0;
+
+
+                setTimeout(
+                    typeNextCharacter,
+                    450
+                );
+            }
+        }
+
+
+        /* เริ่มพิมพ์หลังจากหน้าโหลด */
+
+        setTimeout(
+            typeNextCharacter,
+            800
+        );
+
+    }
+);
