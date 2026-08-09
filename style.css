@@ -1179,142 +1179,887 @@ body.page-leaving {
 /* =========================================================
    ✦ ENDING
 ========================================================= */
-.home-ending {
-    margin-top: 55px;
-    color: #968399;
+/* =========================================================
+   ✦ RESET
+========================================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    background:
+        radial-gradient(
+            circle at 15% 15%,
+            rgba(221, 194, 255, 0.55),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 85% 20%,
+            rgba(255, 194, 224, 0.55),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 50% 90%,
+            rgba(255, 232, 151, 0.4),
+            transparent 32%
+        ),
+        linear-gradient(
+            135deg,
+            #fffaff,
+            #f7eef8,
+            #eee5f3
+        );
+    color: #665768;
     font-family:
-        "Itim",
+        "Kanit",
         sans-serif;
-    font-size: 16px;
-    line-height: 2;
+    font-weight: 300;
+    transition:
+        opacity 0.7s ease;
+}
+/* =========================================================
+   ✦ BACKGROUND
+========================================================= */
+.home-background {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+/* =========================================================
+   ✦ BACKGROUND GLOW
+========================================================= */
+.home-glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.5;
+    animation:
+        homeGlowFloat
+        9s
+        ease-in-out
+        infinite;
+}
+.home-glow-1 {
+    width: 380px;
+    height: 380px;
+    left: -100px;
+    top: 15%;
+    background:
+        rgba(190, 150, 255, 0.35);
+}
+.home-glow-2 {
+    width: 420px;
+    height: 420px;
+    right: -130px;
+    top: 35%;
+    background:
+        rgba(255, 164, 213, 0.35);
+    animation-delay:
+        2s;
+}
+.home-glow-3 {
+    width: 350px;
+    height: 350px;
+    left: 40%;
+    bottom: -170px;
+    background:
+        rgba(255, 224, 119, 0.25);
+    animation-delay:
+        4s;
+}
+@keyframes homeGlowFloat {
+    0%,
+    100% {
+        transform:
+            translate3d(0, 0, 0)
+            scale(1);
+    }
+    50% {
+        transform:
+            translate3d(25px, -30px, 0)
+            scale(1.12);
+    }
+}
+/* =========================================================
+   ✦ FLOATING STARS
+========================================================= */
+.home-stars {
+    position: absolute;
+    inset: 0;
+}
+.home-stars span {
+    position: absolute;
+    color: rgba(255, 255, 255, 0.85);
+    text-shadow:
+        0 0 8px rgba(255, 255, 255, 0.8),
+        0 0 18px rgba(210, 177, 255, 0.5);
+    animation:
+        starFloat
+        6s
+        ease-in-out
+        infinite;
+}
+.home-stars span:nth-child(1) {
+    left: 7%;
+    top: 12%;
+    font-size: 18px;
+}
+.home-stars span:nth-child(2) {
+    left: 18%;
+    top: 38%;
+    font-size: 13px;
+    animation-delay: 1s;
+}
+.home-stars span:nth-child(3) {
+    left: 30%;
+    top: 15%;
+    font-size: 20px;
+    animation-delay: 2s;
+}
+.home-stars span:nth-child(4) {
+    left: 43%;
+    top: 75%;
+    font-size: 15px;
+    animation-delay: 3s;
+}
+.home-stars span:nth-child(5) {
+    left: 55%;
+    top: 12%;
+    font-size: 19px;
+    animation-delay: 1.5s;
+}
+.home-stars span:nth-child(6) {
+    left: 66%;
+    top: 80%;
+    font-size: 14px;
+    animation-delay: 2.5s;
+}
+.home-stars span:nth-child(7) {
+    left: 76%;
+    top: 18%;
+    font-size: 21px;
+    animation-delay: 3.5s;
+}
+.home-stars span:nth-child(8) {
+    left: 88%;
+    top: 40%;
+    font-size: 13px;
+    animation-delay: 4s;
+}
+.home-stars span:nth-child(9) {
+    left: 92%;
+    top: 76%;
+    font-size: 19px;
+    animation-delay: 1.2s;
+}
+.home-stars span:nth-child(10) {
+    left: 12%;
+    top: 82%;
+    font-size: 14px;
+    animation-delay: 2.2s;
+}
+.home-stars span:nth-child(11) {
+    left: 25%;
+    top: 65%;
+    font-size: 18px;
+    animation-delay: 3.2s;
+}
+.home-stars span:nth-child(12) {
+    left: 70%;
+    top: 62%;
+    font-size: 15px;
+    animation-delay: 4.2s;
+}
+.home-stars span:nth-child(13) {
+    left: 50%;
+    top: 90%;
+    font-size: 18px;
+    animation-delay: 1.8s;
+}
+.home-stars span:nth-child(14) {
+    left: 84%;
+    top: 88%;
+    font-size: 13px;
+    animation-delay: 2.8s;
+}
+.home-stars span:nth-child(15) {
+    left: 4%;
+    top: 58%;
+    font-size: 17px;
+    animation-delay: 3.8s;
+}
+@keyframes starFloat {
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            scale(0.8);
+        opacity:
+            0.25;
+    }
+    50% {
+        transform:
+            translateY(-18px)
+            scale(1.25);
+        opacity:
+            1;
+    }
+}
+/* =========================================================
+   ✦ HOME PAGE
+========================================================= */
+.home-page {
+    position: relative;
+    z-index: 2;
+    width:
+        min(950px, 92%);
+    margin:
+        0 auto;
+    padding:
+        65px 0 45px;
+}
+/* =========================================================
+   ✦ HEADER
+========================================================= */
+.home-header {
+    text-align: center;
+    margin-bottom:
+        42px;
     opacity: 0;
     transform:
-        translateY(20px);
+        translateY(25px);
     animation:
-        homeFadeUp
-        1s
+        homeAppear
+        0.9s
         ease
-        1.1s
+        0.1s
         forwards;
 }
-.home-ending span {
-    display: block;
-    margin-top: 13px;
-    color: #b19ab3;
+.home-logo {
+    color:
+        #9d84a0;
     font-family:
         "Playfair Display",
         serif;
-    font-size: 11px;
-    font-style: italic;
-    letter-spacing: 1px;
+    font-size:
+        16px;
+    letter-spacing:
+        1px;
+    margin-bottom:
+        12px;
+}
+.home-title {
+    color:
+        #745f77;
+    font-family:
+        "Itim",
+        sans-serif;
+    font-size:
+        clamp(34px, 6vw, 52px);
+    line-height:
+        1.2;
+    margin-bottom:
+        10px;
+    text-shadow:
+        0 5px 20px
+        rgba(148, 112, 160, 0.15);
+}
+.home-subtitle {
+    color:
+        #a78daa;
+    font-size:
+        15px;
+    letter-spacing:
+        0.5px;
 }
 /* =========================================================
-   ✦ GENERAL ANIMATION
+   ✦ PHOTO GALLERY
 ========================================================= */
-@keyframes homeFadeUp {
+.home-photo-section {
+    text-align:
+        center;
+    margin-bottom:
+        45px;
+}
+.photo-gallery {
+    width:
+        100%;
+    display:
+        grid;
+    grid-template-columns:
+        repeat(4, 1fr);
+    gap:
+        18px;
+    align-items:
+        center;
+}
+/* =========================================================
+   ✦ PHOTO CARD
+========================================================= */
+.home-photo-card {
+    position:
+        relative;
+    padding:
+        10px;
+    background:
+        rgba(255, 255, 255, 0.7);
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.9);
+    border-radius:
+        20px;
+    box-shadow:
+        0 12px 30px
+        rgba(100, 70, 110, 0.09);
+    transform:
+        rotate(var(--photo-rotate));
+    transition:
+        transform 0.45s ease,
+        box-shadow 0.45s ease;
+}
+.photo-card-1 {
+    --photo-rotate: -2deg;
+}
+.photo-card-2 {
+    --photo-rotate: 1.5deg;
+}
+.photo-card-3 {
+    --photo-rotate: -1deg;
+}
+.photo-card-4 {
+    --photo-rotate: 2deg;
+}
+.home-photo-card:hover {
+    transform:
+        rotate(0deg)
+        translateY(-8px)
+        scale(1.03);
+    box-shadow:
+        0 20px 45px
+        rgba(130, 95, 145, 0.18);
+}
+/* =========================================================
+   ✦ PHOTO FRAME
+========================================================= */
+.photo-frame {
+    position:
+        relative;
+    width:
+        100%;
+    aspect-ratio:
+        1 / 1.05;
+    overflow:
+        hidden;
+    border-radius:
+        14px;
+    background:
+        linear-gradient(
+            135deg,
+            #eee1ff,
+            #ffddec,
+            #fff0aa
+        );
+}
+.photo-frame img {
+    width:
+        100%;
+    height:
+        100%;
+    display:
+        block;
+    object-fit:
+        cover;
+    transition:
+        transform 0.7s ease;
+}
+.home-photo-card:hover
+.photo-frame img {
+    transform:
+        scale(1.08);
+}
+/* =========================================================
+   ✦ PHOTO SHINE
+========================================================= */
+.photo-shine {
+    position:
+        absolute;
+    top:
+        -100%;
+    left:
+        -80%;
+    width:
+        45%;
+    height:
+        300%;
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,0.55),
+            transparent
+        );
+    transform:
+        rotate(20deg);
+    transition:
+        left 0.8s ease;
+    pointer-events:
+        none;
+}
+.home-photo-card:hover
+.photo-shine {
+    left:
+        140%;
+}
+.home-photo-card figcaption {
+    padding:
+        9px 0 2px;
+    color:
+        #9a829d;
+    font-family:
+        "Playfair Display",
+        serif;
+    font-size:
+        12px;
+}
+/* =========================================================
+   ✦ PHOTO HINT
+========================================================= */
+.photo-hint {
+    margin-top:
+        18px;
+    color:
+        #a48ea7;
+    font-size:
+        13px;
+    opacity:
+        0.85;
+}
+/* =========================================================
+   ✦ MESSAGE BOX
+========================================================= */
+.home-message {
+    position:
+        relative;
+    padding:
+        32px 25px;
+    margin:
+        0 auto 45px;
+    max-width:
+        760px;
+    text-align:
+        center;
+    background:
+        rgba(255, 255, 255, 0.58);
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.8);
+    border-radius:
+        28px;
+    backdrop-filter:
+        blur(15px);
+    -webkit-backdrop-filter:
+        blur(15px);
+    box-shadow:
+        0 18px 45px
+        rgba(100, 70, 110, 0.08);
+}
+.home-message::before {
+    content:
+        "";
+    position:
+        absolute;
+    inset:
+        -2px;
+    z-index:
+        -1;
+    border-radius:
+        30px;
+    background:
+        linear-gradient(
+            120deg,
+            rgba(205, 174, 255, 0.5),
+            rgba(255, 180, 218, 0.45),
+            rgba(255, 232, 137, 0.4)
+        );
+    filter:
+        blur(22px);
+    opacity:
+        0.45;
+}
+.home-message p {
+    margin:
+        7px 0;
+    color:
+        #69596b;
+    line-height:
+        1.9;
+    font-size:
+        16px;
+}
+.message-decoration {
+    display:
+        block;
+    color:
+        #b69abd;
+    margin:
+        6px 0 12px;
+    font-size:
+        16px;
+}
+/* =========================================================
+   ✦ MENU
+========================================================= */
+.home-menu {
+    display:
+        grid;
+    grid-template-columns:
+        repeat(2, 1fr);
+    gap:
+        18px;
+    width:
+        100%;
+}
+/* =========================================================
+   ✦ MENU CARD
+========================================================= */
+.home-menu-card {
+    position:
+        relative;
+    min-height:
+        125px;
+    padding:
+        23px 25px;
+    display:
+        flex;
+    flex-direction:
+        column;
+    justify-content:
+        center;
+    text-decoration:
+        none;
+    overflow:
+        hidden;
+    border-radius:
+        25px;
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.85);
+    background:
+        rgba(255, 255, 255, 0.55);
+    backdrop-filter:
+        blur(15px);
+    -webkit-backdrop-filter:
+        blur(15px);
+    box-shadow:
+        0 10px 28px
+        rgba(100, 70, 110, 0.07);
+    transition:
+        transform 0.45s ease,
+        box-shadow 0.45s ease,
+        border-color 0.45s ease;
+}
+/* =========================================================
+   ✦ GLOW LAYER
+========================================================= */
+.home-menu-card::before {
+    content:
+        "";
+    position:
+        absolute;
+    inset:
+        -20px;
+    z-index:
+        -2;
+    background:
+        linear-gradient(
+            115deg,
+            #bfa2ff,
+            #ffb8dc,
+            #ffe88d,
+            #d6b6ff,
+            #ffb8dc
+        );
+    background-size:
+        300% 300%;
+    filter:
+        blur(32px);
+    opacity:
+        0;
+    transform:
+        scale(0.8);
+    transition:
+        opacity 0.45s ease,
+        transform 0.45s ease;
+    animation:
+        menuGradient
+        5s
+        ease
+        infinite;
+}
+@keyframes menuGradient {
+    0% {
+        background-position:
+            0% 50%;
+    }
+    50% {
+        background-position:
+            100% 50%;
+    }
+    100% {
+        background-position:
+            0% 50%;
+    }
+}
+/* =========================================================
+   ✦ INNER LIGHT
+========================================================= */
+.home-menu-card::after {
+    content:
+        "";
+    position:
+        absolute;
+    inset:
+        0;
+    border-radius:
+        inherit;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,0.5),
+            transparent 45%,
+            rgba(255,255,255,0.25)
+        );
+    opacity:
+        0;
+    transition:
+        opacity 0.4s ease;
+    pointer-events:
+        none;
+}
+/* =========================================================
+   ✦ HOVER / TOUCH
+========================================================= */
+.home-menu-card:hover,
+.home-menu-card:focus-visible,
+.home-menu-card:active {
+    transform:
+        translateY(-7px)
+        scale(1.025);
+    border-color:
+        rgba(255, 255, 255, 1);
+    box-shadow:
+        0 0 22px
+        rgba(193, 155, 255, 0.55),
+        0 0 38px
+        rgba(255, 174, 218, 0.42),
+        0 0 55px
+        rgba(255, 228, 128, 0.28),
+        0 18px 40px
+        rgba(100, 70, 110, 0.13);
+}
+.home-menu-card:hover::before,
+.home-menu-card:focus-visible::before,
+.home-menu-card:active::before {
+    opacity:
+        0.9;
+    transform:
+        scale(1);
+}
+.home-menu-card:hover::after,
+.home-menu-card:focus-visible::after,
+.home-menu-card:active::after {
+    opacity:
+        1;
+}
+/* =========================================================
+   ✦ MENU TEXT
+========================================================= */
+.menu-number {
+    color:
+        #c1a8c5;
+    font-family:
+        "Playfair Display",
+        serif;
+    font-size:
+        12px;
+    margin-bottom:
+        8px;
+    letter-spacing:
+        1px;
+}
+.home-menu-card strong {
+    position:
+        relative;
+    z-index:
+        2;
+    color:
+        #715d74;
+    font-family:
+        "Itim",
+        sans-serif;
+    font-size:
+        clamp(17px, 2.3vw, 21px);
+    font-weight:
+        400;
+    line-height:
+        1.5;
+}
+.home-menu-card small {
+    position:
+        relative;
+    z-index:
+        2;
+    margin-top:
+        7px;
+    color:
+        #a08aa2;
+    font-size:
+        12px;
+}
+/* =========================================================
+   ✦ FOOTER
+========================================================= */
+.home-footer {
+    text-align:
+        center;
+    margin-top:
+        55px;
+    color:
+        #aa96ad;
+    font-family:
+        "Playfair Display",
+        serif;
+    font-size:
+        11px;
+    line-height:
+        2;
+    letter-spacing:
+        0.8px;
+    opacity:
+        0.8;
+}
+/* =========================================================
+   ✦ PAGE APPEAR
+========================================================= */
+@keyframes homeAppear {
     from {
-        opacity: 0;
+        opacity:
+            0;
         transform:
             translateY(25px);
     }
     to {
-        opacity: 1;
+        opacity:
+            1;
         transform:
             translateY(0);
     }
+}
+/* =========================================================
+   ✦ PAGE LEAVING
+========================================================= */
+body.page-leaving {
+    opacity:
+        0;
+    pointer-events:
+        none;
 }
 /* =========================================================
    ✦ MOBILE
 ========================================================= */
 @media (max-width: 700px) {
     .home-page {
-        width: 92%;
+        width:
+            min(94%, 520px);
         padding:
-            45px
-            0
-            45px;
+            45px 0 35px;
     }
     .home-title {
-        font-size: 39px;
+        font-size:
+            36px;
     }
-    .home-intro {
-        font-size: 14px;
+    .home-logo {
+        font-size:
+            14px;
+    }
+    .home-subtitle {
+        font-size:
+            13px;
+    }
+    /* 4 รูปยังเห็นพร้อมกัน */
+    .photo-gallery {
+        grid-template-columns:
+            repeat(2, 1fr);
+        gap:
+            13px;
+    }
+    .home-photo-card {
+        padding:
+            7px;
+        border-radius:
+            17px;
+    }
+    .photo-frame {
+        border-radius:
+            11px;
+    }
+    .home-photo-card figcaption {
+        font-size:
+            10px;
     }
     .home-message {
         padding:
-            28px
-            20px;
-        font-size: 17px;
+            26px 17px;
+        border-radius:
+            23px;
+    }
+    .home-message p {
+        font-size:
+            14px;
     }
     .home-menu {
         grid-template-columns:
             1fr;
-        gap: 15px;
+        gap:
+            14px;
     }
     .home-menu-card {
         min-height:
-            135px;
+            105px;
         padding:
-            22px;
+            20px;
     }
-    .stack-photo {
-        width: 205px;
-        height: 265px;
+    .home-menu-card strong {
+        font-size:
+            18px;
     }
-    .photo-stack {
-        height: 330px;
-    }
-    .photo-stack.open .photo-1 {
-        transform:
-            translate(
-                calc(-50% - 55px),
-                calc(-50% + 5px)
-            )
-            rotate(-8deg);
-    }
-    .photo-stack.open .photo-2 {
-        transform:
-            translate(
-                calc(-50% - 18px),
-                calc(-50% - 8px)
-            )
-            rotate(-3deg);
-    }
-    .photo-stack.open .photo-3 {
-        transform:
-            translate(
-                calc(-50% + 18px),
-                calc(-50% - 8px)
-            )
-            rotate(3deg);
-    }
-    .photo-stack.open .photo-4 {
-        transform:
-            translate(
-                calc(-50% + 55px),
-                calc(-50% + 5px)
-            )
-            rotate(8deg);
+    .home-stars span {
+        font-size:
+            13px !important;
     }
 }
 /* =========================================================
-   ✦ VERY SMALL MOBILE
+   ✦ REDUCED MOTION
 ========================================================= */
-@media (max-width: 390px) {
-    .home-title {
-        font-size: 32px;
-    }
-    .home-logo {
-        font-size: 14px;
-    }
-    .home-menu-card {
-        min-height:
-            125px;
-    }
-    .menu-title {
-        font-size: 16px;
-    }
-    .menu-subtitle {
-        font-size: 12px;
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration:
+            0.01ms !important;
+        animation-iteration-count:
+            1 !important;
+        scroll-behavior:
+            auto !important;
+        transition-duration:
+            0.01ms !important;
     }
 }
